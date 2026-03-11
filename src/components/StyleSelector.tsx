@@ -38,7 +38,7 @@ export function StyleSelector() {
             key={style.id}
             onClick={() => setSelected(style.id)}
             className={cn(
-              "group flex flex-col items-center gap-2 cursor-pointer transition-all duration-200",
+              "group flex flex-col items-center gap-1.5 cursor-pointer transition-all duration-200",
             )}
           >
             <div
