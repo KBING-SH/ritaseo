@@ -1,67 +1,76 @@
-import { useState } from "react";
-import { cn } from "@/lib/utils";
+import { useState, useRef, useCallback } from "react";
 import stylePreview from "@/assets/style-preview.png";
 
-const styles = [
-  { id: "ghibli", name: "吉卜力" },
-  { id: "3d", name: "3D 风格" },
-  { id: "clay", name: "粘土" },
-  { id: "watercolor", name: "水彩" },
-  { id: "illustration", name: "插画" },
-  { id: "pixel", name: "像素" },
-  { id: "cyberpunk", name: "赛博朋克" },
-  { id: "cartoon", name: "卡通" },
-  { id: "oil", name: "油画" },
-];
-
-// Generate gradient thumbnails based on style
-const styleColors: Record<string, string> = {
-  ghibli: "from-emerald-400 to-sky-400",
-  "3d": "from-violet-400 to-pink-400",
-  clay: "from-amber-300 to-orange-400",
-  watercolor: "from-cyan-300 to-blue-400",
-  illustration: "from-rose-400 to-fuchsia-400",
-  pixel: "from-green-400 to-lime-400",
-  cyberpunk: "from-purple-500 to-cyan-400",
-  cartoon: "from-yellow-400 to-red-400",
-  oil: "from-amber-500 to-rose-500",
-};
-
 export function StyleSelector() {
-  const [selected, setSelected] = useState("ghibli");
+  const [sliderPos, setSliderPos] = useState(50);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const dragging = useRef(false);
+
+  const updatePosition = useCallback((clientX: number) => {
+    const rect = containerRef.current?.getBoundingClientRect();
+    if (!rect) return;
+    const x = Math.max(0, Math.min(clientX - rect.left, rect.width));
+    setSliderPos((x / rect.width) * 100);
+  }, []);
+
+  const onPointerDown = useCallback((e: React.PointerEvent) => {
+    dragging.current = true;
+    (e.target as HTMLElement).setPointerCapture(e.pointerId);
+    updatePosition(e.clientX);
+  }, [updatePosition]);
+
+  const onPointerMove = useCallback((e: React.PointerEvent) => {
+    if (!dragging.current) return;
+    updatePosition(e.clientX);
+  }, [updatePosition]);
+
+  const onPointerUp = useCallback(() => {
+    dragging.current = false;
+  }, []);
 
   return (
-    <div className="rounded-xl border border-border/50 bg-card p-5 shadow-soft flex flex-col">
-      <h3 className="text-sm font-semibold text-title mb-4">选择图像风格</h3>
-      <div className="grid grid-cols-3 gap-3.5">
-        {styles.map((style) => (
-          <button
-            key={style.id}
-            onClick={() => setSelected(style.id)}
-            className={cn(
-              "group flex flex-col items-center gap-1.5 cursor-pointer transition-all duration-200",
-            )}
-          >
-            <div
-              className={cn(
-                "w-full aspect-square rounded-xl overflow-hidden transition-all duration-200",
-                selected === style.id
-                  ? "ring-2 ring-primary ring-offset-2 ring-offset-card scale-[1.02]"
-                  : "hover:scale-105 opacity-80 hover:opacity-100"
-              )}
-            >
-              <img src={stylePreview} alt={style.name} className="w-full h-full object-cover" />
-            </div>
-            <span
-              className={cn(
-                "text-xs transition-colors shrink-0",
-                selected === style.id ? "text-primary font-medium" : "text-body-desc"
-              )}
-            >
-              {style.name}
-            </span>
-          </button>
-        ))}
+    <div className="rounded-xl border border-border/50 bg-card shadow-soft flex flex-col overflow-hidden">
+      <div
+        ref={containerRef}
+        className="relative w-full aspect-[16/10] cursor-col-resize select-none touch-none"
+        onPointerDown={onPointerDown}
+        onPointerMove={onPointerMove}
+        onPointerUp={onPointerUp}
+      >
+        {/* After (full background) */}
+        <img
+          src={stylePreview}
+          alt="卡通效果"
+          className="absolute inset-0 w-full h-full object-cover"
+          draggable={false}
+        />
+
+        {/* Before (clipped) */}
+        <div
+          className="absolute inset-0 overflow-hidden"
+          style={{ width: `${sliderPos}%` }}
+        >
+          <img
+            src={stylePreview}
+            alt="原始照片"
+            className="absolute inset-0 h-full object-cover"
+            style={{ width: containerRef.current ? `${containerRef.current.offsetWidth}px` : '100vw' }}
+            draggable={false}
+          />
+        </div>
+
+        {/* Slider line */}
+        <div
+          className="absolute top-0 bottom-0 w-0.5 bg-white/90 shadow-lg z-10"
+          style={{ left: `${sliderPos}%`, transform: 'translateX(-50%)' }}
+        >
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/90 backdrop-blur-sm shadow-lg flex items-center justify-center">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" className="text-muted-foreground">
+              <path d="M7 4L3 10L7 16" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+              <path d="M13 4L17 10L13 16" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+            </svg>
+          </div>
+        </div>
       </div>
     </div>
   );
