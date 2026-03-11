@@ -30,10 +30,10 @@ const Index = () => {
               <Badge className="mb-4 rounded-full bg-primary/10 text-primary border-none px-3 py-1 text-xs font-medium">
                 ✨ AI 驱动
               </Badge>
-              <h1 className="text-2xl md:text-4xl font-bold text-primary leading-tight mb-3">
+              <h1 className="text-3xl md:text-5xl font-bold text-primary leading-tight mb-4">
                 免费在线照片转卡通
               </h1>
-              <p className="text-muted-foreground text-sm md:text-base max-w-2xl mx-auto">
+              <p className="text-muted-foreground text-base md:text-lg max-w-2xl mx-auto">
                 上传你的照片，Rita AI 将为你生成多种风格的趣味卡通形象。支持人像、宠物、风景等多种照片类型，操作简单，几秒完成。
               </p>
             </div>
