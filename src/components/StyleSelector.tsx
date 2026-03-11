@@ -43,7 +43,7 @@ export function StyleSelector() {
           >
             <div
               className={cn(
-                "w-full flex-1 rounded-xl bg-gradient-to-br transition-all duration-200 flex items-center justify-center",
+                "w-full aspect-square rounded-xl bg-gradient-to-br transition-all duration-200 flex items-center justify-center",
                 styleColors[style.id],
                 selected === style.id
                   ? "ring-2 ring-primary ring-offset-2 ring-offset-card scale-[1.02]"
