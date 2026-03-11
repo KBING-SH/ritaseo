@@ -23,26 +23,24 @@ const Index = () => {
 
       {/* Scrollable content */}
       <main>
-        {/* Hero */}
-        <section className="px-4 md:px-8 pt-10 pb-8 md:pt-14 md:pb-10">
-          <div className="max-w-4xl mx-auto">
-            <Badge className="mb-4 rounded-full bg-primary/10 text-primary border-none px-3 py-1 text-xs font-medium">
-              ✨ AI 驱动
-            </Badge>
-            <h1 className="text-2xl md:text-4xl font-bold text-title leading-tight mb-3">
-              免费在线照片转卡通
-            </h1>
-            <p className="text-body-desc text-sm md:text-base max-w-2xl">
-              上传你的照片，Rita AI 将为你生成多种风格的趣味卡通形象。支持人像、宠物、风景等多种照片类型，操作简单，几秒完成。
-            </p>
-          </div>
-        </section>
-
-        {/* Workspace: Style Selector + Upload Panel */}
-        <section className="px-4 md:px-8 pb-10 md:pb-16">
-          <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.2fr] gap-5 max-w-4xl mx-auto">
-            <StyleSelector />
-            <UploadPanel />
+        {/* Hero + Workspace: Full first screen */}
+        <section className="min-h-[calc(100vh-4rem)] flex flex-col justify-center px-4 md:px-8 py-8">
+          <div className="max-w-4xl mx-auto w-full flex flex-col gap-6">
+            <div>
+              <Badge className="mb-4 rounded-full bg-primary/10 text-primary border-none px-3 py-1 text-xs font-medium">
+                ✨ AI 驱动
+              </Badge>
+              <h1 className="text-2xl md:text-4xl font-bold text-title leading-tight mb-3">
+                免费在线照片转卡通
+              </h1>
+              <p className="text-body-desc text-sm md:text-base max-w-2xl">
+                上传你的照片，Rita AI 将为你生成多种风格的趣味卡通形象。支持人像、宠物、风景等多种照片类型，操作简单，几秒完成。
+              </p>
+            </div>
+            <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.2fr] gap-5">
+              <StyleSelector />
+              <UploadPanel />
+            </div>
           </div>
         </section>
 
