@@ -32,7 +32,7 @@ export function StyleSelector() {
   return (
     <div className="rounded-xl border border-border/50 bg-card p-5 shadow-soft h-full flex flex-col">
       <h3 className="text-sm font-semibold text-title mb-4">选择图像风格</h3>
-      <div className="grid grid-cols-3 gap-3 flex-1 auto-rows-fr">
+      <div className="grid grid-cols-3 gap-3 flex-1">
         {styles.map((style) => (
           <button
             key={style.id}
