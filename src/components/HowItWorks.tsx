@@ -1,32 +1,30 @@
-import { CheckCircle2 } from "lucide-react";
-
 const steps = [
   {
     step: "01",
-    title: "上传图片",
-    desc: "将照片拖拽到上传区域，支持 PNG、JPG、WEBP 等主流格式，文件大小不超过 32MB。",
+    title: "上传照片",
+    desc: "将人像、宠物或风景照片拖拽到上传区域，支持 PNG、JPG、WEBP 等主流格式，文件大小不超过 32MB。",
     color: "from-primary to-theme1",
   },
   {
     step: "02",
-    title: "选择风格并生成",
-    desc: "选择你喜欢的图像风格，点击生成按钮，AI 将在几秒内完成高质量的风格转换。",
+    title: "选择卡通风格并生成",
+    desc: "选择你喜欢的卡通风格，点击生成按钮，Rita AI 将在几秒内完成高质量的卡通化转换。",
     color: "from-theme1 to-emerald-400",
   },
   {
     step: "03",
     title: "下载或分享",
-    desc: "生成完成后可直接下载高清无水印图片，或一键分享到社交媒体。",
+    desc: "生成完成后可直接下载高清无水印卡通图片，或一键分享到社交媒体。",
     color: "from-theme2 to-primary",
   },
 ];
 
 export function HowItWorks() {
   return (
-    <section className="py-16 md:py-24">
+    <section className="py-16 md:py-24 bg-card-alt">
       <div className="container px-4 md:px-8">
         <h2 className="text-2xl md:text-3xl font-bold text-title text-center mb-3">使用步骤</h2>
-        <p className="text-body-desc text-center mb-12">三步完成 AI 风格转换</p>
+        <p className="text-body-desc text-center mb-12">三步完成照片卡通化</p>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {steps.map((s) => (
             <div

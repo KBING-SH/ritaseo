@@ -12,7 +12,7 @@ export function ToolkitSection() {
     <section className="py-16 md:py-24 bg-card-alt">
       <div className="container px-4 md:px-8">
         <h2 className="text-2xl md:text-3xl font-bold text-title text-center mb-3">更多 AI 工具</h2>
-        <p className="text-body-desc text-center mb-10">探索更多效率工具</p>
+        <p className="text-body-desc text-center mb-10">探索更多 rita 效率工具</p>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
           {tools.map((t) => (
             <div

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { 
   ChevronDown, ChevronRight, Image, Wand2, Palette, Layers, 
-  Sparkles, Upload, Menu, X 
+  Sparkles, X 
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -17,7 +17,7 @@ const menuItems: SidebarItem[] = [
     icon: Image,
     children: [
       { label: "图像生成" },
-      { label: "风格转换", active: true },
+      { label: "照片卡通化", active: true },
       { label: "图像增强" },
     ],
   },
@@ -68,7 +68,7 @@ export function AppSidebar({ mobileOpen, onClose }: AppSidebarProps) {
       <div className="flex items-center justify-between px-4 h-16 border-b border-border/50">
         <div className="flex items-center gap-2.5">
           <div className="h-8 w-8 rounded-lg gradient-primary" />
-          <span className="text-base font-bold text-title">TechFlow</span>
+          <span className="text-base font-bold text-title">rita</span>
         </div>
         <button onClick={onClose} className="lg:hidden p-1 rounded-md hover:bg-hover-bg transition-colors">
           <X className="h-5 w-5 text-body2" />
