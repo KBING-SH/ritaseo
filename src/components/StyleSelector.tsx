@@ -49,7 +49,7 @@ export function StyleSelector() {
         <img
           src={afterImg}
           alt="卡通效果"
-          className="absolute inset-0 w-full h-full block object-cover"
+          className="absolute inset-0 w-full h-full block object-cover object-center"
           draggable={false}
         />
 
