@@ -4,7 +4,7 @@ const features = [
   {
     icon: Zap,
     title: "免费使用，无需注册",
-    desc: "一键上传图片即可开始 AI 风格转换，无需登录、无需付费、零门槛使用。",
+    desc: "一键上传图片即可开始 AI 卡通化转换，无需登录、无需付费、零门槛使用。",
   },
   {
     icon: Wand2,
@@ -14,12 +14,12 @@ const features = [
   {
     icon: Download,
     title: "高清无水印下载",
-    desc: "生成的图片高清无水印，可直接用于商业和个人用途，无需二次编辑。",
+    desc: "生成的卡通图片高清无水印，可直接用于商业和个人用途，无需二次编辑。",
   },
   {
     icon: Paintbrush,
     title: "自定义风格提示词",
-    desc: "支持自定义提示词，精准控制生成效果，打造独一无二的艺术风格。",
+    desc: "支持自定义提示词，精准控制卡通效果，打造独一无二的卡通形象。",
   },
 ];
 
@@ -27,9 +27,9 @@ export function WhyChoose() {
   return (
     <section className="py-16 md:py-24 bg-card-alt">
       <div className="container px-4 md:px-8">
-        <h2 className="text-2xl md:text-3xl font-bold text-title text-center mb-3">为什么选择 TechFlow</h2>
+        <h2 className="text-2xl md:text-3xl font-bold text-title text-center mb-3">为什么选择 rita</h2>
         <p className="text-body-desc text-center mb-12 max-w-xl mx-auto">
-          强大的 AI 能力 + 极简操作体验，让每个人都能轻松创作
+          强大的 AI 能力 + 极简操作体验，让每个人都能轻松创作卡通形象
         </p>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
           {features.map((f) => (

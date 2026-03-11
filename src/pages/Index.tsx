@@ -7,6 +7,7 @@ import { UploadPanel } from "@/components/UploadPanel";
 import { HowItWorks } from "@/components/HowItWorks";
 import { WhyChoose } from "@/components/WhyChoose";
 import { FAQSection } from "@/components/FAQSection";
+import { ContentSections } from "@/components/ContentSections";
 import { ToolkitSection } from "@/components/ToolkitSection";
 import { Badge } from "@/components/ui/badge";
 
@@ -31,7 +32,7 @@ const Index = () => {
             </button>
             <div className="lg:hidden flex items-center gap-2">
               <div className="h-7 w-7 rounded-md gradient-primary" />
-              <span className="font-bold text-title text-sm">TechFlow</span>
+              <span className="font-bold text-title text-sm">rita</span>
             </div>
           </div>
           <div className="flex items-center gap-2">
@@ -48,11 +49,10 @@ const Index = () => {
                 ✨ AI 驱动
               </Badge>
               <h1 className="text-2xl md:text-4xl font-bold text-title leading-tight mb-3">
-                AI 风格转换：
-                <span className="gradient-text">一键将照片变为艺术作品</span>
+                免费在线照片转卡通
               </h1>
               <p className="text-body-desc text-sm md:text-base max-w-2xl">
-                上传照片，选择风格，AI 在几秒内生成精美的卡通、插画、3D 等多种艺术风格图像。完全免费，无需注册。
+                上传你的照片，Rita AI 将为你生成多种风格的趣味卡通形象。支持人像、宠物、风景等多种照片类型，操作简单，几秒完成。
               </p>
             </div>
           </section>
@@ -64,6 +64,9 @@ const Index = () => {
               <UploadPanel />
             </div>
           </section>
+
+          {/* Content Sections (SEO rich text) */}
+          <ContentSections />
 
           {/* How it works */}
           <HowItWorks />
@@ -80,7 +83,7 @@ const Index = () => {
           {/* Footer */}
           <footer className="border-t border-border/50 py-8">
             <div className="container px-4 md:px-8 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-body-desc">
-              <span>© 2026 TechFlow. All rights reserved.</span>
+              <span>© 2026 rita. All rights reserved.</span>
               <div className="flex gap-6">
                 {["隐私政策", "服务条款", "联系我们"].map((item) => (
                   <a key={item} href="#" className="hover:text-title transition-colors cursor-pointer">
