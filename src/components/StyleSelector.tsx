@@ -30,9 +30,9 @@ export function StyleSelector() {
   const [selected, setSelected] = useState("ghibli");
 
   return (
-    <div className="rounded-xl border border-border/50 bg-card p-5 shadow-soft h-full flex flex-col">
-      <h3 className="text-sm font-semibold text-title mb-4">选择图像风格</h3>
-      <div className="grid grid-cols-3 gap-3 flex-1">
+    <div className="rounded-xl border border-border/50 bg-card p-6 shadow-soft h-full flex flex-col">
+      <h3 className="text-sm font-semibold text-title mb-5">选择图像风格</h3>
+      <div className="grid grid-cols-3 gap-4 flex-1">
         {styles.map((style) => (
           <button
             key={style.id}
