@@ -24,7 +24,7 @@ const Index = () => {
       {/* Scrollable content */}
       <main>
         {/* Hero + Workspace: Full first screen */}
-        <section className="min-h-[calc(100vh-4rem)] flex flex-col justify-center px-4 md:px-8 py-8">
+        <section className="min-h-[calc(100vh-4rem)] flex flex-col px-4 md:px-8 pt-8 md:pt-12 pb-4">
           <div className="max-w-4xl mx-auto w-full flex flex-col gap-6">
             <div>
               <Badge className="mb-4 rounded-full bg-primary/10 text-primary border-none px-3 py-1 text-xs font-medium">
