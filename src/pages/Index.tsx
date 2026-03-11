@@ -26,14 +26,14 @@ const Index = () => {
         {/* Hero + Workspace: Full first screen */}
         <section className="min-h-[calc(100vh-4rem)] flex flex-col px-4 md:px-8 pt-8 md:pt-12 pb-4">
           <div className="max-w-7xl mx-auto w-full flex flex-col gap-6 flex-1">
-            <div>
+            <div className="text-center">
               <Badge className="mb-4 rounded-full bg-primary/10 text-primary border-none px-3 py-1 text-xs font-medium">
                 ✨ AI 驱动
               </Badge>
-              <h1 className="text-2xl md:text-4xl font-bold text-title leading-tight mb-3">
+              <h1 className="text-2xl md:text-4xl font-bold text-primary leading-tight mb-3">
                 免费在线照片转卡通
               </h1>
-              <p className="text-body-desc text-sm md:text-base max-w-2xl">
+              <p className="text-muted-foreground text-sm md:text-base max-w-2xl mx-auto">
                 上传你的照片，Rita AI 将为你生成多种风格的趣味卡通形象。支持人像、宠物、风景等多种照片类型，操作简单，几秒完成。
               </p>
             </div>
