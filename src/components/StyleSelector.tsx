@@ -30,9 +30,9 @@ export function StyleSelector() {
   const [selected, setSelected] = useState("ghibli");
 
   return (
-    <div className="rounded-xl border border-border/50 bg-card p-5 shadow-soft h-full">
+    <div className="rounded-xl border border-border/50 bg-card p-5 shadow-soft h-full flex flex-col">
       <h3 className="text-sm font-semibold text-title mb-4">选择图像风格</h3>
-      <div className="grid grid-cols-3 gap-3">
+      <div className="grid grid-cols-3 gap-3 flex-1 auto-rows-fr">
         {styles.map((style) => (
           <button
             key={style.id}
@@ -43,7 +43,7 @@ export function StyleSelector() {
           >
             <div
               className={cn(
-                "w-full aspect-square rounded-xl bg-gradient-to-br transition-all duration-200 flex items-center justify-center",
+                "w-full flex-1 rounded-xl bg-gradient-to-br transition-all duration-200 flex items-center justify-center",
                 styleColors[style.id],
                 selected === style.id
                   ? "ring-2 ring-primary ring-offset-2 ring-offset-card scale-[1.02]"
@@ -54,7 +54,7 @@ export function StyleSelector() {
             </div>
             <span
               className={cn(
-                "text-xs transition-colors",
+                "text-xs transition-colors shrink-0",
                 selected === style.id ? "text-primary font-medium" : "text-body-desc"
               )}
             >
