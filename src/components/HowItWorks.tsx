@@ -1,0 +1,47 @@
+import { CheckCircle2 } from "lucide-react";
+
+const steps = [
+  {
+    step: "01",
+    title: "上传图片",
+    desc: "将照片拖拽到上传区域，支持 PNG、JPG、WEBP 等主流格式，文件大小不超过 32MB。",
+    color: "from-primary to-theme1",
+  },
+  {
+    step: "02",
+    title: "选择风格并生成",
+    desc: "选择你喜欢的图像风格，点击生成按钮，AI 将在几秒内完成高质量的风格转换。",
+    color: "from-theme1 to-emerald-400",
+  },
+  {
+    step: "03",
+    title: "下载或分享",
+    desc: "生成完成后可直接下载高清无水印图片，或一键分享到社交媒体。",
+    color: "from-theme2 to-primary",
+  },
+];
+
+export function HowItWorks() {
+  return (
+    <section className="py-16 md:py-24">
+      <div className="container px-4 md:px-8">
+        <h2 className="text-2xl md:text-3xl font-bold text-title text-center mb-3">使用步骤</h2>
+        <p className="text-body-desc text-center mb-12">三步完成 AI 风格转换</p>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {steps.map((s) => (
+            <div
+              key={s.step}
+              className="group rounded-xl border border-border/50 bg-card p-6 shadow-soft hover:shadow-soft-lg transition-all duration-200 cursor-pointer hover:bg-hover-bg"
+            >
+              <div className={`inline-flex items-center justify-center h-10 w-10 rounded-xl bg-gradient-to-br ${s.color} mb-4`}>
+                <span className="text-sm font-bold text-white">{s.step}</span>
+              </div>
+              <h3 className="text-lg font-semibold text-title mb-2">{s.title}</h3>
+              <p className="text-sm text-body-desc leading-relaxed">{s.desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}

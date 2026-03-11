@@ -1,121 +1,97 @@
+import { useState } from "react";
+import { Menu } from "lucide-react";
+import { AppSidebar } from "@/components/AppSidebar";
 import { ThemeToggle } from "@/components/ThemeToggle";
-import { Button } from "@/components/ui/button";
+import { StyleSelector } from "@/components/StyleSelector";
+import { UploadPanel } from "@/components/UploadPanel";
+import { HowItWorks } from "@/components/HowItWorks";
+import { WhyChoose } from "@/components/WhyChoose";
+import { FAQSection } from "@/components/FAQSection";
+import { ToolkitSection } from "@/components/ToolkitSection";
 import { Badge } from "@/components/ui/badge";
-import { Zap, Shield, Globe, ArrowRight, Layers, Code2, Sparkles } from "lucide-react";
-
-const features = [
-  { icon: Zap, title: "极速性能", desc: "毫秒级响应，流畅体验" },
-  { icon: Shield, title: "安全可靠", desc: "企业级安全保障" },
-  { icon: Globe, title: "全球部署", desc: "多区域节点覆盖" },
-  { icon: Layers, title: "弹性扩展", desc: "自动伸缩，按需使用" },
-  { icon: Code2, title: "开发友好", desc: "丰富 API 与 SDK" },
-  { icon: Sparkles, title: "AI 驱动", desc: "智能化运维与分析" },
-];
 
 const Index = () => {
+  const [sidebarOpen, setSidebarOpen] = useState(false);
+
   return (
-    <div className="min-h-screen bg-background transition-colors duration-300">
-      {/* Nav */}
-      <nav className="sticky top-0 z-50 border-b bg-background/80 backdrop-blur-md">
-        <div className="container flex h-16 items-center justify-between px-4 md:px-8">
-          <div className="flex items-center gap-2">
-            <div className="h-8 w-8 rounded-lg gradient-primary" />
-            <span className="text-lg font-bold text-title">TechFlow</span>
-          </div>
-          <div className="hidden md:flex items-center gap-8">
-            {["产品", "解决方案", "文档", "定价"].map((item) => (
-              <a
-                key={item}
-                href="#"
-                className="text-sm text-body2 hover:text-title transition-colors cursor-pointer"
-              >
-                {item}
-              </a>
-            ))}
+    <div className="flex min-h-screen bg-background transition-colors duration-300">
+      {/* Sidebar */}
+      <AppSidebar mobileOpen={sidebarOpen} onClose={() => setSidebarOpen(false)} />
+
+      {/* Main content */}
+      <div className="flex-1 flex flex-col min-w-0">
+        {/* Top bar */}
+        <header className="sticky top-0 z-40 h-16 border-b border-border/50 bg-background/80 backdrop-blur-md flex items-center justify-between px-4 md:px-8">
+          <div className="flex items-center gap-3">
+            <button
+              onClick={() => setSidebarOpen(true)}
+              className="lg:hidden p-2 rounded-lg hover:bg-hover-bg transition-colors cursor-pointer"
+            >
+              <Menu className="h-5 w-5 text-body2" />
+            </button>
+            <div className="lg:hidden flex items-center gap-2">
+              <div className="h-7 w-7 rounded-md gradient-primary" />
+              <span className="font-bold text-title text-sm">TechFlow</span>
+            </div>
           </div>
           <div className="flex items-center gap-2">
             <ThemeToggle />
-            <Button variant="ghost" size="sm" className="hidden md:inline-flex">
-              登录
-            </Button>
-            <Button variant="gradient" size="sm">
-              免费开始
-            </Button>
           </div>
-        </div>
-      </nav>
+        </header>
 
-      {/* Hero */}
-      <section className="container px-4 md:px-8 py-20 md:py-32 text-center">
-        <Badge className="mb-6 rounded-full bg-primary/10 text-primary border-none px-4 py-1.5 text-sm font-medium">
-          🚀 全新发布 v3.0
-        </Badge>
-        <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-title leading-tight mb-6 animate-fade-in">
-          构建未来的
-          <br />
-          <span className="gradient-text">云原生平台</span>
-        </h1>
-        <p className="text-body-desc text-lg md:text-xl max-w-2xl mx-auto mb-10 animate-fade-in" style={{ animationDelay: "0.1s" }}>
-          一站式云基础设施，助力团队快速交付高质量应用。极速、安全、智能。
-        </p>
-        <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in" style={{ animationDelay: "0.2s" }}>
-          <Button variant="gradient" size="lg">
-            立即体验 <ArrowRight className="ml-1 h-4 w-4" />
-          </Button>
-          <Button variant="outline" size="lg">
-            查看文档
-          </Button>
-        </div>
-      </section>
-
-      {/* Features */}
-      <section className="container px-4 md:px-8 pb-20 md:pb-32">
-        <div className="text-center mb-14">
-          <h2 className="text-2xl md:text-3xl font-bold text-title mb-3">核心能力</h2>
-          <p className="text-body-desc">为现代应用提供全方位基础支撑</p>
-        </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-          {features.map((f) => (
-            <div
-              key={f.title}
-              className="group rounded-xl bg-card p-6 shadow-soft border border-border/50 hover:shadow-soft-lg hover:bg-hover-bg transition-all duration-200 cursor-pointer"
-            >
-              <div className="h-11 w-11 rounded-lg gradient-primary flex items-center justify-center mb-4">
-                <f.icon className="h-5 w-5 text-primary-foreground" />
-              </div>
-              <h3 className="text-lg font-semibold text-title mb-1">{f.title}</h3>
-              <p className="text-body-desc text-sm">{f.desc}</p>
+        {/* Scrollable content */}
+        <main className="flex-1 overflow-y-auto">
+          {/* Hero */}
+          <section className="px-4 md:px-8 pt-10 pb-8 md:pt-14 md:pb-10">
+            <div className="max-w-3xl">
+              <Badge className="mb-4 rounded-full bg-primary/10 text-primary border-none px-3 py-1 text-xs font-medium">
+                ✨ AI 驱动
+              </Badge>
+              <h1 className="text-2xl md:text-4xl font-bold text-title leading-tight mb-3">
+                AI 风格转换：
+                <span className="gradient-text">一键将照片变为艺术作品</span>
+              </h1>
+              <p className="text-body-desc text-sm md:text-base max-w-2xl">
+                上传照片，选择风格，AI 在几秒内生成精美的卡通、插画、3D 等多种艺术风格图像。完全免费，无需注册。
+              </p>
             </div>
-          ))}
-        </div>
-      </section>
+          </section>
 
-      {/* CTA */}
-      <section className="container px-4 md:px-8 pb-20 md:pb-32">
-        <div className="rounded-2xl gradient-primary p-10 md:p-16 text-center">
-          <h2 className="text-2xl md:text-4xl font-bold text-primary-foreground mb-4">准备好开始了吗？</h2>
-          <p className="text-primary-foreground/80 mb-8 max-w-lg mx-auto">
-            免费注册，几分钟内完成部署。无需信用卡。
-          </p>
-          <Button size="lg" className="rounded-full bg-background text-title hover:bg-background/90">
-            免费开始使用
-          </Button>
-        </div>
-      </section>
+          {/* Workspace: Style Selector + Upload Panel */}
+          <section className="px-4 md:px-8 pb-10 md:pb-16">
+            <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.2fr] gap-5 max-w-6xl">
+              <StyleSelector />
+              <UploadPanel />
+            </div>
+          </section>
 
-      {/* Footer */}
-      <footer className="border-t py-10">
-        <div className="container px-4 md:px-8 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-body-desc">
-          <span>© 2026 TechFlow. All rights reserved.</span>
-          <div className="flex gap-6">
-            {["隐私政策", "服务条款", "联系我们"].map((item) => (
-              <a key={item} href="#" className="hover:text-title transition-colors cursor-pointer">
-                {item}
-              </a>
-            ))}
-          </div>
-        </div>
-      </footer>
+          {/* How it works */}
+          <HowItWorks />
+
+          {/* Why choose */}
+          <WhyChoose />
+
+          {/* FAQ */}
+          <FAQSection />
+
+          {/* Toolkit */}
+          <ToolkitSection />
+
+          {/* Footer */}
+          <footer className="border-t border-border/50 py-8">
+            <div className="container px-4 md:px-8 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-body-desc">
+              <span>© 2026 TechFlow. All rights reserved.</span>
+              <div className="flex gap-6">
+                {["隐私政策", "服务条款", "联系我们"].map((item) => (
+                  <a key={item} href="#" className="hover:text-title transition-colors cursor-pointer">
+                    {item}
+                  </a>
+                ))}
+              </div>
+            </div>
+          </footer>
+        </main>
+      </div>
     </div>
   );
 };
