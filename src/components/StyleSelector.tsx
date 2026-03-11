@@ -44,14 +44,13 @@ export function StyleSelector() {
           >
             <div
               className={cn(
-                "w-full aspect-square rounded-xl bg-gradient-to-br transition-all duration-200 flex items-center justify-center",
-                styleColors[style.id],
+                "w-full aspect-square rounded-xl overflow-hidden transition-all duration-200",
                 selected === style.id
                   ? "ring-2 ring-primary ring-offset-2 ring-offset-card scale-[1.02]"
                   : "hover:scale-105 opacity-80 hover:opacity-100"
               )}
             >
-              <span className="text-2xl font-bold text-white/60">{style.name.charAt(0)}</span>
+              <img src={stylePreview} alt={style.name} className="w-full h-full object-cover" />
             </div>
             <span
               className={cn(
