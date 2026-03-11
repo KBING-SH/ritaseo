@@ -1,6 +1,4 @@
 import { useState } from "react";
-import { Menu } from "lucide-react";
-import { AppSidebar } from "@/components/AppSidebar";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import { StyleSelector } from "@/components/StyleSelector";
 import { UploadPanel } from "@/components/UploadPanel";
@@ -12,89 +10,71 @@ import { ToolkitSection } from "@/components/ToolkitSection";
 import { Badge } from "@/components/ui/badge";
 
 const Index = () => {
-  const [sidebarOpen, setSidebarOpen] = useState(false);
-
   return (
-    <div className="flex min-h-screen bg-background transition-colors duration-300">
-      {/* Sidebar */}
-      <AppSidebar mobileOpen={sidebarOpen} onClose={() => setSidebarOpen(false)} />
+    <div className="min-h-screen bg-background transition-colors duration-300">
+      {/* Top bar */}
+      <header className="sticky top-0 z-40 h-16 border-b border-border/50 bg-background/80 backdrop-blur-md flex items-center justify-between px-4 md:px-8">
+        <div className="flex items-center gap-2.5">
+          <div className="h-8 w-8 rounded-lg gradient-primary" />
+          <span className="text-base font-bold text-title">rita</span>
+        </div>
+        <ThemeToggle />
+      </header>
 
-      {/* Main content */}
-      <div className="flex-1 flex flex-col min-w-0">
-        {/* Top bar */}
-        <header className="sticky top-0 z-40 h-16 border-b border-border/50 bg-background/80 backdrop-blur-md flex items-center justify-between px-4 md:px-8">
-          <div className="flex items-center gap-3">
-            <button
-              onClick={() => setSidebarOpen(true)}
-              className="lg:hidden p-2 rounded-lg hover:bg-hover-bg transition-colors cursor-pointer"
-            >
-              <Menu className="h-5 w-5 text-body2" />
-            </button>
-            <div className="lg:hidden flex items-center gap-2">
-              <div className="h-7 w-7 rounded-md gradient-primary" />
-              <span className="font-bold text-title text-sm">rita</span>
+      {/* Scrollable content */}
+      <main>
+        {/* Hero */}
+        <section className="px-4 md:px-8 pt-10 pb-8 md:pt-14 md:pb-10">
+          <div className="max-w-4xl mx-auto">
+            <Badge className="mb-4 rounded-full bg-primary/10 text-primary border-none px-3 py-1 text-xs font-medium">
+              ✨ AI 驱动
+            </Badge>
+            <h1 className="text-2xl md:text-4xl font-bold text-title leading-tight mb-3">
+              免费在线照片转卡通
+            </h1>
+            <p className="text-body-desc text-sm md:text-base max-w-2xl">
+              上传你的照片，Rita AI 将为你生成多种风格的趣味卡通形象。支持人像、宠物、风景等多种照片类型，操作简单，几秒完成。
+            </p>
+          </div>
+        </section>
+
+        {/* Workspace: Style Selector + Upload Panel */}
+        <section className="px-4 md:px-8 pb-10 md:pb-16">
+          <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.2fr] gap-5 max-w-4xl mx-auto">
+            <StyleSelector />
+            <UploadPanel />
+          </div>
+        </section>
+
+        {/* Content Sections (SEO rich text) */}
+        <ContentSections />
+
+        {/* How it works */}
+        <HowItWorks />
+
+        {/* Why choose */}
+        <WhyChoose />
+
+        {/* FAQ */}
+        <FAQSection />
+
+        {/* Toolkit */}
+        <ToolkitSection />
+
+        {/* Footer */}
+        <footer className="border-t border-border/50 py-8">
+          <div className="max-w-4xl mx-auto px-4 md:px-8 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-body-desc">
+            <span>© 2026 rita. All rights reserved.</span>
+            <div className="flex gap-6">
+              {["隐私政策", "服务条款", "联系我们"].map((item) => (
+                <a key={item} href="#" className="hover:text-title transition-colors cursor-pointer">
+                  {item}
+                </a>
+              ))}
             </div>
           </div>
-          <div className="flex items-center gap-2">
-            <ThemeToggle />
-          </div>
-        </header>
-
-        {/* Scrollable content */}
-        <main className="flex-1 overflow-y-auto">
-          {/* Hero */}
-          <section className="px-4 md:px-8 pt-10 pb-8 md:pt-14 md:pb-10">
-            <div className="max-w-3xl">
-              <Badge className="mb-4 rounded-full bg-primary/10 text-primary border-none px-3 py-1 text-xs font-medium">
-                ✨ AI 驱动
-              </Badge>
-              <h1 className="text-2xl md:text-4xl font-bold text-title leading-tight mb-3">
-                免费在线照片转卡通
-              </h1>
-              <p className="text-body-desc text-sm md:text-base max-w-2xl">
-                上传你的照片，Rita AI 将为你生成多种风格的趣味卡通形象。支持人像、宠物、风景等多种照片类型，操作简单，几秒完成。
-              </p>
-            </div>
-          </section>
-
-          {/* Workspace: Style Selector + Upload Panel */}
-          <section className="px-4 md:px-8 pb-10 md:pb-16">
-            <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.2fr] gap-5 max-w-6xl">
-              <StyleSelector />
-              <UploadPanel />
-            </div>
-          </section>
-
-          {/* Content Sections (SEO rich text) */}
-          <ContentSections />
-
-          {/* How it works */}
-          <HowItWorks />
-
-          {/* Why choose */}
-          <WhyChoose />
-
-          {/* FAQ */}
-          <FAQSection />
-
-          {/* Toolkit */}
-          <ToolkitSection />
-
-          {/* Footer */}
-          <footer className="border-t border-border/50 py-8">
-            <div className="container px-4 md:px-8 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-body-desc">
-              <span>© 2026 rita. All rights reserved.</span>
-              <div className="flex gap-6">
-                {["隐私政策", "服务条款", "联系我们"].map((item) => (
-                  <a key={item} href="#" className="hover:text-title transition-colors cursor-pointer">
-                    {item}
-                  </a>
-                ))}
-              </div>
-            </div>
-          </footer>
-        </main>
-      </div>
+        </footer>
+      </main>
     </div>
   );
 };
