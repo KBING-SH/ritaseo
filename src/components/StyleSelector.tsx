@@ -61,7 +61,7 @@ export function StyleSelector() {
           <img
             src={beforeImg}
             alt="原始照片"
-            className="block h-full max-w-none object-cover object-left"
+            className="block h-full max-w-none object-cover object-center"
             style={{ width: containerWidth > 0 ? `${containerWidth}px` : '100%' }}
             draggable={false}
           />
