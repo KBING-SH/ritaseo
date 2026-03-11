@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { cn } from "@/lib/utils";
+import stylePreview from "@/assets/style-preview.png";
 
 const styles = [
   { id: "ghibli", name: "吉卜力" },
