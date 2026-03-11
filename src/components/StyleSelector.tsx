@@ -37,11 +37,10 @@ export function StyleSelector() {
   }, []);
 
   return (
-    <div className="rounded-2xl xl:rounded-[32px] border border-border/50 bg-card shadow-soft overflow-hidden">
+    <div className="rounded-2xl xl:rounded-[32px] border border-border/50 bg-card shadow-soft overflow-hidden h-full">
       <div
         ref={refCallback}
-        className="relative w-full overflow-hidden select-none touch-none cursor-ew-resize"
-        style={{ aspectRatio: "2000 / 1124" }}
+        className="relative w-full h-full overflow-hidden select-none touch-none cursor-ew-resize"
         onPointerDown={onPointerDown}
         onPointerMove={onPointerMove}
         onPointerUp={onPointerUp}
