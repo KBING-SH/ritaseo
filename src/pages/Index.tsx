@@ -25,7 +25,7 @@ const Index = () => {
       <main>
         {/* Hero + Workspace: Full first screen */}
         <section className="min-h-[calc(100vh-4rem)] flex flex-col px-4 md:px-8 pt-8 md:pt-12 pb-4">
-          <div className="max-w-4xl mx-auto w-full flex flex-col gap-6">
+          <div className="max-w-5xl mx-auto w-full flex flex-col gap-6 flex-1">
             <div>
               <Badge className="mb-4 rounded-full bg-primary/10 text-primary border-none px-3 py-1 text-xs font-medium">
                 ✨ AI 驱动
@@ -37,7 +37,7 @@ const Index = () => {
                 上传你的照片，Rita AI 将为你生成多种风格的趣味卡通形象。支持人像、宠物、风景等多种照片类型，操作简单，几秒完成。
               </p>
             </div>
-            <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.2fr] gap-5">
+            <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.2fr] gap-5 flex-1">
               <StyleSelector />
               <UploadPanel />
             </div>
