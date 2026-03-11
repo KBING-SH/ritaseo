@@ -1,6 +1,6 @@
 import { useState, useRef, useCallback } from "react";
-import beforeImg from "@/assets/before.png";
-import afterImg from "@/assets/after.png";
+import beforeImg from "@/assets/before.webp";
+import afterImg from "@/assets/after.webp";
 
 export function StyleSelector() {
   const [sliderPos, setSliderPos] = useState(50);
