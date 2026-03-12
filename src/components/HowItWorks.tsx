@@ -40,12 +40,16 @@ export function HowItWorks() {
               className="group rounded-xl border border-border/50 bg-card shadow-soft hover:shadow-soft-lg transition-all duration-200 cursor-pointer hover:bg-hover-bg overflow-hidden"
             >
               <div className="w-full aspect-[8/5] overflow-hidden bg-muted/30">
-                <img
-                  src={s.image}
-                  alt={s.title}
-                  className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300"
-                  loading="lazy"
-                />
+                {'component' in s && s.component ? (
+                  <s.component />
+                ) : (
+                  <img
+                    src={s.image!}
+                    alt={s.title}
+                    className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300"
+                    loading="lazy"
+                  />
+                )}
               </div>
               <div className="p-6">
                 <div className={`inline-flex items-center justify-center h-10 w-10 rounded-xl bg-gradient-to-br ${s.color} mb-4`}>
