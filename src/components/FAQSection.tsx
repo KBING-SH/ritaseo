@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { ChevronDown } from "lucide-react";
+import { ChevronDown, MessageCircleQuestion } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const faqs = [
@@ -43,31 +43,57 @@ export function FAQSection() {
   return (
     <section className="py-16 md:py-24">
       <div className="container px-4 md:px-8 max-w-3xl">
-        <div className="text-center mb-14">
+        {/* Header */}
+        <div className="flex flex-col items-center mb-12">
+          <div className="h-12 w-12 rounded-2xl gradient-primary flex items-center justify-center mb-5 shadow-md">
+            <MessageCircleQuestion className="h-5.5 w-5.5 text-white" />
+          </div>
           <h2 className="text-2xl md:text-3xl font-bold text-title mb-3">常见问题</h2>
-          <p className="text-body-desc">了解更多关于 Rita 照片卡通化的功能与使用细节</p>
+          <p className="text-body-desc text-center max-w-md">
+            了解更多关于 Rita 照片卡通化的功能与使用细节
+          </p>
         </div>
 
-        <div className="divide-y divide-border/60">
+        {/* FAQ list */}
+        <div className="rounded-2xl border border-border/50 bg-card shadow-soft overflow-hidden">
           {faqs.map((faq, i) => {
             const isOpen = openIndex === i;
+            const isLast = i === faqs.length - 1;
             return (
-              <div key={i}>
+              <div
+                key={i}
+                className={cn(!isLast && "border-b border-border/40")}
+              >
                 <button
                   onClick={() => setOpenIndex(isOpen ? null : i)}
-                  className="w-full flex items-center justify-between gap-4 py-5 text-left cursor-pointer group"
+                  className={cn(
+                    "w-full flex items-center justify-between gap-4 px-6 py-5 text-left cursor-pointer group transition-colors duration-200",
+                    isOpen ? "bg-primary/[0.04]" : "hover:bg-hover-bg"
+                  )}
                 >
-                  <span
-                    className={cn(
-                      "text-[15px] font-medium transition-colors",
-                      isOpen ? "text-primary" : "text-title group-hover:text-primary"
-                    )}
-                  >
-                    {faq.q}
-                  </span>
+                  <div className="flex items-center gap-3.5">
+                    <span
+                      className={cn(
+                        "text-xs font-bold tabular-nums w-6 h-6 rounded-lg flex items-center justify-center shrink-0 transition-all duration-300",
+                        isOpen
+                          ? "gradient-primary text-white shadow-sm"
+                          : "bg-muted text-body-desc"
+                      )}
+                    >
+                      {String(i + 1).padStart(2, "0")}
+                    </span>
+                    <span
+                      className={cn(
+                        "text-[15px] font-medium transition-colors",
+                        isOpen ? "text-title" : "text-title group-hover:text-primary"
+                      )}
+                    >
+                      {faq.q}
+                    </span>
+                  </div>
                   <ChevronDown
                     className={cn(
-                      "h-4.5 w-4.5 shrink-0 transition-all duration-300",
+                      "h-4 w-4 shrink-0 transition-all duration-300",
                       isOpen
                         ? "rotate-180 text-primary"
                         : "text-body-desc group-hover:text-primary"
@@ -81,7 +107,7 @@ export function FAQSection() {
                   )}
                 >
                   <div className="overflow-hidden">
-                    <p className="pb-5 text-sm text-body-desc leading-[1.8]">
+                    <p className="px-6 pb-5 pl-[3.75rem] text-sm text-body-desc leading-[1.8]">
                       {faq.a}
                     </p>
                   </div>
