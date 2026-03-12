@@ -48,10 +48,16 @@ export function ContentSections() {
 
   const handleTryNow = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
-    setTimeout(() => {
-      setShowTooltip(true);
-      setTimeout(() => setShowTooltip(false), 2000);
-    }, 500);
+
+    const checkScrollDone = () => {
+      if (window.scrollY <= 5) {
+        setShowTooltip(true);
+        setTimeout(() => setShowTooltip(false), 3000);
+      } else {
+        requestAnimationFrame(checkScrollDone);
+      }
+    };
+    requestAnimationFrame(checkScrollDone);
   };
 
   return (
