@@ -79,18 +79,14 @@ function MarqueeRow({
           reverse ? "animate-marquee-reverse" : "animate-marquee"
         )}
       >
-        {/* Duplicate for seamless loop */}
-        {[...items, ...items].map((t, i) => (
+        {[...items, ...items, ...items, ...items].map((t, i) => (
           <div
             key={i}
             className="w-[380px] shrink-0 rounded-2xl border border-border/50 bg-card p-5 shadow-soft hover:shadow-soft-lg transition-shadow duration-300"
           >
-            {/* Content */}
             <p className="text-sm text-body2 leading-[1.75] mb-4 line-clamp-3">
               "{t.content}"
             </p>
-
-            {/* Rating */}
             <div className="flex gap-0.5 mb-4">
               {Array.from({ length: 5 }).map((_, s) => (
                 <Star
@@ -104,8 +100,6 @@ function MarqueeRow({
                 />
               ))}
             </div>
-
-            {/* Author */}
             <div className="flex items-center gap-3">
               <img
                 src={t.avatar}
