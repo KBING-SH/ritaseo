@@ -81,25 +81,25 @@ export function UploadPanel() {
       {/* Style selector */}
       <div>
         <label className="text-xs text-body-desc mb-1 block">选择风格</label>
-        <div className="grid grid-cols-3 gap-2">
+        <div className="grid grid-cols-3 gap-1.5">
           {STYLES.map((s) => (
             <button
               key={s.name}
               onClick={() => setSelectedStyle(s.name)}
               className={cn(
-                "relative rounded-lg overflow-hidden border-2 transition-all",
+                "relative rounded-md overflow-hidden border-2 transition-all",
                 selectedStyle === s.name
                   ? "border-primary ring-1 ring-primary/30"
                   : "border-transparent hover:border-primary/30"
               )}
             >
               {selectedStyle === s.name && (
-                <div className="absolute top-1 left-1 z-10 w-5 h-5 rounded-md bg-primary flex items-center justify-center">
+                <div className="absolute top-0.5 left-0.5 z-10 w-4 h-4 rounded bg-primary flex items-center justify-center">
                   <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 6L5 8.5L9.5 3.5" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg>
                 </div>
               )}
               <img src={s.image} alt={s.name} className="w-full aspect-square object-cover" />
-              <p className="text-[11px] text-title py-1 text-center truncate">{s.name}</p>
+              <p className="text-[10px] text-title py-0.5 text-center truncate">{s.name}</p>
             </button>
           ))}
         </div>
