@@ -49,7 +49,7 @@ export function ContentSections() {
         {sections.map((section, i) => (
           <article
             key={i}
-            className={`flex flex-col md:flex-row items-center gap-8 md:gap-[60px] ${
+            className={`flex flex-col md:flex-row items-center gap-8 md:gap-[140px] ${
               section.imageFirst ? "" : "md:flex-row-reverse"
             }`}
           >
