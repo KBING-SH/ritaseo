@@ -15,7 +15,7 @@ import styleMinimal from "@/assets/style-minimal.webp";
 
 const STYLE_OPTIONS = [
   { src: styleGhibli, label: "吉卜力工作室" },
-  { src: stylePixel, label: "方块" },
+  { src: stylePixel, label: "像素" },
   { src: styleRealistic, label: "写实艺术" },
   { src: styleInk, label: "中国墨" },
   { src: styleCartoon, label: "卡通片" },
