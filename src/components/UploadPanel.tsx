@@ -160,10 +160,10 @@ export function UploadPanel() {
         />
       </div>
 
-      {/* Style selector */}
+      {/* Style selector - before/after pairs */}
       <div>
         <label className="text-xs text-body-desc mb-1 block">选择以下风格</label>
-        <div className="grid grid-cols-2 sm:[grid-template-columns:repeat(4,128px)] sm:justify-between gap-x-3 gap-y-2">
+        <div className="grid grid-cols-2 sm:[grid-template-columns:repeat(4,1fr)] gap-x-3 gap-y-2">
           {STYLE_OPTIONS.map((style, i) => (
             <div
               key={i}
@@ -174,20 +174,25 @@ export function UploadPanel() {
                 "relative w-full aspect-[4/3] rounded-lg overflow-hidden border-2 transition-all",
                 selectedStyle === i ? "border-primary shadow-sm" : "border-transparent hover:border-primary/40"
               )}>
-                <img
-                  src={style.src}
-                  alt={style.label}
-                  className="w-full h-full object-cover"
-                  style={{
-                    imageRendering: "auto",
-                    transform: "translateZ(0)",
-                    backfaceVisibility: "hidden",
-                    filter: "blur(0.15px)",
-                  }}
-                  loading="eager"
-                  decoding="async"
-                  draggable={false}
-                />
+                {/* Before/After side by side */}
+                <div className="flex w-full h-full">
+                  <img
+                    src={ORIGINAL_THUMB}
+                    alt="原图"
+                    className="w-1/2 h-full object-cover object-center"
+                    style={{ transform: "translateZ(0)" }}
+                    loading="eager"
+                    draggable={false}
+                  />
+                  <img
+                    src={style.src}
+                    alt={style.label}
+                    className="w-1/2 h-full object-cover object-center"
+                    style={{ transform: "translateZ(0)", filter: "blur(0.15px)" }}
+                    loading="eager"
+                    draggable={false}
+                  />
+                </div>
                 {selectedStyle === i && (
                   <div className="absolute top-1 left-1 w-4 h-4 rounded-full bg-primary flex items-center justify-center">
                     <Check className="w-2.5 h-2.5 text-primary-foreground" />
