@@ -155,7 +155,7 @@ export function UploadPanel() {
         <label className="text-xs text-body-desc mb-1 block">提示词</label>
         <textarea
           placeholder="请描述你的想法"
-          className="w-full h-20 rounded-lg border border-border/50 bg-card-alt px-3 py-2 text-sm text-title placeholder:text-body-desc resize-none focus:outline-none focus:ring-1 focus:ring-primary/50"
+          className="w-full h-14 md:h-20 rounded-lg border border-border/50 bg-card-alt px-3 py-2 text-sm text-title placeholder:text-body-desc resize-none focus:outline-none focus:ring-1 focus:ring-primary/50"
         />
       </div>
 

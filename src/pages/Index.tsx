@@ -26,8 +26,8 @@ const Index = () => {
       {/* Scrollable content */}
       <main>
         {/* Hero + Workspace: Full first screen */}
-        <section className="min-h-[calc(100vh-4rem)] lg:h-[calc(100vh-4rem)] flex flex-col items-center justify-start px-4 md:px-8 pt-4 md:pt-[6vh] overflow-hidden">
-          <div className="max-w-[1540px] mx-auto w-full flex flex-col gap-3 md:gap-6">
+        <section className="min-h-[calc(100vh-4rem)] lg:h-[calc(100vh-4rem)] flex flex-col items-center justify-start px-4 md:px-8 pt-3 md:pt-[6vh] overflow-hidden">
+          <div className="max-w-[1540px] mx-auto w-full flex flex-col gap-2 md:gap-6">
             <div className="text-center">
               <h1 className="text-2xl md:text-5xl font-bold text-primary leading-tight mb-2 md:mb-4">
                 免费在线照片转卡通
