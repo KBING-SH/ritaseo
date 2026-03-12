@@ -80,7 +80,7 @@ export function UploadPanel() {
       {/* Style selector */}
       <div>
         <label className="text-xs text-body-desc mb-1 block">选择以下风格</label>
-        <div className="grid grid-cols-4 gap-x-3 gap-y-2">
+        <div className="grid grid-cols-2 sm:[grid-template-columns:repeat(4,128px)] sm:justify-between gap-x-3 gap-y-2">
           {STYLE_OPTIONS.map((style, i) => (
             <div
               key={i}
@@ -94,9 +94,9 @@ export function UploadPanel() {
                 <img
                   src={style.src}
                   alt={style.label}
-                  className="w-full h-full object-cover [image-rendering:auto] [image-rendering:-webkit-optimize-contrast] [filter:contrast(1.06)_saturate(1.03)]"
+                  className="w-full h-full object-cover [image-rendering:auto]"
                   loading="eager"
-                  decoding="sync"
+                  decoding="async"
                   draggable={false}
                 />
                 {selectedStyle === i && (
