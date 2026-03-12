@@ -45,7 +45,7 @@ const sections = [
 export function ContentSections() {
   return (
     <section className="py-16 md:py-24">
-      <div className="container px-4 md:px-8 max-w-7xl space-y-24 md:space-y-36">
+      <div className="px-4 md:px-12 lg:px-20 max-w-[1600px] mx-auto space-y-24 md:space-y-36">
         {sections.map((section, i) => (
           <article
             key={i}
