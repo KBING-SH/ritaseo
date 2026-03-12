@@ -57,7 +57,7 @@ const SCRIPT: { step: Step; duration: number }[] = [
   { step: { type: "reset" }, duration: 600 },                    // fade out
 ];
 
-export function StepStyleAnimation() {
+export function StepStyleAnimation({ active = true }: { active?: boolean }) {
   const [stepIndex, setStepIndex] = useState(0);
   const [selected, setSelected] = useState<number | null>(null);
   const [cursorPos, setCursorPos] = useState<[number, number]>([50, 10]);
