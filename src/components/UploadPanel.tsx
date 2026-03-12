@@ -96,7 +96,7 @@ export function UploadPanel() {
                     src={style.src}
                     alt={style.label}
                     className={cn(
-                      "w-11 h-11 rounded-lg object-cover transition-all",
+                      "w-14 h-14 rounded-lg object-cover transition-all",
                       selectedStyle === i ? "ring-2 ring-primary" : "hover:ring-2 hover:ring-primary/50"
                     )}
                   />
