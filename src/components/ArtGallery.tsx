@@ -1,3 +1,4 @@
+import { useState } from "react";
 import styleGhibli from "@/assets/style-ghibli.webp";
 import stylePixel from "@/assets/style-pixel.webp";
 import styleRealistic from "@/assets/style-realistic.webp";
