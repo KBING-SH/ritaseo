@@ -94,7 +94,13 @@ export function UploadPanel() {
                 <img
                   src={style.src}
                   alt={style.label}
-                  className="w-full h-full object-cover [image-rendering:auto]"
+                  className="w-full h-full object-cover"
+                  style={{
+                    imageRendering: "auto",
+                    transform: "translateZ(0)",
+                    backfaceVisibility: "hidden",
+                    filter: "blur(0.15px)",
+                  }}
                   loading="eager"
                   decoding="async"
                   draggable={false}
