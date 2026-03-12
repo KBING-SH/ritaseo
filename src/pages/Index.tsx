@@ -41,11 +41,11 @@ const Index = () => {
           </div>
         </section>
 
-        {/* Content Sections (SEO rich text) */}
-        <ContentSections />
-
         {/* How it works */}
         <HowItWorks />
+
+        {/* Content Sections (SEO rich text) */}
+        <ContentSections />
 
         {/* Why choose */}
         <WhyChoose />
