@@ -1,5 +1,5 @@
-import { useState, useRef } from "react";
-import { ImageIcon, Check } from "lucide-react";
+import { useState, useRef, useCallback } from "react";
+import { ImageIcon, Check, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
@@ -27,15 +27,40 @@ const RATIOS = ["1:1", "2:3", "3:2"];
 
 export function UploadPanel() {
   const [isDragging, setIsDragging] = useState(false);
-  const [promptOn, setPromptOn] = useState(false);
+  const [uploadedImage, setUploadedImage] = useState<string | null>(null);
+  const [showSuccess, setShowSuccess] = useState(false);
   const [selectedRatio, setSelectedRatio] = useState("1:1");
   const [selectedStyle, setSelectedStyle] = useState(0);
-  const [count, setCount] = useState(1);
   const fileRef = useRef<HTMLInputElement>(null);
 
   const handleDragOver = (e: React.DragEvent) => { e.preventDefault(); setIsDragging(true); };
   const handleDragLeave = () => setIsDragging(false);
-  const handleDrop = (e: React.DragEvent) => { e.preventDefault(); setIsDragging(false); };
+
+  const handleFile = useCallback((file: File) => {
+    if (!file.type.startsWith("image/")) return;
+    const url = URL.createObjectURL(file);
+    setUploadedImage(url);
+    setShowSuccess(true);
+    setTimeout(() => setShowSuccess(false), 2500);
+  }, []);
+
+  const handleDrop = (e: React.DragEvent) => {
+    e.preventDefault();
+    setIsDragging(false);
+    const file = e.dataTransfer.files?.[0];
+    if (file) handleFile(file);
+  };
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (file) handleFile(file);
+  };
+
+  const removeImage = () => {
+    setUploadedImage(null);
+    setShowSuccess(false);
+    if (fileRef.current) fileRef.current.value = "";
+  };
 
   return (
     <div className="rounded-xl border border-border/50 bg-card p-4 shadow-soft h-full flex flex-col gap-3 text-sm overflow-y-auto max-h-[calc(100vh-12rem)]">
@@ -52,20 +77,40 @@ export function UploadPanel() {
       {/* Upload area */}
       <div>
         <label className="text-xs text-body-desc mb-1 block">上传参考图片</label>
-        <div
-          onDragOver={handleDragOver}
-          onDragLeave={handleDragLeave}
-          onDrop={handleDrop}
-          onClick={() => fileRef.current?.click()}
-          className={cn(
-            "h-24 rounded-lg border-2 border-dashed flex flex-col items-center justify-center gap-1 transition-all cursor-pointer",
-            isDragging ? "border-primary bg-primary/5" : "border-border hover:border-primary/40 hover:bg-hover-bg"
-          )}
-        >
-          <ImageIcon className="h-5 w-5 text-body-desc" />
-          <p className="text-xs text-body-desc">单击或拖动图像即可上传</p>
-          <input ref={fileRef} type="file" accept="image/*" className="hidden" />
-        </div>
+        {uploadedImage ? (
+          <div className="relative rounded-lg border border-border/50 overflow-hidden animate-fade-in">
+            <img src={uploadedImage} alt="uploaded" className="w-full h-24 object-cover" />
+            <button
+              onClick={removeImage}
+              className="absolute top-1.5 right-1.5 w-5 h-5 rounded-full bg-foreground/60 hover:bg-foreground/80 flex items-center justify-center transition-colors"
+            >
+              <X className="w-3 h-3 text-background" />
+            </button>
+          </div>
+        ) : (
+          <div
+            onDragOver={handleDragOver}
+            onDragLeave={handleDragLeave}
+            onDrop={handleDrop}
+            onClick={() => fileRef.current?.click()}
+            className={cn(
+              "h-24 rounded-lg border-2 border-dashed flex flex-col items-center justify-center gap-1 transition-all cursor-pointer",
+              isDragging ? "border-primary bg-primary/5" : "border-border hover:border-primary/40 hover:bg-hover-bg"
+            )}
+          >
+            <ImageIcon className="h-5 w-5 text-body-desc" />
+            <p className="text-xs text-body-desc">单击或拖动图像即可上传</p>
+          </div>
+        )}
+        <input ref={fileRef} type="file" accept="image/*" className="hidden" onChange={handleInputChange} />
+        {showSuccess && (
+          <div className="flex items-center gap-1.5 mt-1.5 animate-fade-in">
+            <div className="w-4 h-4 rounded-full bg-primary/20 flex items-center justify-center">
+              <Check className="w-2.5 h-2.5 text-primary" />
+            </div>
+            <span className="text-xs text-primary">上传成功</span>
+          </div>
+        )}
       </div>
 
       {/* Prompt */}
