@@ -4,6 +4,11 @@ import { Button } from "@/components/ui/button";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { cn } from "@/lib/utils";
 
+import logoChatgpt from "@/assets/logo-chatgpt.png";
+import logoBanana from "@/assets/logo-banana.png";
+import logoKling from "@/assets/logo-kling.png";
+import logoFlux from "@/assets/logo-flux.png";
+
 import styleGhibli from "@/assets/style-ghibli.png";
 import stylePixel from "@/assets/style-pixel.png";
 import styleRealistic from "@/assets/style-realistic.png";
@@ -14,13 +19,13 @@ import styleCute from "@/assets/style-cute.png";
 import styleMinimal from "@/assets/style-minimal.png";
 
 const MODEL_OPTIONS = [
-  { value: "chatgpt-image-1", label: "ChatGPT-image-1", desc: "理解能力强，可生成带文字的图片" },
-  { value: "nano-banana-pro-direct", label: "Nano-banana pro | direct connect", desc: "覆盖更多区域和线路，适用于网络波动场景" },
-  { value: "kling-v1.5", label: "Kling V1.5", desc: "支持生成时参考面部" },
-  { value: "kling-v2", label: "Kling V2", desc: "细节丰富，非常适合精致图像" },
-  { value: "nano-banana-pro", label: "Nano-banana pro", desc: "更鲜明的色彩和更丰富的细节" },
-  { value: "flux-kontext-dev", label: "Flux.1 Kontext Dev", desc: "适合快速生成草图" },
-  { value: "flux-kontext-max", label: "Flux.1 Kontext Max", desc: "可编辑、理解力和精细度强，适用于商业用途" },
+  { value: "chatgpt-image-1", label: "ChatGPT-image-1", desc: "理解能力强，可生成带文字的图片", logo: logoChatgpt },
+  { value: "nano-banana-pro-direct", label: "Nano-banana pro | direct connect", desc: "覆盖更多区域和线路，适用于网络波动场景", logo: logoBanana },
+  { value: "kling-v1.5", label: "Kling V1.5", desc: "支持生成时参考面部", logo: logoKling },
+  { value: "kling-v2", label: "Kling V2", desc: "细节丰富，非常适合精致图像", logo: logoKling },
+  { value: "nano-banana-pro", label: "Nano-banana pro", desc: "更鲜明的色彩和更丰富的细节", logo: logoBanana },
+  { value: "flux-kontext-dev", label: "Flux.1 Kontext Dev", desc: "适合快速生成草图", logo: logoFlux },
+  { value: "flux-kontext-max", label: "Flux.1 Kontext Max", desc: "可编辑、理解力和精细度强，适用于商业用途", logo: logoFlux },
 ];
 
 
@@ -87,9 +92,12 @@ export function UploadPanel() {
           <SelectContent className="max-h-72">
             {MODEL_OPTIONS.map((m) => (
               <SelectItem key={m.value} value={m.value} className="py-2">
-                <div className="flex flex-col gap-0.5">
-                  <span className="font-medium text-sm">{m.label}</span>
-                  <span className="text-xs text-muted-foreground">{m.desc}</span>
+                <div className="flex items-start gap-2">
+                  <img src={m.logo} alt="" className="w-5 h-5 rounded object-contain shrink-0 mt-0.5" />
+                  <div className="flex flex-col gap-0.5">
+                    <span className="font-medium text-sm">{m.label}</span>
+                    <span className="text-xs text-muted-foreground">{m.desc}</span>
+                  </div>
                 </div>
               </SelectItem>
             ))}
