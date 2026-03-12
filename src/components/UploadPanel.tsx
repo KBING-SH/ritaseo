@@ -81,7 +81,7 @@ export function UploadPanel() {
       {/* Style selector */}
       <div>
         <label className="text-xs text-body-desc mb-1 block">选择风格</label>
-        <div className="grid grid-cols-3 gap-2">
+        <div className="grid grid-cols-3 gap-1.5">
           {STYLES.map((s) => (
             <button
               key={s.name}
