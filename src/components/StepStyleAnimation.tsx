@@ -11,33 +11,49 @@ import styleCute from "@/assets/style-cute.png";
 import styleMinimal from "@/assets/style-minimal.png";
 
 const STYLES = [
-  { src: styleGhibli, label: "吉卜力" },
-  { src: stylePixel, label: "像素" },
-  { src: styleRealistic, label: "写实" },
-  { src: styleInk, label: "中国墨" },
-  { src: styleCartoon, label: "卡通" },
-  { src: styleClassic, label: "经典" },
-  { src: styleCute, label: "可爱" },
-  { src: styleMinimal, label: "极简" },
+  { src: styleGhibli, label: "吉卜力" },  // 0
+  { src: stylePixel, label: "像素" },      // 1
+  { src: styleRealistic, label: "写实" },  // 2
+  { src: styleInk, label: "中国墨" },      // 3
+  { src: styleCartoon, label: "卡通" },    // 4
+  { src: styleClassic, label: "经典" },    // 5
+  { src: styleCute, label: "可爱" },       // 6
+  { src: styleMinimal, label: "极简" },    // 7
 ];
 
-// Timeline (10s):
-// 0-1s: idle
-// 1-2s: cursor moves to 中国墨(3), select it (border+check appear)
-// 2-3.5s: hold on 中国墨
-// 3.5-4.5s: cursor moves to 像素(1), 中国墨 deselects, 像素 selects
-// 4.5-6s: hold on 像素
-// 6-7s: cursor moves to 卡通(4), 像素 deselects, 卡通 selects
-// 7-8s: cursor moves to generate button
-// 8-8.5s: button press
-// 8.5-9.5s: loading
-// 9.5-10s: reset
-const CYCLE = 10;
+// Grid positions (percentage) for cursor targeting center of each cell
+// Row1: 0=col1, 1=col2, 2=col3, 3=col4
+// Row2: 4=col1, 5=col2, 6=col3, 7=col4
+const POS: Record<number, [string, string]> = {
+  0: ["16%", "24%"], 1: ["38%", "24%"], 2: ["60%", "24%"], 3: ["82%", "24%"],
+  4: ["16%", "52%"], 5: ["38%", "52%"], 6: ["60%", "52%"], 7: ["82%", "52%"],
+};
+const BTN_POS: [string, string] = ["50%", "90%"];
 
-// Selection sequence: 中国墨(3) → 像素(1) → 卡通(4)
-const SEL1 = 3; // 中国墨
-const SEL2 = 1; // 像素
-const SEL3 = 4; // 卡通 (final)
+// Sequence: select 中国墨(3) → select 像素(1) → select 卡通(4) → click generate
+// Timeline markers (fraction of CYCLE=12s):
+// 0.00-0.08: idle, cursor fades in
+// 0.08-0.15: cursor moves to 中国墨(3)
+// 0.15: click 中国墨 → border+check appear
+// 0.15-0.30: hold
+// 0.30-0.38: cursor moves to 像素(1)
+// 0.38: click 像素 → 中国墨 deselects, 像素 selects
+// 0.38-0.52: hold
+// 0.52-0.60: cursor moves to 卡通(4)
+// 0.60: click 卡通 → 像素 deselects, 卡通 selects
+// 0.60-0.72: hold
+// 0.72-0.80: cursor moves to generate button
+// 0.80: click generate → button press
+// 0.82-0.93: loading dots
+// 0.93-1.0: fade out, reset
+
+const CYCLE = 12;
+
+// Click moments (when border/check should appear — AFTER cursor arrives)
+const CLICK1 = 0.16; // select 中国墨
+const CLICK2 = 0.39; // select 像素
+const CLICK3 = 0.61; // select 卡通
+const GEN_CLICK = 0.81; // click generate
 
 export function StepStyleAnimation() {
   return (
@@ -57,11 +73,12 @@ export function StepStyleAnimation() {
           background: "linear-gradient(135deg, hsl(var(--primary)), hsl(var(--theme1)))",
         }}
         animate={{
-          scale: [1, 1, 1, 0.95, 1.03, 1, 1, 1],
+          // idle...press down...bounce up...settle
+          scale: [1, 1, 0.95, 1.02, 1, 1, 1],
         }}
         transition={{
           duration: CYCLE,
-          times: [0, 0.78, 0.8, 0.82, 0.84, 0.86, 0.95, 1],
+          times: [0, GEN_CLICK, GEN_CLICK + 0.02, GEN_CLICK + 0.04, GEN_CLICK + 0.05, 0.95, 1],
           repeat: Infinity,
         }}
       >
@@ -70,7 +87,7 @@ export function StepStyleAnimation() {
           animate={{ opacity: [1, 1, 0, 0, 1] }}
           transition={{
             duration: CYCLE,
-            times: [0, 0.84, 0.86, 0.94, 0.97],
+            times: [0, GEN_CLICK + 0.03, GEN_CLICK + 0.04, 0.92, 0.96],
             repeat: Infinity,
           }}
         >
@@ -81,7 +98,7 @@ export function StepStyleAnimation() {
           animate={{ opacity: [0, 0, 1, 1, 0] }}
           transition={{
             duration: CYCLE,
-            times: [0, 0.86, 0.87, 0.93, 0.96],
+            times: [0, GEN_CLICK + 0.04, GEN_CLICK + 0.05, 0.92, 0.95],
             repeat: Infinity,
           }}
         >
@@ -96,18 +113,37 @@ export function StepStyleAnimation() {
         </motion.div>
       </motion.div>
 
-      {/* Cursor */}
+      {/* Cursor — moves: idle → 中国墨 → 像素 → 卡通 → button → hide */}
       <motion.div
         className="absolute w-4 h-4 z-10 pointer-events-none"
         animate={{
-          // idle → 中国墨(col4,row1) → hold → 像素(col2,row1) → hold → 卡通(col1,row2) → button → hide
-          left: ["50%", "82%", "82%", "30%", "30%", "12%", "12%", "50%", "50%"],
-          top: ["15%", "22%", "22%", "22%", "22%", "50%", "50%", "88%", "88%"],
+          left: [
+            "50%",          // 0: idle start
+            POS[3][0],      // 0.14: arrive at 中国墨
+            POS[3][0],      // 0.30: hold
+            POS[1][0],      // 0.37: arrive at 像素
+            POS[1][0],      // 0.52: hold
+            POS[4][0],      // 0.59: arrive at 卡通
+            POS[4][0],      // 0.72: hold
+            BTN_POS[0],     // 0.79: arrive at button
+            BTN_POS[0],     // 0.85: hold
+          ],
+          top: [
+            "15%",
+            POS[3][1],
+            POS[3][1],
+            POS[1][1],
+            POS[1][1],
+            POS[4][1],
+            POS[4][1],
+            BTN_POS[1],
+            BTN_POS[1],
+          ],
           opacity: [0, 0.9, 0.9, 0.9, 0.9, 0.9, 0.9, 0.9, 0],
         }}
         transition={{
           duration: CYCLE,
-          times: [0, 0.12, 0.2, 0.38, 0.45, 0.62, 0.7, 0.78, 0.86],
+          times: [0, 0.14, 0.30, 0.37, 0.52, 0.59, 0.72, 0.79, 0.88],
           repeat: Infinity,
         }}
       >
@@ -119,46 +155,20 @@ export function StepStyleAnimation() {
   );
 }
 
+// Selection windows (border+check visible):
+// 中国墨(3): CLICK1(0.16) → CLICK2(0.39)
+// 像素(1):   CLICK2(0.39) → CLICK3(0.61)
+// 卡通(4):   CLICK3(0.61) → 0.96
+
 function StyleThumbnail({ index, style }: { index: number; style: { src: string; label: string } }) {
-  // Each selection has: appear time, hold, disappear time
-  // SEL1 中国墨(3): selected 0.15-0.40
-  // SEL2 像素(1): selected 0.40-0.65
-  // SEL3 卡通(4): selected 0.65-0.97
-  const isSel1 = index === SEL1;
-  const isSel2 = index === SEL2;
-  const isSel3 = index === SEL3;
+  let selectStart: number | null = null;
+  let selectEnd: number | null = null;
 
-  let borderAnim: { opacity: number[] } | undefined;
-  let borderTimes: number[] | undefined;
-  let checkAnim: { opacity: number[]; scale: number[] } | undefined;
-  let checkTimes: number[] | undefined;
-  let labelAnim: { color: string[] } | undefined;
-  let labelTimes: number[] | undefined;
+  if (index === 3) { selectStart = CLICK1; selectEnd = CLICK2; }
+  else if (index === 1) { selectStart = CLICK2; selectEnd = CLICK3; }
+  else if (index === 4) { selectStart = CLICK3; selectEnd = 0.96; }
 
-  if (isSel1) {
-    borderAnim = { opacity: [0, 0, 1, 1, 0, 0] };
-    borderTimes = [0, 0.13, 0.16, 0.38, 0.41, 1];
-    checkAnim = { opacity: [0, 0, 1, 1, 0, 0], scale: [0.5, 0.5, 1, 1, 0.5, 0.5] };
-    checkTimes = [0, 0.14, 0.18, 0.36, 0.4, 1];
-    labelAnim = { color: ["hsl(var(--body-desc))", "hsl(var(--body-desc))", "hsl(var(--primary))", "hsl(var(--primary))", "hsl(var(--body-desc))", "hsl(var(--body-desc))"] };
-    labelTimes = [0, 0.14, 0.18, 0.36, 0.4, 1];
-  } else if (isSel2) {
-    borderAnim = { opacity: [0, 0, 1, 1, 0, 0] };
-    borderTimes = [0, 0.39, 0.42, 0.63, 0.66, 1];
-    checkAnim = { opacity: [0, 0, 1, 1, 0, 0], scale: [0.5, 0.5, 1, 1, 0.5, 0.5] };
-    checkTimes = [0, 0.4, 0.44, 0.61, 0.65, 1];
-    labelAnim = { color: ["hsl(var(--body-desc))", "hsl(var(--body-desc))", "hsl(var(--primary))", "hsl(var(--primary))", "hsl(var(--body-desc))", "hsl(var(--body-desc))"] };
-    labelTimes = [0, 0.4, 0.44, 0.61, 0.65, 1];
-  } else if (isSel3) {
-    borderAnim = { opacity: [0, 0, 1, 1, 0] };
-    borderTimes = [0, 0.64, 0.67, 0.95, 0.98];
-    checkAnim = { opacity: [0, 0, 1, 1, 0], scale: [0.5, 0.5, 1, 1, 0.5] };
-    checkTimes = [0, 0.65, 0.69, 0.93, 0.97];
-    labelAnim = { color: ["hsl(var(--body-desc))", "hsl(var(--body-desc))", "hsl(var(--primary))", "hsl(var(--primary))", "hsl(var(--body-desc))"] };
-    labelTimes = [0, 0.65, 0.69, 0.93, 0.97];
-  }
-
-  const hasAnim = isSel1 || isSel2 || isSel3;
+  const hasSelection = selectStart !== null;
 
   return (
     <div className="relative flex flex-col items-center gap-[2px] min-h-0">
@@ -171,19 +181,30 @@ function StyleThumbnail({ index, style }: { index: number; style: { src: string;
           draggable={false}
         />
 
-        {hasAnim && borderAnim && (
+        {hasSelection && (
           <motion.div
             className="absolute inset-0 rounded-[0.2em] border-2 border-primary pointer-events-none"
-            animate={borderAnim}
-            transition={{ duration: CYCLE, times: borderTimes, repeat: Infinity }}
+            animate={{ opacity: [0, 0, 1, 1, 0, 0] }}
+            transition={{
+              duration: CYCLE,
+              times: [0, selectStart!, selectStart! + 0.01, selectEnd! - 0.01, selectEnd!, 1],
+              repeat: Infinity,
+            }}
           />
         )}
 
-        {hasAnim && checkAnim && (
+        {hasSelection && (
           <motion.div
             className="absolute top-[5%] left-[5%] w-[22%] aspect-square rounded-full bg-primary flex items-center justify-center"
-            animate={checkAnim}
-            transition={{ duration: CYCLE, times: checkTimes, repeat: Infinity }}
+            animate={{
+              opacity: [0, 0, 1, 1, 0, 0],
+              scale: [0.5, 0.5, 1, 1, 0.5, 0.5],
+            }}
+            transition={{
+              duration: CYCLE,
+              times: [0, selectStart!, selectStart! + 0.02, selectEnd! - 0.02, selectEnd!, 1],
+              repeat: Infinity,
+            }}
           >
             <Check className="w-[55%] h-[55%] text-primary-foreground" />
           </motion.div>
@@ -192,8 +213,25 @@ function StyleThumbnail({ index, style }: { index: number; style: { src: string;
       <motion.span
         className="text-[0.32em] leading-tight truncate w-full text-center"
         style={{ color: "hsl(var(--body-desc))" }}
-        animate={labelAnim || {}}
-        transition={labelTimes ? { duration: CYCLE, times: labelTimes, repeat: Infinity } : undefined}
+        animate={
+          hasSelection
+            ? {
+                color: [
+                  "hsl(var(--body-desc))",
+                  "hsl(var(--body-desc))",
+                  "hsl(var(--primary))",
+                  "hsl(var(--primary))",
+                  "hsl(var(--body-desc))",
+                  "hsl(var(--body-desc))",
+                ],
+              }
+            : {}
+        }
+        transition={
+          hasSelection
+            ? { duration: CYCLE, times: [0, selectStart!, selectStart! + 0.02, selectEnd! - 0.02, selectEnd!, 1], repeat: Infinity }
+            : undefined
+        }
       >
         {style.label}
       </motion.span>
