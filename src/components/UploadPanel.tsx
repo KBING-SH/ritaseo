@@ -1,6 +1,7 @@
 import { useState, useRef, useCallback } from "react";
 import { ImageIcon, Check, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { cn } from "@/lib/utils";
 
 import styleGhibli from "@/assets/style-ghibli.png";
@@ -11,6 +12,17 @@ import styleCartoon from "@/assets/style-cartoon.png";
 import styleClassic from "@/assets/style-classic.png";
 import styleCute from "@/assets/style-cute.png";
 import styleMinimal from "@/assets/style-minimal.png";
+
+const MODEL_OPTIONS = [
+  { value: "chatgpt-image-1", label: "ChatGPT-image-1", desc: "理解能力强，可生成带文字的图片" },
+  { value: "nano-banana-pro-direct", label: "Nano-banana pro | direct connect", desc: "覆盖更多区域和线路，适用于网络波动场景" },
+  { value: "kling-v1.5", label: "Kling V1.5", desc: "支持生成时参考面部" },
+  { value: "kling-v2", label: "Kling V2", desc: "细节丰富，非常适合精致图像" },
+  { value: "nano-banana-pro", label: "Nano-banana pro", desc: "更鲜明的色彩和更丰富的细节" },
+  { value: "flux-kontext-dev", label: "Flux.1 Kontext Dev", desc: "适合快速生成草图" },
+  { value: "flux-kontext-max", label: "Flux.1 Kontext Max", desc: "可编辑、理解力和精细度强，适用于商业用途" },
+];
+
 
 const STYLE_OPTIONS = [
   { src: styleGhibli, label: "吉卜力工作室" },
@@ -31,6 +43,7 @@ export function UploadPanel() {
   const [showSuccess, setShowSuccess] = useState(false);
   const [selectedRatio, setSelectedRatio] = useState("1:1");
   const [selectedStyle, setSelectedStyle] = useState(0);
+  const [selectedModel, setSelectedModel] = useState("chatgpt-image-1");
   const fileRef = useRef<HTMLInputElement>(null);
 
   const handleDragOver = (e: React.DragEvent) => { e.preventDefault(); setIsDragging(true); };
@@ -67,11 +80,21 @@ export function UploadPanel() {
       {/* Model selector */}
       <div>
         <label className="text-xs text-body-desc mb-1 block">切换模型</label>
-        <div className="flex items-center gap-2 px-3 py-2 rounded-lg border border-border/50 bg-card-alt text-title cursor-pointer">
-          <Sparkle />
-          <span className="font-medium flex-1">ChatGPT-image-1</span>
-          <ChevDown />
-        </div>
+        <Select value={selectedModel} onValueChange={setSelectedModel}>
+          <SelectTrigger className="rounded-lg border-border/50 bg-card-alt text-title h-auto py-2">
+            <SelectValue />
+          </SelectTrigger>
+          <SelectContent className="max-h-72">
+            {MODEL_OPTIONS.map((m) => (
+              <SelectItem key={m.value} value={m.value} className="py-2">
+                <div className="flex flex-col gap-0.5">
+                  <span className="font-medium text-sm">{m.label}</span>
+                  <span className="text-xs text-muted-foreground">{m.desc}</span>
+                </div>
+              </SelectItem>
+            ))}
+          </SelectContent>
+        </Select>
       </div>
 
       {/* Upload area */}
@@ -197,22 +220,6 @@ export function UploadPanel() {
         生成 ⚡10
       </Button>
     </div>
-  );
-}
-
-function ChevDown() {
-  return (
-    <svg width="12" height="12" viewBox="0 0 12 12" fill="none" className="text-body-desc">
-      <path d="M3 4.5L6 7.5L9 4.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-    </svg>
-  );
-}
-
-function Sparkle() {
-  return (
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" className="text-primary">
-      <path d="M12 2L14.5 9.5L22 12L14.5 14.5L12 22L9.5 14.5L2 12L9.5 9.5L12 2Z" fill="currentColor"/>
-    </svg>
   );
 }
 
