@@ -1,6 +1,6 @@
-import stepUpload from "@/assets/step-upload.png";
 import stepGenerate from "@/assets/step-generate.webp";
 import stepDownload from "@/assets/step-download.webp";
+import { StepUploadAnimation } from "./StepUploadAnimation";
 
 const steps = [
   {
@@ -8,7 +8,8 @@ const steps = [
     title: "上传照片",
     desc: "将人像、宠物或风景照片拖拽到上传区域，支持 PNG、JPG、WEBP 等主流格式，文件大小不超过 32MB。",
     color: "from-primary to-theme1",
-    image: stepUpload,
+    image: null as string | null,
+    component: StepUploadAnimation,
   },
   {
     step: "02",
@@ -39,12 +40,16 @@ export function HowItWorks() {
               className="group rounded-xl border border-border/50 bg-card shadow-soft hover:shadow-soft-lg transition-all duration-200 cursor-pointer hover:bg-hover-bg overflow-hidden"
             >
               <div className="w-full aspect-[8/5] overflow-hidden bg-muted/30">
-                <img
-                  src={s.image}
-                  alt={s.title}
-                  className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300"
-                  loading="lazy"
-                />
+                {'component' in s && s.component ? (
+                  <s.component />
+                ) : (
+                  <img
+                    src={s.image!}
+                    alt={s.title}
+                    className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300"
+                    loading="lazy"
+                  />
+                )}
               </div>
               <div className="p-6">
                 <div className={`inline-flex items-center justify-center h-10 w-10 rounded-xl bg-gradient-to-br ${s.color} mb-4`}>
