@@ -7,7 +7,10 @@ import { WhyChoose } from "@/components/WhyChoose";
 import { FAQSection } from "@/components/FAQSection";
 import { ContentSections } from "@/components/ContentSections";
 import { ToolkitSection } from "@/components/ToolkitSection";
-import { Badge } from "@/components/ui/badge";
+import { LoginDialog } from "@/components/LoginDialog";
+import { useAuth } from "@/hooks/use-auth";
+import { Button } from "@/components/ui/button";
+import { LogIn, LogOut } from "lucide-react";
 
 const Index = () => {
   return (
