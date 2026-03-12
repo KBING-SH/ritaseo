@@ -162,43 +162,26 @@ export function UploadPanel() {
       {/* Style selector */}
       <div>
         <label className="text-xs text-body-desc mb-1 block">选择以下风格</label>
-        <div className="grid grid-cols-2 sm:[grid-template-columns:repeat(4,1fr)] gap-x-3 gap-y-2">
+        {/* Desktop: 4-col grid */}
+        <div className="hidden sm:grid grid-cols-4 gap-x-3 gap-y-2">
           {STYLE_OPTIONS.map((style, i) => (
-            <div
-              key={i}
-              onClick={() => setSelectedStyle(i)}
-              className="relative cursor-pointer flex flex-col items-center gap-1"
-            >
-              <div className={cn(
-                "relative w-full aspect-[4/3] rounded-lg overflow-hidden border-2 transition-all",
-                selectedStyle === i ? "border-primary shadow-sm" : "border-transparent hover:border-primary/40"
-              )}>
-                <img
-                  src={style.src}
-                  alt={style.label}
-                  className="w-full h-full object-cover"
-                  style={{
-                    imageRendering: "auto",
-                    transform: "translateZ(0)",
-                    backfaceVisibility: "hidden",
-                    filter: "blur(0.15px)",
-                  }}
-                  loading="eager"
-                  decoding="async"
-                  draggable={false}
-                />
-                {selectedStyle === i && (
-                  <div className="absolute top-1 left-1 w-4 h-4 rounded-full bg-primary flex items-center justify-center">
-                    <Check className="w-2.5 h-2.5 text-primary-foreground" />
-                  </div>
-                )}
-              </div>
-              <span className={cn(
-                "text-[10px] leading-tight truncate w-full text-center",
-                selectedStyle === i ? "text-primary font-medium" : "text-body-desc"
-              )}>{style.label}</span>
-            </div>
+            <StyleCard key={i} style={style} index={i} selected={selectedStyle === i} onSelect={setSelectedStyle} />
           ))}
+        </div>
+        {/* Mobile: horizontal scroll, 2 rows */}
+        <div className="sm:hidden overflow-x-auto scrollbar-hide -mx-1 px-1">
+          <div className="flex flex-col gap-2 w-max">
+            <div className="flex gap-2">
+              {STYLE_OPTIONS.slice(0, 4).map((style, i) => (
+                <StyleCard key={i} style={style} index={i} selected={selectedStyle === i} onSelect={setSelectedStyle} mobile />
+              ))}
+            </div>
+            <div className="flex gap-2">
+              {STYLE_OPTIONS.slice(4).map((style, i) => (
+                <StyleCard key={i + 4} style={style} index={i + 4} selected={selectedStyle === i + 4} onSelect={setSelectedStyle} mobile />
+              ))}
+            </div>
+          </div>
         </div>
       </div>
 
