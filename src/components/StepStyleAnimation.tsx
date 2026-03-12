@@ -102,12 +102,14 @@ export function StepStyleAnimation({ active = true }: { active?: boolean }) {
         break;
     }
 
+    if (!active) return;
+
     const timer = setTimeout(() => {
       setStepIndex((prev) => (prev + 1) % SCRIPT.length);
     }, entry.duration);
 
     return () => clearTimeout(timer);
-  }, [stepIndex]);
+  }, [stepIndex, active]);
 
   return (
     <div className="w-full h-full bg-card relative overflow-hidden flex flex-col p-[5%] gap-[2%]">
