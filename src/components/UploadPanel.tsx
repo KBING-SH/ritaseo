@@ -68,11 +68,21 @@ export function UploadPanel() {
       {/* Model selector */}
       <div>
         <label className="text-xs text-body-desc mb-1 block">切换模型</label>
-        <div className="flex items-center gap-2 px-3 py-2 rounded-lg border border-border/50 bg-card-alt text-title cursor-pointer">
-          <Sparkle />
-          <span className="font-medium flex-1">ChatGPT-image-1</span>
-          <ChevDown />
-        </div>
+        <Select value={selectedModel} onValueChange={setSelectedModel}>
+          <SelectTrigger className="rounded-lg border-border/50 bg-card-alt text-title h-auto py-2">
+            <SelectValue />
+          </SelectTrigger>
+          <SelectContent className="max-h-72">
+            {MODEL_OPTIONS.map((m) => (
+              <SelectItem key={m.value} value={m.value} className="py-2">
+                <div className="flex flex-col gap-0.5">
+                  <span className="font-medium text-sm">{m.label}</span>
+                  <span className="text-xs text-muted-foreground">{m.desc}</span>
+                </div>
+              </SelectItem>
+            ))}
+          </SelectContent>
+        </Select>
       </div>
 
       {/* Upload area */}
