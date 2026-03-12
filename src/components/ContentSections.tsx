@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import { User, PawPrint, Mountain, ChevronRight } from "lucide-react";
 import sectionPortrait from "@/assets/section-portrait.webp";
 import sectionPet from "@/assets/section-pet.webp";
@@ -43,57 +44,103 @@ const sections = [
 ];
 
 export function ContentSections() {
-  return (
-    <section className="py-16 md:py-24">
-      <div className="px-4 md:px-12 lg:px-20 max-w-[1600px] mx-auto space-y-24 md:space-y-36">
-        {sections.map((section, i) => (
-          <article
-            key={i}
-            className={`flex flex-col md:flex-row items-center gap-8 md:gap-[80px] ${
-              section.imageFirst ? "" : "md:flex-row-reverse"
-            }`}
-          >
-            {/* Image */}
-            <div className="w-full md:w-[55%] shrink-0">
-              <div className="rounded-2xl overflow-hidden shadow-lg border border-border/50">
-                <img
-                  src={section.image}
-                  alt={section.imageAlt}
-                  className="w-full h-auto object-cover"
-                  loading="lazy"
-                />
-              </div>
-            </div>
+  const [showTooltip, setShowTooltip] = useState(false);
 
-            {/* Text */}
-            <div className="w-full md:w-[45%] space-y-5">
-              <div className="space-y-3">
-                <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/10 text-primary text-xs font-semibold tracking-wide uppercase">
-                  <section.icon className="h-3.5 w-3.5" />
-                  <span>{section.subtitle}</span>
+  const handleTryNow = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+    setTimeout(() => {
+      setShowTooltip(true);
+      setTimeout(() => setShowTooltip(false), 2000);
+    }, 500);
+  };
+
+  return (
+    <>
+      {/* Floating tooltip on upload area */}
+      {showTooltip && (
+        <div className="fixed z-50 pointer-events-none" style={{ top: 0, left: 0, width: '100%', height: '100%' }}>
+          <UploadTooltip />
+        </div>
+      )}
+      <section className="py-16 md:py-24">
+        <div className="px-4 md:px-12 lg:px-20 max-w-[1600px] mx-auto space-y-24 md:space-y-36">
+          {sections.map((section, i) => (
+            <article
+              key={i}
+              className={`flex flex-col md:flex-row items-center gap-8 md:gap-[80px] ${
+                section.imageFirst ? "" : "md:flex-row-reverse"
+              }`}
+            >
+              {/* Image */}
+              <div className="w-full md:w-[55%] shrink-0">
+                <div className="rounded-2xl overflow-hidden shadow-lg border border-border/50">
+                  <img
+                    src={section.image}
+                    alt={section.imageAlt}
+                    className="w-full h-auto object-cover"
+                    loading="lazy"
+                  />
                 </div>
-                <h2 className="text-2xl md:text-3xl lg:text-4xl font-extrabold text-title leading-tight tracking-tight">
-                  {section.title}
-                </h2>
               </div>
-              <div className="space-y-4">
-                {section.paragraphs.map((p, j) => (
-                  <p key={j} className="text-base md:text-lg text-body2 leading-relaxed">
-                    {p}
-                  </p>
-                ))}
+
+              {/* Text */}
+              <div className="w-full md:w-[45%] space-y-5">
+                <div className="space-y-3">
+                  <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/10 text-primary text-xs font-semibold tracking-wide uppercase">
+                    <section.icon className="h-3.5 w-3.5" />
+                    <span>{section.subtitle}</span>
+                  </div>
+                  <h2 className="text-2xl md:text-3xl lg:text-4xl font-extrabold text-title leading-tight tracking-tight">
+                    {section.title}
+                  </h2>
+                </div>
+                <div className="space-y-4">
+                  {section.paragraphs.map((p, j) => (
+                    <p key={j} className="text-base md:text-lg text-body2 leading-relaxed">
+                      {p}
+                    </p>
+                  ))}
+                </div>
+                <div className="pt-2">
+                  <button
+                    onClick={handleTryNow}
+                    className="inline-flex items-center gap-2 px-8 py-3 rounded-full border-2 border-transparent bg-clip-padding text-base font-semibold text-title transition-all hover:shadow-lg group relative overflow-hidden"
+                  >
+                    <span className="absolute inset-0 rounded-full border-2 border-transparent" style={{ background: 'linear-gradient(white, white) padding-box, linear-gradient(135deg, hsl(var(--primary)), hsl(var(--accent))) border-box', borderColor: 'transparent' }} />
+                    <span className="relative z-10">立即试用</span>
+                    <ChevronRight className="relative z-10 h-4 w-4 text-body-desc group-hover:translate-x-0.5 transition-transform" />
+                  </button>
+                </div>
               </div>
-              <div className="pt-2">
-                <button className="inline-flex items-center gap-2 px-8 py-3 rounded-full border-2 border-transparent bg-clip-padding text-base font-semibold text-title transition-all hover:shadow-lg group relative overflow-hidden">
-                  <span className="absolute inset-0 rounded-full border-2 border-transparent" style={{ background: 'linear-gradient(white, white) padding-box, linear-gradient(135deg, hsl(var(--primary)), hsl(var(--accent))) border-box', borderColor: 'transparent' }} />
-                  <span className="relative z-10">立即试用</span>
-                  <ChevronRight className="relative z-10 h-4 w-4 text-body-desc group-hover:translate-x-0.5 transition-transform" />
-                </button>
-              </div>
-            </div>
-          </article>
-        ))}
+            </article>
+          ))}
+        </div>
+      </section>
+    </>
+  );
+}
+
+function UploadTooltip() {
+  const [pos, setPos] = useState<{ top: number; left: number; width: number } | null>(null);
+
+  useEffect(() => {
+    const el = document.getElementById("upload-drop-zone");
+    if (el) {
+      const rect = el.getBoundingClientRect();
+      setPos({ top: rect.top + window.scrollY, left: rect.left, width: rect.width });
+    }
+  }, []);
+
+  if (!pos) return null;
+
+  return (
+    <div
+      className="absolute animate-fade-in flex items-center justify-center"
+      style={{ top: pos.top, left: pos.left, width: pos.width, height: 96 }}
+    >
+      <div className="bg-primary text-primary-foreground px-4 py-2 rounded-lg shadow-lg text-sm font-medium animate-bounce">
+        👆 在此插入图片，马上改图
       </div>
-    </section>
+    </div>
   );
 }
