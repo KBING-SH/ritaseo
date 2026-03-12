@@ -12,7 +12,6 @@ import styleCartoon from "@/assets/style-cartoon.webp";
 import styleClassic from "@/assets/style-classic.webp";
 import styleCute from "@/assets/style-cute.webp";
 import styleMinimal from "@/assets/style-minimal.webp";
-import styleChibi from "@/assets/style-chibi.webp";
 
 const STYLE_OPTIONS = [
   { src: styleGhibli, label: "吉卜力工作室" },
@@ -23,7 +22,6 @@ const STYLE_OPTIONS = [
   { src: styleClassic, label: "经典的" },
   { src: styleCute, label: "可爱" },
   { src: styleMinimal, label: "极简主义者" },
-  { src: styleChibi, label: "奇比" },
 ];
 
 const RATIOS = ["1:1", "2:3", "3:2"];
