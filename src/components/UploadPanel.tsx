@@ -82,28 +82,27 @@ export function UploadPanel() {
       {/* Style selector */}
       <div>
         <label className="text-xs text-body-desc mb-1 block">选择以下风格</label>
-        <div className="grid grid-cols-3 gap-2">
+        <div className="flex gap-2 flex-wrap">
           {STYLE_OPTIONS.map((style, i) => (
             <button
               key={i}
               onClick={() => setSelectedStyle(i)}
-              className="flex flex-col items-center gap-1 group cursor-pointer"
+              className="relative cursor-pointer"
+              title={style.label}
             >
-              <div className={cn(
-                "relative w-full aspect-square rounded-lg overflow-hidden border-2 transition-all",
-                selectedStyle === i ? "border-primary" : "border-transparent hover:border-primary/40"
-              )}>
-                <img src={style.src} alt={style.label} className="w-full h-full object-cover" />
-                {selectedStyle === i && (
-                  <div className="absolute top-1 left-1 w-5 h-5 rounded-full bg-primary flex items-center justify-center">
-                    <Check className="w-3 h-3 text-primary-foreground" />
-                  </div>
+              <img
+                src={style.src}
+                alt={style.label}
+                className={cn(
+                  "w-11 h-11 rounded-lg object-cover transition-all",
+                  selectedStyle === i ? "ring-2 ring-primary" : "hover:ring-2 hover:ring-primary/50"
                 )}
-              </div>
-              <span className={cn(
-                "text-[10px] leading-tight",
-                selectedStyle === i ? "text-primary font-medium" : "text-body-desc"
-              )}>{style.label}</span>
+              />
+              {selectedStyle === i && (
+                <div className="absolute top-0.5 left-0.5 w-4 h-4 rounded-full bg-primary flex items-center justify-center">
+                  <Check className="w-2.5 h-2.5 text-primary-foreground" />
+                </div>
+              )}
             </button>
           ))}
         </div>
