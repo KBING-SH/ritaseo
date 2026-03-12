@@ -1,6 +1,6 @@
-import stepUpload from "@/assets/step-upload.png";
 import stepGenerate from "@/assets/step-generate.webp";
 import stepDownload from "@/assets/step-download.webp";
+import { StepUploadAnimation } from "./StepUploadAnimation";
 
 const steps = [
   {
@@ -8,7 +8,8 @@ const steps = [
     title: "上传照片",
     desc: "将人像、宠物或风景照片拖拽到上传区域，支持 PNG、JPG、WEBP 等主流格式，文件大小不超过 32MB。",
     color: "from-primary to-theme1",
-    image: stepUpload,
+    image: null as string | null,
+    component: StepUploadAnimation,
   },
   {
     step: "02",
