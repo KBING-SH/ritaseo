@@ -13,15 +13,32 @@ import { Button } from "@/components/ui/button";
 import { LogIn, LogOut } from "lucide-react";
 
 const Index = () => {
+  const [loginOpen, setLoginOpen] = useState(false);
+  const { user, signOut } = useAuth();
+
   return (
     <div className="min-h-screen bg-background transition-colors duration-300">
+      <LoginDialog open={loginOpen} onOpenChange={setLoginOpen} />
       {/* Top bar */}
       <header className="sticky top-0 z-40 h-16 border-b border-border/50 bg-background/80 backdrop-blur-md flex items-center justify-between px-4 md:px-8">
         <div className="flex items-center gap-2.5">
           <div className="h-8 w-8 rounded-lg gradient-primary" />
           <span className="text-base font-bold text-title">rita</span>
         </div>
-        <ThemeToggle />
+        <div className="flex items-center gap-2">
+          {user ? (
+            <Button variant="ghost" size="sm" onClick={signOut} className="gap-1.5 text-body2">
+              <LogOut className="h-4 w-4" />
+              退出
+            </Button>
+          ) : (
+            <Button variant="outline" size="sm" onClick={() => setLoginOpen(true)} className="gap-1.5">
+              <LogIn className="h-4 w-4" />
+              登录
+            </Button>
+          )}
+          <ThemeToggle />
+        </div>
       </header>
 
       {/* Scrollable content */}
