@@ -7,6 +7,7 @@ import { WhyChoose } from "@/components/WhyChoose";
 import { FAQSection } from "@/components/FAQSection";
 import { ContentSections } from "@/components/ContentSections";
 import { ToolkitSection } from "@/components/ToolkitSection";
+import { TestimonialsSection } from "@/components/TestimonialsSection";
 import { Badge } from "@/components/ui/badge";
 
 const Index = () => {
