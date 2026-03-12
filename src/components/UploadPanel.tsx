@@ -94,7 +94,7 @@ export function UploadPanel() {
               )}
             >
               {selectedStyle === s.name && (
-                <div className="absolute top-1 left-1 z-10 w-5 h-5 rounded-md bg-primary flex items-center justify-center">
+                <div className="absolute top-0.5 left-0.5 z-10 w-4 h-4 rounded bg-primary flex items-center justify-center">
                   <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 6L5 8.5L9.5 3.5" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg>
                 </div>
               )}
