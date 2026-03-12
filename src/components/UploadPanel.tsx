@@ -160,28 +160,13 @@ export function UploadPanel() {
       </div>
 
       {/* Style selector */}
+      {/* Style selector */}
       <div>
         <label className="text-xs text-body-desc mb-1 block">选择以下风格</label>
-        {/* Desktop: 4-col grid */}
-        <div className="hidden sm:grid grid-cols-4 gap-x-3 gap-y-2">
+        <div className="grid grid-cols-4 gap-x-3 gap-y-2">
           {STYLE_OPTIONS.map((style, i) => (
             <StyleCard key={i} style={style} index={i} selected={selectedStyle === i} onSelect={setSelectedStyle} />
           ))}
-        </div>
-        {/* Mobile: horizontal scroll, 2 rows */}
-        <div className="sm:hidden overflow-x-auto scrollbar-hide -mx-1 px-1">
-          <div className="flex flex-col gap-2 w-max">
-            <div className="flex gap-2">
-              {STYLE_OPTIONS.slice(0, 4).map((style, i) => (
-                <StyleCard key={i} style={style} index={i} selected={selectedStyle === i} onSelect={setSelectedStyle} mobile />
-              ))}
-            </div>
-            <div className="flex gap-2">
-              {STYLE_OPTIONS.slice(4).map((style, i) => (
-                <StyleCard key={i + 4} style={style} index={i + 4} selected={selectedStyle === i + 4} onSelect={setSelectedStyle} mobile />
-              ))}
-            </div>
-          </div>
         </div>
       </div>
 
