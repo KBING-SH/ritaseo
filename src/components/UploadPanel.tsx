@@ -104,10 +104,12 @@ export function UploadPanel() {
                 </div>
               )}
               {/* Hover enlarged preview */}
-              <div className="pointer-events-none absolute bottom-full left-1/2 -translate-x-1/2 mb-2 z-50 opacity-0 group-hover:opacity-100 transition-opacity duration-200">
-                <div className="rounded-xl overflow-hidden shadow-lg border border-border/50 bg-card p-1">
-                  <img src={style.src} alt={style.label} className="w-36 h-36 rounded-lg object-cover" />
-                  <p className="text-[10px] text-center text-body-desc mt-1">{style.label}</p>
+              {/* Hover enlarged preview - appears to the left of the panel */}
+              <div className="pointer-events-none fixed z-[100] opacity-0 group-hover:opacity-100 transition-opacity duration-200"
+                style={{ transform: 'translate(-110%, -50%)', top: '50%', left: '0' }}>
+                <div className="rounded-xl overflow-hidden shadow-lg border border-border/50 bg-card p-1.5">
+                  <img src={style.src} alt={style.label} className="w-40 h-40 rounded-lg object-cover" />
+                  <p className="text-xs text-center text-body-desc mt-1 font-medium">{style.label}</p>
                 </div>
               </div>
             </div>
