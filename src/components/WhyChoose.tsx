@@ -1,15 +1,17 @@
 import { Zap, Paintbrush, Download, Wand2 } from "lucide-react";
+import { MODEL_LABELS } from "@/components/UploadPanel";
 
 const features = [
   {
     icon: Zap,
-    title: "免费使用，无需注册",
-    desc: "一键上传图片即可开始 AI 卡通化转换，无需登录、无需付费、零门槛使用。",
+    title: "免费使用",
+    desc: "一键上传图片即可开始 AI 卡通化转换，无需付费、零门槛使用。",
   },
   {
     icon: Wand2,
     title: "多模型驱动",
-    desc: "支持 GPT-4o、Midjourney 等多种先进 AI 模型，确保生成质量和风格多样性。",
+    descFn: (models: string[]) =>
+      `支持 ${models.join("、")} 等多种先进 AI 模型，确保生成质量和风格多样性。`,
   },
   {
     icon: Download,
@@ -24,6 +26,8 @@ const features = [
 ];
 
 export function WhyChoose() {
+  const modelNames = MODEL_LABELS.slice(0, 3);
+
   return (
     <section className="py-16 md:py-24 bg-card-alt">
       <div className="container px-4 md:px-8">
@@ -37,11 +41,15 @@ export function WhyChoose() {
               key={f.title}
               className="rounded-xl bg-card border border-border/50 p-6 shadow-soft hover:shadow-soft-lg transition-all duration-200 cursor-pointer hover:bg-hover-bg"
             >
-              <div className="h-11 w-11 rounded-xl gradient-primary flex items-center justify-center mb-4">
-                <f.icon className="h-5 w-5 text-white" />
+              <div className="flex items-center gap-3 mb-3">
+                <div className="h-11 w-11 rounded-xl gradient-primary flex items-center justify-center shrink-0">
+                  <f.icon className="h-5 w-5 text-white" />
+                </div>
+                <h3 className="text-base font-semibold text-title">{f.title}</h3>
               </div>
-              <h3 className="text-base font-semibold text-title mb-2">{f.title}</h3>
-              <p className="text-sm text-body-desc leading-relaxed">{f.desc}</p>
+              <p className="text-sm text-body-desc leading-relaxed">
+                {f.descFn ? f.descFn(modelNames) : f.desc}
+              </p>
             </div>
           ))}
         </div>
