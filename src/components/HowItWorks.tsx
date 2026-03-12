@@ -1,6 +1,6 @@
-import stepDownload from "@/assets/step-download.webp";
 import { StepUploadAnimation } from "./StepUploadAnimation";
 import { StepStyleAnimation } from "./StepStyleAnimation";
+import { StepDownloadAnimation } from "./StepDownloadAnimation";
 
 const steps = [
   {
@@ -24,7 +24,8 @@ const steps = [
     title: "下载或分享",
     desc: "生成完成后可直接下载高清无水印卡通图片，或一键分享到社交媒体。",
     color: "from-theme2 to-primary",
-    image: stepDownload,
+    image: null as string | null,
+    component: StepDownloadAnimation,
   },
 ];
 
