@@ -54,7 +54,7 @@ export function ContentSections() {
             }`}
           >
             {/* Image */}
-            <div className="w-full md:w-5/12 shrink-0">
+            <div className="w-full md:w-[55%] shrink-0">
               <div className="rounded-2xl overflow-hidden shadow-lg border border-border/50">
                 <img
                   src={section.image}
