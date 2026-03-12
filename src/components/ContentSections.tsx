@@ -1,7 +1,10 @@
+import { useState } from "react";
 import { User, PawPrint, Mountain, ChevronRight } from "lucide-react";
 import sectionPortrait from "@/assets/section-portrait.webp";
 import sectionPet from "@/assets/section-pet.webp";
 import sectionLandscape from "@/assets/section-landscape.webp";
+import { LoginDialog } from "@/components/LoginDialog";
+import { useAuth } from "@/hooks/use-auth";
 
 const sections = [
   {
@@ -43,7 +46,20 @@ const sections = [
 ];
 
 export function ContentSections() {
+  const [loginOpen, setLoginOpen] = useState(false);
+  const { user } = useAuth();
+
+  const handleTryClick = () => {
+    if (user) {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    } else {
+      setLoginOpen(true);
+    }
+  };
+
   return (
+    <>
+    <LoginDialog open={loginOpen} onOpenChange={setLoginOpen} />
     <section className="py-16 md:py-24">
       <div className="px-4 md:px-12 lg:px-20 max-w-[1600px] mx-auto space-y-24 md:space-y-36">
         {sections.map((section, i) => (
@@ -84,7 +100,7 @@ export function ContentSections() {
                 ))}
               </div>
               <div className="pt-2">
-                <button className="inline-flex items-center gap-2 px-8 py-3 rounded-full border-2 border-transparent bg-clip-padding text-base font-semibold text-title transition-all hover:shadow-lg group relative overflow-hidden">
+                <button onClick={handleTryClick} className="inline-flex items-center gap-2 px-8 py-3 rounded-full border-2 border-transparent bg-clip-padding text-base font-semibold text-title transition-all hover:shadow-lg group relative overflow-hidden">
                   <span className="absolute inset-0 rounded-full border-2 border-transparent" style={{ background: 'linear-gradient(white, white) padding-box, linear-gradient(135deg, hsl(var(--primary)), hsl(var(--accent))) border-box', borderColor: 'transparent' }} />
                   <span className="relative z-10">立即试用</span>
                   <ChevronRight className="relative z-10 h-4 w-4 text-body-desc group-hover:translate-x-0.5 transition-transform" />
@@ -95,5 +111,6 @@ export function ContentSections() {
         ))}
       </div>
     </section>
+    </>
   );
 }
