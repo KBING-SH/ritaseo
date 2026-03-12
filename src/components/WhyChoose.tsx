@@ -4,7 +4,7 @@ import { MODEL_LABELS } from "@/components/UploadPanel";
 const features = [
   {
     icon: Zap,
-    title: "完全免费",
+    title: "免费使用",
     desc: "无需注册、无需付费，打开即用。上传照片一键生成卡通形象，零门槛体验 AI 创作。",
     accent: "from-[hsl(45,100%,60%)] to-[hsl(30,95%,55%)]",
     iconBg: "bg-gradient-to-br from-[hsl(45,100%,60%)] to-[hsl(30,95%,55%)]",
