@@ -220,6 +220,45 @@ export function UploadPanel() {
   );
 }
 
+function StyleCard({ style, index, selected, onSelect, mobile }: {
+  style: { src: string; label: string };
+  index: number;
+  selected: boolean;
+  onSelect: (i: number) => void;
+  mobile?: boolean;
+}) {
+  return (
+    <div
+      onClick={() => onSelect(index)}
+      className={cn("relative cursor-pointer flex flex-col items-center gap-1", mobile && "w-[72px] shrink-0")}
+    >
+      <div className={cn(
+        "relative w-full aspect-[4/3] rounded-lg overflow-hidden border-2 transition-all",
+        selected ? "border-primary shadow-sm" : "border-transparent hover:border-primary/40"
+      )}>
+        <img
+          src={style.src}
+          alt={style.label}
+          className="w-full h-full object-cover"
+          style={{ imageRendering: "auto", transform: "translateZ(0)", backfaceVisibility: "hidden", filter: "blur(0.15px)" }}
+          loading="eager"
+          decoding="async"
+          draggable={false}
+        />
+        {selected && (
+          <div className="absolute top-1 left-1 w-4 h-4 rounded-full bg-primary flex items-center justify-center">
+            <Check className="w-2.5 h-2.5 text-primary-foreground" />
+          </div>
+        )}
+      </div>
+      <span className={cn(
+        "text-[10px] leading-tight truncate w-full text-center",
+        selected ? "text-primary font-medium" : "text-body-desc"
+      )}>{style.label}</span>
+    </div>
+  );
+}
+
 function RatioIcon({ ratio, active }: { ratio: string; active: boolean }) {
   const color = active ? "hsl(var(--primary))" : "hsl(var(--body-desc))";
   const [w, h] = ratio === "1:1" ? [10, 10] : ratio === "2:3" ? [8, 12] : [12, 8];
