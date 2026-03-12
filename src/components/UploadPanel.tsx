@@ -41,7 +41,7 @@ export function UploadPanel() {
   const handleDrop = (e: React.DragEvent) => { e.preventDefault(); setIsDragging(false); };
 
   return (
-    <TooltipProvider delayDuration={200}>
+    <TooltipProvider delayDuration={0} skipDelayDuration={0}>
     <div className="rounded-xl border border-border/50 bg-card p-4 shadow-soft h-full flex flex-col gap-3 text-sm overflow-y-auto max-h-[calc(100vh-12rem)]">
       {/* Model selector */}
       <div>
