@@ -109,13 +109,13 @@ export function ArtGallery() {
 }
 
 function UploadTooltip() {
-  const [pos, setPos] = useState<{ top: number; left: number; width: number } | null>(null);
+  const [pos, setPos] = useState<{ top: number; left: number; width: number; height: number } | null>(null);
 
   useEffect(() => {
     const el = document.getElementById("upload-drop-zone");
     if (el) {
       const rect = el.getBoundingClientRect();
-      setPos({ top: rect.top + window.scrollY, left: rect.left, width: rect.width });
+      setPos({ top: rect.top + window.scrollY, left: rect.left, width: rect.width, height: rect.height });
     }
   }, []);
 
@@ -124,7 +124,7 @@ function UploadTooltip() {
   return (
     <div
       className="absolute animate-fade-in flex items-center justify-center"
-      style={{ top: pos.top, left: pos.left, width: pos.width, height: 96 }}
+      style={{ top: pos.top, left: pos.left, width: pos.width, height: pos.height }}
     >
       <div className="bg-primary text-primary-foreground px-4 py-2 rounded-lg shadow-lg text-sm font-medium animate-bounce">
         👆 在此插入图片，马上改图
