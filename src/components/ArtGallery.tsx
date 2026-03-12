@@ -33,11 +33,11 @@ const row1 = galleryImages.slice(0, 7);
 const row2 = galleryImages.slice(7);
 
 function GalleryRow({ items, reverse = false }: { items: typeof galleryImages; reverse?: boolean }) {
-  const doubled = [...items, ...items];
+  const repeated = [...items, ...items, ...items, ...items];
   return (
     <div className="overflow-hidden" style={{ maskImage: "linear-gradient(to right, transparent, black 8%, black 92%, transparent)" }}>
       <div className={`flex gap-4 w-max ${reverse ? "animate-marquee-reverse" : "animate-marquee"}`}>
-        {doubled.map((img, i) => (
+        {repeated.map((img, i) => (
           <div
             key={i}
             className="shrink-0 w-[200px] md:w-[240px] group"
