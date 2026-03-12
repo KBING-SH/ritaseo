@@ -108,6 +108,7 @@ export function UploadPanel() {
       {/* Upload area */}
       <div>
         <label className="text-xs text-body-desc mb-1 block">上传参考图片</label>
+        <div id="upload-drop-zone" className="relative">
         {uploadedImage ? (
           <div className="relative rounded-lg border border-border/50 overflow-hidden animate-fade-in">
             <img src={uploadedImage} alt="uploaded" className="w-full h-24 object-cover" />
