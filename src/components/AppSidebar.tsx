@@ -68,7 +68,7 @@ export function AppSidebar({ mobileOpen, onClose }: AppSidebarProps) {
       <div className="flex items-center justify-between px-4 h-16 border-b border-border/50">
         <div className="flex items-center gap-2.5">
           <div className="h-8 w-8 rounded-lg gradient-primary" />
-          <span className="text-base font-bold text-title">rita</span>
+          <span className="text-base font-bold text-title">Rita</span>
         </div>
         <button onClick={onClose} className="lg:hidden p-1 rounded-md hover:bg-hover-bg transition-colors">
           <X className="h-5 w-5 text-body2" />

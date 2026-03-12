@@ -59,7 +59,7 @@ const Index = () => {
         {/* Footer */}
         <footer className="border-t border-border/50 py-8">
           <div className="max-w-4xl mx-auto px-4 md:px-8 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-body-desc">
-            <span>© 2026 rita. All rights reserved.</span>
+            <span>© 2026 Rita. All rights reserved.</span>
             <div className="flex gap-6">
               {["隐私政策", "服务条款", "联系我们"].map((item) => (
                 <a key={item} href="#" className="hover:text-title transition-colors cursor-pointer">

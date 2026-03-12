@@ -31,7 +31,7 @@ export function WhyChoose() {
   return (
     <section className="py-16 md:py-24 bg-card-alt">
       <div className="container px-4 md:px-8">
-        <h2 className="text-2xl md:text-3xl font-bold text-title text-center mb-3">为什么选择 rita</h2>
+        <h2 className="text-2xl md:text-3xl font-bold text-title text-center mb-3">为什么选择 Rita</h2>
         <p className="text-body-desc text-center mb-12 max-w-xl mx-auto">
           强大的 AI 能力 + 极简操作体验，让每个人都能轻松创作卡通形象
         </p>
