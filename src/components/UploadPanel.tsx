@@ -65,7 +65,7 @@ export function UploadPanel() {
 
       {/* Examples */}
       <div>
-        <label className="text-xs text-body-desc mb-1 block">试试以下示例</label>
+        <label className="text-xs text-body-desc mb-1 block">选择以下风格</label>
         <div className="flex gap-2">
           {EXAMPLE_IMAGES.map((src, i) => (
             <img key={i} src={src} alt={`示例${i + 1}`} className="w-11 h-11 rounded-lg object-cover cursor-pointer hover:ring-2 hover:ring-primary/50 transition-all" />
