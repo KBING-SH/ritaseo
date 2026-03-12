@@ -77,20 +77,40 @@ export function UploadPanel() {
       {/* Upload area */}
       <div>
         <label className="text-xs text-body-desc mb-1 block">上传参考图片</label>
-        <div
-          onDragOver={handleDragOver}
-          onDragLeave={handleDragLeave}
-          onDrop={handleDrop}
-          onClick={() => fileRef.current?.click()}
-          className={cn(
-            "h-24 rounded-lg border-2 border-dashed flex flex-col items-center justify-center gap-1 transition-all cursor-pointer",
-            isDragging ? "border-primary bg-primary/5" : "border-border hover:border-primary/40 hover:bg-hover-bg"
-          )}
-        >
-          <ImageIcon className="h-5 w-5 text-body-desc" />
-          <p className="text-xs text-body-desc">单击或拖动图像即可上传</p>
-          <input ref={fileRef} type="file" accept="image/*" className="hidden" />
-        </div>
+        {uploadedImage ? (
+          <div className="relative rounded-lg border border-border/50 overflow-hidden animate-fade-in">
+            <img src={uploadedImage} alt="uploaded" className="w-full h-24 object-cover" />
+            <button
+              onClick={removeImage}
+              className="absolute top-1.5 right-1.5 w-5 h-5 rounded-full bg-foreground/60 hover:bg-foreground/80 flex items-center justify-center transition-colors"
+            >
+              <X className="w-3 h-3 text-background" />
+            </button>
+          </div>
+        ) : (
+          <div
+            onDragOver={handleDragOver}
+            onDragLeave={handleDragLeave}
+            onDrop={handleDrop}
+            onClick={() => fileRef.current?.click()}
+            className={cn(
+              "h-24 rounded-lg border-2 border-dashed flex flex-col items-center justify-center gap-1 transition-all cursor-pointer",
+              isDragging ? "border-primary bg-primary/5" : "border-border hover:border-primary/40 hover:bg-hover-bg"
+            )}
+          >
+            <ImageIcon className="h-5 w-5 text-body-desc" />
+            <p className="text-xs text-body-desc">单击或拖动图像即可上传</p>
+          </div>
+        )}
+        <input ref={fileRef} type="file" accept="image/*" className="hidden" onChange={handleInputChange} />
+        {showSuccess && (
+          <div className="flex items-center gap-1.5 mt-1.5 animate-fade-in">
+            <div className="w-4 h-4 rounded-full bg-primary/20 flex items-center justify-center">
+              <Check className="w-2.5 h-2.5 text-primary" />
+            </div>
+            <span className="text-xs text-primary">上传成功</span>
+          </div>
+        )}
       </div>
 
       {/* Prompt */}
