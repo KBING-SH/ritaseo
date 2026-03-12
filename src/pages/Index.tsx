@@ -26,13 +26,13 @@ const Index = () => {
       {/* Scrollable content */}
       <main>
         {/* Hero + Workspace: Full first screen */}
-        <section className="h-[calc(100vh-4rem)] flex flex-col items-center justify-start px-4 md:px-8 pt-[6vh] overflow-hidden">
-          <div className="max-w-[1540px] mx-auto w-full flex flex-col gap-6">
+        <section className="min-h-[calc(100vh-4rem)] lg:h-[calc(100vh-4rem)] flex flex-col items-center justify-start px-4 md:px-8 pt-4 md:pt-[6vh] overflow-hidden">
+          <div className="max-w-[1540px] mx-auto w-full flex flex-col gap-3 md:gap-6">
             <div className="text-center">
-              <h1 className="text-3xl md:text-5xl font-bold text-primary leading-tight mb-4">
+              <h1 className="text-2xl md:text-5xl font-bold text-primary leading-tight mb-2 md:mb-4">
                 免费在线照片转卡通
               </h1>
-              <p className="text-muted-foreground text-base md:text-lg max-w-2xl mx-auto">
+              <p className="text-muted-foreground text-sm md:text-lg max-w-2xl mx-auto">
                 上传你的照片，Rita AI 将为你生成多种风格的趣味卡通形象。支持人像、宠物、风景等多种照片类型，操作简单，几秒完成。
               </p>
             </div>
