@@ -17,7 +17,6 @@ import styleCartoon from "@/assets/style-cartoon.png";
 import styleClassic from "@/assets/style-classic.png";
 import styleCute from "@/assets/style-cute.png";
 import styleMinimal from "@/assets/style-minimal.png";
-import demoPortrait from "@/assets/demo-portrait.png";
 
 const MODEL_OPTIONS = [
   { value: "chatgpt-image-1", label: "ChatGPT-image-1", desc: "理解能力强，可生成带文字的图片", logo: logoChatgpt },
@@ -43,7 +42,7 @@ const STYLE_OPTIONS = [
   { src: styleMinimal, label: "极简" },
 ];
 
-const ORIGINAL_THUMB = demoPortrait;
+
 
 const RATIOS = ["1:1", "2:3", "3:2"];
 
@@ -160,7 +159,7 @@ export function UploadPanel() {
         />
       </div>
 
-      {/* Style selector - before/after pairs */}
+      {/* Style selector */}
       <div>
         <label className="text-xs text-body-desc mb-1 block">选择以下风格</label>
         <div className="grid grid-cols-2 sm:[grid-template-columns:repeat(4,1fr)] gap-x-3 gap-y-2">
@@ -174,25 +173,20 @@ export function UploadPanel() {
                 "relative w-full aspect-[4/3] rounded-lg overflow-hidden border-2 transition-all",
                 selectedStyle === i ? "border-primary shadow-sm" : "border-transparent hover:border-primary/40"
               )}>
-                {/* Before/After side by side */}
-                <div className="flex w-full h-full">
-                  <img
-                    src={ORIGINAL_THUMB}
-                    alt="原图"
-                    className="w-1/2 h-full object-cover object-center"
-                    style={{ transform: "translateZ(0)" }}
-                    loading="eager"
-                    draggable={false}
-                  />
-                  <img
-                    src={style.src}
-                    alt={style.label}
-                    className="w-1/2 h-full object-cover object-center"
-                    style={{ transform: "translateZ(0)", filter: "blur(0.15px)" }}
-                    loading="eager"
-                    draggable={false}
-                  />
-                </div>
+                <img
+                  src={style.src}
+                  alt={style.label}
+                  className="w-full h-full object-cover"
+                  style={{
+                    imageRendering: "auto",
+                    transform: "translateZ(0)",
+                    backfaceVisibility: "hidden",
+                    filter: "blur(0.15px)",
+                  }}
+                  loading="eager"
+                  decoding="async"
+                  draggable={false}
+                />
                 {selectedStyle === i && (
                   <div className="absolute top-1 left-1 w-4 h-4 rounded-full bg-primary flex items-center justify-center">
                     <Check className="w-2.5 h-2.5 text-primary-foreground" />
