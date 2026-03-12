@@ -38,11 +38,11 @@ export function HowItWorks() {
               key={s.step}
               className="group rounded-xl border border-border/50 bg-card shadow-soft hover:shadow-soft-lg transition-all duration-200 cursor-pointer hover:bg-hover-bg overflow-hidden"
             >
-              <div className="w-full aspect-[8/5] overflow-hidden">
+              <div className="w-full aspect-[8/5] overflow-hidden bg-muted/30">
                 <img
                   src={s.image}
                   alt={s.title}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                  className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300"
                   loading="lazy"
                 />
               </div>
