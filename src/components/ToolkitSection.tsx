@@ -1,26 +1,29 @@
-import { Image, Scaling, Eraser, Droplets, Sparkles, Clapperboard, Palette, Frame, Wand2, ImagePlus } from "lucide-react";
-import styleGhibli from "@/assets/style-ghibli.webp";
-import stylePixel from "@/assets/style-pixel.webp";
-import styleCute from "@/assets/style-cute.webp";
-import styleInk from "@/assets/style-ink.webp";
-import styleCartoon from "@/assets/style-cartoon.webp";
-import sectionPortrait from "@/assets/section-portrait.webp";
-import sectionPet from "@/assets/section-pet.webp";
-import afterImg from "@/assets/after.webp";
-import beforeImg from "@/assets/before.webp";
-import styleRealistic from "@/assets/style-realistic.webp";
+import toolImagegen from "@/assets/tool-imagegen.webp";
+import toolUpscale from "@/assets/tool-upscale.png";
+import toolBgRemover from "@/assets/tool-bg-remover.png";
+import toolWatermark from "@/assets/tool-watermark.png";
+import toolAnime from "@/assets/tool-anime.png";
+import toolPixel from "@/assets/tool-pixel.webp";
+import toolGhibli from "@/assets/tool-ghibli.webp";
+import toolAvatar from "@/assets/tool-avatar.webp";
+import toolOutpaint from "@/assets/tool-outpaint.webp";
+import toolVideo from "@/assets/tool-video.webp";
+import toolRestore from "@/assets/tool-restore.webp";
+import toolPixar from "@/assets/tool-pixar.webp";
 
 const tools = [
-  { name: "AI 图片生成器", desc: "文本描述生成高质量图片", gradient: "from-[hsl(210,80%,75%)] to-[hsl(240,70%,80%)]", image: styleCartoon },
-  { name: "AI 画质提升工具", desc: "低清图片一键放大增强", gradient: "from-[hsl(270,60%,78%)] to-[hsl(300,55%,75%)]", image: sectionPortrait },
-  { name: "AI 背景移除工具", desc: "智能抠图去除背景", gradient: "from-[hsl(350,65%,75%)] to-[hsl(20,70%,78%)]", image: sectionPet },
-  { name: "AI 水印去除工具", desc: "一键去除图片水印", gradient: "from-[hsl(260,55%,78%)] to-[hsl(210,65%,80%)]", image: beforeImg },
-  { name: "AI 动漫形象生成器", desc: "生成专属动漫头像", gradient: "from-[hsl(200,70%,78%)] to-[hsl(170,60%,75%)]", image: styleCute },
-  { name: "AI 像素艺术生成器", desc: "照片转像素风格艺术", gradient: "from-[hsl(15,75%,78%)] to-[hsl(40,70%,75%)]", image: stylePixel },
-  { name: "AI 吉卜力风格转换", desc: "照片转吉卜力动画风格", gradient: "from-[hsl(45,65%,78%)] to-[hsl(80,55%,75%)]", image: styleGhibli },
-  { name: "AI 头像生成器", desc: "智能生成个性头像", gradient: "from-[hsl(170,60%,75%)] to-[hsl(200,65%,78%)]", image: styleRealistic },
-  { name: "AI 扩图工具", desc: "智能扩展图片画面", gradient: "from-[hsl(30,70%,78%)] to-[hsl(50,65%,75%)]", image: afterImg },
-  { name: "AI 老照片修复", desc: "修复模糊老旧照片", gradient: "from-[hsl(180,55%,75%)] to-[hsl(210,60%,80%)]", image: styleInk },
+  { name: "AI 图片生成器", gradient: "from-[hsl(210,80%,82%)] to-[hsl(240,65%,85%)]", image: toolImagegen },
+  { name: "AI 画质提升工具", gradient: "from-[hsl(270,55%,82%)] to-[hsl(300,50%,80%)]", image: toolUpscale },
+  { name: "AI 背景移除工具", gradient: "from-[hsl(350,60%,82%)] to-[hsl(15,65%,82%)]", image: toolBgRemover },
+  { name: "AI 水印去除工具", gradient: "from-[hsl(260,50%,82%)] to-[hsl(290,55%,80%)]", image: toolWatermark },
+  { name: "AI 动漫形象生成器", gradient: "from-[hsl(180,55%,80%)] to-[hsl(200,60%,82%)]", image: toolAnime },
+  { name: "AI 像素艺术生成器", gradient: "from-[hsl(15,70%,82%)] to-[hsl(40,65%,80%)]", image: toolPixel },
+  { name: "AI 吉卜力风格转换", gradient: "from-[hsl(45,60%,82%)] to-[hsl(80,50%,80%)]", image: toolGhibli },
+  { name: "AI 头像生成器", gradient: "from-[hsl(170,55%,80%)] to-[hsl(200,60%,82%)]", image: toolAvatar },
+  { name: "AI 扩图工具", gradient: "from-[hsl(30,65%,82%)] to-[hsl(50,60%,80%)]", image: toolOutpaint },
+  { name: "AI 视频生成器", gradient: "from-[hsl(200,65%,82%)] to-[hsl(230,55%,85%)]", image: toolVideo },
+  { name: "AI 皮克斯风格生成器", gradient: "from-[hsl(300,45%,82%)] to-[hsl(330,50%,80%)]", image: toolPixar },
+  { name: "AI 老照片修复", gradient: "from-[hsl(150,50%,80%)] to-[hsl(180,55%,82%)]", image: toolRestore },
 ];
 
 export function ToolkitSection() {
@@ -48,7 +51,7 @@ export function ToolkitSection() {
               className="shrink-0 w-[220px] md:w-[260px] cursor-pointer group"
             >
               <div className={`rounded-2xl bg-gradient-to-br ${t.gradient} p-5 pb-0 overflow-hidden transition-all duration-300 group-hover:-translate-y-1 group-hover:shadow-soft-lg`}>
-                <h3 className="text-sm font-bold text-title mb-6">{t.name}</h3>
+                <h3 className="text-sm font-bold text-title mb-4">{t.name}</h3>
                 <div className="flex justify-center">
                   <img
                     src={t.image}
