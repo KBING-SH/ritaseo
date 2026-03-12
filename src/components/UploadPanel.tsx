@@ -43,6 +43,8 @@ const STYLE_OPTIONS = [
   { src: styleMinimal, label: "极简" },
 ];
 
+const ORIGINAL_THUMB = demoPortrait;
+
 const RATIOS = ["1:1", "2:3", "3:2"];
 
 export function UploadPanel() {
