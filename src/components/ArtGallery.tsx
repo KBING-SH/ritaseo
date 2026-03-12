@@ -60,28 +60,75 @@ function GalleryRow({ items, reverse = false }: { items: typeof galleryImages; r
 }
 
 export function ArtGallery() {
+  const [showTooltip, setShowTooltip] = useState(false);
+
+  const handleTryNow = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+    const checkScrollDone = () => {
+      if (window.scrollY <= 5) {
+        setShowTooltip(true);
+        setTimeout(() => setShowTooltip(false), 3000);
+      } else {
+        requestAnimationFrame(checkScrollDone);
+      }
+    };
+    requestAnimationFrame(checkScrollDone);
+  };
+
   return (
-    <section className="py-16 md:py-24 overflow-hidden">
-      <div className="container px-4 md:px-8 mb-10">
-        <h2 className="text-2xl md:text-3xl font-bold text-title text-center mb-3">
-          在线创意画廊
-        </h2>
-        <p className="text-body-desc text-center">
-          探索 Rita AI 生成的多种风格卡通作品
-        </p>
+    <>
+      {showTooltip && (
+        <div className="fixed z-50 pointer-events-none" style={{ top: 0, left: 0, width: '100%', height: '100%' }}>
+          <UploadTooltip />
+        </div>
+      )}
+      <section className="py-16 md:py-24 overflow-hidden">
+        <div className="container px-4 md:px-8 mb-10">
+          <h2 className="text-2xl md:text-3xl font-bold text-title text-center mb-3">
+            在线创意画廊
+          </h2>
+          <p className="text-body-desc text-center">
+            探索 Rita AI 生成的多种风格卡通作品
+          </p>
+        </div>
+        <div className="space-y-5">
+          <GalleryRow items={row1} />
+          <GalleryRow items={row2} reverse />
+        </div>
+        <div className="text-center mt-8">
+          <button
+            onClick={handleTryNow}
+            className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full gradient-primary text-primary-foreground text-sm font-medium hover:opacity-90 transition-opacity shadow-soft"
+          >
+            ✨ 立即体验 AI 创作
+          </button>
+        </div>
+      </section>
+    </>
+  );
+}
+
+function UploadTooltip() {
+  const [pos, setPos] = useState<{ top: number; left: number; width: number } | null>(null);
+
+  useState(() => {
+    const el = document.getElementById("upload-drop-zone");
+    if (el) {
+      const rect = el.getBoundingClientRect();
+      setPos({ top: rect.top + window.scrollY, left: rect.left, width: rect.width });
+    }
+  });
+
+  if (!pos) return null;
+
+  return (
+    <div
+      className="absolute animate-fade-in flex items-center justify-center"
+      style={{ top: pos.top, left: pos.left, width: pos.width, height: 96 }}
+    >
+      <div className="bg-primary text-primary-foreground px-4 py-2 rounded-lg shadow-lg text-sm font-medium animate-bounce">
+        👆 在此插入图片，马上改图
       </div>
-      <div className="space-y-5">
-        <GalleryRow items={row1} />
-        <GalleryRow items={row2} reverse />
-      </div>
-      <div className="text-center mt-8">
-        <button
-          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-          className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full gradient-primary text-primary-foreground text-sm font-medium hover:opacity-90 transition-opacity shadow-soft"
-        >
-          ✨ 立即体验 AI 创作
-        </button>
-      </div>
-    </section>
+    </div>
   );
 }
