@@ -82,7 +82,7 @@ export function UploadPanel() {
       {/* Style selector */}
       <div>
         <label className="text-xs text-body-desc mb-1 block">选择以下风格</label>
-        <div className="flex gap-2 flex-wrap">
+        <div className="grid grid-cols-4 gap-2">
           {STYLE_OPTIONS.map((style, i) => (
             <Tooltip key={i}>
               <TooltipTrigger asChild>
