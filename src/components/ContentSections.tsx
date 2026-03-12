@@ -92,7 +92,7 @@ export function ContentSections() {
               {/* Text */}
               <div className="w-full md:w-[45%] space-y-5">
                 <div className="space-y-3">
-                  <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/10 text-primary text-xs font-semibold tracking-wide uppercase">
+                  <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-secondary text-secondary-foreground text-xs font-semibold tracking-wide">
                     <section.icon className="h-3.5 w-3.5" />
                     <span>{section.subtitle}</span>
                   </div>

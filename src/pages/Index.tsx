@@ -76,7 +76,7 @@ const Index = () => {
                   <div className="h-9 w-9 rounded-xl gradient-primary" />
                   <span className="text-xl font-bold text-title italic">Rita</span>
                 </div>
-                <p className="text-xs text-primary leading-snug">Rita让创意和效率人人可得</p>
+                <p className="text-xs text-muted-foreground leading-snug">Rita让创意和效率人人可得</p>
               </div>
 
               {/* Product columns */}
