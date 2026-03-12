@@ -31,25 +31,25 @@ const stats = [
 export function SocialProofBar() {
   return (
     <div className="border-y border-border/50 bg-card-alt/50 backdrop-blur-sm">
-      <div className="max-w-5xl mx-auto px-4 py-5 flex flex-wrap items-center justify-center gap-6 md:gap-0 md:divide-x md:divide-border/50">
+      <div className="max-w-5xl mx-auto px-4 py-3 md:py-5 grid grid-cols-2 gap-3 md:flex md:flex-wrap md:items-center md:justify-center md:gap-0 md:divide-x md:divide-border/50">
         {stats.map((s, i) => (
           <div
             key={i}
-            className="flex items-center gap-3 px-6 md:px-10"
+            className="flex items-center gap-2 md:gap-3 px-2 md:px-10"
           >
-            <s.icon className={`h-5 w-5 ${s.color} shrink-0`} />
+            <s.icon className={`h-4 w-4 md:h-5 md:w-5 ${s.color} shrink-0`} />
             <div>
-              <div className="flex items-center gap-1.5">
-                <span className="text-base md:text-lg font-bold text-title">{s.value}</span>
+              <div className="flex items-center gap-1">
+                <span className="text-sm md:text-lg font-bold text-title">{s.value}</span>
                 {s.stars && (
                   <div className="flex">
                     {[...Array(5)].map((_, j) => (
-                      <Star key={j} className="h-3.5 w-3.5 fill-yellow-400 text-yellow-400" />
+                      <Star key={j} className="h-3 w-3 fill-yellow-400 text-yellow-400" />
                     ))}
                   </div>
                 )}
               </div>
-              <span className="text-xs text-body-desc">{s.label}</span>
+              <span className="text-[10px] md:text-xs text-body-desc">{s.label}</span>
             </div>
           </div>
         ))}
