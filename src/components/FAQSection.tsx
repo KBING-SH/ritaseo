@@ -1,39 +1,39 @@
 import { useState } from "react";
-import { ChevronDown } from "lucide-react";
+import { Plus, Minus } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const faqs = [
   {
-    q: "Rita 可以将哪些类型的照片转换成卡通风格？",
-    a: "Rita 可以将人像照片、宠物照片和风景照片转换成卡通风格。",
+    q: "Rita 支持哪些类型的照片进行卡通化？",
+    a: "Rita 支持人像自拍、宠物照片和风景照片的卡通化转换。无论是正面特写还是全身照、萌宠写真还是户外风景，都可以上传处理。建议使用光线充足、主体清晰的照片以获得最佳效果。",
   },
   {
-    q: "使用 Rita 进行人像卡通化后，生成的头像适合用来做什么？",
-    a: "生成的人像卡通头像适合用作社交平台发布的个性头像。",
+    q: "Rita 是免费的吗？需要注册账号吗？",
+    a: "Rita 目前提供免费使用，无需注册或登录。打开页面即可直接上传照片并生成卡通图片，零门槛体验。",
   },
   {
-    q: "Rita 生成的宠物卡通图像适合用于哪些用途？",
-    a: "宠物卡通图像适合用作社交头像，或在社交平台发布，吸引更多关注。",
+    q: "生成的卡通图片有水印吗？可以商用吗？",
+    a: "生成的卡通图片高清无水印，可直接下载使用。你可以将其用于社交头像、内容创作、个人项目等场景。如需商业用途，请确保你拥有原始照片的使用权。",
   },
   {
-    q: "Rita 的风景卡通化功能可以处理什么类型的照片？",
-    a: "可以处理自然风景图像，转换成充满童趣的卡通风格画面。",
+    q: "支持哪些图片格式和大小？",
+    a: "Rita 支持 PNG、JPG、JPEG、WEBP 等主流图片格式，文件大小不超过 32MB。大多数手机和相机拍摄的照片都可以直接使用。",
   },
   {
-    q: "使用 Rita 卡通化照片的操作复杂吗？",
-    a: "操作简单，无需复杂调整，几次点击即可完成卡通效果转换。",
+    q: "有多少种卡通风格可以选择？",
+    a: "目前提供吉卜力、像素、写实艺术、水墨、卡通片、复古时尚、可爱、极简等 8 种以上风格。你还可以通过自定义提示词，进一步调整卡通效果的细节和氛围。",
   },
   {
-    q: "Rita 生成的卡通人像是否自然生动？",
-    a: "Rita 会自动识别人脸特征，使卡通头像自然生动。",
+    q: "我的照片安全吗？会被保存吗？",
+    a: "你的照片仅用于生成卡通图片，处理完成后会自动清除，不会被存储或分享给第三方。我们重视每一位用户的隐私安全。",
   },
   {
-    q: "卡通化的风景照片可以用于哪些场景？",
-    a: "风景卡通化照片适合内容创作和作为送给朋友家人的特别礼物。",
+    q: "生成速度快吗？一般需要多长时间？",
+    a: "通常几秒钟内即可完成卡通化转换。实际速度取决于所选模型和图片复杂度，大多数情况下等待时间不超过 10 秒。",
   },
   {
-    q: "Rita 卡通化宠物照片的体验如何？",
-    a: "Rita 提供简单便捷的体验，用户上传宠物照片后即可生成专属的卡通形象。",
+    q: "可以同时选择多种风格对比效果吗？",
+    a: "目前每次生成需选择一种风格。你可以多次上传同一张照片、切换不同风格，快速对比找到最满意的效果。",
   },
 ];
 
@@ -42,39 +42,76 @@ export function FAQSection() {
 
   return (
     <section className="py-16 md:py-24">
-      <div className="container px-4 md:px-8 max-w-3xl">
-        <h2 className="text-2xl md:text-3xl font-bold text-title text-center mb-3">常见问题</h2>
-        <p className="text-body-desc text-center mb-12">了解更多关于 Rita 照片卡通化的信息</p>
-        <div className="space-y-3">
-          {faqs.map((faq, i) => (
-            <div
-              key={i}
-              className="rounded-xl border border-border/50 bg-card shadow-soft overflow-hidden"
-            >
-              <button
-                onClick={() => setOpenIndex(openIndex === i ? null : i)}
-                className="w-full flex items-center justify-between px-5 py-4 text-left cursor-pointer hover:bg-hover-bg transition-colors"
-              >
-                <span className="text-sm font-medium text-title">{faq.q}</span>
-                <ChevronDown
-                  className={cn(
-                    "h-4 w-4 text-body-desc shrink-0 ml-4 transition-transform duration-200",
-                    openIndex === i && "rotate-180"
-                  )}
-                />
-              </button>
+      <div className="container px-4 md:px-8 max-w-4xl">
+        {/* Header */}
+        <div className="text-center mb-14">
+          <span className="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary text-xs font-medium mb-4">
+            FAQ
+          </span>
+          <h2 className="text-2xl md:text-3xl font-bold text-title mb-3">
+            常见问题
+          </h2>
+          <p className="text-body-desc max-w-lg mx-auto">
+            了解更多关于 Rita 照片卡通化的功能与使用细节
+          </p>
+        </div>
+
+        {/* Two-column layout on desktop */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          {faqs.map((faq, i) => {
+            const isOpen = openIndex === i;
+            return (
               <div
+                key={i}
                 className={cn(
-                  "grid transition-all duration-200 ease-out",
-                  openIndex === i ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
+                  "rounded-2xl border transition-all duration-300 overflow-hidden",
+                  isOpen
+                    ? "border-primary/30 bg-primary/[0.03] shadow-soft-lg"
+                    : "border-border/50 bg-card shadow-soft hover:border-border"
                 )}
               >
-                <div className="overflow-hidden">
-                  <p className="px-5 pb-4 text-sm text-body-desc leading-relaxed">{faq.a}</p>
+                <button
+                  onClick={() => setOpenIndex(isOpen ? null : i)}
+                  className="w-full flex items-start gap-3 px-5 py-4 text-left cursor-pointer group"
+                >
+                  <div
+                    className={cn(
+                      "mt-0.5 h-6 w-6 rounded-lg flex items-center justify-center shrink-0 transition-all duration-300",
+                      isOpen
+                        ? "bg-primary text-white"
+                        : "bg-muted text-body-desc group-hover:bg-primary/10 group-hover:text-primary"
+                    )}
+                  >
+                    {isOpen ? (
+                      <Minus className="h-3.5 w-3.5" strokeWidth={2.5} />
+                    ) : (
+                      <Plus className="h-3.5 w-3.5" strokeWidth={2.5} />
+                    )}
+                  </div>
+                  <span
+                    className={cn(
+                      "text-sm font-medium leading-relaxed transition-colors",
+                      isOpen ? "text-primary" : "text-title"
+                    )}
+                  >
+                    {faq.q}
+                  </span>
+                </button>
+                <div
+                  className={cn(
+                    "grid transition-all duration-300 ease-out",
+                    isOpen ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
+                  )}
+                >
+                  <div className="overflow-hidden">
+                    <p className="px-5 pb-5 pl-14 text-sm text-body-desc leading-relaxed">
+                      {faq.a}
+                    </p>
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>
