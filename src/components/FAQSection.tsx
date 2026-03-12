@@ -41,10 +41,10 @@ export function FAQSection() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
-    <section className="py-16 md:py-24">
+    <section className="py-10 md:py-24">
       <div className="container px-4 md:px-8 max-w-3xl">
         {/* Header */}
-        <div className="flex items-center justify-center gap-3 mb-10">
+        <div className="flex items-center justify-center gap-3 mb-6 md:mb-10">
           <div className="h-10 w-10 rounded-xl gradient-primary flex items-center justify-center shadow-md">
             <MessageCircleQuestion className="h-5 w-5 text-white" />
           </div>

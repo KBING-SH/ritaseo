@@ -68,12 +68,12 @@ export function ContentSections() {
           <UploadTooltip />
         </div>
       )}
-      <section className="py-16 md:py-24">
-        <div className="px-4 md:px-12 lg:px-20 max-w-[1600px] mx-auto space-y-24 md:space-y-36">
+      <section className="py-10 md:py-24">
+        <div className="px-4 md:px-12 lg:px-20 max-w-[1600px] mx-auto space-y-12 md:space-y-36">
           {sections.map((section, i) => (
             <article
               key={i}
-              className={`flex flex-col md:flex-row items-center gap-8 md:gap-[80px] ${
+              className={`flex flex-col md:flex-row items-center gap-5 md:gap-[80px] ${
                 section.imageFirst ? "" : "md:flex-row-reverse"
               }`}
             >

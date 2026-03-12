@@ -30,12 +30,12 @@ export function ToolkitSection() {
   const repeated = [...tools, ...tools, ...tools, ...tools];
 
   return (
-    <section className="py-16 md:py-24 bg-card-alt overflow-hidden">
-      <div className="container px-4 md:px-8 max-w-6xl mb-10">
-        <h2 className="text-2xl md:text-3xl font-bold text-title text-center mb-3">
+    <section className="py-10 md:py-24 bg-card-alt overflow-hidden">
+      <div className="container px-4 md:px-8 max-w-6xl mb-6 md:mb-10">
+        <h2 className="text-xl md:text-3xl font-bold text-title text-center mb-2 md:mb-3">
           解锁更多 AI 图像能力
         </h2>
-        <p className="text-body-desc text-center">
+        <p className="text-sm md:text-base text-body-desc text-center">
           满足您不同创作场景需求
         </p>
       </div>

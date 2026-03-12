@@ -63,20 +63,20 @@ export function WhyChoose() {
   const modelNames = MODEL_LABELS.slice(0, 3);
 
   return (
-    <section className="py-16 md:py-24 bg-card-alt">
+    <section className="py-10 md:py-24 bg-card-alt">
       <div className="container px-4 md:px-8 max-w-6xl">
-        <h2 className="text-2xl md:text-3xl font-bold text-title text-center mb-3">
+        <h2 className="text-xl md:text-3xl font-bold text-title text-center mb-2 md:mb-3">
           为什么选择 Rita
         </h2>
-        <p className="text-body-desc text-center mb-14 max-w-xl mx-auto">
+        <p className="text-sm md:text-base text-body-desc text-center mb-8 md:mb-14 max-w-xl mx-auto">
           强大的 AI 能力 + 极简操作体验，让每个人都能轻松创作卡通形象
         </p>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5">
           {features.map((f) => (
             <div
               key={f.title}
-              className="group relative rounded-2xl bg-card border border-border/40 p-6 shadow-soft hover:shadow-soft-lg transition-all duration-300 hover:-translate-y-1 overflow-hidden"
+              className="group relative rounded-2xl bg-card border border-border/40 p-4 md:p-6 shadow-soft hover:shadow-soft-lg transition-all duration-300 hover:-translate-y-1 overflow-hidden"
             >
               {/* Top accent bar */}
               <div
