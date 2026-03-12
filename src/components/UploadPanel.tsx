@@ -3,14 +3,14 @@ import { ImageIcon, Check } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
-import styleGhibli from "@/assets/style-ghibli.webp";
-import stylePixel from "@/assets/style-pixel.webp";
-import styleRealistic from "@/assets/style-realistic.webp";
-import styleInk from "@/assets/style-ink.webp";
-import styleCartoon from "@/assets/style-cartoon.webp";
-import styleClassic from "@/assets/style-classic.webp";
-import styleCute from "@/assets/style-cute.webp";
-import styleMinimal from "@/assets/style-minimal.webp";
+import styleGhibli from "@/assets/style-ghibli.png";
+import stylePixel from "@/assets/style-pixel.png";
+import styleRealistic from "@/assets/style-realistic.png";
+import styleInk from "@/assets/style-ink.png";
+import styleCartoon from "@/assets/style-cartoon.png";
+import styleClassic from "@/assets/style-classic.png";
+import styleCute from "@/assets/style-cute.png";
+import styleMinimal from "@/assets/style-minimal.png";
 
 const STYLE_OPTIONS = [
   { src: styleGhibli, label: "吉卜力工作室" },
