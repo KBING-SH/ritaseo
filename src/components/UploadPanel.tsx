@@ -109,11 +109,6 @@ export function UploadPanel() {
               )}>{style.label}</span>
             </div>
           ))}
-        </div>
-              </TooltipContent>
-            </Tooltip>
-          ))}
-        </div>
       </div>
 
       {/* Ratio */}
