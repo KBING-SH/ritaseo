@@ -1,4 +1,4 @@
-import { User, PawPrint, Mountain } from "lucide-react";
+import { User, PawPrint, Mountain, ChevronRight } from "lucide-react";
 import sectionPortrait from "@/assets/section-portrait.webp";
 import sectionPet from "@/assets/section-pet.webp";
 import sectionLandscape from "@/assets/section-landscape.webp";
@@ -82,6 +82,13 @@ export function ContentSections() {
                     {p}
                   </p>
                 ))}
+              </div>
+              <div className="pt-2">
+                <button className="inline-flex items-center gap-2 px-8 py-3 rounded-full border-2 border-transparent bg-clip-padding text-base font-semibold text-title transition-all hover:shadow-lg group relative overflow-hidden">
+                  <span className="absolute inset-0 rounded-full border-2 border-transparent" style={{ background: 'linear-gradient(white, white) padding-box, linear-gradient(135deg, hsl(var(--primary)), hsl(var(--accent))) border-box', borderColor: 'transparent' }} />
+                  <span className="relative z-10">立即试用</span>
+                  <ChevronRight className="relative z-10 h-4 w-4 text-body-desc group-hover:translate-x-0.5 transition-transform" />
+                </button>
               </div>
             </div>
           </article>
