@@ -82,36 +82,34 @@ export function UploadPanel() {
         <label className="text-xs text-body-desc mb-1 block">选择以下风格</label>
         <div className="grid grid-cols-4 gap-x-3 gap-y-2">
           {STYLE_OPTIONS.map((style, i) => (
-            <Tooltip key={i}>
-              <TooltipTrigger asChild>
-                <div
-                  onClick={() => setSelectedStyle(i)}
-                  className="relative cursor-pointer flex flex-col items-center gap-1"
-                >
-                  <div className={cn(
-                    "relative w-full aspect-[4/3] rounded-lg overflow-hidden border-2 transition-all",
-                    selectedStyle === i ? "border-primary shadow-sm" : "border-transparent hover:border-primary/40"
-                  )}>
-                    <img
-                      src={style.src}
-                      alt={style.label}
-                      className="w-full h-full object-cover"
-                    />
-                    {selectedStyle === i && (
-                      <div className="absolute top-1 left-1 w-4 h-4 rounded-full bg-primary flex items-center justify-center">
-                        <Check className="w-2.5 h-2.5 text-primary-foreground" />
-                      </div>
-                    )}
+            <div
+              key={i}
+              onClick={() => setSelectedStyle(i)}
+              className="relative cursor-pointer flex flex-col items-center gap-1"
+            >
+              <div className={cn(
+                "relative w-full aspect-[4/3] rounded-lg overflow-hidden border-2 transition-all",
+                selectedStyle === i ? "border-primary shadow-sm" : "border-transparent hover:border-primary/40"
+              )}>
+                <img
+                  src={style.src}
+                  alt={style.label}
+                  className="w-full h-full object-cover"
+                  loading="eager"
+                />
+                {selectedStyle === i && (
+                  <div className="absolute top-1 left-1 w-4 h-4 rounded-full bg-primary flex items-center justify-center">
+                    <Check className="w-2.5 h-2.5 text-primary-foreground" />
                   </div>
-                  <span className={cn(
-                    "text-[10px] leading-tight truncate w-full text-center",
-                    selectedStyle === i ? "text-primary font-medium" : "text-body-desc"
-                  )}>{style.label}</span>
-                </div>
-              </TooltipTrigger>
-              <TooltipContent side="top" align="center" sideOffset={10} className="p-1.5 rounded-xl">
-                <img src={style.src} alt={style.label} className="w-40 h-40 rounded-lg object-cover" />
-                <p className="text-xs text-center text-body-desc mt-1 font-medium">{style.label}</p>
+                )}
+              </div>
+              <span className={cn(
+                "text-[10px] leading-tight truncate w-full text-center",
+                selectedStyle === i ? "text-primary font-medium" : "text-body-desc"
+              )}>{style.label}</span>
+            </div>
+          ))}
+        </div>
               </TooltipContent>
             </Tooltip>
           ))}
