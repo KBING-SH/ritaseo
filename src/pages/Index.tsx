@@ -51,6 +51,9 @@ const Index = () => {
         {/* Why choose */}
         <WhyChoose />
 
+        {/* Testimonials */}
+        <TestimonialsSection />
+
         {/* FAQ */}
         <FAQSection />
 
