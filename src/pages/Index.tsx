@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { ThemeToggle } from "@/components/ThemeToggle";
 import { ProductFooterSection } from "@/components/ProductFooterSection";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import { StyleSelector } from "@/components/StyleSelector";
