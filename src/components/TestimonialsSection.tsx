@@ -75,19 +75,19 @@ function MarqueeRow({
     <div className="relative overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
       <div
         className={cn(
-          "flex gap-5 w-max",
+          "flex gap-3 md:gap-5 w-max",
           reverse ? "animate-marquee-reverse" : "animate-marquee"
         )}
       >
         {[...items, ...items, ...items, ...items].map((t, i) => (
           <div
             key={i}
-            className="w-[380px] shrink-0 rounded-2xl border border-border/50 bg-card p-5 shadow-soft hover:shadow-soft-lg transition-shadow duration-300"
+            className="w-[260px] md:w-[380px] shrink-0 rounded-xl md:rounded-2xl border border-border/50 bg-card p-3 md:p-5 shadow-soft hover:shadow-soft-lg transition-shadow duration-300"
           >
-            <p className="text-sm text-body2 leading-[1.75] mb-4 line-clamp-3">
+            <p className="text-xs md:text-sm text-body2 leading-relaxed md:leading-[1.75] mb-2 md:mb-4 line-clamp-3">
               "{t.content}"
             </p>
-            <div className="flex gap-0.5 mb-4">
+            <div className="flex gap-0.5 mb-2 md:mb-4">
               {Array.from({ length: 5 }).map((_, s) => (
                 <Star
                   key={s}
@@ -100,17 +100,17 @@ function MarqueeRow({
                 />
               ))}
             </div>
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-2 md:gap-3">
               <img
                 src={t.avatar}
                 alt={t.name}
-                className="h-9 w-9 rounded-full object-cover"
+                className="h-7 w-7 md:h-9 md:w-9 rounded-full object-cover"
               />
               <div>
-                <p className="text-sm font-semibold text-title leading-snug">
+                <p className="text-xs md:text-sm font-semibold text-title leading-snug">
                   {t.name}
                 </p>
-                <p className="text-xs text-body-desc">{t.role}</p>
+                <p className="text-[10px] md:text-xs text-body-desc">{t.role}</p>
               </div>
             </div>
           </div>
