@@ -107,7 +107,7 @@ export function UploadPanel() {
                   )}
                 </div>
               </TooltipTrigger>
-              <TooltipContent side="left" sideOffset={8} className="p-1.5 rounded-xl">
+              <TooltipContent side="top" align="center" sideOffset={10} className="p-1.5 rounded-xl">
                 <img src={style.src} alt={style.label} className="w-40 h-40 rounded-lg object-cover" />
                 <p className="text-xs text-center text-body-desc mt-1 font-medium">{style.label}</p>
               </TooltipContent>
