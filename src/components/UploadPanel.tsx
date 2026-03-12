@@ -85,7 +85,7 @@ export function UploadPanel() {
   };
 
   return (
-    <div className="rounded-xl border border-border/50 bg-card p-4 shadow-soft h-full flex flex-col gap-3 text-sm overflow-hidden">
+    <div className="rounded-xl border border-border/50 bg-card p-3 md:p-4 shadow-soft h-full flex flex-col gap-2 md:gap-3 text-sm overflow-hidden">
       {/* Model selector */}
       <div>
         <label className="text-xs text-body-desc mb-1 block">切换模型</label>
@@ -130,7 +130,7 @@ export function UploadPanel() {
             onDrop={handleDrop}
             onClick={() => fileRef.current?.click()}
             className={cn(
-              "h-24 rounded-lg border-2 border-dashed flex flex-col items-center justify-center gap-1 transition-all cursor-pointer",
+              "h-16 md:h-24 rounded-lg border-2 border-dashed flex flex-col items-center justify-center gap-1 transition-all cursor-pointer",
               isDragging ? "border-primary bg-primary/5" : "border-border hover:border-primary/40 hover:bg-hover-bg"
             )}
           >
@@ -155,7 +155,7 @@ export function UploadPanel() {
         <label className="text-xs text-body-desc mb-1 block">提示词</label>
         <textarea
           placeholder="请描述你的想法"
-          className="w-full h-20 rounded-lg border border-border/50 bg-card-alt px-3 py-2 text-sm text-title placeholder:text-body-desc resize-none focus:outline-none focus:ring-1 focus:ring-primary/50"
+          className="w-full h-14 md:h-20 rounded-lg border border-border/50 bg-card-alt px-3 py-2 text-sm text-title placeholder:text-body-desc resize-none focus:outline-none focus:ring-1 focus:ring-primary/50"
         />
       </div>
 
