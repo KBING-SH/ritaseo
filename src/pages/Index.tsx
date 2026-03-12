@@ -42,8 +42,14 @@ const Index = () => {
           </div>
         </section>
 
+        {/* Social Proof */}
+        <SocialProofBar />
+
         {/* How it works */}
         <HowItWorks />
+
+        {/* Art Gallery */}
+        <ArtGallery />
 
         {/* Content Sections (SEO rich text) */}
         <ContentSections />
