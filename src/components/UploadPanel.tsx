@@ -29,7 +29,7 @@ const RATIOS = ["1:1", "2:3", "3:2"];
 
 export function UploadPanel() {
   const [isDragging, setIsDragging] = useState(false);
-  const [promptOn, setPromptOn] = useState(false);
+  const [selectedStyle, setSelectedStyle] = useState("Ghibli");
   const [selectedRatio, setSelectedRatio] = useState("1:1");
   const [count, setCount] = useState(1);
   const fileRef = useRef<HTMLInputElement>(null);
