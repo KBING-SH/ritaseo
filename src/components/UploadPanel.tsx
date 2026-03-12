@@ -96,7 +96,7 @@ export function UploadPanel() {
               <SelectItem key={m.value} value={m.value} className="py-2">
                 <div className="flex items-center gap-2.5">
                   <img src={m.logo} alt="" className="w-9 h-9 rounded-lg object-contain shrink-0" />
-                  <div className="flex flex-col justify-center">
+                  <div className="flex flex-col justify-center text-left">
                     <span className="font-medium text-sm leading-snug">{m.label}</span>
                     <span className="text-xs text-muted-foreground leading-snug">{m.desc}</span>
                   </div>
