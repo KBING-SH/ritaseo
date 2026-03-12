@@ -80,21 +80,21 @@ export function UploadPanel() {
       {/* Style selector */}
       <div>
         <label className="text-xs text-body-desc mb-1 block">选择以下风格</label>
-        <div className="grid grid-cols-4 gap-x-3 gap-y-2">
+        <div className="flex flex-wrap gap-2">
           {STYLE_OPTIONS.map((style, i) => (
             <div
               key={i}
               onClick={() => setSelectedStyle(i)}
-              className="relative cursor-pointer flex flex-col items-center gap-1"
+              className="relative cursor-pointer flex flex-col items-center gap-1 w-[128px] shrink-0"
             >
               <div className={cn(
-                "relative w-full aspect-[4/3] rounded-lg overflow-hidden border-2 transition-all",
+                "relative w-[128px] h-[96px] rounded-lg overflow-hidden border-2 transition-all",
                 selectedStyle === i ? "border-primary shadow-sm" : "border-transparent hover:border-primary/40"
               )}>
                 <img
                   src={style.src}
                   alt={style.label}
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover [image-rendering:auto]"
                   loading="eager"
                 />
                 {selectedStyle === i && (
@@ -104,7 +104,7 @@ export function UploadPanel() {
                 )}
               </div>
               <span className={cn(
-                "text-[10px] leading-tight truncate w-full text-center",
+                "text-[10px] leading-tight truncate w-[128px] text-center",
                 selectedStyle === i ? "text-primary font-medium" : "text-body-desc"
               )}>{style.label}</span>
             </div>
