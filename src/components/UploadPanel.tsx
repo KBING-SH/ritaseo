@@ -4,6 +4,11 @@ import { Button } from "@/components/ui/button";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { cn } from "@/lib/utils";
 
+import logoChatgpt from "@/assets/logo-chatgpt.png";
+import logoBanana from "@/assets/logo-banana.png";
+import logoKling from "@/assets/logo-kling.png";
+import logoFlux from "@/assets/logo-flux.png";
+
 import styleGhibli from "@/assets/style-ghibli.png";
 import stylePixel from "@/assets/style-pixel.png";
 import styleRealistic from "@/assets/style-realistic.png";
