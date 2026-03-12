@@ -123,13 +123,13 @@ export function ContentSections() {
 function UploadTooltip() {
   const [pos, setPos] = useState<{ top: number; left: number; width: number } | null>(null);
 
-  useState(() => {
+  useEffect(() => {
     const el = document.getElementById("upload-drop-zone");
     if (el) {
       const rect = el.getBoundingClientRect();
-      setPos({ top: rect.top, left: rect.left, width: rect.width });
+      setPos({ top: rect.top + window.scrollY, left: rect.left, width: rect.width });
     }
-  });
+  }, []);
 
   if (!pos) return null;
 
