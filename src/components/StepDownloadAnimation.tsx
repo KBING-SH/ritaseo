@@ -98,7 +98,7 @@ export function StepDownloadAnimation() {
           transition={{ duration: 0.4 }}
         >
           <img
-            src={styleInk}
+            src={demoResult}
             alt="result"
             className="w-full h-full object-cover"
             style={{ transform: "translateZ(0)" }}
