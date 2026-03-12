@@ -43,7 +43,7 @@ const DL_POS: [number, number] = [30, 88];
 const SHARE_POS: [number, number] = [70, 88];
 const PLAT_POS: [number, number] = [62, 72];
 
-export function StepDownloadAnimation() {
+export function StepDownloadAnimation({ active = true }: { active?: boolean }) {
   const [stepIndex, setStepIndex] = useState(0);
   const [cursorPos, setCursorPos] = useState<[number, number]>([50, 50]);
   const [cursorVisible, setCursorVisible] = useState(false);
