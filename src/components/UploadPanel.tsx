@@ -170,6 +170,7 @@ export function UploadPanel() {
         生成 ⚡10
       </Button>
     </div>
+    </TooltipProvider>
   );
 }
 
