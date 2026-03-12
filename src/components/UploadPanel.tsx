@@ -92,8 +92,8 @@ export function UploadPanel() {
           <SelectContent className="max-h-72">
             {MODEL_OPTIONS.map((m) => (
               <SelectItem key={m.value} value={m.value} className="py-2">
-                <div className="flex items-start gap-2.5">
-                  <img src={m.logo} alt="" className="w-[50px] h-[50px] rounded-lg object-contain shrink-0" />
+                <div className="flex items-center gap-2.5">
+                  <img src={m.logo} alt="" className="w-9 h-9 rounded-lg object-contain shrink-0" />
                   <div className="flex flex-col gap-0.5">
                     <span className="font-medium text-sm">{m.label}</span>
                     <span className="text-xs text-muted-foreground">{m.desc}</span>
