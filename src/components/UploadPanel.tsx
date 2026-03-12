@@ -1,6 +1,7 @@
 import { useState, useRef } from "react";
 import { ImageIcon, Check } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 import { cn } from "@/lib/utils";
 
 import styleGhibli from "@/assets/style-ghibli.webp";
@@ -40,6 +41,7 @@ export function UploadPanel() {
   const handleDrop = (e: React.DragEvent) => { e.preventDefault(); setIsDragging(false); };
 
   return (
+    <TooltipProvider delayDuration={200}>
     <div className="rounded-xl border border-border/50 bg-card p-4 shadow-soft h-full flex flex-col gap-3 text-sm overflow-y-auto max-h-[calc(100vh-12rem)]">
       {/* Model selector */}
       <div>
@@ -84,35 +86,32 @@ export function UploadPanel() {
         <label className="text-xs text-body-desc mb-1 block">选择以下风格</label>
         <div className="flex gap-2 flex-wrap">
           {STYLE_OPTIONS.map((style, i) => (
-            <div
-              key={i}
-              onClick={() => setSelectedStyle(i)}
-              className="relative cursor-pointer group"
-              title={style.label}
-            >
-              <img
-                src={style.src}
-                alt={style.label}
-                className={cn(
-                  "w-11 h-11 rounded-lg object-cover transition-all",
-                  selectedStyle === i ? "ring-2 ring-primary" : "hover:ring-2 hover:ring-primary/50"
-                )}
-              />
-              {selectedStyle === i && (
-                <div className="absolute top-0.5 left-0.5 w-4 h-4 rounded-full bg-primary flex items-center justify-center">
-                  <Check className="w-2.5 h-2.5 text-primary-foreground" />
+            <Tooltip key={i}>
+              <TooltipTrigger asChild>
+                <div
+                  onClick={() => setSelectedStyle(i)}
+                  className="relative cursor-pointer"
+                >
+                  <img
+                    src={style.src}
+                    alt={style.label}
+                    className={cn(
+                      "w-11 h-11 rounded-lg object-cover transition-all",
+                      selectedStyle === i ? "ring-2 ring-primary" : "hover:ring-2 hover:ring-primary/50"
+                    )}
+                  />
+                  {selectedStyle === i && (
+                    <div className="absolute top-0.5 left-0.5 w-4 h-4 rounded-full bg-primary flex items-center justify-center">
+                      <Check className="w-2.5 h-2.5 text-primary-foreground" />
+                    </div>
+                  )}
                 </div>
-              )}
-              {/* Hover enlarged preview */}
-              {/* Hover enlarged preview - appears to the left of the panel */}
-              <div className="pointer-events-none fixed z-[100] opacity-0 group-hover:opacity-100 transition-opacity duration-200"
-                style={{ transform: 'translate(-110%, -50%)', top: '50%', left: '0' }}>
-                <div className="rounded-xl overflow-hidden shadow-lg border border-border/50 bg-card p-1.5">
-                  <img src={style.src} alt={style.label} className="w-40 h-40 rounded-lg object-cover" />
-                  <p className="text-xs text-center text-body-desc mt-1 font-medium">{style.label}</p>
-                </div>
-              </div>
-            </div>
+              </TooltipTrigger>
+              <TooltipContent side="left" sideOffset={8} className="p-1.5 rounded-xl">
+                <img src={style.src} alt={style.label} className="w-40 h-40 rounded-lg object-cover" />
+                <p className="text-xs text-center text-body-desc mt-1 font-medium">{style.label}</p>
+              </TooltipContent>
+            </Tooltip>
           ))}
         </div>
       </div>
@@ -168,6 +167,7 @@ export function UploadPanel() {
         生成 ⚡10
       </Button>
     </div>
+    </TooltipProvider>
   );
 }
 
