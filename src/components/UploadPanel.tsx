@@ -32,14 +32,14 @@ export const MODEL_LABELS = MODEL_OPTIONS.map((m) => m.label);
 
 
 const STYLE_OPTIONS = [
-  { src: styleGhibli, label: "吉卜力工作室" },
+  { src: styleGhibli, label: "吉卜力" },
   { src: stylePixel, label: "像素" },
   { src: styleRealistic, label: "写实艺术" },
-  { src: styleInk, label: "中国墨" },
+  { src: styleInk, label: "水墨" },
   { src: styleCartoon, label: "卡通片" },
-  { src: styleClassic, label: "经典的" },
+  { src: styleClassic, label: "复古时尚" },
   { src: styleCute, label: "可爱" },
-  { src: styleMinimal, label: "极简主义者" },
+  { src: styleMinimal, label: "极简" },
 ];
 
 const RATIOS = ["1:1", "2:3", "3:2"];

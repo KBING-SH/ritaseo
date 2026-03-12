@@ -15,9 +15,9 @@ const STYLES = [
   { src: styleGhibli, label: "吉卜力" },
   { src: stylePixel, label: "像素" },
   { src: styleRealistic, label: "写实" },
-  { src: styleInk, label: "中国墨" },
+  { src: styleInk, label: "水墨" },
   { src: styleCartoon, label: "卡通" },
-  { src: styleClassic, label: "经典" },
+  { src: styleClassic, label: "复古" },
   { src: styleCute, label: "可爱" },
   { src: styleMinimal, label: "极简" },
 ];
