@@ -88,7 +88,7 @@ export function UploadPanel() {
       <div>
         <label className="text-xs text-body-desc mb-1 block">切换模型</label>
         <Select value={selectedModel} onValueChange={setSelectedModel}>
-          <SelectTrigger className="rounded-lg border-border/50 bg-card-alt text-title h-auto py-2">
+          <SelectTrigger className="rounded-lg border-border/50 bg-card-alt text-title h-auto py-2 text-left">
             <SelectValue />
           </SelectTrigger>
           <SelectContent className="max-h-72">
@@ -96,7 +96,7 @@ export function UploadPanel() {
               <SelectItem key={m.value} value={m.value} className="py-2">
                 <div className="flex items-center gap-2.5">
                   <img src={m.logo} alt="" className="w-9 h-9 rounded-lg object-contain shrink-0" />
-                  <div className="flex flex-col justify-center">
+                  <div className="flex flex-col justify-center text-left">
                     <span className="font-medium text-sm leading-snug">{m.label}</span>
                     <span className="text-xs text-muted-foreground leading-snug">{m.desc}</span>
                   </div>
