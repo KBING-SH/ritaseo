@@ -94,8 +94,10 @@ export function UploadPanel() {
                 <img
                   src={style.src}
                   alt={style.label}
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover [image-rendering:auto] [image-rendering:-webkit-optimize-contrast] [filter:contrast(1.06)_saturate(1.03)]"
                   loading="eager"
+                  decoding="sync"
+                  draggable={false}
                 />
                 {selectedStyle === i && (
                   <div className="absolute top-1 left-1 w-4 h-4 rounded-full bg-primary flex items-center justify-center">
