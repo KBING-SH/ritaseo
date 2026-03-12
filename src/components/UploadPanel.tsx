@@ -28,6 +28,8 @@ const MODEL_OPTIONS = [
   { value: "flux-kontext-max", label: "Flux.1 Kontext Max", desc: "可编辑、理解力和精细度强，适用于商业用途", logo: logoFlux },
 ];
 
+export const MODEL_LABELS = MODEL_OPTIONS.map((m) => m.label);
+
 
 const STYLE_OPTIONS = [
   { src: styleGhibli, label: "吉卜力工作室" },
