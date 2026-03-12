@@ -66,21 +66,23 @@ export function ContentSections() {
             </div>
 
             {/* Text */}
-            <div className="w-full md:w-7/12 space-y-4">
-              <div className="flex items-center gap-3 mb-2">
-                <div className="h-10 w-10 rounded-xl gradient-primary flex items-center justify-center shrink-0">
-                  <section.icon className="h-5 w-5 text-white" />
+            <div className="w-full md:w-7/12 space-y-6">
+              <div className="space-y-3">
+                <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/10 text-primary text-xs font-semibold tracking-wide uppercase">
+                  <section.icon className="h-3.5 w-3.5" />
+                  <span>{section.subtitle}</span>
                 </div>
-                <div>
-                  <h2 className="text-xl md:text-2xl font-bold text-title">{section.title}</h2>
-                  <p className="text-sm text-body-desc mt-0.5">{section.subtitle}</p>
-                </div>
+                <h2 className="text-2xl md:text-3xl lg:text-4xl font-extrabold text-title leading-tight tracking-tight">
+                  {section.title}
+                </h2>
               </div>
-              {section.paragraphs.map((p, j) => (
-                <p key={j} className="text-sm md:text-base text-body2 leading-relaxed">
-                  {p}
-                </p>
-              ))}
+              <div className="space-y-4">
+                {section.paragraphs.map((p, j) => (
+                  <p key={j} className="text-base md:text-lg text-body2 leading-relaxed">
+                    {p}
+                  </p>
+                ))}
+              </div>
             </div>
           </article>
         ))}
