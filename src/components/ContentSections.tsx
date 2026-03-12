@@ -46,7 +46,20 @@ const sections = [
 ];
 
 export function ContentSections() {
+  const [loginOpen, setLoginOpen] = useState(false);
+  const { user } = useAuth();
+
+  const handleTryClick = () => {
+    if (user) {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    } else {
+      setLoginOpen(true);
+    }
+  };
+
   return (
+    <>
+    <LoginDialog open={loginOpen} onOpenChange={setLoginOpen} />
     <section className="py-16 md:py-24">
       <div className="px-4 md:px-12 lg:px-20 max-w-[1600px] mx-auto space-y-24 md:space-y-36">
         {sections.map((section, i) => (
