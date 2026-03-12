@@ -3,11 +3,26 @@ import { ImageIcon } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
-const EXAMPLE_IMAGES = [
-  "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80&h=80&fit=crop&crop=face",
-  "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=80&h=80&fit=crop&crop=face",
-  "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=80&h=80&fit=crop&crop=face",
-  "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=80&h=80&fit=crop&crop=face",
+import styleGhibli from "@/assets/style-ghibli.webp";
+import styleBlocky from "@/assets/style-blocky.webp";
+import styleRealistic from "@/assets/style-realistic.webp";
+import styleInk from "@/assets/style-ink.webp";
+import styleCartoon from "@/assets/style-cartoon.webp";
+import styleClassic from "@/assets/style-classic.webp";
+import styleKawaii from "@/assets/style-kawaii.webp";
+import styleMinimalist from "@/assets/style-minimalist.webp";
+import styleChibi from "@/assets/style-chibi.webp";
+
+const STYLES = [
+  { name: "Ghibli", image: styleGhibli },
+  { name: "Blocky", image: styleBlocky },
+  { name: "Realistic Art", image: styleRealistic },
+  { name: "Chinese Ink", image: styleInk },
+  { name: "Cartoon", image: styleCartoon },
+  { name: "Classic", image: styleClassic },
+  { name: "Kawaii", image: styleKawaii },
+  { name: "Minimalist", image: styleMinimalist },
+  { name: "Chibi", image: styleChibi },
 ];
 
 const RATIOS = ["1:1", "2:3", "3:2"];
