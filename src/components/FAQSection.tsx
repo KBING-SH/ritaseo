@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Plus, Minus } from "lucide-react";
+import { ChevronDown } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const faqs = [
@@ -42,60 +42,37 @@ export function FAQSection() {
 
   return (
     <section className="py-16 md:py-24">
-      <div className="container px-4 md:px-8 max-w-4xl">
-        {/* Header */}
+      <div className="container px-4 md:px-8 max-w-3xl">
         <div className="text-center mb-14">
-          <span className="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary text-xs font-medium mb-4">
-            FAQ
-          </span>
-          <h2 className="text-2xl md:text-3xl font-bold text-title mb-3">
-            常见问题
-          </h2>
-          <p className="text-body-desc max-w-lg mx-auto">
-            了解更多关于 Rita 照片卡通化的功能与使用细节
-          </p>
+          <h2 className="text-2xl md:text-3xl font-bold text-title mb-3">常见问题</h2>
+          <p className="text-body-desc">了解更多关于 Rita 照片卡通化的功能与使用细节</p>
         </div>
 
-        {/* Two-column layout on desktop */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div className="divide-y divide-border/60">
           {faqs.map((faq, i) => {
             const isOpen = openIndex === i;
             return (
-              <div
-                key={i}
-                className={cn(
-                  "rounded-2xl border transition-all duration-300 overflow-hidden",
-                  isOpen
-                    ? "border-primary/30 bg-primary/[0.03] shadow-soft-lg"
-                    : "border-border/50 bg-card shadow-soft hover:border-border"
-                )}
-              >
+              <div key={i}>
                 <button
                   onClick={() => setOpenIndex(isOpen ? null : i)}
-                  className="w-full flex items-start gap-3 px-5 py-4 text-left cursor-pointer group"
+                  className="w-full flex items-center justify-between gap-4 py-5 text-left cursor-pointer group"
                 >
-                  <div
-                    className={cn(
-                      "mt-0.5 h-6 w-6 rounded-lg flex items-center justify-center shrink-0 transition-all duration-300",
-                      isOpen
-                        ? "bg-primary text-white"
-                        : "bg-muted text-body-desc group-hover:bg-primary/10 group-hover:text-primary"
-                    )}
-                  >
-                    {isOpen ? (
-                      <Minus className="h-3.5 w-3.5" strokeWidth={2.5} />
-                    ) : (
-                      <Plus className="h-3.5 w-3.5" strokeWidth={2.5} />
-                    )}
-                  </div>
                   <span
                     className={cn(
-                      "text-sm font-medium leading-relaxed transition-colors",
-                      isOpen ? "text-primary" : "text-title"
+                      "text-[15px] font-medium transition-colors",
+                      isOpen ? "text-primary" : "text-title group-hover:text-primary"
                     )}
                   >
                     {faq.q}
                   </span>
+                  <ChevronDown
+                    className={cn(
+                      "h-4.5 w-4.5 shrink-0 transition-all duration-300",
+                      isOpen
+                        ? "rotate-180 text-primary"
+                        : "text-body-desc group-hover:text-primary"
+                    )}
+                  />
                 </button>
                 <div
                   className={cn(
@@ -104,7 +81,7 @@ export function FAQSection() {
                   )}
                 >
                   <div className="overflow-hidden">
-                    <p className="px-5 pb-5 pl-14 text-sm text-body-desc leading-relaxed">
+                    <p className="pb-5 text-sm text-body-desc leading-[1.8]">
                       {faq.a}
                     </p>
                   </div>
