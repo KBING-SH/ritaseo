@@ -211,22 +211,6 @@ export function UploadPanel() {
   );
 }
 
-function ChevDown() {
-  return (
-    <svg width="12" height="12" viewBox="0 0 12 12" fill="none" className="text-body-desc">
-      <path d="M3 4.5L6 7.5L9 4.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-    </svg>
-  );
-}
-
-function Sparkle() {
-  return (
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" className="text-primary">
-      <path d="M12 2L14.5 9.5L22 12L14.5 14.5L12 22L9.5 14.5L2 12L9.5 9.5L12 2Z" fill="currentColor"/>
-    </svg>
-  );
-}
-
 function RatioIcon({ ratio, active }: { ratio: string; active: boolean }) {
   const color = active ? "hsl(var(--primary))" : "hsl(var(--body-desc))";
   const [w, h] = ratio === "1:1" ? [10, 10] : ratio === "2:3" ? [8, 12] : [12, 8];
