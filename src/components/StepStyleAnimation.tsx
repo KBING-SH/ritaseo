@@ -184,25 +184,19 @@ export function StepStyleAnimation() {
       </motion.div>
 
       {/* Cursor */}
-      <AnimatePresence>
-        {cursorVisible && (
-          <motion.div
-            className="absolute w-4 h-4 z-10 pointer-events-none"
-            animate={{
-              left: `${cursorPos[0]}%`,
-              top: `${cursorPos[1]}%`,
-            }}
-            initial={{ opacity: 0 }}
-            exit={{ opacity: 0 }}
-            transition={{ type: "tween", duration: 0.5, ease: "easeInOut" }}
-            style={{ opacity: 0.9 }}
-          >
-            <svg viewBox="0 0 24 24" fill="none" className="w-4 h-4 drop-shadow">
-              <path d="M5 3l14 8-6 2-4 6-4-16z" fill="hsl(var(--title))" stroke="hsl(var(--card))" strokeWidth="1.5" />
-            </svg>
-          </motion.div>
-        )}
-      </AnimatePresence>
+      <motion.div
+        className="absolute w-4 h-4 z-10 pointer-events-none"
+        animate={{
+          left: `${cursorPos[0]}%`,
+          top: `${cursorPos[1]}%`,
+          opacity: cursorVisible ? 0.9 : 0,
+        }}
+        transition={{ type: "tween", duration: 0.5, ease: "easeInOut" }}
+      >
+        <svg viewBox="0 0 24 24" fill="none" className="w-4 h-4 drop-shadow">
+          <path d="M5 3l14 8-6 2-4 6-4-16z" fill="hsl(var(--title))" stroke="hsl(var(--card))" strokeWidth="1.5" />
+        </svg>
+      </motion.div>
     </div>
   );
 }
