@@ -99,7 +99,7 @@ export function UploadPanel() {
                 </div>
               )}
               <img src={s.image} alt={s.name} className="w-full aspect-square object-cover" />
-              <p className="text-[11px] text-title py-1 text-center truncate">{s.name}</p>
+              <p className="text-[10px] text-title py-0.5 text-center truncate">{s.name}</p>
             </button>
           ))}
         </div>
