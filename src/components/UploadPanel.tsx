@@ -84,10 +84,10 @@ export function UploadPanel() {
         <label className="text-xs text-body-desc mb-1 block">选择以下风格</label>
         <div className="flex gap-2 flex-wrap">
           {STYLE_OPTIONS.map((style, i) => (
-            <button
+            <div
               key={i}
               onClick={() => setSelectedStyle(i)}
-              className="relative cursor-pointer"
+              className="relative cursor-pointer group"
               title={style.label}
             >
               <img
@@ -103,7 +103,14 @@ export function UploadPanel() {
                   <Check className="w-2.5 h-2.5 text-primary-foreground" />
                 </div>
               )}
-            </button>
+              {/* Hover enlarged preview */}
+              <div className="pointer-events-none absolute bottom-full left-1/2 -translate-x-1/2 mb-2 z-50 opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+                <div className="rounded-xl overflow-hidden shadow-lg border border-border/50 bg-card p-1">
+                  <img src={style.src} alt={style.label} className="w-36 h-36 rounded-lg object-cover" />
+                  <p className="text-[10px] text-center text-body-desc mt-1">{style.label}</p>
+                </div>
+              </div>
+            </div>
           ))}
         </div>
       </div>
