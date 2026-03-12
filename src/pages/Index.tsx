@@ -24,7 +24,7 @@ const Index = () => {
       {/* Scrollable content */}
       <main>
         {/* Hero + Workspace: Full first screen */}
-        <section className="min-h-[calc(100vh-4rem)] flex flex-col justify-center px-4 md:px-8 pb-4 -mt-8">
+        <section className="h-[calc(100vh-4rem)] flex flex-col justify-center px-4 md:px-8 -mt-6 overflow-hidden">
           <div className="max-w-[1400px] mx-auto w-full flex flex-col gap-6">
             <div className="text-center">
               <h1 className="text-3xl md:text-5xl font-bold text-primary leading-tight mb-4">
