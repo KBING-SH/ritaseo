@@ -1,6 +1,7 @@
 import { useState, useRef, useCallback } from "react";
 import { ImageIcon, Check, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { cn } from "@/lib/utils";
 
 import styleGhibli from "@/assets/style-ghibli.png";
@@ -11,6 +12,17 @@ import styleCartoon from "@/assets/style-cartoon.png";
 import styleClassic from "@/assets/style-classic.png";
 import styleCute from "@/assets/style-cute.png";
 import styleMinimal from "@/assets/style-minimal.png";
+
+const MODEL_OPTIONS = [
+  { value: "chatgpt-image-1", label: "ChatGPT-image-1", desc: "理解能力强，可生成带文字的图片" },
+  { value: "nano-banana-pro-direct", label: "Nano-banana pro | direct connect", desc: "覆盖更多区域和线路，适用于网络波动场景" },
+  { value: "kling-v1.5", label: "Kling V1.5", desc: "支持生成时参考面部" },
+  { value: "kling-v2", label: "Kling V2", desc: "细节丰富，非常适合精致图像" },
+  { value: "nano-banana-pro", label: "Nano-banana pro", desc: "更鲜明的色彩和更丰富的细节" },
+  { value: "flux-kontext-dev", label: "Flux.1 Kontext Dev", desc: "适合快速生成草图" },
+  { value: "flux-kontext-max", label: "Flux.1 Kontext Max", desc: "可编辑、理解力和精细度强，适用于商业用途" },
+];
+
 
 const STYLE_OPTIONS = [
   { src: styleGhibli, label: "吉卜力工作室" },
