@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Download, Share2, Check } from "lucide-react";
-import styleInk from "@/assets/style-ink.png";
+import demoResult from "@/assets/demo-result.png";
 
 type Step =
   | "idle"
@@ -98,7 +98,7 @@ export function StepDownloadAnimation() {
           transition={{ duration: 0.4 }}
         >
           <img
-            src={styleInk}
+            src={demoResult}
             alt="result"
             className="w-full h-full object-cover"
             style={{ transform: "translateZ(0)" }}
