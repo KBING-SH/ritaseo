@@ -78,12 +78,29 @@ export function UploadPanel() {
         />
       </div>
 
-      {/* Examples */}
+      {/* Style selector */}
       <div>
-        <label className="text-xs text-body-desc mb-1 block">试试以下示例</label>
-        <div className="flex gap-2">
-          {EXAMPLE_IMAGES.map((src, i) => (
-            <img key={i} src={src} alt={`示例${i + 1}`} className="w-11 h-11 rounded-lg object-cover cursor-pointer hover:ring-2 hover:ring-primary/50 transition-all" />
+        <label className="text-xs text-body-desc mb-1 block">选择风格</label>
+        <div className="grid grid-cols-3 gap-2">
+          {STYLES.map((s) => (
+            <button
+              key={s.name}
+              onClick={() => setSelectedStyle(s.name)}
+              className={cn(
+                "relative rounded-lg overflow-hidden border-2 transition-all",
+                selectedStyle === s.name
+                  ? "border-primary ring-1 ring-primary/30"
+                  : "border-transparent hover:border-primary/30"
+              )}
+            >
+              {selectedStyle === s.name && (
+                <div className="absolute top-1 left-1 z-10 w-5 h-5 rounded-md bg-primary flex items-center justify-center">
+                  <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 6L5 8.5L9.5 3.5" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg>
+                </div>
+              )}
+              <img src={s.image} alt={s.name} className="w-full aspect-square object-cover" />
+              <p className="text-[11px] text-title py-1 text-center truncate">{s.name}</p>
+            </button>
           ))}
         </div>
       </div>
