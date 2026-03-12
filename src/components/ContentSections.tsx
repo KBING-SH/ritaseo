@@ -1,7 +1,10 @@
+import { useState } from "react";
 import { User, PawPrint, Mountain, ChevronRight } from "lucide-react";
 import sectionPortrait from "@/assets/section-portrait.webp";
 import sectionPet from "@/assets/section-pet.webp";
 import sectionLandscape from "@/assets/section-landscape.webp";
+import { LoginDialog } from "@/components/LoginDialog";
+import { useAuth } from "@/hooks/use-auth";
 
 const sections = [
   {
