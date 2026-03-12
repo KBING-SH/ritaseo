@@ -32,11 +32,11 @@ const features = [
   },
   {
     icon: Sparkles,
-    title: "8 种卡通风格",
-    desc: "吉卜力、像素、水墨、复古时尚等 8 种热门风格可选，一张照片多种玩法，灵感不受限。",
+    title: "多种风格可选",
+    desc: "吉卜力、像素、水墨、复古时尚等多种热门风格可选，一张照片多种玩法，灵感不受限。",
     accent: "from-[hsl(340,75%,55%)] to-[hsl(300,60%,55%)]",
     iconBg: "bg-gradient-to-br from-[hsl(340,75%,55%)] to-[hsl(300,60%,55%)]",
-    stat: "8",
+    stat: "8+",
     statLabel: "风格可选",
   },
   {
