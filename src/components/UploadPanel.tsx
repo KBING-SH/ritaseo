@@ -88,7 +88,7 @@ export function UploadPanel() {
       <div>
         <label className="text-xs text-body-desc mb-1 block">切换模型</label>
         <Select value={selectedModel} onValueChange={setSelectedModel}>
-          <SelectTrigger className="rounded-lg border-border/50 bg-card-alt text-title h-auto py-2">
+          <SelectTrigger className="rounded-lg border-border/50 bg-card-alt text-title h-auto py-2 text-left">
             <SelectValue />
           </SelectTrigger>
           <SelectContent className="max-h-72">
