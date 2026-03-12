@@ -16,7 +16,7 @@ const Index = () => {
       <header className="sticky top-0 z-40 h-16 border-b border-border/50 bg-background/80 backdrop-blur-md flex items-center justify-between px-4 md:px-8">
         <div className="flex items-center gap-2.5">
           <div className="h-8 w-8 rounded-lg gradient-primary" />
-          <span className="text-base font-bold text-title">rita</span>
+          <span className="text-base font-bold text-title">Rita</span>
         </div>
         <ThemeToggle />
       </header>
