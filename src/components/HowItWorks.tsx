@@ -43,8 +43,8 @@ export function HowItWorks() {
   return (
     <section className="py-16 md:py-24 bg-card-alt">
       <div className="container px-4 md:px-8">
-        <h2 className="text-2xl md:text-3xl font-bold text-title text-center mb-3">使用步骤</h2>
-        <p className="text-body-desc text-center mb-12">三步完成照片卡通化</p>
+        <h2 className="text-2xl md:text-3xl font-bold text-title text-center mb-3">简单三步，照片秒变卡通</h2>
+        <p className="text-body-desc text-center mb-12">无需设计基础，上传即出图</p>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {steps.map((s, i) => {
             const Component = COMPONENTS[i];
