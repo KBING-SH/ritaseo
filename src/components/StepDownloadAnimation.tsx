@@ -1,10 +1,8 @@
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Download, Share2, Check } from "lucide-react";
-import demoPortrait from "@/assets/demo-portrait.png";
 import styleInk from "@/assets/style-ink.png";
 
-// State machine steps
 type Step =
   | "idle"
   | "showResult"
@@ -20,7 +18,7 @@ type Step =
   | "reset";
 
 const SCRIPT: { step: Step; duration: number }[] = [
-  { step: "idle", duration: 600 },
+  { step: "idle", duration: 500 },
   { step: "showResult", duration: 1200 },
   { step: "moveToDl", duration: 500 },
   { step: "clickDl", duration: 200 },
@@ -41,9 +39,9 @@ const PLATFORMS = [
   { icon: "📷", label: "Instagram" },
 ];
 
-const DL_POS: [number, number] = [30, 78];
-const SHARE_POS: [number, number] = [70, 78];
-const PLAT_POS: [number, number] = [60, 62];
+const DL_POS: [number, number] = [30, 88];
+const SHARE_POS: [number, number] = [70, 88];
+const PLAT_POS: [number, number] = [62, 72];
 
 export function StepDownloadAnimation() {
   const [stepIndex, setStepIndex] = useState(0);
@@ -84,36 +82,33 @@ export function StepDownloadAnimation() {
 
   const showResult = currentStep !== "idle" && currentStep !== "reset";
   const showDlProgress = currentStep === "downloading";
-  const showDlDone = currentStep === "dlDone" || currentStep === "moveToShare" || currentStep === "clickShare" || currentStep === "showPlatforms" || currentStep === "selectPlatform" || currentStep === "shared";
-  const showPlatforms = currentStep === "showPlatforms" || currentStep === "selectPlatform" || currentStep === "shared";
-  const platformSelected = currentStep === "selectPlatform" || currentStep === "shared";
+  const showDlDone = ["dlDone", "moveToShare", "clickShare", "showPlatforms", "selectPlatform", "shared"].includes(currentStep);
+  const showPlatforms = ["showPlatforms", "selectPlatform", "shared"].includes(currentStep);
+  const platformSelected = ["selectPlatform", "shared"].includes(currentStep);
   const showSharedDone = currentStep === "shared";
 
   return (
     <div className="w-full h-full bg-card relative overflow-hidden flex flex-col p-[5%] gap-[3%]">
-      {/* Before/After comparison */}
-      <div className="flex-1 min-h-0 flex gap-[3%]">
-        <div className="flex-1 flex flex-col gap-[3px] min-h-0">
-          <span className="text-[0.4em] text-body-desc">原图</span>
-          <div className="flex-1 rounded-[0.3em] overflow-hidden border border-border/30 min-h-0">
-            <img src={demoPortrait} alt="original" className="w-full h-full object-cover" style={{ transform: "translateZ(0)" }} />
-          </div>
-        </div>
-        <div className="flex-1 flex flex-col gap-[3px] min-h-0">
-          <span className="text-[0.4em] text-body-desc">生成结果</span>
-          <motion.div
-            className="flex-1 rounded-[0.3em] overflow-hidden border border-border/30 min-h-0 relative"
-            animate={{ opacity: showResult ? 1 : 0.3 }}
-            transition={{ duration: 0.4 }}
-          >
-            <img src={styleInk} alt="result" className="w-full h-full object-cover" style={{ transform: "translateZ(0)" }} />
-            {!showResult && (
-              <div className="absolute inset-0 bg-card/60 flex items-center justify-center">
-                <span className="text-[0.4em] text-body-desc">生成中...</span>
-              </div>
-            )}
-          </motion.div>
-        </div>
+      {/* Result image */}
+      <div className="flex-1 min-h-0 flex flex-col gap-[3px]">
+        <span className="text-[0.45em] text-body-desc">生成结果</span>
+        <motion.div
+          className="flex-1 rounded-[0.3em] overflow-hidden border border-border/30 min-h-0 relative"
+          animate={{ opacity: showResult ? 1 : 0.3 }}
+          transition={{ duration: 0.4 }}
+        >
+          <img
+            src={styleInk}
+            alt="result"
+            className="w-full h-full object-cover"
+            style={{ transform: "translateZ(0)" }}
+          />
+          {!showResult && (
+            <div className="absolute inset-0 bg-card/60 flex items-center justify-center">
+              <span className="text-[0.45em] text-body-desc">生成中...</span>
+            </div>
+          )}
+        </motion.div>
       </div>
 
       {/* Action buttons */}
@@ -128,25 +123,14 @@ export function StepDownloadAnimation() {
           transition={{ duration: 0.15 }}
         >
           {showDlDone ? (
-            <motion.div
-              className="flex items-center gap-[3px]"
-              initial={{ scale: 0.8, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-            >
+            <motion.div className="flex items-center gap-[3px]" initial={{ scale: 0.8, opacity: 0 }} animate={{ scale: 1, opacity: 1 }}>
               <Check className="w-[0.6em] h-[0.6em] text-primary" />
               <span className="text-[0.4em] text-primary font-medium">已下载</span>
             </motion.div>
           ) : showDlProgress ? (
             <div className="flex items-center gap-[3px]">
-              <motion.div
-                className="w-[60%] h-[3px] rounded-full bg-muted absolute bottom-0 left-[20%]"
-              >
-                <motion.div
-                  className="h-full rounded-full bg-primary"
-                  initial={{ width: "0%" }}
-                  animate={{ width: "100%" }}
-                  transition={{ duration: 1.1, ease: "easeOut" }}
-                />
+              <motion.div className="w-[60%] h-[3px] rounded-full bg-muted absolute bottom-0 left-[20%]">
+                <motion.div className="h-full rounded-full bg-primary" initial={{ width: "0%" }} animate={{ width: "100%" }} transition={{ duration: 1.1, ease: "easeOut" }} />
               </motion.div>
               <Download className="w-[0.5em] h-[0.5em] text-primary" />
               <span className="text-[0.4em] text-body-desc">下载中...</span>
@@ -169,11 +153,7 @@ export function StepDownloadAnimation() {
           transition={{ duration: 0.15 }}
         >
           {showSharedDone ? (
-            <motion.div
-              className="flex items-center gap-[3px]"
-              initial={{ scale: 0.8, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-            >
+            <motion.div className="flex items-center gap-[3px]" initial={{ scale: 0.8, opacity: 0 }} animate={{ scale: 1, opacity: 1 }}>
               <Check className="w-[0.6em] h-[0.6em] text-primary" />
               <span className="text-[0.4em] text-primary font-medium">已分享</span>
             </motion.div>
@@ -199,9 +179,7 @@ export function StepDownloadAnimation() {
                 <motion.div
                   key={p.label}
                   className="flex items-center gap-[3px] px-[6px] py-[3px] rounded-md text-[0.35em]"
-                  animate={{
-                    backgroundColor: (platformSelected && i === 2) ? "hsl(var(--primary) / 0.1)" : "transparent",
-                  }}
+                  animate={{ backgroundColor: (platformSelected && i === 2) ? "hsl(var(--primary) / 0.1)" : "transparent" }}
                   transition={{ duration: 0.15 }}
                 >
                   <span>{p.icon}</span>
