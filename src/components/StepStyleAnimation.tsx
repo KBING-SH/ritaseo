@@ -127,17 +127,17 @@ function StyleThumbnail({ index, style }: { index: number; style: { src: string;
 
         {isHover1 && (
           <motion.div
-            className="absolute inset-0 rounded-[0.2em] border-2 border-primary/40 pointer-events-none"
-            animate={{ opacity: [0, 0, 0.8, 0.8, 0, 0] }}
-            transition={{ duration: CYCLE, times: [0, 0.18, 0.22, 0.28, 0.32, 1], repeat: Infinity }}
+            className="absolute inset-0 rounded-[0.2em] border-2 border-primary pointer-events-none"
+            animate={{ opacity: [0, 0, 1, 1, 0, 0] }}
+            transition={{ duration: CYCLE, times: [0, 0.16, 0.19, 0.28, 0.31, 1], repeat: Infinity }}
           />
         )}
 
         {isHover2 && (
           <motion.div
-            className="absolute inset-0 rounded-[0.2em] border-2 border-primary/40 pointer-events-none"
-            animate={{ opacity: [0, 0, 0.8, 0.8, 0, 0] }}
-            transition={{ duration: CYCLE, times: [0, 0.3, 0.34, 0.38, 0.42, 1], repeat: Infinity }}
+            className="absolute inset-0 rounded-[0.2em] border-2 border-primary pointer-events-none"
+            animate={{ opacity: [0, 0, 1, 1, 0, 0] }}
+            transition={{ duration: CYCLE, times: [0, 0.29, 0.32, 0.40, 0.43, 1], repeat: Infinity }}
           />
         )}
 
