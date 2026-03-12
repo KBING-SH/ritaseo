@@ -31,6 +31,7 @@ export function UploadPanel() {
   const [showSuccess, setShowSuccess] = useState(false);
   const [selectedRatio, setSelectedRatio] = useState("1:1");
   const [selectedStyle, setSelectedStyle] = useState(0);
+  const [selectedModel, setSelectedModel] = useState("chatgpt-image-1");
   const fileRef = useRef<HTMLInputElement>(null);
 
   const handleDragOver = (e: React.DragEvent) => { e.preventDefault(); setIsDragging(true); };
