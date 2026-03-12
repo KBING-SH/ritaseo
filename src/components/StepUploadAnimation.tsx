@@ -2,18 +2,18 @@ import { motion } from "framer-motion";
 import { ImageIcon, Check } from "lucide-react";
 import demoPortrait from "@/assets/demo-portrait.png";
 
-// Total cycle: 2s empty → 1.2s drop animation → 3s showing result → 0.3s fade out = ~6.5s
 const CYCLE = 6.5;
 
 export function StepUploadAnimation() {
   return (
-    <div className="w-full h-full bg-card flex flex-col items-center justify-center p-5 relative overflow-hidden">
-      <div className="w-[85%] flex flex-col gap-2">
-        <span className="text-[10px] text-body-desc">上传参考图片</span>
+    <div className="w-full h-full bg-card relative overflow-hidden flex items-center justify-center">
+      <div className="w-full h-full flex flex-col p-[8%] gap-[4%]">
+        {/* Label */}
+        <p className="text-[0.65em] text-body-desc font-medium leading-none">上传参考图片</p>
 
-        {/* Upload dropzone */}
-        <div className="relative w-full aspect-[5/3] rounded-lg border-2 border-dashed border-border/50 flex flex-col items-center justify-center gap-1 bg-muted/10">
-          {/* Empty state icon + text */}
+        {/* Dropzone — takes most of the space */}
+        <div className="relative flex-1 rounded-lg border-2 border-dashed border-border/60 flex flex-col items-center justify-center gap-[4%] bg-muted/10 min-h-0">
+          {/* Empty state */}
           <motion.div
             className="flex flex-col items-center gap-1"
             animate={{ opacity: [1, 1, 1, 0, 0, 0, 0, 1] }}
@@ -23,18 +23,18 @@ export function StepUploadAnimation() {
               repeat: Infinity,
             }}
           >
-            <ImageIcon className="w-5 h-5 text-body-desc/40" />
-            <span className="text-[9px] text-body-desc/40">单击或拖动图像即可上传</span>
+            <ImageIcon className="w-[12%] h-[12%] min-w-4 min-h-4 text-body-desc/40" />
+            <span className="text-[0.55em] text-body-desc/40">单击或拖动图像即可上传</span>
           </motion.div>
 
-          {/* Photo dropping in — starts at ~30% of cycle */}
+          {/* Photo dropping in */}
           <motion.div
-            className="absolute inset-2 rounded-md overflow-hidden shadow-md"
+            className="absolute inset-[6%] rounded-md overflow-hidden shadow-md"
             animate={{
-              y: [-80, -80, -80, 0, -2, 0, 0, 0, -80],
+              y: ["-100%", "-100%", "-100%", "0%", "-2%", "0%", "0%", "0%", "-100%"],
               opacity: [0, 0, 0, 1, 1, 1, 1, 0, 0],
-              scale: [0.8, 0.8, 0.8, 1, 1.01, 1, 1, 0.95, 0.8],
-              rotate: [-5, -5, -5, 0, 0, 0, 0, 0, -5],
+              scale: [0.85, 0.85, 0.85, 1, 1.01, 1, 1, 0.95, 0.85],
+              rotate: [-4, -4, -4, 0, 0, 0, 0, 0, -4],
             }}
             transition={{
               duration: CYCLE,
@@ -46,39 +46,38 @@ export function StepUploadAnimation() {
             <img src={demoPortrait} alt="demo" className="w-full h-full object-cover" />
           </motion.div>
 
-          {/* Border highlight on drop */}
+          {/* Border highlight */}
           <motion.div
             className="absolute inset-0 rounded-lg border-2 border-primary pointer-events-none"
-            animate={{ opacity: [0, 0, 0, 0.7, 0.7, 0] }}
+            animate={{ opacity: [0, 0, 0, 0.7, 0.7, 0, 0] }}
             transition={{
               duration: CYCLE,
-              times: [0, 0.3, 0.42, 0.48, 0.6, 0.65],
+              times: [0, 0.3, 0.42, 0.48, 0.65, 0.7, 1],
               repeat: Infinity,
             }}
           />
         </div>
 
-        {/* Upload success message */}
-        <motion.div
-          className="flex items-center gap-1.5 h-4"
-          animate={{ opacity: [0, 0, 0, 1, 1, 0, 0] }}
-          transition={{
-            duration: CYCLE,
-            times: [0, 0.3, 0.5, 0.55, 0.85, 0.93, 1],
-            repeat: Infinity,
-          }}
-        >
-          <div className="w-3.5 h-3.5 rounded-full bg-primary/20 flex items-center justify-center">
-            <Check className="w-2 h-2 text-primary" />
-          </div>
-          <span className="text-[9px] text-primary">上传成功</span>
-        </motion.div>
+        {/* Success + prompt row */}
+        <div className="flex flex-col gap-[3%]">
+          <motion.div
+            className="flex items-center gap-1 h-[1.2em]"
+            animate={{ opacity: [0, 0, 0, 1, 1, 0, 0] }}
+            transition={{
+              duration: CYCLE,
+              times: [0, 0.3, 0.5, 0.55, 0.85, 0.93, 1],
+              repeat: Infinity,
+            }}
+          >
+            <div className="w-3 h-3 rounded-full bg-primary/20 flex items-center justify-center flex-shrink-0">
+              <Check className="w-2 h-2 text-primary" />
+            </div>
+            <span className="text-[0.5em] text-primary leading-none">上传成功</span>
+          </motion.div>
 
-        {/* Prompt area */}
-        <div className="flex flex-col gap-1">
-          <span className="text-[10px] text-body-desc">提示词</span>
-          <div className="w-full h-7 rounded-md border border-border/40 bg-muted/10 px-2 flex items-center">
-            <span className="text-[9px] text-body-desc/40">请描述你的想法...</span>
+          <p className="text-[0.55em] text-body-desc leading-none">提示词</p>
+          <div className="h-[1.8em] rounded-md border border-border/40 bg-muted/10 px-[4%] flex items-center">
+            <span className="text-[0.5em] text-body-desc/40">请描述你的想法...</span>
           </div>
         </div>
       </div>
@@ -86,10 +85,10 @@ export function StepUploadAnimation() {
       {/* Cursor */}
       <motion.div
         className="absolute w-4 h-4 z-10"
-        style={{ top: "28%", left: "58%" }}
+        style={{ top: "35%", right: "25%" }}
         animate={{
-          x: [30, 30, 30, 0, 0, 0, 0, 30],
-          y: [-30, -30, -30, 15, 15, 15, 15, -30],
+          x: [20, 20, 20, 0, 0, 0, 0, 20],
+          y: [-20, -20, -20, 10, 10, 10, 10, -20],
           opacity: [0, 0, 0.9, 0.9, 0.9, 0, 0, 0],
         }}
         transition={{
