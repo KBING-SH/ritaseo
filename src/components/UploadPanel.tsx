@@ -143,6 +143,7 @@ export function UploadPanel() {
             <span className="text-xs text-primary">上传成功</span>
           </div>
         )}
+        </div>
       </div>
 
       {/* Prompt */}
