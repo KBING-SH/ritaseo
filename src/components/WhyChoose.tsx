@@ -63,12 +63,12 @@ export function WhyChoose() {
   const modelNames = MODEL_LABELS.slice(0, 3);
 
   return (
-    <section className="py-16 md:py-24 bg-card-alt">
+    <section className="py-10 md:py-24 bg-card-alt">
       <div className="container px-4 md:px-8 max-w-6xl">
-        <h2 className="text-2xl md:text-3xl font-bold text-title text-center mb-3">
+        <h2 className="text-xl md:text-3xl font-bold text-title text-center mb-2 md:mb-3">
           为什么选择 Rita
         </h2>
-        <p className="text-body-desc text-center mb-14 max-w-xl mx-auto">
+        <p className="text-sm md:text-base text-body-desc text-center mb-8 md:mb-14 max-w-xl mx-auto">
           强大的 AI 能力 + 极简操作体验，让每个人都能轻松创作卡通形象
         </p>
 
