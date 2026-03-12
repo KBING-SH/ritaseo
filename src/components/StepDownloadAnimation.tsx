@@ -73,12 +73,14 @@ export function StepDownloadAnimation({ active = true }: { active?: boolean }) {
         break;
     }
 
+    if (!active) return;
+
     const timer = setTimeout(() => {
       setStepIndex((prev) => (prev + 1) % SCRIPT.length);
     }, SCRIPT[stepIndex].duration);
 
     return () => clearTimeout(timer);
-  }, [stepIndex, currentStep]);
+  }, [stepIndex, currentStep, active]);
 
   const showResult = currentStep !== "idle" && currentStep !== "reset";
   const showDlProgress = currentStep === "downloading";
