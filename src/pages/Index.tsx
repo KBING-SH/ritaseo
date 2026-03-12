@@ -1,14 +1,14 @@
-import { useState } from "react";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import { StyleSelector } from "@/components/StyleSelector";
 import { UploadPanel } from "@/components/UploadPanel";
+import { SocialProofBar } from "@/components/SocialProofBar";
 import { HowItWorks } from "@/components/HowItWorks";
+import { ArtGallery } from "@/components/ArtGallery";
 import { WhyChoose } from "@/components/WhyChoose";
 import { FAQSection } from "@/components/FAQSection";
 import { ContentSections } from "@/components/ContentSections";
 import { ToolkitSection } from "@/components/ToolkitSection";
 import { TestimonialsSection } from "@/components/TestimonialsSection";
-import { Badge } from "@/components/ui/badge";
 
 const Index = () => {
   return (
