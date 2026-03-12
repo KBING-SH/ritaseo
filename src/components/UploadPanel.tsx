@@ -17,7 +17,6 @@ import styleCartoon from "@/assets/style-cartoon.png";
 import styleClassic from "@/assets/style-classic.png";
 import styleCute from "@/assets/style-cute.png";
 import styleMinimal from "@/assets/style-minimal.png";
-import demoPortrait from "@/assets/demo-portrait.png";
 
 const MODEL_OPTIONS = [
   { value: "chatgpt-image-1", label: "ChatGPT-image-1", desc: "理解能力强，可生成带文字的图片", logo: logoChatgpt },
