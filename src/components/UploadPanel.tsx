@@ -1,13 +1,28 @@
 import { useState, useRef } from "react";
-import { ImageIcon } from "lucide-react";
+import { ImageIcon, Check } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
-const EXAMPLE_IMAGES = [
-  "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80&h=80&fit=crop&crop=face",
-  "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=80&h=80&fit=crop&crop=face",
-  "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=80&h=80&fit=crop&crop=face",
-  "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=80&h=80&fit=crop&crop=face",
+import styleGhibli from "@/assets/style-ghibli.webp";
+import stylePixel from "@/assets/style-pixel.webp";
+import styleRealistic from "@/assets/style-realistic.webp";
+import styleInk from "@/assets/style-ink.webp";
+import styleCartoon from "@/assets/style-cartoon.webp";
+import styleClassic from "@/assets/style-classic.webp";
+import styleCute from "@/assets/style-cute.webp";
+import styleMinimal from "@/assets/style-minimal.webp";
+import styleChibi from "@/assets/style-chibi.webp";
+
+const STYLE_OPTIONS = [
+  { src: styleGhibli, label: "吉卜力工作室" },
+  { src: stylePixel, label: "方块" },
+  { src: styleRealistic, label: "写实艺术" },
+  { src: styleInk, label: "中国墨" },
+  { src: styleCartoon, label: "卡通片" },
+  { src: styleClassic, label: "经典的" },
+  { src: styleCute, label: "可爱" },
+  { src: styleMinimal, label: "极简主义者" },
+  { src: styleChibi, label: "奇比" },
 ];
 
 const RATIOS = ["1:1", "2:3", "3:2"];
@@ -16,6 +31,7 @@ export function UploadPanel() {
   const [isDragging, setIsDragging] = useState(false);
   const [promptOn, setPromptOn] = useState(false);
   const [selectedRatio, setSelectedRatio] = useState("1:1");
+  const [selectedStyle, setSelectedStyle] = useState(0);
   const [count, setCount] = useState(1);
   const fileRef = useRef<HTMLInputElement>(null);
 
@@ -63,12 +79,32 @@ export function UploadPanel() {
         />
       </div>
 
-      {/* Examples */}
+      {/* Style selector */}
       <div>
         <label className="text-xs text-body-desc mb-1 block">选择以下风格</label>
-        <div className="flex gap-2">
-          {EXAMPLE_IMAGES.map((src, i) => (
-            <img key={i} src={src} alt={`示例${i + 1}`} className="w-11 h-11 rounded-lg object-cover cursor-pointer hover:ring-2 hover:ring-primary/50 transition-all" />
+        <div className="grid grid-cols-3 gap-2">
+          {STYLE_OPTIONS.map((style, i) => (
+            <button
+              key={i}
+              onClick={() => setSelectedStyle(i)}
+              className="flex flex-col items-center gap-1 group cursor-pointer"
+            >
+              <div className={cn(
+                "relative w-full aspect-square rounded-lg overflow-hidden border-2 transition-all",
+                selectedStyle === i ? "border-primary" : "border-transparent hover:border-primary/40"
+              )}>
+                <img src={style.src} alt={style.label} className="w-full h-full object-cover" />
+                {selectedStyle === i && (
+                  <div className="absolute top-1 left-1 w-5 h-5 rounded-full bg-primary flex items-center justify-center">
+                    <Check className="w-3 h-3 text-primary-foreground" />
+                  </div>
+                )}
+              </div>
+              <span className={cn(
+                "text-[10px] leading-tight",
+                selectedStyle === i ? "text-primary font-medium" : "text-body-desc"
+              )}>{style.label}</span>
+            </button>
           ))}
         </div>
       </div>
