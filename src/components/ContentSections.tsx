@@ -66,7 +66,7 @@ export function ContentSections() {
             </div>
 
             {/* Text */}
-            <div className="w-full md:w-7/12 space-y-6">
+            <div className="w-full md:w-[45%] space-y-5">
               <div className="space-y-3">
                 <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/10 text-primary text-xs font-semibold tracking-wide uppercase">
                   <section.icon className="h-3.5 w-3.5" />
