@@ -1,6 +1,6 @@
-import stepGenerate from "@/assets/step-generate.webp";
 import stepDownload from "@/assets/step-download.webp";
 import { StepUploadAnimation } from "./StepUploadAnimation";
+import { StepStyleAnimation } from "./StepStyleAnimation";
 
 const steps = [
   {
@@ -16,7 +16,8 @@ const steps = [
     title: "选择卡通风格并生成",
     desc: "选择你喜欢的卡通风格，点击生成按钮，Rita AI 将在几秒内完成高质量的卡通化转换。",
     color: "from-theme1 to-emerald-400",
-    image: stepGenerate,
+    image: null as string | null,
+    component: StepStyleAnimation,
   },
   {
     step: "03",
