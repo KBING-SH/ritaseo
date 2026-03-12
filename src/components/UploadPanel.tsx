@@ -87,7 +87,7 @@ export function UploadPanel() {
               key={s.name}
               onClick={() => setSelectedStyle(s.name)}
               className={cn(
-                "relative rounded-lg overflow-hidden border-2 transition-all",
+                "relative rounded-md overflow-hidden border-2 transition-all",
                 selectedStyle === s.name
                   ? "border-primary ring-1 ring-primary/30"
                   : "border-transparent hover:border-primary/30"
