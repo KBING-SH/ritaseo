@@ -61,7 +61,7 @@ export function HowItWorks() {
                   {/* Re-mount component when it becomes active to restart animation */}
                   <Component key={isActive ? `active-${activeIndex}` : `idle-${i}`} active={isActive} />
                 </div>
-                <div className="p-6">
+                <div className="p-4 md:p-6">
                   <div className="flex items-center gap-3 mb-3">
                     <div className={`inline-flex items-center justify-center h-10 w-10 rounded-xl bg-gradient-to-br ${s.color} shrink-0`}>
                       <span className="text-sm font-bold text-white">{s.step}</span>

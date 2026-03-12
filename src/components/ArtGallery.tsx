@@ -82,16 +82,16 @@ export function ArtGallery() {
           <UploadTooltip />
         </div>
       )}
-      <section className="py-16 md:py-24 overflow-hidden">
-        <div className="container px-4 md:px-8 mb-10">
-          <h2 className="text-2xl md:text-3xl font-bold text-title text-center mb-3">
+      <section className="py-10 md:py-24 overflow-hidden">
+        <div className="container px-4 md:px-8 mb-6 md:mb-10">
+          <h2 className="text-xl md:text-3xl font-bold text-title text-center mb-2 md:mb-3">
             在线创意画廊
           </h2>
-          <p className="text-body-desc text-center">
+          <p className="text-sm md:text-base text-body-desc text-center">
             探索 Rita AI 生成的多种风格卡通作品
           </p>
         </div>
-        <div className="space-y-5">
+        <div className="space-y-3 md:space-y-5">
           <GalleryRow items={row1} />
           <GalleryRow items={row2} reverse />
         </div>
