@@ -111,5 +111,6 @@ export function ContentSections() {
         ))}
       </div>
     </section>
+    </>
   );
 }
