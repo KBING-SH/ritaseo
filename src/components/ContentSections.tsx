@@ -82,6 +82,7 @@ export function ContentSections() {
                     {p}
                   </p>
                 ))}
+              </div>
             </div>
           </article>
         ))}
