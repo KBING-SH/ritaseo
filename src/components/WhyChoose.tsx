@@ -85,10 +85,13 @@ export function WhyChoose() {
 
               {/* Stat badge */}
               <div className="flex items-start justify-between mb-5">
-                <div className={`h-12 w-12 rounded-xl ${f.iconBg} flex items-center justify-center shadow-md`}>
-                  <f.icon className="h-5 w-5 text-white" strokeWidth={2} />
+                <div className="flex items-center gap-3">
+                  <div className={`h-12 w-12 rounded-xl ${f.iconBg} flex items-center justify-center shadow-md shrink-0`}>
+                    <f.icon className="h-5 w-5 text-white" strokeWidth={2} />
+                  </div>
+                  <h3 className="text-[15px] font-semibold text-title">{f.title}</h3>
                 </div>
-                <div className="text-right">
+                <div className="text-right shrink-0">
                   <div className={`text-xl font-bold bg-gradient-to-r ${f.accent} bg-clip-text text-transparent`}>
                     {f.stat}
                   </div>
@@ -96,7 +99,6 @@ export function WhyChoose() {
                 </div>
               </div>
 
-              <h3 className="text-[15px] font-semibold text-title mb-2">{f.title}</h3>
               <p className="text-sm text-body-desc leading-relaxed">
                 {f.descFn ? f.descFn(modelNames) : f.desc}
               </p>
