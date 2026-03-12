@@ -1,5 +1,5 @@
-import { useState, useRef } from "react";
-import { ImageIcon, Check } from "lucide-react";
+import { useState, useRef, useCallback } from "react";
+import { ImageIcon, Check, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
@@ -27,15 +27,40 @@ const RATIOS = ["1:1", "2:3", "3:2"];
 
 export function UploadPanel() {
   const [isDragging, setIsDragging] = useState(false);
-  const [promptOn, setPromptOn] = useState(false);
+  const [uploadedImage, setUploadedImage] = useState<string | null>(null);
+  const [showSuccess, setShowSuccess] = useState(false);
   const [selectedRatio, setSelectedRatio] = useState("1:1");
   const [selectedStyle, setSelectedStyle] = useState(0);
-  const [count, setCount] = useState(1);
   const fileRef = useRef<HTMLInputElement>(null);
 
   const handleDragOver = (e: React.DragEvent) => { e.preventDefault(); setIsDragging(true); };
   const handleDragLeave = () => setIsDragging(false);
-  const handleDrop = (e: React.DragEvent) => { e.preventDefault(); setIsDragging(false); };
+
+  const handleFile = useCallback((file: File) => {
+    if (!file.type.startsWith("image/")) return;
+    const url = URL.createObjectURL(file);
+    setUploadedImage(url);
+    setShowSuccess(true);
+    setTimeout(() => setShowSuccess(false), 2500);
+  }, []);
+
+  const handleDrop = (e: React.DragEvent) => {
+    e.preventDefault();
+    setIsDragging(false);
+    const file = e.dataTransfer.files?.[0];
+    if (file) handleFile(file);
+  };
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (file) handleFile(file);
+  };
+
+  const removeImage = () => {
+    setUploadedImage(null);
+    setShowSuccess(false);
+    if (fileRef.current) fileRef.current.value = "";
+  };
 
   return (
     <div className="rounded-xl border border-border/50 bg-card p-4 shadow-soft h-full flex flex-col gap-3 text-sm overflow-y-auto max-h-[calc(100vh-12rem)]">
