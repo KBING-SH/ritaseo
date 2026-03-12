@@ -53,10 +53,6 @@ export function ContentSections() {
           </article>
         ))}
 
-        {/* CTA */}
-        <div className="text-center pt-4">
-          <p className="text-base font-semibold text-title">提交照片即可生成。</p>
-        </div>
       </div>
     </section>
   );
