@@ -44,14 +44,11 @@ export function FAQSection() {
     <section className="py-16 md:py-24">
       <div className="container px-4 md:px-8 max-w-3xl">
         {/* Header */}
-        <div className="flex flex-col items-center mb-12">
-          <div className="h-12 w-12 rounded-2xl gradient-primary flex items-center justify-center mb-5 shadow-md">
-            <MessageCircleQuestion className="h-5.5 w-5.5 text-white" />
+        <div className="flex items-center justify-center gap-3 mb-10">
+          <div className="h-10 w-10 rounded-xl gradient-primary flex items-center justify-center shadow-md">
+            <MessageCircleQuestion className="h-5 w-5 text-white" />
           </div>
-          <h2 className="text-2xl md:text-3xl font-bold text-title mb-3">常见问题</h2>
-          <p className="text-body-desc text-center max-w-md">
-            了解更多关于 Rita 照片卡通化的功能与使用细节
-          </p>
+          <h2 className="text-2xl md:text-3xl font-bold text-title">常见问题</h2>
         </div>
 
         {/* FAQ list */}
