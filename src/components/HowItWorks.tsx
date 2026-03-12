@@ -1,4 +1,4 @@
-import stepUpload from "@/assets/step-upload.webp";
+import stepUpload from "@/assets/step-upload.png";
 import stepGenerate from "@/assets/step-generate.webp";
 import stepDownload from "@/assets/step-download.webp";
 
