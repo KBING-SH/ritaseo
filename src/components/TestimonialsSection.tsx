@@ -122,17 +122,17 @@ function MarqueeRow({
 
 export function TestimonialsSection() {
   return (
-    <section className="py-16 md:py-24 overflow-hidden">
-      <div className="container px-4 md:px-8 max-w-6xl mb-12">
-        <h2 className="text-2xl md:text-3xl font-bold text-title text-center mb-3">
+    <section className="py-10 md:py-24 overflow-hidden">
+      <div className="container px-4 md:px-8 max-w-6xl mb-6 md:mb-12">
+        <h2 className="text-xl md:text-3xl font-bold text-title text-center mb-2 md:mb-3">
           用户怎么说
         </h2>
-        <p className="text-body-desc text-center max-w-lg mx-auto">
+        <p className="text-sm md:text-base text-body-desc text-center max-w-lg mx-auto">
           来自全球创作者的真实反馈
         </p>
       </div>
 
-      <div className="space-y-5">
+      <div className="space-y-3 md:space-y-5">
         <MarqueeRow items={row1} />
         <MarqueeRow items={row2} reverse />
       </div>
