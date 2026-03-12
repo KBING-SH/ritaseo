@@ -109,9 +109,9 @@ export function UploadPanel() {
               )}>{style.label}</span>
             </div>
           ))}
+        </div>
       </div>
 
-      {/* Ratio */}
       <div>
         <label className="text-xs text-body-desc mb-1 block">比例</label>
         <div className="flex gap-2">
