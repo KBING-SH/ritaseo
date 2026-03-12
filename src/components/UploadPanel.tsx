@@ -85,7 +85,7 @@ export function UploadPanel() {
   };
 
   return (
-    <div className="rounded-xl border border-border/50 bg-card p-4 shadow-soft h-full flex flex-col gap-3 text-sm overflow-hidden">
+    <div className="rounded-xl border border-border/50 bg-card p-3 md:p-4 shadow-soft h-full flex flex-col gap-2 md:gap-3 text-sm overflow-hidden">
       {/* Model selector */}
       <div>
         <label className="text-xs text-body-desc mb-1 block">切换模型</label>
