@@ -138,26 +138,8 @@ export function UploadPanel() {
         </div>
       </div>
 
-      {/* Count */}
-      <div>
-        <label className="text-xs text-body-desc mb-1 block">生成图片数量</label>
-        <div className="flex gap-2">
-          {[1, 2, 4].map((n) => (
-            <button
-              key={n}
-              onClick={() => setCount(n)}
-              className={cn(
-                "w-9 h-9 rounded-lg border text-xs font-medium transition-colors",
-                count === n
-                  ? "border-primary bg-primary/10 text-primary"
-                  : "border-border/50 text-body2 hover:border-primary/40"
-              )}
-            >
-              {n}
-            </button>
-          ))}
-        </div>
-      </div>
+
+      {/* Spacer */}
 
       {/* Spacer */}
       <div className="flex-1" />
