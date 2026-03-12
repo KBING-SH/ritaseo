@@ -7,19 +7,19 @@ const steps = [
   {
     step: "01",
     title: "上传照片",
-    desc: "将人像、宠物或风景照片拖拽到上传区域，支持 PNG、JPG、WEBP 等主流格式，文件大小不超过 32MB。",
+    desc: "拖拽或点击上传人像、宠物、风景照片，支持 PNG / JPG / WEBP，最大 32 MB。",
     color: "from-primary to-theme1",
   },
   {
     step: "02",
-    title: "选择卡通风格并生成",
-    desc: "选择你喜欢的卡通风格，点击生成按钮，Rita AI 将在几秒内完成高质量的卡通化转换。",
+    title: "选风格 · 一键生成",
+    desc: "挑选喜欢的卡通风格，点击生成，Rita AI 几秒内即可交付高质量卡通图。",
     color: "from-theme1 to-emerald-400",
   },
   {
     step: "03",
-    title: "下载或分享",
-    desc: "生成完成后可直接下载高清无水印卡通图片，或一键分享到社交媒体。",
+    title: "下载 & 分享",
+    desc: "高清无水印图片即时下载，也可一键分享至社交平台，秀出你的卡通形象。",
     color: "from-theme2 to-primary",
   },
 ];
