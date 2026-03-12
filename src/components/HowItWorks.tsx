@@ -54,10 +54,12 @@ export function HowItWorks() {
                 )}
               </div>
               <div className="p-6">
-                <div className={`inline-flex items-center justify-center h-10 w-10 rounded-xl bg-gradient-to-br ${s.color} mb-4`}>
-                  <span className="text-sm font-bold text-white">{s.step}</span>
+                <div className="flex items-center gap-3 mb-3">
+                  <div className={`inline-flex items-center justify-center h-10 w-10 rounded-xl bg-gradient-to-br ${s.color} shrink-0`}>
+                    <span className="text-sm font-bold text-white">{s.step}</span>
+                  </div>
+                  <h3 className="text-lg font-semibold text-title">{s.title}</h3>
                 </div>
-                <h3 className="text-lg font-semibold text-title mb-2">{s.title}</h3>
                 <p className="text-sm text-body-desc leading-relaxed">{s.desc}</p>
               </div>
             </div>
