@@ -266,42 +266,71 @@ export function UploadPanel() {
 
       {/* Style Preview Dialog */}
       <Dialog open={previewStyle !== null} onOpenChange={(open) => !open && setPreviewStyle(null)}>
-        <DialogContent className="max-w-3xl p-0 overflow-hidden gap-0 border border-border rounded-2xl">
-          <div className="flex flex-col md:flex-row min-h-[420px]">
-            {/* Left: large image, edge to edge */}
-            <div className="md:w-[55%] bg-muted/50">
-              {previewStyle !== null && (
-                <img
-                  src={STYLE_OPTIONS[previewStyle].src}
-                  alt={STYLE_OPTIONS[previewStyle].label}
-                  className="w-full h-64 md:h-full object-cover"
-                />
-              )}
-            </div>
-            {/* Right: style info & prompt */}
-            <div className="md:w-[45%] p-6 flex flex-col bg-card">
-              <h3 className="text-xl font-bold text-title mb-5">
-                {previewStyle !== null && STYLE_OPTIONS[previewStyle].label}
-              </h3>
-              <p className="text-sm font-semibold text-title mb-2">提示词</p>
-              <div className="rounded-xl border border-border/50 bg-muted p-4 flex-1">
-                <p className="text-sm text-muted-foreground leading-relaxed">
-                  {previewStyle !== null && STYLE_OPTIONS[previewStyle].prompt}
-                </p>
+        <DialogContent className="max-w-3xl p-0 overflow-hidden gap-0 border-0 bg-transparent shadow-none [&>button]:hidden">
+          <div className="relative">
+            {/* Left arrow */}
+            <button
+              onClick={() => setPreviewStyle((prev) => prev !== null ? (prev - 1 + STYLE_OPTIONS.length) % STYLE_OPTIONS.length : 0)}
+              className="absolute -left-14 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full border border-border bg-card shadow-md flex items-center justify-center hover:bg-muted transition-colors z-20"
+            >
+              <ChevronLeft className="w-5 h-5 text-title" />
+            </button>
+
+            {/* Right arrow */}
+            <button
+              onClick={() => setPreviewStyle((prev) => prev !== null ? (prev + 1) % STYLE_OPTIONS.length : 0)}
+              className="absolute -right-14 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full border border-border bg-card shadow-md flex items-center justify-center hover:bg-muted transition-colors z-20"
+            >
+              <ChevronRight className="w-5 h-5 text-title" />
+            </button>
+
+            {/* Main card */}
+            <div className="rounded-2xl border border-border bg-card shadow-lg overflow-hidden">
+              <div className="flex flex-col md:flex-row min-h-[420px]">
+                {/* Left: large image */}
+                <div className="md:w-[55%] bg-muted/30">
+                  {previewStyle !== null && (
+                    <img
+                      src={STYLE_OPTIONS[previewStyle].src}
+                      alt={STYLE_OPTIONS[previewStyle].label}
+                      className="w-full h-64 md:h-full object-cover"
+                    />
+                  )}
+                </div>
+                {/* Right: style info & prompt */}
+                <div className="md:w-[45%] p-6 flex flex-col">
+                  <div className="flex items-center justify-between mb-5">
+                    <h3 className="text-xl font-bold text-title">
+                      {previewStyle !== null && STYLE_OPTIONS[previewStyle].label}
+                    </h3>
+                    <button
+                      onClick={() => setPreviewStyle(null)}
+                      className="w-8 h-8 rounded-full border border-border flex items-center justify-center hover:bg-muted transition-colors"
+                    >
+                      <X className="w-4 h-4 text-muted-foreground" />
+                    </button>
+                  </div>
+                  <p className="text-sm font-semibold text-title mb-2">提示词</p>
+                  <div className="rounded-xl border border-border/50 bg-muted p-4 flex-1">
+                    <p className="text-sm text-muted-foreground leading-relaxed">
+                      {previewStyle !== null && STYLE_OPTIONS[previewStyle].prompt}
+                    </p>
+                  </div>
+                  <Button
+                    variant="gradient"
+                    className="w-full mt-5"
+                    onClick={() => {
+                      if (previewStyle !== null) {
+                        navigator.clipboard.writeText(STYLE_OPTIONS[previewStyle].prompt);
+                        toast.success("提示词已复制");
+                      }
+                    }}
+                  >
+                    <Copy className="w-4 h-4 mr-2" />
+                    复制提示词
+                  </Button>
+                </div>
               </div>
-              <Button
-                variant="gradient"
-                className="w-full mt-5"
-                onClick={() => {
-                  if (previewStyle !== null) {
-                    navigator.clipboard.writeText(STYLE_OPTIONS[previewStyle].prompt);
-                    toast.success("提示词已复制");
-                  }
-                }}
-              >
-                <Copy className="w-4 h-4 mr-2" />
-                复制提示词
-              </Button>
             </div>
           </div>
         </DialogContent>
