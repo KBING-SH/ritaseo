@@ -15,7 +15,7 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background transition-colors duration-300">
       {/* Top bar */}
-      <header className="sticky top-0 z-40 h-14 border-b border-border/50 bg-background/80 backdrop-blur-md flex items-center justify-between px-4 md:px-8">
+      <header className="sticky top-0 z-40 h-14 border-b border-border/50 bg-background/80 backdrop-blur-md flex items-center justify-between px-4 md:px-8 lg:relative">
         <div className="flex items-center gap-2.5">
           <div className="h-8 w-8 rounded-lg gradient-primary" />
           <span className="text-base font-bold text-title">Rita</span>
@@ -24,7 +24,7 @@ const Index = () => {
       </header>
 
       {/* First screen: sidebar + hero, all scrolls together */}
-      <section className="h-[calc(100vh-3.5rem)] flex flex-col lg:flex-row">
+      <section className="h-[calc(100vh-3.5rem)] lg:h-[calc(100vh-3.5rem)] flex flex-col lg:flex-row">
         {/* Left sidebar - desktop */}
         <aside className="hidden lg:flex w-[320px] xl:w-[340px] shrink-0 border-r border-border/50 bg-card">
           <UploadPanel />
