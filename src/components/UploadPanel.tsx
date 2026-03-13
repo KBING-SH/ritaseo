@@ -189,15 +189,16 @@ export function UploadPanel() {
 
         {/* Aspect Ratio */}
         <div>
-          <label className="text-xs font-medium text-title mb-1 lg:mb-1.5 block">纵横比</label>
-          <div className="flex flex-wrap gap-1 lg:grid lg:grid-cols-5 lg:gap-1.5">
+          <label className="text-xs md:text-sm font-medium text-title mb-1 lg:mb-1.5 block">纵横比</label>
+          <div className="flex flex-wrap gap-1 md:grid md:grid-cols-5 md:gap-1.5 lg:gap-1.5">
             {RATIOS.map((r) => (
               <button
                 key={r.value}
                 onClick={() => setSelectedRatio(r.value)}
                 className={cn(
                   "flex items-center gap-0.5 py-0.5 px-1.5 rounded-md border text-[10px] font-medium transition-colors",
-                  "lg:flex-col lg:py-1.5 lg:px-1 lg:rounded-lg lg:text-[11px]",
+                  "md:flex-col md:py-1.5 md:px-1 md:rounded-lg md:text-xs",
+                  "lg:text-[11px]",
                   selectedRatio === r.value
                     ? "border-primary bg-primary/10 text-primary"
                     : "border-border/50 text-body-desc hover:border-primary/40"
@@ -210,45 +211,45 @@ export function UploadPanel() {
           </div>
         </div>
 
-        {/* Resolution & Format - inline on mobile/tablet, stacked on desktop */}
-        <div className="flex gap-4 md:gap-6 lg:flex-col lg:gap-0 lg:space-y-3">
-          <div>
-            <label className="text-xs font-medium text-title mb-1 lg:mb-1.5 block">分辨率</label>
-            <div className="flex flex-wrap gap-1 lg:gap-1.5">
-              {RESOLUTIONS.map((res) => (
-                <button
-                  key={res}
-                  onClick={() => setSelectedResolution(res)}
-                  className={cn(
-                    "px-2 py-1 lg:px-3 lg:py-1.5 rounded-full border text-[11px] lg:text-xs font-medium transition-colors",
-                    selectedResolution === res
-                      ? "border-primary bg-primary/10 text-primary"
-                      : "border-border/50 text-body-desc hover:border-primary/40"
-                  )}
-                >
-                  {res}
-                </button>
-              ))}
-            </div>
+        {/* Resolution */}
+        <div>
+          <label className="text-xs md:text-sm font-medium text-title mb-1 lg:mb-1.5 block">分辨率</label>
+          <div className="flex flex-wrap gap-1 md:gap-1.5 lg:gap-1.5">
+            {RESOLUTIONS.map((res) => (
+              <button
+                key={res}
+                onClick={() => setSelectedResolution(res)}
+                className={cn(
+                  "px-2 py-1 md:px-3 md:py-1.5 rounded-full border text-[11px] md:text-xs font-medium transition-colors",
+                  selectedResolution === res
+                    ? "border-primary bg-primary/10 text-primary"
+                    : "border-border/50 text-body-desc hover:border-primary/40"
+                )}
+              >
+                {res}
+              </button>
+            ))}
           </div>
-          <div>
-            <label className="text-xs font-medium text-title mb-1 lg:mb-1.5 block">图片格式</label>
-            <div className="flex flex-wrap gap-1 lg:gap-1.5">
-              {FORMATS.map((fmt) => (
-                <button
-                  key={fmt}
-                  onClick={() => setSelectedFormat(fmt)}
-                  className={cn(
-                    "px-2 py-1 lg:px-3 lg:py-1.5 rounded-full border text-[11px] lg:text-xs font-medium transition-colors",
-                    selectedFormat === fmt
-                      ? "border-primary bg-primary/10 text-primary"
-                      : "border-border/50 text-body-desc hover:border-primary/40"
-                  )}
-                >
-                  {fmt}
-                </button>
-              ))}
-            </div>
+        </div>
+
+        {/* Image Format */}
+        <div>
+          <label className="text-xs md:text-sm font-medium text-title mb-1 lg:mb-1.5 block">图片格式</label>
+          <div className="flex flex-wrap gap-1 md:gap-1.5 lg:gap-1.5">
+            {FORMATS.map((fmt) => (
+              <button
+                key={fmt}
+                onClick={() => setSelectedFormat(fmt)}
+                className={cn(
+                  "px-2 py-1 md:px-3 md:py-1.5 rounded-full border text-[11px] md:text-xs font-medium transition-colors",
+                  selectedFormat === fmt
+                    ? "border-primary bg-primary/10 text-primary"
+                    : "border-border/50 text-body-desc hover:border-primary/40"
+                )}
+              >
+                {fmt}
+              </button>
+            ))}
           </div>
         </div>
       </div>
