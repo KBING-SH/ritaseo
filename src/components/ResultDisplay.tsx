@@ -47,7 +47,7 @@ export function ResultDisplay({
   return (
     <div className={compact ? "px-3 pb-3" : ""}>
       {/* Generated image / loading */}
-      {(isGenerating || generatedImg) && (
+      {!historyOnly && (isGenerating || generatedImg) && (
         <div className={`flex items-center justify-center ${compact ? "py-3" : "flex-1 min-h-0 w-full px-4 pb-4"}`}>
           {isGenerating ? (
             <div
