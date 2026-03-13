@@ -165,7 +165,7 @@ const Index = () => {
                           </button>
                         </div>
                         <span className="text-[9px] text-muted-foreground">
-                          {new Date().toLocaleDateString("zh-CN")} {new Date().toLocaleTimeString("zh-CN", { hour: "2-digit", minute: "2-digit", second: "2-digit" })}
+                          {item.time.toLocaleDateString("zh-CN")} {item.time.toLocaleTimeString("zh-CN", { hour: "2-digit", minute: "2-digit", second: "2-digit" })}
                         </span>
                       </div>
                     ))}
