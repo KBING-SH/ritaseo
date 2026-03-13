@@ -48,10 +48,10 @@ const Index = () => {
           {/* Hero content - only visible on desktop */}
           <div className="hidden lg:flex flex-col items-center justify-center px-4 md:px-6 pb-[6%] flex-1">
             <div className="text-center shrink-0 mb-6">
-              <h1 className="text-3xl md:text-5xl font-bold text-title leading-tight mb-1.5 md:mb-2">
+              <h1 className="text-3xl md:text-5xl font-bold text-title leading-tight mb-3 md:mb-4">
                 免费在线照片转卡通
               </h1>
-              <p className="text-muted-foreground text-sm md:text-lg max-w-2xl mx-auto">
+              <p className="text-muted-foreground text-sm md:text-lg max-w-2xl mx-auto leading-relaxed">
                 上传你的照片，Rita AI 将为你生成多种风格的趣味卡通形象。支持人像、宠物、风景等多种照片类型，操作简单，几秒完成。
               </p>
             </div>
