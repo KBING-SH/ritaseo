@@ -254,10 +254,11 @@ export function UploadPanel() {
       </div>
 
       {/* Fixed bottom: generate */}
-      <div className="border-t border-border/50 p-3 md:p-3 lg:p-4">
-        <Button variant="gradient" size="lg" className="w-full">
+      <div className="border-t border-border/50 p-3 md:p-3 lg:p-4 flex items-center gap-2">
+        <Button variant="gradient" size="default" className="flex-1">
           生成 ⚡10
         </Button>
+        <span className="text-xs text-muted-foreground whitespace-nowrap">免费积分30</span>
       </div>
     </div>
   );
