@@ -24,7 +24,7 @@ const Index = () => {
       </header>
 
       {/* First screen: sidebar + hero, all scrolls together */}
-      <section className="h-[calc(100vh-3.5rem)] flex">
+      <section className="min-h-0 lg:h-[calc(100vh-3.5rem)] flex">
         {/* Left sidebar */}
         <aside className="hidden lg:flex w-[320px] xl:w-[340px] shrink-0 border-r border-border/50 bg-card">
           <UploadPanel />
