@@ -100,12 +100,12 @@ export function UploadPanel() {
   return (
     <div className="rounded-xl border border-border/50 bg-card shadow-soft h-auto lg:h-full flex flex-col overflow-hidden">
       {/* Content */}
-      <div className="overflow-visible lg:flex-1 lg:overflow-y-auto p-3 md:p-3 space-y-1.5 md:space-y-1 lg:space-y-4 text-sm">
+      <div className="overflow-visible lg:flex-1 lg:overflow-y-auto p-3 md:p-3 lg:p-4 space-y-1.5 md:space-y-1 lg:space-y-3 text-sm">
         {/* Model selector */}
         <div>
-          <label className="text-xs font-medium text-title mb-1 block">模型</label>
+          <label className="text-xs font-medium text-title mb-1 lg:mb-1.5 block">模型</label>
           <Select value={selectedModel} onValueChange={setSelectedModel}>
-            <SelectTrigger className="rounded-lg border-border/50 bg-card-alt text-title h-auto py-1.5 text-left">
+            <SelectTrigger className="rounded-lg border-border/50 bg-card-alt text-title h-auto py-1.5 lg:py-2 text-left">
               <SelectValue />
             </SelectTrigger>
             <SelectContent className="max-h-72">
@@ -126,7 +126,7 @@ export function UploadPanel() {
 
         {/* Upload area */}
         <div>
-          <label className="text-xs font-medium text-title mb-1 block">图片</label>
+          <label className="text-xs font-medium text-title mb-1 lg:mb-1.5 block">图片</label>
           <div id="upload-drop-zone" className="relative">
             {uploadedImage ? (
               <div className="relative rounded-lg border border-border/50 overflow-hidden animate-fade-in">
@@ -168,7 +168,7 @@ export function UploadPanel() {
 
         {/* Prompt */}
         <div>
-          <label className="text-xs font-medium text-title mb-1 block">
+          <label className="text-xs font-medium text-title mb-1 lg:mb-1.5 block">
             提示词 <span className="text-destructive">*</span>
           </label>
           <textarea
@@ -179,7 +179,7 @@ export function UploadPanel() {
 
         {/* Style selector */}
         <div>
-          <label className="text-xs font-medium text-title mb-1 block">选择以下风格</label>
+          <label className="text-xs font-medium text-title mb-1 lg:mb-1.5 block">选择以下风格</label>
           <div className="grid grid-cols-4 md:grid-cols-8 lg:grid-cols-4 gap-x-2 gap-y-1.5 md:gap-x-2 md:gap-y-0 lg:gap-x-4 lg:gap-y-3">
             {STYLE_OPTIONS.map((style, i) => (
               <StyleCard key={i} style={style} index={i} selected={selectedStyle === i} onSelect={setSelectedStyle} />
@@ -189,14 +189,15 @@ export function UploadPanel() {
 
         {/* Aspect Ratio */}
         <div>
-          <label className="text-xs font-medium text-title mb-1 block">纵横比</label>
-          <div className="flex flex-wrap gap-1">
+          <label className="text-xs font-medium text-title mb-1 lg:mb-1.5 block">纵横比</label>
+          <div className="flex flex-wrap gap-1 lg:grid lg:grid-cols-5 lg:gap-1.5">
             {RATIOS.map((r) => (
               <button
                 key={r.value}
                 onClick={() => setSelectedRatio(r.value)}
                 className={cn(
                   "flex items-center gap-0.5 py-0.5 px-1.5 rounded-md border text-[10px] font-medium transition-colors",
+                  "lg:flex-col lg:py-1.5 lg:px-1 lg:rounded-lg lg:text-[11px]",
                   selectedRatio === r.value
                     ? "border-primary bg-primary/10 text-primary"
                     : "border-border/50 text-body-desc hover:border-primary/40"
@@ -209,17 +210,17 @@ export function UploadPanel() {
           </div>
         </div>
 
-        {/* Resolution & Format inline */}
-        <div className="flex gap-4 md:gap-6">
+        {/* Resolution & Format - inline on mobile/tablet, stacked on desktop */}
+        <div className="flex gap-4 md:gap-6 lg:flex-col lg:gap-0 lg:space-y-3">
           <div>
-            <label className="text-xs font-medium text-title mb-1 block">分辨率</label>
-            <div className="flex flex-wrap gap-1">
+            <label className="text-xs font-medium text-title mb-1 lg:mb-1.5 block">分辨率</label>
+            <div className="flex flex-wrap gap-1 lg:gap-1.5">
               {RESOLUTIONS.map((res) => (
                 <button
                   key={res}
                   onClick={() => setSelectedResolution(res)}
                   className={cn(
-                    "px-2 py-1 rounded-full border text-[11px] font-medium transition-colors",
+                    "px-2 py-1 lg:px-3 lg:py-1.5 rounded-full border text-[11px] lg:text-xs font-medium transition-colors",
                     selectedResolution === res
                       ? "border-primary bg-primary/10 text-primary"
                       : "border-border/50 text-body-desc hover:border-primary/40"
@@ -231,14 +232,14 @@ export function UploadPanel() {
             </div>
           </div>
           <div>
-            <label className="text-xs font-medium text-title mb-1 block">图片格式</label>
-            <div className="flex flex-wrap gap-1">
+            <label className="text-xs font-medium text-title mb-1 lg:mb-1.5 block">图片格式</label>
+            <div className="flex flex-wrap gap-1 lg:gap-1.5">
               {FORMATS.map((fmt) => (
                 <button
                   key={fmt}
                   onClick={() => setSelectedFormat(fmt)}
                   className={cn(
-                    "px-2 py-1 rounded-full border text-[11px] font-medium transition-colors",
+                    "px-2 py-1 lg:px-3 lg:py-1.5 rounded-full border text-[11px] lg:text-xs font-medium transition-colors",
                     selectedFormat === fmt
                       ? "border-primary bg-primary/10 text-primary"
                       : "border-border/50 text-body-desc hover:border-primary/40"
@@ -253,7 +254,7 @@ export function UploadPanel() {
       </div>
 
       {/* Fixed bottom: generate */}
-      <div className="border-t border-border/50 p-3 md:p-3">
+      <div className="border-t border-border/50 p-3 md:p-3 lg:p-4">
         <Button variant="gradient" size="lg" className="w-full">
           生成 ⚡10
         </Button>
