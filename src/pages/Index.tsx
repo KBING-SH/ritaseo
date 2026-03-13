@@ -1,3 +1,4 @@
+import { useState, useCallback } from "react";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import { ProductFooterSection } from "@/components/ProductFooterSection";
 import { StyleSelector } from "@/components/StyleSelector";
@@ -10,8 +11,29 @@ import { FAQSection } from "@/components/FAQSection";
 import { ContentSections } from "@/components/ContentSections";
 import { ToolkitSection } from "@/components/ToolkitSection";
 import { TestimonialsSection } from "@/components/TestimonialsSection";
+import { Loader2 } from "lucide-react";
+
+const RATIO_ASPECT: Record<string, string> = {
+  "auto": "16/9", "1:1": "1/1", "16:9": "16/9", "9:16": "9/16",
+  "4:3": "4/3", "3:4": "3/4", "2:3": "2/3", "3:2": "3/2",
+  "5:4": "5/4", "4:5": "4/5",
+};
 
 const Index = () => {
+  const [generatedImg, setGeneratedImg] = useState<string | null>(null);
+  const [generatedRatio, setGeneratedRatio] = useState("16/9");
+  const [isGenerating, setIsGenerating] = useState(false);
+
+  const handleGenerate = useCallback((styleImg: string, ratio: string) => {
+    setIsGenerating(true);
+    setGeneratedImg(null);
+    // Simulate generation delay
+    setTimeout(() => {
+      setGeneratedImg(styleImg);
+      setGeneratedRatio(RATIO_ASPECT[ratio] || "16/9");
+      setIsGenerating(false);
+    }, 2000);
+  }, []);
   return (
     <div className="min-h-screen bg-background transition-colors duration-300 relative">
       {/* Theme toggle - desktop top right */}
