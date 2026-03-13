@@ -193,6 +193,17 @@ const Index = () => {
         </div>
       </section>
 
+      {/* History preview dialog */}
+      <Dialog open={!!previewItem} onOpenChange={(open) => !open && setPreviewItem(null)}>
+        <DialogContent className="max-w-[90vw] max-h-[90vh] p-2 bg-background/95 backdrop-blur-md border-border/50 flex items-center justify-center">
+          {previewItem && (
+            <div className="max-w-full max-h-[85vh] rounded-lg overflow-hidden" style={{ aspectRatio: previewItem.ratio }}>
+              <img src={previewItem.img} alt="预览大图" className="w-full h-full object-cover" />
+            </div>
+          )}
+        </DialogContent>
+      </Dialog>
+
       {/* Below first screen: sidebar sticks, content scrolls */}
       {/* Below first screen: full-width content */}
       <div>
