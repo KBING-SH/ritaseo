@@ -208,17 +208,17 @@ const Index = () => {
               </button>
 
               {/* Image */}
-              <div className="relative rounded-xl overflow-hidden bg-background/95 border border-border/50 shadow-2xl p-2">
+              <div className="relative rounded-2xl bg-background border border-border/50 shadow-2xl p-4 flex items-center justify-center">
                 <button
                   onClick={() => setPreviewIdx(null)}
-                  className="absolute top-3 right-3 z-10 w-8 h-8 rounded-full bg-foreground/60 hover:bg-foreground/80 flex items-center justify-center transition-colors"
+                  className="absolute top-2 right-2 z-10 w-8 h-8 rounded-full bg-foreground/60 hover:bg-foreground/80 flex items-center justify-center transition-colors"
                 >
                   <X className="w-4 h-4 text-background" />
                 </button>
                 <img
                   src={history[previewIdx].img}
                   alt="预览大图"
-                  className="max-h-[80vh] max-w-[75vw] rounded-lg object-contain"
+                  className="max-h-[78vh] max-w-[72vw] rounded-lg object-contain"
                   style={{ aspectRatio: history[previewIdx].ratio }}
                 />
               </div>
