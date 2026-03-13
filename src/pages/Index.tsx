@@ -1,4 +1,5 @@
 import { useState, useCallback } from "react";
+import { Loader2 } from "lucide-react";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import { ProductFooterSection } from "@/components/ProductFooterSection";
 import { StyleSelector } from "@/components/StyleSelector";
