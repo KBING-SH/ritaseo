@@ -124,15 +124,21 @@ const Index = () => {
                 <div className="w-full max-h-full aspect-[16/9] rounded-2xl overflow-hidden">
                   <StyleSelector />
                 </div>
+              ) : isGenerating ? (
+                <div className="h-full max-w-full rounded-2xl border border-border/50 bg-muted/30 flex flex-col items-center justify-center gap-3" style={{ aspectRatio: generatedRatio }}>
+                  <Loader2 className="w-10 h-10 text-primary animate-spin" />
+                  <p className="text-sm text-muted-foreground">正在生成中...</p>
+                </div>
+              ) : generatedImg ? (
+                <div className="h-full max-w-full rounded-2xl overflow-hidden border border-border/50 shadow-lg animate-fade-in" style={{ aspectRatio: generatedRatio }}>
+                  <img src={generatedImg} alt="生成结果" className="w-full h-full object-cover" />
+                </div>
               ) : null}
-              {(isGenerating || generatedImg) && (
-                <ResultDisplay {...resultProps} />
-              )}
             </div>
 
-            {/* Desktop history strip (no image, just history) */}
-            {!isGenerating && !generatedImg && history.length > 0 && (
-              <ResultDisplay {...resultProps} />
+            {/* Desktop history strip */}
+            {history.length > 0 && (
+              <ResultDisplay {...resultProps} historyOnly />
             )}
           </div>
         </div>
