@@ -266,10 +266,10 @@ export function UploadPanel() {
 
       {/* Style Preview Dialog */}
       <Dialog open={previewStyle !== null} onOpenChange={(open) => !open && setPreviewStyle(null)}>
-        <DialogContent className="max-w-3xl p-0 overflow-hidden gap-0 border-0">
+        <DialogContent className="max-w-3xl p-0 overflow-hidden gap-0 border border-border rounded-2xl">
           <div className="flex flex-col md:flex-row min-h-[420px]">
             {/* Left: large image, edge to edge */}
-            <div className="md:w-[55%] bg-black">
+            <div className="md:w-[55%] bg-muted/50">
               {previewStyle !== null && (
                 <img
                   src={STYLE_OPTIONS[previewStyle].src}
