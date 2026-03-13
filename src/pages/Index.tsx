@@ -136,19 +136,27 @@ const Index = () => {
                     {history.map((item, i) => (
                       <div key={i} className="shrink-0 flex flex-col items-center gap-1 pt-2 pr-2">
                         <div className="relative">
-                          <button
-                            onClick={() => {
-                              setGeneratedImg(item.img);
-                              setGeneratedRatio(item.ratio);
-                              setSelectedHistoryIdx(i);
-                            }}
-                            className={`h-20 rounded-lg overflow-hidden border-2 transition-all ${
-                              selectedHistoryIdx === i ? "border-primary shadow-sm" : "border-border/50 hover:border-primary/40"
+                          <div
+                            className={`w-20 h-20 rounded-xl flex items-center justify-center ${
+                              item.ratio !== "1/1" ? "bg-muted/50 border border-border/30" : ""
                             }`}
-                            style={{ aspectRatio: item.ratio }}
                           >
-                            <img src={item.img} alt={`历史记录 ${i + 1}`} className="w-full h-full object-cover" />
-                          </button>
+                            <button
+                              onClick={() => {
+                                setGeneratedImg(item.img);
+                                setGeneratedRatio(item.ratio);
+                                setSelectedHistoryIdx(i);
+                              }}
+                              className={`rounded-lg overflow-hidden border-2 transition-all ${
+                                item.ratio === "1/1" ? "w-20 h-20" : "max-w-[72px] max-h-[72px]"
+                              } ${
+                                selectedHistoryIdx === i ? "border-primary shadow-sm" : "border-border/50 hover:border-primary/40"
+                              }`}
+                              style={{ aspectRatio: item.ratio }}
+                            >
+                              <img src={item.img} alt={`历史记录 ${i + 1}`} className="w-full h-full object-cover" />
+                            </button>
+                          </div>
                           <button
                             onClick={(e) => {
                               e.stopPropagation();
@@ -160,7 +168,7 @@ const Index = () => {
                                 setSelectedHistoryIdx(selectedHistoryIdx - 1);
                               }
                             }}
-                            className="absolute -top-1.5 -right-1.5 w-5 h-5 rounded-full bg-foreground/60 hover:bg-foreground/80 flex items-center justify-center transition-colors"
+                            className="absolute -top-1 -right-1 w-5 h-5 rounded-full bg-foreground/60 hover:bg-foreground/80 flex items-center justify-center transition-colors z-10"
                           >
                             <X className="w-3 h-3 text-background" />
                           </button>
