@@ -148,4 +148,13 @@
   .scrollbar-hide::-webkit-scrollbar {
     display: none;
   }
+  @media (min-width: 1024px) {
+    .lg\:scrollbar-hide {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+    .lg\:scrollbar-hide::-webkit-scrollbar {
+      display: none;
+    }
+  }
 }
