@@ -140,9 +140,7 @@ const Index = () => {
                         <div className="relative">
                           <button
                             onClick={() => {
-                              setGeneratedImg(item.img);
-                              setGeneratedRatio(item.ratio);
-                              setSelectedHistoryIdx(i);
+                              setPreviewItem({ img: item.img, ratio: item.ratio });
                             }}
                             className={`w-20 h-20 rounded-xl flex items-center justify-center border-2 transition-all ${
                               item.ratio !== "1/1" ? "bg-muted/50" : ""
