@@ -129,7 +129,13 @@ function UploadTooltip() {
   const [pos, setPos] = useState<{ top: number; left: number; width: number; height: number } | null>(null);
 
   useEffect(() => {
-    const el = document.getElementById("upload-drop-zone");
+    const candidates = Array.from(document.querySelectorAll<HTMLElement>("#upload-drop-zone"));
+    const el = candidates.find((node) => {
+      const rect = node.getBoundingClientRect();
+      const style = window.getComputedStyle(node);
+      return rect.width > 0 && rect.height > 0 && style.display !== "none" && style.visibility !== "hidden";
+    });
+
     if (el) {
       const rect = el.getBoundingClientRect();
       setPos({ top: rect.top, left: rect.left, width: rect.width, height: rect.height });
