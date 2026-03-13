@@ -72,8 +72,8 @@ const Index = () => {
         </aside>
 
         {/* Mobile/Tablet: UploadPanel */}
-        <div className="flex-1 min-w-0 flex flex-col overflow-visible lg:overflow-hidden">
-          <div className="lg:hidden flex-1 min-h-0 overflow-visible">
+        <div className="flex-1 min-w-0 flex flex-col overflow-hidden">
+          <div className="lg:hidden flex-1 min-h-0 overflow-hidden">
             <UploadPanel onGenerate={handleGenerate} />
           </div>
 
