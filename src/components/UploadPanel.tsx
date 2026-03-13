@@ -145,7 +145,7 @@ export function UploadPanel() {
                 onDrop={handleDrop}
                 onClick={() => fileRef.current?.click()}
                 className={cn(
-                  "h-14 md:h-12 lg:h-28 rounded-lg border-2 border-dashed flex flex-col items-center justify-center gap-0.5 transition-all cursor-pointer",
+                  "h-20 md:h-16 lg:h-28 rounded-lg border-2 border-dashed flex flex-col items-center justify-center gap-0.5 transition-all cursor-pointer",
                   isDragging ? "border-primary bg-primary/5" : "border-border hover:border-primary/40 hover:bg-hover-bg"
                 )}
               >
