@@ -23,17 +23,29 @@ const Index = () => {
   const [generatedImg, setGeneratedImg] = useState<string | null>(null);
   const [generatedRatio, setGeneratedRatio] = useState("16/9");
   const [isGenerating, setIsGenerating] = useState(false);
+  const [history, setHistory] = useState<{ img: string; ratio: string }[]>([]);
+  const [selectedHistoryIdx, setSelectedHistoryIdx] = useState<number | null>(null);
+  const historyRef = useRef<HTMLDivElement>(null);
 
   const handleGenerate = useCallback((styleImg: string, ratio: string) => {
     setIsGenerating(true);
     setGeneratedImg(null);
-    // Simulate generation delay
+    const aspectRatio = RATIO_ASPECT[ratio] || "16/9";
     setTimeout(() => {
       setGeneratedImg(styleImg);
-      setGeneratedRatio(RATIO_ASPECT[ratio] || "16/9");
+      setGeneratedRatio(aspectRatio);
       setIsGenerating(false);
+      setHistory((prev) => {
+        const next = [{ img: styleImg, ratio: aspectRatio }, ...prev];
+        return next.slice(0, 30);
+      });
+      setSelectedHistoryIdx(0);
     }, 2000);
   }, []);
+
+  const scrollHistory = (dir: number) => {
+    historyRef.current?.scrollBy({ left: dir * 200, behavior: "smooth" });
+  };
   return (
     <div className="min-h-screen bg-background transition-colors duration-300 relative">
       {/* Theme toggle - desktop top right */}
