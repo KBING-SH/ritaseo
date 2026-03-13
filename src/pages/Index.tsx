@@ -1,3 +1,4 @@
+import { useState, useCallback } from "react";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import { ProductFooterSection } from "@/components/ProductFooterSection";
 import { StyleSelector } from "@/components/StyleSelector";
@@ -10,8 +11,29 @@ import { FAQSection } from "@/components/FAQSection";
 import { ContentSections } from "@/components/ContentSections";
 import { ToolkitSection } from "@/components/ToolkitSection";
 import { TestimonialsSection } from "@/components/TestimonialsSection";
+import { Loader2 } from "lucide-react";
+
+const RATIO_ASPECT: Record<string, string> = {
+  "auto": "16/9", "1:1": "1/1", "16:9": "16/9", "9:16": "9/16",
+  "4:3": "4/3", "3:4": "3/4", "2:3": "2/3", "3:2": "3/2",
+  "5:4": "5/4", "4:5": "4/5",
+};
 
 const Index = () => {
+  const [generatedImg, setGeneratedImg] = useState<string | null>(null);
+  const [generatedRatio, setGeneratedRatio] = useState("16/9");
+  const [isGenerating, setIsGenerating] = useState(false);
+
+  const handleGenerate = useCallback((styleImg: string, ratio: string) => {
+    setIsGenerating(true);
+    setGeneratedImg(null);
+    // Simulate generation delay
+    setTimeout(() => {
+      setGeneratedImg(styleImg);
+      setGeneratedRatio(RATIO_ASPECT[ratio] || "16/9");
+      setIsGenerating(false);
+    }, 2000);
+  }, []);
   return (
     <div className="min-h-screen bg-background transition-colors duration-300 relative">
       {/* Theme toggle - desktop top right */}
@@ -32,13 +54,13 @@ const Index = () => {
 
         {/* Left sidebar - desktop */}
         <aside className="hidden lg:flex w-[397px] xl:w-[422px] shrink-0 border-r border-border/50 bg-card">
-          <UploadPanel />
+          <UploadPanel onGenerate={handleGenerate} />
         </aside>
 
         {/* Mobile/Tablet: UploadPanel */}
         <div className="flex-1 min-w-0 flex flex-col overflow-visible lg:overflow-hidden">
           <div className="lg:hidden flex-1 min-h-0 overflow-visible">
-            <UploadPanel />
+            <UploadPanel onGenerate={handleGenerate} />
           </div>
 
           {/* Hero content - only visible on desktop */}
@@ -52,9 +74,20 @@ const Index = () => {
               </p>
             </div>
             <div className="flex-1 min-h-0 w-full px-4 pb-40 flex items-end justify-center">
-              <div className="w-full max-h-full aspect-[16/9] rounded-2xl overflow-hidden">
-                <StyleSelector />
-              </div>
+              {isGenerating ? (
+                <div className="w-full max-h-full rounded-2xl border border-border/50 bg-muted/30 flex flex-col items-center justify-center gap-3" style={{ aspectRatio: generatedRatio }}>
+                  <Loader2 className="w-10 h-10 text-primary animate-spin" />
+                  <p className="text-sm text-muted-foreground">正在生成中...</p>
+                </div>
+              ) : generatedImg ? (
+                <div className="w-full max-h-full rounded-2xl overflow-hidden border border-border/50 shadow-lg animate-fade-in" style={{ aspectRatio: generatedRatio }}>
+                  <img src={generatedImg} alt="生成结果" className="w-full h-full object-cover" />
+                </div>
+              ) : (
+                <div className="w-full max-h-full aspect-[16/9] rounded-2xl overflow-hidden">
+                  <StyleSelector />
+                </div>
+              )}
             </div>
           </div>
         </div>
