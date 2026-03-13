@@ -175,6 +175,8 @@ export function UploadPanel() {
             提示词 <span className="text-destructive">*</span>
           </label>
           <textarea
+            value={promptText}
+            onChange={(e) => setPromptText(e.target.value)}
             placeholder="请描述下你想如何处理图片..."
             className="w-full h-[54px] md:h-14 lg:h-24 rounded-lg border border-border/50 bg-card px-3 py-1.5 text-sm text-title placeholder:text-body-desc resize-none md:resize-none lg:resize-y focus:outline-none focus:ring-1 focus:ring-primary/50"
           />
