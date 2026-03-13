@@ -1,4 +1,4 @@
-import { useState, useCallback, useRef } from "react";
+import { useState, useCallback } from "react";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import { ProductFooterSection } from "@/components/ProductFooterSection";
 import { StyleSelector } from "@/components/StyleSelector";
@@ -11,8 +11,9 @@ import { FAQSection } from "@/components/FAQSection";
 import { ContentSections } from "@/components/ContentSections";
 import { ToolkitSection } from "@/components/ToolkitSection";
 import { TestimonialsSection } from "@/components/TestimonialsSection";
+import { ResultDisplay } from "@/components/ResultDisplay";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
-import { Loader2, ChevronLeft, ChevronRight, X, Trash2 } from "lucide-react";
+import { ChevronLeft, ChevronRight, X } from "lucide-react";
 
 const RATIO_ASPECT: Record<string, string> = {
   "auto": "16/9", "1:1": "1/1", "16:9": "16/9", "9:16": "9/16",
@@ -27,7 +28,6 @@ const Index = () => {
   const [history, setHistory] = useState<{ img: string; ratio: string; ratioLabel: string; time: Date }[]>([]);
   const [selectedHistoryIdx, setSelectedHistoryIdx] = useState<number | null>(null);
   const [previewIdx, setPreviewIdx] = useState<number | null>(null);
-  const historyRef = useRef<HTMLDivElement>(null);
 
   const handleGenerate = useCallback((styleImg: string, ratio: string) => {
     setIsGenerating(true);
@@ -45,9 +45,20 @@ const Index = () => {
     }, 2000);
   }, []);
 
-  const scrollHistory = (dir: number) => {
-    historyRef.current?.scrollBy({ left: dir * 200, behavior: "smooth" });
+  const resultProps = {
+    isGenerating,
+    generatedImg,
+    generatedRatio,
+    history,
+    selectedHistoryIdx,
+    onSetHistory: setHistory,
+    onSetSelectedHistoryIdx: setSelectedHistoryIdx,
+    onSetGeneratedImg: setGeneratedImg,
+    onPreview: setPreviewIdx,
   };
+
+  const hasMobileResult = isGenerating || generatedImg || history.length > 0;
+
   return (
     <div className="min-h-screen bg-background transition-colors duration-300 relative">
       {/* Theme toggle - desktop top right */}
@@ -56,7 +67,7 @@ const Index = () => {
       </div>
 
       {/* First screen */}
-      <section className="h-screen flex flex-col lg:flex-row">
+      <section className="min-h-screen lg:h-screen flex flex-col lg:flex-row">
         {/* Mobile/Tablet header inside first screen */}
         <div className="lg:hidden h-12 shrink-0 border-b border-border/50 bg-background/80 backdrop-blur-md flex items-center justify-between px-4">
           <div className="flex items-center gap-2.5">
@@ -71,11 +82,18 @@ const Index = () => {
           <UploadPanel onGenerate={handleGenerate} />
         </aside>
 
-        {/* Mobile/Tablet: UploadPanel */}
+        {/* Mobile/Tablet: UploadPanel + Result */}
         <div className="flex-1 min-w-0 flex flex-col overflow-hidden">
           <div className="lg:hidden flex-1 min-h-0 overflow-hidden">
             <UploadPanel onGenerate={handleGenerate} />
           </div>
+
+          {/* Mobile result display - below upload panel */}
+          {hasMobileResult && (
+            <div className="lg:hidden shrink-0 border-t border-border/50 bg-card">
+              <ResultDisplay {...resultProps} compact />
+            </div>
+          )}
 
           {/* Hero content - only visible on desktop */}
           <div className="hidden lg:flex flex-col items-center justify-start pt-4 px-4 md:px-6 flex-1 overflow-hidden">
@@ -88,106 +106,19 @@ const Index = () => {
               </p>
             </div>
             <div className={`flex-1 min-h-0 w-full px-4 flex items-end justify-center ${history.length > 0 ? "pb-4" : "pb-[180px]"}`}>
-              {isGenerating ? (
-                <div className="h-full max-w-full rounded-2xl border border-border/50 bg-muted/30 flex flex-col items-center justify-center gap-3" style={{ aspectRatio: generatedRatio }}>
-                  <Loader2 className="w-10 h-10 text-primary animate-spin" />
-                  <p className="text-sm text-muted-foreground">正在生成中...</p>
-                </div>
-              ) : generatedImg ? (
-                <div className="h-full max-w-full rounded-2xl overflow-hidden border border-border/50 shadow-lg animate-fade-in" style={{ aspectRatio: generatedRatio }}>
-                  <img src={generatedImg} alt="生成结果" className="w-full h-full object-cover" />
-                </div>
-              ) : (
+              {!isGenerating && !generatedImg ? (
                 <div className="w-full max-h-full aspect-[16/9] rounded-2xl overflow-hidden">
                   <StyleSelector />
                 </div>
+              ) : null}
+              {(isGenerating || generatedImg) && (
+                <ResultDisplay {...resultProps} />
               )}
             </div>
 
-            {/* History strip */}
-            {history.length > 0 && (
-              <div className="shrink-0 w-full px-4 pb-3">
-                {/* Header */}
-                <div className="flex items-center justify-between mb-2">
-                  <div className="flex items-baseline gap-2">
-                    <span className="text-sm font-semibold text-title">历史</span>
-                    <span className="text-[11px] text-muted-foreground">最多保存30次记录</span>
-                  </div>
-                  <button
-                    onClick={() => { setHistory([]); setSelectedHistoryIdx(null); setGeneratedImg(null); }}
-                    className="text-muted-foreground hover:text-destructive transition-colors"
-                    title="清空历史"
-                  >
-                    <Trash2 className="w-4 h-4" />
-                  </button>
-                </div>
-                {/* Thumbnails */}
-                <div className="flex items-start gap-2">
-                  {history.length > 6 && (
-                    <button
-                      onClick={() => scrollHistory(-1)}
-                      className="shrink-0 w-7 h-7 mt-6 rounded-full border border-border bg-card flex items-center justify-center hover:bg-muted transition-colors"
-                    >
-                      <ChevronLeft className="w-4 h-4 text-title" />
-                    </button>
-                  )}
-                  <div
-                    ref={historyRef}
-                    className="flex-1 flex gap-3 overflow-x-auto scrollbar-hide"
-                  >
-                    {history.map((item, i) => (
-                      <div key={i} className="shrink-0 flex flex-col items-center gap-1 pt-2 pr-2">
-                        <div className="relative">
-                          <button
-                            onClick={() => {
-                              setPreviewIdx(i);
-                            }}
-                            className={`w-20 h-20 rounded-xl flex items-center justify-center border-2 transition-all ${
-                              item.ratio !== "1/1" ? "bg-muted/50" : ""
-                            } ${
-                              selectedHistoryIdx === i ? "border-primary shadow-sm" : "border-border/30 hover:border-primary/40"
-                            }`}
-                          >
-                            <div
-                              className="rounded-lg overflow-hidden max-w-[72px] max-h-[72px]"
-                              style={{ aspectRatio: item.ratio }}
-                            >
-                              <img src={item.img} alt={`历史记录 ${i + 1}`} className="w-full h-full object-cover" />
-                            </div>
-                          </button>
-                          <button
-                            onClick={(e) => {
-                              e.stopPropagation();
-                              setHistory((prev) => prev.filter((_, idx) => idx !== i));
-                              if (selectedHistoryIdx === i) {
-                                setSelectedHistoryIdx(null);
-                                setGeneratedImg(null);
-                              } else if (selectedHistoryIdx !== null && selectedHistoryIdx > i) {
-                                setSelectedHistoryIdx(selectedHistoryIdx - 1);
-                              }
-                            }}
-                            className="absolute -top-1 -right-1 w-5 h-5 rounded-full bg-foreground/60 hover:bg-foreground/80 flex items-center justify-center transition-colors z-10"
-                          >
-                            <X className="w-3 h-3 text-background" />
-                          </button>
-                        </div>
-                        <span className="text-[9px] font-medium text-muted-foreground">{item.ratioLabel}</span>
-                        <span className="text-[9px] text-muted-foreground">
-                          {item.time.toLocaleDateString("zh-CN")} {item.time.toLocaleTimeString("zh-CN", { hour: "2-digit", minute: "2-digit", second: "2-digit" })}
-                        </span>
-                      </div>
-                    ))}
-                  </div>
-                  {history.length > 6 && (
-                    <button
-                      onClick={() => scrollHistory(1)}
-                      className="shrink-0 w-7 h-7 mt-6 rounded-full border border-border bg-card flex items-center justify-center hover:bg-muted transition-colors"
-                    >
-                      <ChevronRight className="w-4 h-4 text-title" />
-                    </button>
-                  )}
-                </div>
-              </div>
+            {/* Desktop history strip (no image, just history) */}
+            {!isGenerating && !generatedImg && history.length > 0 && (
+              <ResultDisplay {...resultProps} />
             )}
           </div>
         </div>
