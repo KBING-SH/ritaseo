@@ -35,7 +35,7 @@ const Index = () => {
         </div>
 
         {/* Left sidebar - desktop */}
-        <aside className="hidden lg:flex w-[320px] xl:w-[340px] shrink-0 border-r border-border/50 bg-card">
+        <aside className="hidden lg:flex w-[480px] xl:w-[510px] shrink-0 border-r border-border/50 bg-card">
           <UploadPanel />
         </aside>
 
