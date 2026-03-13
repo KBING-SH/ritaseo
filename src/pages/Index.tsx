@@ -33,7 +33,7 @@ const Index = () => {
         {/* Mobile/Tablet: UploadPanel + hero stacked, fitting viewport */}
         <div className="flex-1 min-w-0 flex flex-col overflow-hidden">
           {/* Mobile/Tablet: show UploadPanel inline */}
-          <div className="lg:hidden flex-1 min-h-0 overflow-y-auto">
+          <div className="lg:hidden flex-1 min-h-0 overflow-y-auto md:overflow-hidden">
             <UploadPanel />
           </div>
 
