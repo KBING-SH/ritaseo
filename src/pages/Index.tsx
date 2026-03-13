@@ -17,7 +17,7 @@ const Index = () => {
       {/* Top bar removed */}
 
       {/* First screen */}
-      <section className="h-screen lg:h-[calc(100vh-3.5rem)] flex flex-col lg:flex-row">
+      <section className="h-screen flex flex-col lg:flex-row">
         {/* Mobile/Tablet header inside first screen */}
         <div className="lg:hidden h-12 shrink-0 border-b border-border/50 bg-background/80 backdrop-blur-md flex items-center justify-between px-4">
           <div className="flex items-center gap-2.5">
