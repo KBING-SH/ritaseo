@@ -31,21 +31,21 @@ const Index = () => {
         </aside>
 
         {/* Right: hero content */}
-        <div className="flex-1 min-w-0 flex flex-col px-4 md:px-8 pt-4 md:pt-6 pb-4 md:pb-6">
+        <div className="flex-1 min-w-0 flex flex-col px-4 md:px-6 pt-3 md:pt-4 pb-3 md:pb-4">
           {/* Mobile: show UploadPanel inline */}
           <div className="lg:hidden mb-4">
             <UploadPanel />
           </div>
 
-          <div className="text-center mb-4 md:mb-5 shrink-0">
-            <h1 className="text-2xl md:text-4xl font-bold text-primary leading-tight mb-1.5 md:mb-2">
+          <div className="text-center mb-2 md:mb-3 shrink-0">
+            <h1 className="text-2xl md:text-3xl font-bold text-primary leading-tight mb-1">
               免费在线照片转卡通
             </h1>
-            <p className="text-muted-foreground text-sm md:text-base max-w-2xl mx-auto">
+            <p className="text-muted-foreground text-xs md:text-sm max-w-2xl mx-auto">
               上传你的照片，Rita AI 将为你生成多种风格的趣味卡通形象。支持人像、宠物、风景等多种照片类型，操作简单，几秒完成。
             </p>
           </div>
-          <div className="flex-1 min-h-0 max-w-[1100px] w-full mx-auto rounded-2xl overflow-hidden">
+          <div className="flex-1 min-h-0 w-full mx-auto rounded-2xl overflow-hidden">
             <StyleSelector />
           </div>
         </div>
