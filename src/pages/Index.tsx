@@ -52,14 +52,8 @@ const Index = () => {
       </section>
 
       {/* Below first screen: sidebar sticks, content scrolls */}
-      <div className="flex">
-        {/* Left sidebar - sticky from here */}
-        <aside className="hidden lg:flex w-[320px] xl:w-[340px] shrink-0 border-r border-border/50 bg-card sticky top-14 h-[calc(100vh-3.5rem)]">
-          <UploadPanel />
-        </aside>
-
-        {/* Right: rest of content */}
-        <div className="flex-1 min-w-0">
+      {/* Below first screen: full-width content */}
+      <div>
           <SocialProofBar />
           <HowItWorks />
           <ArtGallery />
@@ -105,7 +99,6 @@ const Index = () => {
               </div>
             </div>
           </footer>
-        </div>
       </div>
     </div>
   );
