@@ -180,7 +180,7 @@ export function UploadPanel() {
         {/* Style selector */}
         <div>
           <label className="text-xs font-medium text-title mb-1 lg:mb-1.5 block">选择以下风格</label>
-          <div className="grid grid-cols-4 md:grid-cols-8 lg:grid-cols-4 gap-x-3 gap-y-2 md:gap-x-2 md:gap-y-0 lg:gap-x-4 lg:gap-y-3">
+          <div className="grid grid-cols-4 md:grid-cols-8 lg:grid-cols-4 gap-x-4 gap-y-3 md:gap-x-3 md:gap-y-1 lg:gap-x-4 lg:gap-y-3">
             {STYLE_OPTIONS.map((style, i) => (
               <StyleCard key={i} style={style} index={i} selected={selectedStyle === i} onSelect={setSelectedStyle} />
             ))}
