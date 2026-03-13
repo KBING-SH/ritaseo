@@ -308,11 +308,12 @@ export function UploadPanel() {
   );
 }
 
-function StyleCard({ style, index, selected, onSelect }: {
-  style: { src: string; label: string };
+function StyleCard({ style, index, selected, onSelect, onPreview }: {
+  style: { src: string; label: string; prompt: string };
   index: number;
   selected: boolean;
   onSelect: (i: number) => void;
+  onPreview: () => void;
 }) {
   return (
     <div
@@ -337,9 +338,12 @@ function StyleCard({ style, index, selected, onSelect }: {
             <Check className="w-2.5 h-2.5 text-primary-foreground" />
           </div>
         )}
-        <div className="absolute top-1 right-1 w-5 h-5 rounded-full bg-black/30 backdrop-blur-sm flex items-center justify-center">
+        <button
+          onClick={(e) => { e.stopPropagation(); onPreview(); }}
+          className="absolute top-1 right-1 w-5 h-5 rounded-full bg-black/30 backdrop-blur-sm flex items-center justify-center hover:bg-black/50 transition-colors"
+        >
           <Eye className="w-3 h-3 text-white" />
-        </div>
+        </button>
       </div>
       <span className={cn(
         "text-[10px] leading-tight truncate w-full text-center",
