@@ -56,16 +56,15 @@ export function StyleSelector() {
           draggable={false}
         />
 
-        {/* Before (original - clipped) */}
+        {/* Before (original - clipped via clip-path for perfect alignment) */}
         <div
-          className="absolute z-[8] top-0 left-0 bottom-0 overflow-hidden"
-          style={{ width: `${sliderPos}%` }}
+          className="absolute inset-0 z-[8]"
+          style={{ clipPath: `inset(0 ${100 - sliderPos}% 0 0)` }}
         >
           <img
             src={beforeImg}
             alt="原始照片"
-            className="block h-full max-w-none object-cover object-center"
-            style={{ width: containerWidth > 0 ? `${containerWidth}px` : '100%' }}
+            className="absolute inset-0 w-full h-full block object-cover object-center"
             draggable={false}
           />
         </div>
@@ -75,10 +74,10 @@ export function StyleSelector() {
           className="absolute z-10 top-0 bottom-0 flex flex-col items-center pointer-events-none"
           style={{ left: `${sliderPos}%`, transform: "translateX(-50%)" }}
         >
-          <div className="w-[2px] bg-white h-[calc(40%+90px)]" />
-          <div className="w-12 h-12 rounded-full border-2 border-white flex items-center justify-center gap-1.5 bg-black/20 backdrop-blur-sm">
-            <span className="block h-5 w-[2px] bg-white rounded-full" />
-            <span className="block h-5 w-[2px] bg-white rounded-full" />
+          <div className="w-[2px] bg-white flex-1" />
+          <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full border-2 border-white flex items-center justify-center gap-1.5 bg-black/20 backdrop-blur-sm">
+            <span className="block h-4 sm:h-5 w-[2px] bg-white rounded-full" />
+            <span className="block h-4 sm:h-5 w-[2px] bg-white rounded-full" />
           </div>
           <div className="w-[2px] bg-white flex-1" />
         </div>
