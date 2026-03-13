@@ -274,59 +274,70 @@ export function UploadPanel({ onGenerate }: { onGenerate?: (styleImg: string, ra
 
       {/* Style Preview Dialog */}
       <Dialog open={previewStyle !== null} onOpenChange={(open) => !open && setPreviewStyle(null)}>
-        <DialogContent className="max-w-4xl p-4 overflow-visible gap-0 border border-border bg-card rounded-2xl shadow-xl [&>button]:hidden">
+        <DialogContent className="max-w-4xl p-0 sm:p-4 overflow-visible gap-0 border border-border bg-card rounded-2xl shadow-xl [&>button]:hidden">
           <div className="relative">
-            {/* Left arrow */}
+            {/* Close button - top right corner */}
+            <button
+              onClick={() => setPreviewStyle(null)}
+              className="absolute -top-2 -right-2 sm:-top-3 sm:-right-3 z-30 w-8 h-8 rounded-full bg-foreground/70 hover:bg-foreground/90 flex items-center justify-center transition-colors shadow-lg"
+            >
+              <X className="w-4 h-4 text-background" />
+            </button>
+
+            {/* Desktop arrows - outside card */}
             <button
               onClick={() => setPreviewStyle((prev) => prev !== null ? (prev - 1 + STYLE_OPTIONS.length) % STYLE_OPTIONS.length : 0)}
-              className="absolute left-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/80 dark:bg-card/80 backdrop-blur-sm shadow-lg border border-border/50 flex items-center justify-center hover:bg-white dark:hover:bg-card transition-colors z-20"
+              className="hidden md:flex absolute -left-14 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-background/80 backdrop-blur-sm shadow-lg border border-border/50 items-center justify-center hover:bg-background transition-colors z-20"
             >
               <ChevronLeft className="w-6 h-6 text-title" />
             </button>
-
-            {/* Right arrow */}
             <button
               onClick={() => setPreviewStyle((prev) => prev !== null ? (prev + 1) % STYLE_OPTIONS.length : 0)}
-              className="absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/80 dark:bg-card/80 backdrop-blur-sm shadow-lg border border-border/50 flex items-center justify-center hover:bg-white dark:hover:bg-card transition-colors z-20"
+              className="hidden md:flex absolute -right-14 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-background/80 backdrop-blur-sm shadow-lg border border-border/50 items-center justify-center hover:bg-background transition-colors z-20"
             >
               <ChevronRight className="w-6 h-6 text-title" />
             </button>
 
             {/* Main card */}
             <div className="rounded-2xl border border-border bg-card shadow-lg overflow-hidden">
-              <div className="flex flex-col md:flex-row min-h-[420px]">
+              <div className="flex flex-col md:flex-row min-h-0 md:min-h-[420px]">
                 {/* Left: large image */}
-                <div className="md:w-[55%] bg-muted/30">
+                <div className="relative md:w-[55%] bg-muted/30">
                   {previewStyle !== null && (
                     <img
                       src={STYLE_OPTIONS[previewStyle].src}
                       alt={STYLE_OPTIONS[previewStyle].label}
-                      className="w-full h-64 md:h-full object-cover"
+                      className="w-full h-56 sm:h-64 md:h-full object-cover"
                     />
                   )}
+                  {/* Mobile arrows - overlay on image */}
+                  <button
+                    onClick={() => setPreviewStyle((prev) => prev !== null ? (prev - 1 + STYLE_OPTIONS.length) % STYLE_OPTIONS.length : 0)}
+                    className="md:hidden absolute left-2 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-background/70 backdrop-blur-sm border border-border/30 flex items-center justify-center transition-colors z-10"
+                  >
+                    <ChevronLeft className="w-4 h-4 text-foreground" />
+                  </button>
+                  <button
+                    onClick={() => setPreviewStyle((prev) => prev !== null ? (prev + 1) % STYLE_OPTIONS.length : 0)}
+                    className="md:hidden absolute right-2 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-background/70 backdrop-blur-sm border border-border/30 flex items-center justify-center transition-colors z-10"
+                  >
+                    <ChevronRight className="w-4 h-4 text-foreground" />
+                  </button>
                 </div>
                 {/* Right: style info & prompt */}
-                <div className="md:w-[45%] p-6 flex flex-col">
-                  <div className="flex items-center justify-between mb-5">
-                    <h3 className="text-xl font-bold text-title">
-                      {previewStyle !== null && STYLE_OPTIONS[previewStyle].label}
-                    </h3>
-                    <button
-                      onClick={() => setPreviewStyle(null)}
-                      className="w-8 h-8 rounded-full border border-border flex items-center justify-center hover:bg-muted transition-colors"
-                    >
-                      <X className="w-4 h-4 text-muted-foreground" />
-                    </button>
-                  </div>
+                <div className="md:w-[45%] p-4 sm:p-6 flex flex-col">
+                  <h3 className="text-lg sm:text-xl font-bold text-title mb-4 sm:mb-5">
+                    {previewStyle !== null && STYLE_OPTIONS[previewStyle].label}
+                  </h3>
                   <p className="text-sm font-semibold text-title mb-2">提示词</p>
-                  <div className="rounded-xl border border-border/50 bg-muted p-4 flex-1">
+                  <div className="rounded-xl border border-border/50 bg-muted p-3 sm:p-4 flex-1">
                     <p className="text-sm text-muted-foreground leading-relaxed">
                       {previewStyle !== null && STYLE_OPTIONS[previewStyle].prompt}
                     </p>
                   </div>
                   <Button
                     variant="gradient"
-                    className="w-full mt-5"
+                    className="w-full mt-4 sm:mt-5"
                     onClick={() => {
                       if (previewStyle !== null) {
                         setSelectedStyle(previewStyle);
