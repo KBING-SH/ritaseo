@@ -1,8 +1,10 @@
 import { useState, useRef, useCallback } from "react";
-import { ImageIcon, Check, X, Eye } from "lucide-react";
+import { ImageIcon, Check, X, Eye, Copy } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Dialog, DialogContent } from "@/components/ui/dialog";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { cn } from "@/lib/utils";
+import { toast } from "sonner";
 
 import logoChatgpt from "@/assets/logo-chatgpt.png";
 import logoBanana from "@/assets/logo-banana.png";
@@ -31,14 +33,14 @@ const MODEL_OPTIONS = [
 export const MODEL_LABELS = MODEL_OPTIONS.map((m) => m.label);
 
 const STYLE_OPTIONS = [
-  { src: styleGhibli, label: "吉卜力" },
-  { src: stylePixel, label: "像素" },
-  { src: styleRealistic, label: "写实艺术" },
-  { src: styleInk, label: "水墨" },
-  { src: styleCartoon, label: "卡通片" },
-  { src: styleClassic, label: "复古时尚" },
-  { src: styleCute, label: "可爱" },
-  { src: styleMinimal, label: "极简" },
+  { src: styleGhibli, label: "吉卜力", prompt: "将照片转换为吉卜力动画风格，保留柔和的色彩、温暖的光影和手绘质感，呈现出宫崎骏式的梦幻氛围。" },
+  { src: stylePixel, label: "像素", prompt: "将照片转换为复古像素艺术风格，使用有限的调色板和清晰的像素块，呈现出8-bit游戏般的怀旧美感。" },
+  { src: styleRealistic, label: "写实艺术", prompt: "将照片转换为高度写实的数字绘画风格，保留细腻的光影和纹理细节，呈现出超现实主义的艺术质感。" },
+  { src: styleInk, label: "水墨", prompt: "将照片转换为东方水墨画风格，运用浓淡干湿的墨色变化，呈现出中国传统绘画的意境与韵味。" },
+  { src: styleCartoon, label: "卡通片", prompt: "将照片转换为明亮活泼的卡通风格，使用鲜艳的色彩、粗线条和夸张的表情，充满趣味和生命力。" },
+  { src: styleClassic, label: "复古时尚", prompt: "将照片转换为复古时尚风格，融合经典的色调和优雅的构图，呈现出老电影海报般的怀旧美感。" },
+  { src: styleCute, label: "可爱", prompt: "将照片转换为Q版可爱风格，大眼睛、圆润的轮廓和柔和的色彩，呈现出萌系二次元的甜美形象。" },
+  { src: styleMinimal, label: "极简", prompt: "将照片转换为极简插画风格，使用简洁的线条和有限的色彩，去除多余细节，呈现出干净利落的现代美感。" },
 ];
 
 const RATIOS = [
@@ -66,6 +68,7 @@ export function UploadPanel() {
   const [selectedModel, setSelectedModel] = useState("chatgpt-image-1");
   const [selectedResolution, setSelectedResolution] = useState("1 MP");
   const [selectedFormat, setSelectedFormat] = useState("WebP");
+  const [previewStyle, setPreviewStyle] = useState<number | null>(null);
   const fileRef = useRef<HTMLInputElement>(null);
 
   const handleDragOver = (e: React.DragEvent) => { e.preventDefault(); setIsDragging(true); };
@@ -181,7 +184,7 @@ export function UploadPanel() {
           <label className="text-xs font-medium text-title mb-1 lg:mb-1.5 block">选择以下风格</label>
           <div className="grid grid-cols-4 md:grid-cols-4 lg:grid-cols-4 gap-x-2 gap-y-2 md:gap-x-2 md:gap-y-1.5 lg:gap-x-2 lg:gap-y-2">
             {STYLE_OPTIONS.map((style, i) => (
-              <StyleCard key={i} style={style} index={i} selected={selectedStyle === i} onSelect={setSelectedStyle} />
+              <StyleCard key={i} style={style} index={i} selected={selectedStyle === i} onSelect={setSelectedStyle} onPreview={() => setPreviewStyle(i)} />
             ))}
           </div>
         </div>
@@ -260,15 +263,57 @@ export function UploadPanel() {
         </Button>
         <span className="text-xs text-muted-foreground whitespace-nowrap flex items-center gap-0.5">免费 ⚡30</span>
       </div>
+
+      {/* Style Preview Dialog */}
+      <Dialog open={previewStyle !== null} onOpenChange={(open) => !open && setPreviewStyle(null)}>
+        <DialogContent className="max-w-3xl p-0 overflow-hidden gap-0">
+          <div className="flex flex-col md:flex-row">
+            {/* Left: large image */}
+            <div className="md:w-1/2 bg-muted">
+              {previewStyle !== null && (
+                <img
+                  src={STYLE_OPTIONS[previewStyle].src}
+                  alt={STYLE_OPTIONS[previewStyle].label}
+                  className="w-full h-64 md:h-full object-cover"
+                />
+              )}
+            </div>
+            {/* Right: style info & prompt */}
+            <div className="md:w-1/2 p-6 flex flex-col">
+              <h3 className="text-lg font-bold text-title mb-4">
+                {previewStyle !== null && STYLE_OPTIONS[previewStyle].label}
+              </h3>
+              <p className="text-sm font-medium text-title mb-2">提示词</p>
+              <p className="text-sm text-muted-foreground flex-1 leading-relaxed">
+                {previewStyle !== null && STYLE_OPTIONS[previewStyle].prompt}
+              </p>
+              <Button
+                variant="gradient"
+                className="w-full mt-6"
+                onClick={() => {
+                  if (previewStyle !== null) {
+                    navigator.clipboard.writeText(STYLE_OPTIONS[previewStyle].prompt);
+                    toast.success("提示词已复制");
+                  }
+                }}
+              >
+                <Copy className="w-4 h-4 mr-2" />
+                复制提示词
+              </Button>
+            </div>
+          </div>
+        </DialogContent>
+      </Dialog>
     </div>
   );
 }
 
-function StyleCard({ style, index, selected, onSelect }: {
-  style: { src: string; label: string };
+function StyleCard({ style, index, selected, onSelect, onPreview }: {
+  style: { src: string; label: string; prompt: string };
   index: number;
   selected: boolean;
   onSelect: (i: number) => void;
+  onPreview: () => void;
 }) {
   return (
     <div
@@ -293,9 +338,12 @@ function StyleCard({ style, index, selected, onSelect }: {
             <Check className="w-2.5 h-2.5 text-primary-foreground" />
           </div>
         )}
-        <div className="absolute top-1 right-1 w-5 h-5 rounded-full bg-black/30 backdrop-blur-sm flex items-center justify-center">
+        <button
+          onClick={(e) => { e.stopPropagation(); onPreview(); }}
+          className="absolute top-1 right-1 w-5 h-5 rounded-full bg-black/30 backdrop-blur-sm flex items-center justify-center hover:bg-black/50 transition-colors"
+        >
           <Eye className="w-3 h-3 text-white" />
-        </div>
+        </button>
       </div>
       <span className={cn(
         "text-[10px] leading-tight truncate w-full text-center",
