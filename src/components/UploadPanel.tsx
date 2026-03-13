@@ -112,7 +112,7 @@ export function UploadPanel() {
               {MODEL_OPTIONS.map((m) => (
                 <SelectItem key={m.value} value={m.value} className="py-2">
                   <div className="flex items-center gap-2.5">
-                    <img src={m.logo} alt="" className="w-9 h-9 rounded-lg object-contain shrink-0" />
+                    <img src={m.logo} alt={m.label + " logo"} className="w-9 h-9 rounded-lg object-contain shrink-0" />
                     <div className="flex flex-col justify-center text-left">
                       <span className="font-medium text-sm leading-snug">{m.label}</span>
                       <span className="text-xs text-muted-foreground leading-snug">{m.desc}</span>
@@ -130,7 +130,7 @@ export function UploadPanel() {
           <div id="upload-drop-zone" className="relative">
             {uploadedImage ? (
               <div className="relative rounded-lg border border-border/50 overflow-hidden animate-fade-in">
-                <img src={uploadedImage} alt="uploaded" className="w-full h-16 md:h-14 object-cover" />
+                <img src={uploadedImage} alt="已上传的图片" className="w-full h-16 md:h-14 object-cover" />
                 <button
                   onClick={removeImage}
                   className="absolute top-1.5 right-1.5 w-5 h-5 rounded-full bg-foreground/60 hover:bg-foreground/80 flex items-center justify-center transition-colors"
