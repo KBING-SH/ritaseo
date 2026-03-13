@@ -1,4 +1,4 @@
-import { useState, useRef, useCallback } from "react";
+import { useState, useRef, useCallback, useEffect } from "react";
 import beforeImg from "@/assets/before.webp";
 import afterImg from "@/assets/after.webp";
 
@@ -6,44 +6,47 @@ export function StyleSelector() {
   const [sliderPos, setSliderPos] = useState(50);
   const [containerWidth, setContainerWidth] = useState(0);
   const containerRef = useRef<HTMLDivElement>(null);
-  const dragging = useRef(false);
-
-  const updatePosition = useCallback((clientX: number) => {
-    const rect = containerRef.current?.getBoundingClientRect();
-    if (!rect) return;
-    setContainerWidth(rect.width);
-    const x = Math.max(0, Math.min(clientX - rect.left, rect.width));
-    setSliderPos((x / rect.width) * 100);
-  }, []);
-
-  const onPointerDown = useCallback((e: React.PointerEvent) => {
-    dragging.current = true;
-    (e.target as HTMLElement).setPointerCapture(e.pointerId);
-    updatePosition(e.clientX);
-  }, [updatePosition]);
-
-  const onPointerMove = useCallback((e: React.PointerEvent) => {
-    if (!dragging.current) return;
-    updatePosition(e.clientX);
-  }, [updatePosition]);
-
-  const onPointerUp = useCallback(() => {
-    dragging.current = false;
-  }, []);
+  const animationRef = useRef<number>(0);
+  const directionRef = useRef<1 | -1>(1);
 
   const refCallback = useCallback((node: HTMLDivElement | null) => {
     (containerRef as React.MutableRefObject<HTMLDivElement | null>).current = node;
     if (node) setContainerWidth(node.offsetWidth);
   }, []);
 
+  useEffect(() => {
+    let lastTime = 0;
+    const speed = 12; // percent per second
+
+    const animate = (time: number) => {
+      if (lastTime === 0) lastTime = time;
+      const delta = (time - lastTime) / 1000;
+      lastTime = time;
+
+      setSliderPos((prev) => {
+        let next = prev + directionRef.current * speed * delta;
+        if (next >= 85) {
+          next = 85;
+          directionRef.current = -1;
+        } else if (next <= 15) {
+          next = 15;
+          directionRef.current = 1;
+        }
+        return next;
+      });
+
+      animationRef.current = requestAnimationFrame(animate);
+    };
+
+    animationRef.current = requestAnimationFrame(animate);
+    return () => cancelAnimationFrame(animationRef.current);
+  }, []);
+
   return (
     <div className="rounded-2xl xl:rounded-[32px] border border-border/50 bg-card shadow-soft overflow-hidden h-full">
       <div
         ref={refCallback}
-        className="relative w-full h-full overflow-hidden select-none touch-none cursor-ew-resize"
-        onPointerDown={onPointerDown}
-        onPointerMove={onPointerMove}
-        onPointerUp={onPointerUp}
+        className="relative w-full h-full overflow-hidden select-none"
       >
         {/* After (cartoon - full background) */}
         <img
@@ -73,10 +76,10 @@ export function StyleSelector() {
           style={{ left: `${sliderPos}%`, transform: "translateX(-50%)" }}
         >
           <div className="w-[2px] bg-white h-[calc(40%+90px)]" />
-          <button className="pointer-events-auto w-12 h-12 rounded-full border-2 border-white cursor-ew-resize outline-none flex items-center justify-center gap-1.5 bg-black/20 backdrop-blur-sm">
+          <div className="w-12 h-12 rounded-full border-2 border-white flex items-center justify-center gap-1.5 bg-black/20 backdrop-blur-sm">
             <span className="block h-5 w-[2px] bg-white rounded-full" />
             <span className="block h-5 w-[2px] bg-white rounded-full" />
-          </button>
+          </div>
           <div className="w-[2px] bg-white flex-1" />
         </div>
       </div>
