@@ -74,7 +74,7 @@
     --secondary-foreground: 0 0% 100%;
 
     --muted: 240 5.3% 29.6%;
-    --muted-foreground: 240 7.7% 58.8%;
+    --muted-foreground: 240 10% 68%;
 
     --accent: 240 5.3% 29.6%;
     --accent-foreground: 0 0% 100%;
@@ -87,9 +87,9 @@
     --ring: 240 73.9% 61%;
 
     /* Custom semantic tokens */
-    --title: 240 25% 92.2%;
-    --body2: 240 8.3% 73.3%;
-    --body-desc: 240 5.5% 45.5%;
+    --title: 240 25% 96%;
+    --body2: 240 8% 80%;
+    --body-desc: 240 6% 55%;
     --hover-bg: 240 5.3% 18.4%;
     --menu-selected: 240 4.5% 23.5%;
     --gradient-start: 240 73.9% 61%;
