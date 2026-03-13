@@ -190,13 +190,13 @@ export function UploadPanel() {
         {/* Aspect Ratio */}
         <div>
           <label className="text-xs font-medium text-title mb-1.5 block">纵横比</label>
-          <div className="grid grid-cols-5 gap-1.5">
+          <div className="flex flex-wrap gap-1">
             {RATIOS.map((r) => (
               <button
                 key={r.value}
                 onClick={() => setSelectedRatio(r.value)}
                 className={cn(
-                  "flex flex-col items-center gap-0.5 py-1.5 px-1 rounded-lg border text-[11px] font-medium transition-colors",
+                  "flex items-center gap-0.5 py-1 px-1.5 rounded-md border text-[10px] font-medium transition-colors",
                   selectedRatio === r.value
                     ? "border-primary bg-primary/10 text-primary"
                     : "border-border/50 text-body-desc hover:border-primary/40"
