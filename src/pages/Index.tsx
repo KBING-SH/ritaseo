@@ -26,6 +26,7 @@ const Index = () => {
   const [isGenerating, setIsGenerating] = useState(false);
   const [history, setHistory] = useState<{ img: string; ratio: string; ratioLabel: string; time: Date }[]>([]);
   const [selectedHistoryIdx, setSelectedHistoryIdx] = useState<number | null>(null);
+  const [previewItem, setPreviewItem] = useState<{ img: string; ratio: string } | null>(null);
   const historyRef = useRef<HTMLDivElement>(null);
 
   const handleGenerate = useCallback((styleImg: string, ratio: string) => {
