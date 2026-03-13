@@ -130,7 +130,7 @@ export function UploadPanel() {
           <div id="upload-drop-zone" className="relative">
             {uploadedImage ? (
               <div className="relative rounded-lg border border-border/50 overflow-hidden animate-fade-in">
-                <img src={uploadedImage} alt="uploaded" className="w-full h-16 md:h-14 object-cover" />
+                <img src={uploadedImage} alt="已上传的图片" className="w-full h-16 md:h-14 object-cover" />
                 <button
                   onClick={removeImage}
                   className="absolute top-1.5 right-1.5 w-5 h-5 rounded-full bg-foreground/60 hover:bg-foreground/80 flex items-center justify-center transition-colors"
