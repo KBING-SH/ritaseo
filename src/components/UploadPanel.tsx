@@ -42,16 +42,16 @@ const STYLE_OPTIONS = [
 ];
 
 const RATIOS = [
-  { value: "auto", label: "Auto", w: 12, h: 12 },
-  { value: "1:1", label: "1:1", w: 12, h: 12 },
-  { value: "16:9", label: "16:9", w: 16, h: 8 },
-  { value: "9:16", label: "9:16", w: 8, h: 16 },
-  { value: "4:3", label: "4:3", w: 14, h: 11 },
-  { value: "3:4", label: "3:4", w: 11, h: 14 },
-  { value: "2:3", label: "2:3", w: 10, h: 15 },
-  { value: "3:2", label: "3:2", w: 15, h: 10 },
-  { value: "5:4", label: "5:4", w: 14, h: 12 },
-  { value: "4:5", label: "4:5", w: 12, h: 14 },
+  { value: "auto", label: "Auto", w: 18, h: 18 },
+  { value: "1:1", label: "1:1", w: 18, h: 18 },
+  { value: "16:9", label: "16:9", w: 24, h: 13 },
+  { value: "9:16", label: "9:16", w: 13, h: 24 },
+  { value: "4:3", label: "4:3", w: 22, h: 16 },
+  { value: "3:4", label: "3:4", w: 16, h: 22 },
+  { value: "2:3", label: "2:3", w: 15, h: 22 },
+  { value: "3:2", label: "3:2", w: 22, h: 15 },
+  { value: "5:4", label: "5:4", w: 22, h: 18 },
+  { value: "4:5", label: "4:5", w: 18, h: 22 },
 ];
 
 const RESOLUTIONS = ["Auto", "0.5 MP", "1 MP", "2 MP", "4 MP"];
@@ -305,8 +305,8 @@ function RatioIcon({ w, h, active }: { w: number; h: number; active: boolean }) 
   const stroke = active ? "hsl(var(--primary-foreground))" : "hsl(var(--body2))";
   const fill = active ? "hsl(var(--primary-foreground) / 0.2)" : "none";
   return (
-    <svg width="22" height="22" viewBox="0 0 18 18" fill="none">
-      <rect x={(18 - w) / 2} y={(18 - h) / 2} width={w} height={h} rx="2" stroke={stroke} strokeWidth="1.5" fill={fill} />
+    <svg width="32" height="32" viewBox="0 0 28 28" fill="none">
+      <rect x={(28 - w) / 2} y={(28 - h) / 2} width={w} height={h} rx="2.5" stroke={stroke} strokeWidth="1.8" fill={fill} />
     </svg>
   );
 }
