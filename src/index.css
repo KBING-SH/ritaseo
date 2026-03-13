@@ -87,8 +87,8 @@
     --ring: 240 73.9% 61%;
 
     /* Custom semantic tokens */
-    --title: 240 25% 92.2%;
-    --body2: 240 8.3% 73.3%;
+    --title: 240 25% 96%;
+    --body2: 240 8% 80%;
     --body-desc: 240 5.5% 45.5%;
     --hover-bg: 240 5.3% 18.4%;
     --menu-selected: 240 4.5% 23.5%;
