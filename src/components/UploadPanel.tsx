@@ -100,7 +100,7 @@ export function UploadPanel() {
   return (
     <div className="rounded-xl border border-border/50 bg-card shadow-soft h-full flex flex-col overflow-hidden">
       {/* Scrollable content */}
-      <div className="flex-1 overflow-y-auto p-3 md:p-4 space-y-2 md:space-y-3 lg:space-y-4 text-sm">
+      <div className="flex-1 overflow-y-auto md:overflow-y-hidden lg:overflow-y-auto p-3 md:p-3 space-y-2 md:space-y-2 lg:space-y-4 text-sm">
         {/* Model selector */}
         <div>
           <label className="text-xs font-medium text-title mb-1.5 block">模型</label>
@@ -180,7 +180,7 @@ export function UploadPanel() {
         {/* Style selector */}
         <div>
           <label className="text-xs font-medium text-title mb-1.5 block">选择以下风格</label>
-          <div className="grid grid-cols-4 gap-x-3 gap-y-2 md:gap-x-4 md:gap-y-2 lg:gap-x-4 lg:gap-y-3">
+          <div className="grid grid-cols-4 md:grid-cols-8 lg:grid-cols-4 gap-x-2 gap-y-2 md:gap-x-2 md:gap-y-2 lg:gap-x-4 lg:gap-y-3">
             {STYLE_OPTIONS.map((style, i) => (
               <StyleCard key={i} style={style} index={i} selected={selectedStyle === i} onSelect={setSelectedStyle} />
             ))}
