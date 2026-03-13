@@ -194,15 +194,44 @@ const Index = () => {
       </section>
 
       {/* History preview dialog */}
-      <Dialog open={!!previewItem} onOpenChange={(open) => !open && setPreviewItem(null)}>
-        <DialogContent className="max-w-fit max-h-[90vh] p-2 bg-background/95 backdrop-blur-md border-border/50 flex items-center justify-center w-auto">
-          {previewItem && (
-            <img
-              src={previewItem.img}
-              alt="预览大图"
-              className="max-h-[85vh] max-w-[85vw] rounded-lg object-contain"
-              style={{ aspectRatio: previewItem.ratio }}
-            />
+      <Dialog open={previewIdx !== null} onOpenChange={(open) => !open && setPreviewIdx(null)}>
+        <DialogContent className="max-w-[95vw] max-h-[90vh] p-0 bg-transparent border-none shadow-none flex items-center justify-center w-auto [&>button]:hidden">
+          {previewIdx !== null && history[previewIdx] && (
+            <div className="relative flex items-center gap-3">
+              {/* Left arrow */}
+              <button
+                onClick={() => setPreviewIdx((prev) => prev !== null && prev < history.length - 1 ? prev + 1 : prev)}
+                disabled={previewIdx >= history.length - 1}
+                className="shrink-0 w-10 h-10 rounded-full bg-background/80 backdrop-blur-sm border border-border/50 flex items-center justify-center hover:bg-background transition-colors disabled:opacity-30 disabled:cursor-not-allowed"
+              >
+                <ChevronLeft className="w-5 h-5 text-foreground" />
+              </button>
+
+              {/* Image */}
+              <div className="relative rounded-xl overflow-hidden bg-background/95 border border-border/50 shadow-2xl p-2">
+                <button
+                  onClick={() => setPreviewIdx(null)}
+                  className="absolute top-3 right-3 z-10 w-8 h-8 rounded-full bg-foreground/60 hover:bg-foreground/80 flex items-center justify-center transition-colors"
+                >
+                  <X className="w-4 h-4 text-background" />
+                </button>
+                <img
+                  src={history[previewIdx].img}
+                  alt="预览大图"
+                  className="max-h-[80vh] max-w-[75vw] rounded-lg object-contain"
+                  style={{ aspectRatio: history[previewIdx].ratio }}
+                />
+              </div>
+
+              {/* Right arrow */}
+              <button
+                onClick={() => setPreviewIdx((prev) => prev !== null && prev > 0 ? prev - 1 : prev)}
+                disabled={previewIdx <= 0}
+                className="shrink-0 w-10 h-10 rounded-full bg-background/80 backdrop-blur-sm border border-border/50 flex items-center justify-center hover:bg-background transition-colors disabled:opacity-30 disabled:cursor-not-allowed"
+              >
+                <ChevronRight className="w-5 h-5 text-foreground" />
+              </button>
+            </div>
           )}
         </DialogContent>
       </Dialog>
