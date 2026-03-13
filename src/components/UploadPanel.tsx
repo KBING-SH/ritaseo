@@ -219,10 +219,10 @@ export function UploadPanel() {
                 key={res}
                 onClick={() => setSelectedResolution(res)}
                 className={cn(
-                  "px-2 py-1 md:px-3 md:py-1.5 rounded-full border text-[11px] md:text-xs font-medium transition-colors",
+                  "px-3 py-1.5 md:px-4 md:py-2 rounded-lg border text-[11px] md:text-xs font-medium transition-all",
                   selectedResolution === res
-                    ? "border-primary bg-primary/10 text-primary"
-                    : "border-border/50 text-body-desc hover:border-primary/40"
+                    ? "border-primary bg-primary text-primary-foreground shadow-sm"
+                    : "border-border bg-card text-body2 hover:border-primary/50 hover:bg-primary/5"
                 )}
               >
                 {res}
