@@ -258,7 +258,7 @@ export function UploadPanel() {
         <Button variant="gradient" size="default" className="flex-1">
           生成 ⚡10
         </Button>
-        <span className="text-xs text-muted-foreground whitespace-nowrap">免费积分30</span>
+        <span className="text-xs text-muted-foreground whitespace-nowrap flex items-center gap-0.5">免费 ⚡30</span>
       </div>
     </div>
   );
