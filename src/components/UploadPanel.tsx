@@ -303,10 +303,11 @@ function StyleCard({ style, index, selected, onSelect }: {
 }
 
 function RatioIcon({ w, h, active }: { w: number; h: number; active: boolean }) {
-  const color = active ? "hsl(var(--primary))" : "hsl(var(--body-desc))";
+  const stroke = active ? "hsl(var(--primary))" : "hsl(var(--body2))";
+  const fill = active ? "hsl(var(--primary) / 0.12)" : "none";
   return (
     <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-      <rect x={(16 - w) / 2} y={(16 - h) / 2} width={w} height={h} rx="1.5" stroke={color} strokeWidth="1.2" fill="none" />
+      <rect x={(16 - w) / 2} y={(16 - h) / 2} width={w} height={h} rx="1.5" stroke={stroke} strokeWidth="1.5" fill={fill} />
     </svg>
   );
 }
