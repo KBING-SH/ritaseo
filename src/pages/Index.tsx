@@ -31,7 +31,7 @@ const Index = () => {
         </aside>
 
         {/* Right: hero content */}
-        <div className="flex-1 min-w-0 flex flex-col px-4 md:px-6 pt-14 md:pt-16 pb-3 md:pb-4">
+        <div className="flex-1 min-w-0 flex flex-col px-4 md:px-6 pt-4 md:pt-6 lg:pt-16 pb-3 md:pb-4">
           {/* Mobile: show UploadPanel inline */}
           <div className="lg:hidden mb-4">
             <UploadPanel />
