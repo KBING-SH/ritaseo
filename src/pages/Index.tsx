@@ -36,7 +36,7 @@ const Index = () => {
       setGeneratedRatio(aspectRatio);
       setIsGenerating(false);
       setHistory((prev) => {
-        const next = [{ img: styleImg, ratio: aspectRatio, time: new Date() }, ...prev];
+        const next = [{ img: styleImg, ratio: aspectRatio, ratioLabel: ratio, time: new Date() }, ...prev];
         return next.slice(0, 30);
       });
       setSelectedHistoryIdx(0);
