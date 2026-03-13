@@ -189,19 +189,18 @@ export function UploadPanel() {
         {/* Aspect Ratio */}
         <div>
           <label className="text-xs md:text-sm font-medium text-title mb-1 lg:mb-1.5 block">纵横比</label>
-          <div className="flex flex-wrap gap-1 md:flex md:flex-wrap md:gap-1.5 lg:grid lg:grid-cols-5 lg:gap-1.5">
+          <div className="flex flex-wrap gap-1.5 md:gap-2 lg:grid lg:grid-cols-5 lg:gap-2">
             {RATIOS.map((r) => (
               <button
                 key={r.value}
                 onClick={() => setSelectedRatio(r.value)}
                 className={cn(
-                  "flex items-center gap-0.5 py-0.5 px-1.5 rounded-md border text-[10px] font-medium transition-colors",
-                  "md:py-1 md:px-2 md:text-xs",
-                  "lg:flex-col lg:py-1.5 lg:px-1 lg:rounded-lg lg:text-[11px]",
-                  "lg:text-[11px]",
+                  "flex flex-col items-center justify-center gap-1 py-2 px-2 rounded-lg border text-[10px] font-medium transition-all min-w-[48px]",
+                  "md:py-2.5 md:px-3 md:text-xs md:min-w-[56px]",
+                  "lg:py-3 lg:px-2 lg:rounded-xl lg:text-[11px]",
                   selectedRatio === r.value
-                    ? "border-primary bg-primary/10 text-primary"
-                    : "border-muted-foreground/40 text-body2 hover:border-primary/40"
+                    ? "border-primary bg-primary text-primary-foreground shadow-sm"
+                    : "border-border bg-card text-body2 hover:border-primary/50 hover:bg-primary/5"
                 )}
               >
                 <RatioIcon w={r.w} h={r.h} active={selectedRatio === r.value} />
@@ -220,10 +219,10 @@ export function UploadPanel() {
                 key={res}
                 onClick={() => setSelectedResolution(res)}
                 className={cn(
-                  "px-2 py-1 md:px-3 md:py-1.5 rounded-full border text-[11px] md:text-xs font-medium transition-colors",
+                  "px-3 py-1.5 md:px-4 md:py-2 rounded-lg border text-[11px] md:text-xs font-medium transition-all",
                   selectedResolution === res
-                    ? "border-primary bg-primary/10 text-primary"
-                    : "border-border/50 text-body-desc hover:border-primary/40"
+                    ? "border-primary bg-primary text-primary-foreground shadow-sm"
+                    : "border-border bg-card text-body2 hover:border-primary/50 hover:bg-primary/5"
                 )}
               >
                 {res}
@@ -241,10 +240,10 @@ export function UploadPanel() {
                 key={fmt}
                 onClick={() => setSelectedFormat(fmt)}
                 className={cn(
-                  "px-2 py-1 md:px-3 md:py-1.5 rounded-full border text-[11px] md:text-xs font-medium transition-colors",
+                  "px-3 py-1.5 md:px-4 md:py-2 rounded-lg border text-[11px] md:text-xs font-medium transition-all",
                   selectedFormat === fmt
-                    ? "border-primary bg-primary/10 text-primary"
-                    : "border-border/50 text-body-desc hover:border-primary/40"
+                    ? "border-primary bg-primary text-primary-foreground shadow-sm"
+                    : "border-border bg-card text-body2 hover:border-primary/50 hover:bg-primary/5"
                 )}
               >
                 {fmt}
@@ -303,10 +302,10 @@ function StyleCard({ style, index, selected, onSelect }: {
 }
 
 function RatioIcon({ w, h, active }: { w: number; h: number; active: boolean }) {
-  const stroke = active ? "hsl(var(--primary))" : "hsl(var(--body2))";
-  const fill = active ? "hsl(var(--primary) / 0.12)" : "none";
+  const stroke = active ? "hsl(var(--primary-foreground))" : "hsl(var(--body2))";
+  const fill = active ? "hsl(var(--primary-foreground) / 0.2)" : "none";
   return (
-    <svg width="20" height="20" viewBox="0 0 18 18" fill="none">
+    <svg width="22" height="22" viewBox="0 0 18 18" fill="none">
       <rect x={(18 - w) / 2} y={(18 - h) / 2} width={w} height={h} rx="2" stroke={stroke} strokeWidth="1.5" fill={fill} />
     </svg>
   );
