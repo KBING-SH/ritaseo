@@ -136,27 +136,25 @@ const Index = () => {
                     {history.map((item, i) => (
                       <div key={i} className="shrink-0 flex flex-col items-center gap-1 pt-2 pr-2">
                         <div className="relative">
-                          <div
-                            className={`w-20 h-20 rounded-xl flex items-center justify-center ${
-                              item.ratio !== "1/1" ? "bg-muted/50 border border-border/30" : ""
+                          <button
+                            onClick={() => {
+                              setGeneratedImg(item.img);
+                              setGeneratedRatio(item.ratio);
+                              setSelectedHistoryIdx(i);
+                            }}
+                            className={`w-20 h-20 rounded-xl flex items-center justify-center border-2 transition-all ${
+                              item.ratio !== "1/1" ? "bg-muted/50" : ""
+                            } ${
+                              selectedHistoryIdx === i ? "border-primary shadow-sm" : "border-border/30 hover:border-primary/40"
                             }`}
                           >
-                            <button
-                              onClick={() => {
-                                setGeneratedImg(item.img);
-                                setGeneratedRatio(item.ratio);
-                                setSelectedHistoryIdx(i);
-                              }}
-                              className={`rounded-lg overflow-hidden border-2 transition-all ${
-                                item.ratio === "1/1" ? "w-20 h-20" : "max-w-[72px] max-h-[72px]"
-                              } ${
-                                selectedHistoryIdx === i ? "border-primary shadow-sm" : "border-border/50 hover:border-primary/40"
-                              }`}
+                            <div
+                              className="rounded-lg overflow-hidden max-w-[72px] max-h-[72px]"
                               style={{ aspectRatio: item.ratio }}
                             >
                               <img src={item.img} alt={`历史记录 ${i + 1}`} className="w-full h-full object-cover" />
-                            </button>
-                          </div>
+                            </div>
+                          </button>
                           <button
                             onClick={(e) => {
                               e.stopPropagation();
