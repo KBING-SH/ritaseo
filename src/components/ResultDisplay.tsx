@@ -19,6 +19,7 @@ interface ResultDisplayProps {
   onSetGeneratedImg: React.Dispatch<React.SetStateAction<string | null>>;
   onPreview: (idx: number) => void;
   compact?: boolean;
+  historyOnly?: boolean;
 }
 
 export function ResultDisplay({
@@ -32,6 +33,7 @@ export function ResultDisplay({
   onSetGeneratedImg,
   onPreview,
   compact = false,
+  historyOnly = false,
 }: ResultDisplayProps) {
   const historyRef = useRef<HTMLDivElement>(null);
 
