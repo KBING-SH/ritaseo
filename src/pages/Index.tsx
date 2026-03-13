@@ -13,8 +13,11 @@ import { TestimonialsSection } from "@/components/TestimonialsSection";
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-background transition-colors duration-300">
-      {/* Top bar removed */}
+    <div className="min-h-screen bg-background transition-colors duration-300 relative">
+      {/* Theme toggle - desktop top right */}
+      <div className="hidden lg:block fixed top-4 right-4 z-50">
+        <ThemeToggle />
+      </div>
 
       {/* First screen */}
       <section className="h-screen flex flex-col lg:flex-row">
