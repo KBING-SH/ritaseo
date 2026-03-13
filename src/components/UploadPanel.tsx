@@ -201,7 +201,7 @@ export function UploadPanel() {
                   "lg:text-[11px]",
                   selectedRatio === r.value
                     ? "border-primary bg-primary/10 text-primary"
-                    : "border-border/50 text-body-desc hover:border-primary/40"
+                    : "border-muted-foreground/40 text-body2 hover:border-primary/40"
                 )}
               >
                 <RatioIcon w={r.w} h={r.h} active={selectedRatio === r.value} />
