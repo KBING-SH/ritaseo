@@ -11,7 +11,7 @@ import { FAQSection } from "@/components/FAQSection";
 import { ContentSections } from "@/components/ContentSections";
 import { ToolkitSection } from "@/components/ToolkitSection";
 import { TestimonialsSection } from "@/components/TestimonialsSection";
-import { Loader2 } from "lucide-react";
+import { Loader2, ChevronLeft, ChevronRight } from "lucide-react";
 
 const RATIO_ASPECT: Record<string, string> = {
   "auto": "16/9", "1:1": "1/1", "16:9": "16/9", "9:16": "9/16",
