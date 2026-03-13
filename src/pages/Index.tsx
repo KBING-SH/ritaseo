@@ -75,12 +75,12 @@ const Index = () => {
             </div>
             <div className="flex-1 min-h-0 w-full px-4 pb-40 flex items-end justify-center">
               {isGenerating ? (
-                <div className="w-full max-h-full rounded-2xl border border-border/50 bg-muted/30 flex flex-col items-center justify-center gap-3" style={{ aspectRatio: generatedRatio }}>
+                <div className="h-full max-w-full rounded-2xl border border-border/50 bg-muted/30 flex flex-col items-center justify-center gap-3" style={{ aspectRatio: generatedRatio }}>
                   <Loader2 className="w-10 h-10 text-primary animate-spin" />
                   <p className="text-sm text-muted-foreground">正在生成中...</p>
                 </div>
               ) : generatedImg ? (
-                <div className="w-full max-h-full rounded-2xl overflow-hidden border border-border/50 shadow-lg animate-fade-in" style={{ aspectRatio: generatedRatio }}>
+                <div className="h-full max-w-full rounded-2xl overflow-hidden border border-border/50 shadow-lg animate-fade-in" style={{ aspectRatio: generatedRatio }}>
                   <img src={generatedImg} alt="生成结果" className="w-full h-full object-cover" />
                 </div>
               ) : (
