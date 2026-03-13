@@ -103,7 +103,7 @@ export function UploadPanel() {
       <div className="overflow-visible lg:flex-1 lg:overflow-y-auto p-3 md:p-3 lg:p-4 space-y-1.5 md:space-y-1 lg:space-y-3 text-sm">
         {/* Model selector */}
         <div>
-          <label className="text-xs font-medium text-title mb-1 block">模型</label>
+          <label className="text-xs font-medium text-title mb-1 lg:mb-1.5 block">模型</label>
           <Select value={selectedModel} onValueChange={setSelectedModel}>
             <SelectTrigger className="rounded-lg border-border/50 bg-card-alt text-title h-auto py-1.5 text-left">
               <SelectValue />
