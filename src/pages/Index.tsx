@@ -1,4 +1,4 @@
-import { useState, useCallback } from "react";
+import { useState, useCallback, useRef } from "react";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import { ProductFooterSection } from "@/components/ProductFooterSection";
 import { StyleSelector } from "@/components/StyleSelector";
