@@ -38,7 +38,7 @@ const Index = () => {
           </div>
 
           <div className="text-center mb-2 md:mb-3 shrink-0 mt-[30px]">
-            <h1 className="text-3xl md:text-5xl font-bold text-primary leading-tight mb-1.5 md:mb-2">
+            <h1 className="text-3xl md:text-5xl font-bold text-title leading-tight mb-1.5 md:mb-2">
               免费在线照片转卡通
             </h1>
             <p className="text-muted-foreground text-sm md:text-lg max-w-2xl mx-auto">
