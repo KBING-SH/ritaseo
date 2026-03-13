@@ -180,7 +180,7 @@ export function UploadPanel() {
         {/* Style selector */}
         <div>
           <label className="text-xs font-medium text-title mb-1.5 block">选择以下风格</label>
-          <div className="grid grid-cols-4 gap-x-3 gap-y-2">
+          <div className="grid grid-cols-4 gap-x-4 gap-y-3">
             {STYLE_OPTIONS.map((style, i) => (
               <StyleCard key={i} style={style} index={i} selected={selectedStyle === i} onSelect={setSelectedStyle} />
             ))}
@@ -275,10 +275,10 @@ function StyleCard({ style, index, selected, onSelect }: {
   return (
     <div
       onClick={() => onSelect(index)}
-      className="relative cursor-pointer flex flex-col items-center gap-1"
+      className="relative cursor-pointer flex flex-col items-center gap-1.5"
     >
       <div className={cn(
-        "relative w-full aspect-[4/3] rounded-lg overflow-hidden border-2 transition-all",
+        "relative w-full aspect-square rounded-xl overflow-hidden border-2 transition-all",
         selected ? "border-primary shadow-sm" : "border-transparent hover:border-primary/40"
       )}>
         <img
