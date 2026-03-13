@@ -69,7 +69,7 @@ export function StyleSelector() {
 
         {/* Slider handle */}
         <div
-          className="absolute z-10 top-0 bottom-0 flex flex-col items-center justify-center pointer-events-none"
+          className="absolute z-10 top-0 bottom-0 flex flex-col items-center pointer-events-none"
           style={{ left: `${sliderPos}%`, transform: "translateX(-50%)" }}
         >
           <div className="w-[2px] bg-white h-[calc(50%-24px)]" />
