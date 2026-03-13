@@ -105,39 +105,75 @@ const Index = () => {
             {/* History strip */}
             {history.length > 0 && (
               <div className="shrink-0 w-full px-4 pb-3">
-                <div className="flex items-center gap-2">
+                {/* Header */}
+                <div className="flex items-center justify-between mb-2">
+                  <div className="flex items-baseline gap-2">
+                    <span className="text-sm font-semibold text-title">历史</span>
+                    <span className="text-[11px] text-muted-foreground">最多保存30次记录</span>
+                  </div>
+                  <button
+                    onClick={() => { setHistory([]); setSelectedHistoryIdx(null); setGeneratedImg(null); }}
+                    className="text-muted-foreground hover:text-destructive transition-colors"
+                    title="清空历史"
+                  >
+                    <Trash2 className="w-4 h-4" />
+                  </button>
+                </div>
+                {/* Thumbnails */}
+                <div className="flex items-start gap-2">
                   {history.length > 6 && (
                     <button
                       onClick={() => scrollHistory(-1)}
-                      className="shrink-0 w-7 h-7 rounded-full border border-border bg-card flex items-center justify-center hover:bg-muted transition-colors"
+                      className="shrink-0 w-7 h-7 mt-6 rounded-full border border-border bg-card flex items-center justify-center hover:bg-muted transition-colors"
                     >
                       <ChevronLeft className="w-4 h-4 text-title" />
                     </button>
                   )}
                   <div
                     ref={historyRef}
-                    className="flex-1 flex gap-2 overflow-x-auto scrollbar-hide"
+                    className="flex-1 flex gap-3 overflow-x-auto scrollbar-hide"
                   >
                     {history.map((item, i) => (
-                      <button
-                        key={i}
-                        onClick={() => {
-                          setGeneratedImg(item.img);
-                          setGeneratedRatio(item.ratio);
-                          setSelectedHistoryIdx(i);
-                        }}
-                        className={`shrink-0 w-14 h-14 rounded-lg overflow-hidden border-2 transition-all ${
-                          selectedHistoryIdx === i ? "border-primary shadow-sm" : "border-border/50 hover:border-primary/40"
-                        }`}
-                      >
-                        <img src={item.img} alt={`历史记录 ${i + 1}`} className="w-full h-full object-cover" />
-                      </button>
+                      <div key={i} className="shrink-0 flex flex-col items-center gap-1">
+                        <div className="relative">
+                          <button
+                            onClick={() => {
+                              setGeneratedImg(item.img);
+                              setGeneratedRatio(item.ratio);
+                              setSelectedHistoryIdx(i);
+                            }}
+                            className={`w-16 h-16 rounded-lg overflow-hidden border-2 transition-all ${
+                              selectedHistoryIdx === i ? "border-primary shadow-sm" : "border-border/50 hover:border-primary/40"
+                            }`}
+                          >
+                            <img src={item.img} alt={`历史记录 ${i + 1}`} className="w-full h-full object-cover" />
+                          </button>
+                          <button
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              setHistory((prev) => prev.filter((_, idx) => idx !== i));
+                              if (selectedHistoryIdx === i) {
+                                setSelectedHistoryIdx(null);
+                                setGeneratedImg(null);
+                              } else if (selectedHistoryIdx !== null && selectedHistoryIdx > i) {
+                                setSelectedHistoryIdx(selectedHistoryIdx - 1);
+                              }
+                            }}
+                            className="absolute -top-1.5 -right-1.5 w-5 h-5 rounded-full bg-foreground/60 hover:bg-foreground/80 flex items-center justify-center transition-colors"
+                          >
+                            <X className="w-3 h-3 text-background" />
+                          </button>
+                        </div>
+                        <span className="text-[9px] text-muted-foreground">
+                          {new Date().toLocaleDateString("zh-CN")} {new Date().toLocaleTimeString("zh-CN", { hour: "2-digit", minute: "2-digit", second: "2-digit" })}
+                        </span>
+                      </div>
                     ))}
                   </div>
                   {history.length > 6 && (
                     <button
                       onClick={() => scrollHistory(1)}
-                      className="shrink-0 w-7 h-7 rounded-full border border-border bg-card flex items-center justify-center hover:bg-muted transition-colors"
+                      className="shrink-0 w-7 h-7 mt-6 rounded-full border border-border bg-card flex items-center justify-center hover:bg-muted transition-colors"
                     >
                       <ChevronRight className="w-4 h-4 text-title" />
                     </button>
