@@ -1,5 +1,5 @@
 import { useState, useRef, useCallback } from "react";
-import { ImageIcon, Check, X } from "lucide-react";
+import { ImageIcon, Check, X, Eye } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { cn } from "@/lib/utils";
@@ -293,6 +293,9 @@ function StyleCard({ style, index, selected, onSelect }: {
             <Check className="w-2.5 h-2.5 text-primary-foreground" />
           </div>
         )}
+        <div className="absolute top-1 right-1 w-5 h-5 rounded-full bg-black/30 backdrop-blur-sm flex items-center justify-center">
+          <Eye className="w-3 h-3 text-white" />
+        </div>
       </div>
       <span className={cn(
         "text-[10px] leading-tight truncate w-full text-center",
