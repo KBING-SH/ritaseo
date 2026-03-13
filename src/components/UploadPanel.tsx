@@ -266,10 +266,10 @@ export function UploadPanel() {
 
       {/* Style Preview Dialog */}
       <Dialog open={previewStyle !== null} onOpenChange={(open) => !open && setPreviewStyle(null)}>
-        <DialogContent className="max-w-3xl p-0 overflow-hidden gap-0">
-          <div className="flex flex-col md:flex-row">
-            {/* Left: large image */}
-            <div className="md:w-1/2 bg-muted">
+        <DialogContent className="max-w-3xl p-0 overflow-hidden gap-0 border-0">
+          <div className="flex flex-col md:flex-row min-h-[420px]">
+            {/* Left: large image, edge to edge */}
+            <div className="md:w-[55%] bg-black">
               {previewStyle !== null && (
                 <img
                   src={STYLE_OPTIONS[previewStyle].src}
@@ -279,17 +279,19 @@ export function UploadPanel() {
               )}
             </div>
             {/* Right: style info & prompt */}
-            <div className="md:w-1/2 p-6 flex flex-col">
-              <h3 className="text-lg font-bold text-title mb-4">
+            <div className="md:w-[45%] p-6 flex flex-col bg-card">
+              <h3 className="text-xl font-bold text-title mb-5">
                 {previewStyle !== null && STYLE_OPTIONS[previewStyle].label}
               </h3>
-              <p className="text-sm font-medium text-title mb-2">提示词</p>
-              <p className="text-sm text-muted-foreground flex-1 leading-relaxed">
-                {previewStyle !== null && STYLE_OPTIONS[previewStyle].prompt}
-              </p>
+              <p className="text-sm font-semibold text-title mb-2">提示词</p>
+              <div className="rounded-xl border border-border/50 bg-muted p-4 flex-1">
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  {previewStyle !== null && STYLE_OPTIONS[previewStyle].prompt}
+                </p>
+              </div>
               <Button
                 variant="gradient"
-                className="w-full mt-6"
+                className="w-full mt-5"
                 onClick={() => {
                   if (previewStyle !== null) {
                     navigator.clipboard.writeText(STYLE_OPTIONS[previewStyle].prompt);
