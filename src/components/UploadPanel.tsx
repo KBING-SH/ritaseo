@@ -59,7 +59,7 @@ const RATIOS = [
 const RESOLUTIONS = ["Auto", "0.5 MP", "1 MP", "2 MP", "4 MP"];
 const FORMATS = ["WebP", "JPG", "PNG"];
 
-export function UploadPanel() {
+export function UploadPanel({ onGenerate }: { onGenerate?: (styleImg: string, ratio: string) => void } = {}) {
   const [isDragging, setIsDragging] = useState(false);
   const [uploadedImage, setUploadedImage] = useState<string | null>(null);
   const [showSuccess, setShowSuccess] = useState(false);
