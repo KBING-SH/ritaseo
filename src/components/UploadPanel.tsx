@@ -263,6 +263,47 @@ export function UploadPanel() {
         </Button>
         <span className="text-xs text-muted-foreground whitespace-nowrap flex items-center gap-0.5">免费 ⚡30</span>
       </div>
+
+      {/* Style Preview Dialog */}
+      <Dialog open={previewStyle !== null} onOpenChange={(open) => !open && setPreviewStyle(null)}>
+        <DialogContent className="max-w-3xl p-0 overflow-hidden gap-0">
+          <div className="flex flex-col md:flex-row">
+            {/* Left: large image */}
+            <div className="md:w-1/2 bg-muted">
+              {previewStyle !== null && (
+                <img
+                  src={STYLE_OPTIONS[previewStyle].src}
+                  alt={STYLE_OPTIONS[previewStyle].label}
+                  className="w-full h-64 md:h-full object-cover"
+                />
+              )}
+            </div>
+            {/* Right: style info & prompt */}
+            <div className="md:w-1/2 p-6 flex flex-col">
+              <h3 className="text-lg font-bold text-title mb-4">
+                {previewStyle !== null && STYLE_OPTIONS[previewStyle].label}
+              </h3>
+              <p className="text-sm font-medium text-title mb-2">提示词</p>
+              <p className="text-sm text-muted-foreground flex-1 leading-relaxed">
+                {previewStyle !== null && STYLE_OPTIONS[previewStyle].prompt}
+              </p>
+              <Button
+                variant="gradient"
+                className="w-full mt-6"
+                onClick={() => {
+                  if (previewStyle !== null) {
+                    navigator.clipboard.writeText(STYLE_OPTIONS[previewStyle].prompt);
+                    toast.success("提示词已复制");
+                  }
+                }}
+              >
+                <Copy className="w-4 h-4 mr-2" />
+                复制提示词
+              </Button>
+            </div>
+          </div>
+        </DialogContent>
+      </Dialog>
     </div>
   );
 }
