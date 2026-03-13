@@ -266,7 +266,7 @@ export function UploadPanel() {
 
       {/* Style Preview Dialog */}
       <Dialog open={previewStyle !== null} onOpenChange={(open) => !open && setPreviewStyle(null)}>
-        <DialogContent className="max-w-3xl p-0 overflow-hidden gap-0 border-0 bg-transparent shadow-none [&>button]:hidden">
+        <DialogContent className="max-w-4xl p-4 overflow-visible gap-0 border border-border bg-card rounded-2xl shadow-xl [&>button]:hidden">
           <div className="relative">
             {/* Left arrow */}
             <button
