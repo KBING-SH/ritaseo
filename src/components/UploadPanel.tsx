@@ -149,7 +149,7 @@ export function UploadPanel() {
                   isDragging ? "border-primary bg-primary/5" : "border-border hover:border-primary/40 hover:bg-hover-bg"
                 )}
               >
-                <ImageIcon className="h-8 w-8 text-body-desc" />
+                <ImageIcon className="h-6 w-6 lg:h-8 lg:w-8 text-body-desc" />
                 <p className="text-xs text-body-desc">将图像拖放到此处，或点击浏览</p>
                 <p className="text-[10px] text-body-desc/60">最多支持8张图片</p>
               </div>
