@@ -99,7 +99,7 @@ const Index = () => {
                     免费在线照片转卡通
                   </h1>
                   <p className="text-muted-foreground text-xs leading-relaxed max-w-xs mx-auto">
-                    上传照片，Rita AI 为你生成多种风格的趣味卡通形象
+                    上传你的照片，Rita AI 将为你生成多种风格的趣味卡通形象。支持人像、宠物、风景等多种照片类型，操作简单，几秒完成。
                   </p>
                 </div>
                 <div className="w-full aspect-[16/9] rounded-xl overflow-hidden">
