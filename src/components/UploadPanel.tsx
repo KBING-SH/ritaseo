@@ -69,6 +69,7 @@ export function UploadPanel() {
   const [selectedResolution, setSelectedResolution] = useState("1 MP");
   const [selectedFormat, setSelectedFormat] = useState("WebP");
   const [previewStyle, setPreviewStyle] = useState<number | null>(null);
+  const [promptText, setPromptText] = useState("");
   const fileRef = useRef<HTMLInputElement>(null);
 
   const handleDragOver = (e: React.DragEvent) => { e.preventDefault(); setIsDragging(true); };
