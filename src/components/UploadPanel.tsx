@@ -151,7 +151,7 @@ export function UploadPanel() {
               >
                 <ImageIcon className="h-5 w-5 lg:h-8 lg:w-8 text-body-desc" />
                 <p className="text-[11px] text-body-desc">将图像拖放到此处，或点击浏览</p>
-                <p className="text-[10px] text-body-desc/60 hidden lg:block">最多支持8张图片</p>
+                <p className="text-[10px] text-body-desc/60">支持 jpg/jpeg/png/webp，最大 32MB</p>
               </div>
             )}
             <input ref={fileRef} type="file" accept="image/*" className="hidden" onChange={handleInputChange} />
