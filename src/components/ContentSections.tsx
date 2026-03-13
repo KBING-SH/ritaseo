@@ -69,16 +69,16 @@ export function ContentSections() {
         </div>
       )}
       <section className="py-10 md:py-24">
-        <div className="px-4 md:px-12 lg:px-20 max-w-[1600px] mx-auto space-y-12 md:space-y-36">
+        <div className="px-4 md:px-12 lg:px-20 max-w-[1600px] mx-auto space-y-12 lg:space-y-36">
           {sections.map((section, i) => (
             <article
               key={i}
-              className={`flex flex-col md:flex-row items-center gap-5 md:gap-[80px] ${
-                section.imageFirst ? "" : "md:flex-row-reverse"
+              className={`flex flex-col lg:flex-row items-center gap-5 lg:gap-[80px] ${
+                section.imageFirst ? "" : "lg:flex-row-reverse"
               }`}
             >
               {/* Image */}
-              <div className="w-full md:w-[55%] shrink-0">
+              <div className="w-full lg:w-[55%] shrink-0">
                 <div className="rounded-2xl overflow-hidden shadow-lg border border-border/50">
                   <img
                     src={section.image}
@@ -90,7 +90,7 @@ export function ContentSections() {
               </div>
 
               {/* Text */}
-              <div className="w-full md:w-[45%] space-y-5">
+              <div className="w-full lg:w-[45%] space-y-5">
                 <div className="space-y-3">
                   <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-secondary text-secondary-foreground text-xs font-semibold tracking-wide">
                     <section.icon className="h-3.5 w-3.5" />
