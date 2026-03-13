@@ -23,7 +23,7 @@ const Index = () => {
   const [generatedImg, setGeneratedImg] = useState<string | null>(null);
   const [generatedRatio, setGeneratedRatio] = useState("16/9");
   const [isGenerating, setIsGenerating] = useState(false);
-  const [history, setHistory] = useState<{ img: string; ratio: string; time: Date }[]>([]);
+  const [history, setHistory] = useState<{ img: string; ratio: string; ratioLabel: string; time: Date }[]>([]);
   const [selectedHistoryIdx, setSelectedHistoryIdx] = useState<number | null>(null);
   const historyRef = useRef<HTMLDivElement>(null);
 
@@ -36,7 +36,7 @@ const Index = () => {
       setGeneratedRatio(aspectRatio);
       setIsGenerating(false);
       setHistory((prev) => {
-        const next = [{ img: styleImg, ratio: aspectRatio, time: new Date() }, ...prev];
+        const next = [{ img: styleImg, ratio: aspectRatio, ratioLabel: ratio, time: new Date() }, ...prev];
         return next.slice(0, 30);
       });
       setSelectedHistoryIdx(0);
@@ -142,9 +142,10 @@ const Index = () => {
                               setGeneratedRatio(item.ratio);
                               setSelectedHistoryIdx(i);
                             }}
-                            className={`w-16 h-16 rounded-lg overflow-hidden border-2 transition-all ${
+                            className={`h-20 rounded-lg overflow-hidden border-2 transition-all ${
                               selectedHistoryIdx === i ? "border-primary shadow-sm" : "border-border/50 hover:border-primary/40"
                             }`}
+                            style={{ aspectRatio: item.ratio }}
                           >
                             <img src={item.img} alt={`历史记录 ${i + 1}`} className="w-full h-full object-cover" />
                           </button>
@@ -164,6 +165,7 @@ const Index = () => {
                             <X className="w-3 h-3 text-background" />
                           </button>
                         </div>
+                        <span className="text-[9px] font-medium text-muted-foreground">{item.ratioLabel}</span>
                         <span className="text-[9px] text-muted-foreground">
                           {item.time.toLocaleDateString("zh-CN")} {item.time.toLocaleTimeString("zh-CN", { hour: "2-digit", minute: "2-digit", second: "2-digit" })}
                         </span>
