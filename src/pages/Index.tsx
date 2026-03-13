@@ -197,37 +197,55 @@ const Index = () => {
       <Dialog open={previewIdx !== null} onOpenChange={(open) => !open && setPreviewIdx(null)}>
         <DialogContent className="max-w-[95vw] max-h-[90vh] p-0 bg-transparent border-none shadow-none flex items-center justify-center w-auto [&>button]:hidden">
           {previewIdx !== null && history[previewIdx] && (
-            <div className="relative flex items-center gap-3">
-              {/* Left arrow */}
+            <div className="relative flex items-center gap-1 sm:gap-3">
+              {/* Left arrow - outside on desktop, overlay on mobile */}
               <button
                 onClick={() => setPreviewIdx((prev) => prev !== null && prev < history.length - 1 ? prev + 1 : prev)}
                 disabled={previewIdx >= history.length - 1}
-                className="shrink-0 w-10 h-10 rounded-full bg-background/80 backdrop-blur-sm border border-border/50 flex items-center justify-center hover:bg-background transition-colors disabled:opacity-30 disabled:cursor-not-allowed"
+                className="hidden sm:flex shrink-0 w-10 h-10 rounded-full bg-background/80 backdrop-blur-sm border border-border/50 items-center justify-center hover:bg-background transition-colors disabled:opacity-30 disabled:cursor-not-allowed"
               >
                 <ChevronLeft className="w-5 h-5 text-foreground" />
               </button>
 
-              {/* Image */}
-              <div className="relative rounded-2xl bg-background border border-border/50 shadow-2xl p-4 flex items-center justify-center">
+              {/* Image container */}
+              <div className="relative rounded-2xl bg-background border border-border/50 shadow-2xl p-2 sm:p-4 flex items-center justify-center">
+                {/* Close button */}
                 <button
                   onClick={() => setPreviewIdx(null)}
-                  className="absolute top-2 right-2 z-10 w-8 h-8 rounded-full bg-foreground/60 hover:bg-foreground/80 flex items-center justify-center transition-colors"
+                  className="absolute top-2 right-2 z-10 w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-foreground/60 hover:bg-foreground/80 flex items-center justify-center transition-colors"
                 >
-                  <X className="w-4 h-4 text-background" />
+                  <X className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-background" />
                 </button>
+
+                {/* Mobile overlay arrows */}
+                <button
+                  onClick={() => setPreviewIdx((prev) => prev !== null && prev < history.length - 1 ? prev + 1 : prev)}
+                  disabled={previewIdx >= history.length - 1}
+                  className="sm:hidden absolute left-3 top-1/2 -translate-y-1/2 z-10 w-8 h-8 rounded-full bg-background/70 backdrop-blur-sm border border-border/30 flex items-center justify-center transition-colors disabled:opacity-20"
+                >
+                  <ChevronLeft className="w-4 h-4 text-foreground" />
+                </button>
+                <button
+                  onClick={() => setPreviewIdx((prev) => prev !== null && prev > 0 ? prev - 1 : prev)}
+                  disabled={previewIdx <= 0}
+                  className="sm:hidden absolute right-3 top-1/2 -translate-y-1/2 z-10 w-8 h-8 rounded-full bg-background/70 backdrop-blur-sm border border-border/30 flex items-center justify-center transition-colors disabled:opacity-20"
+                >
+                  <ChevronRight className="w-4 h-4 text-foreground" />
+                </button>
+
                 <img
                   src={history[previewIdx].img}
                   alt="预览大图"
-                  className="max-h-[78vh] max-w-[72vw] rounded-lg object-contain"
+                  className="max-h-[75vh] sm:max-h-[78vh] max-w-[88vw] sm:max-w-[72vw] rounded-lg object-contain"
                   style={{ aspectRatio: history[previewIdx].ratio }}
                 />
               </div>
 
-              {/* Right arrow */}
+              {/* Right arrow - outside on desktop */}
               <button
                 onClick={() => setPreviewIdx((prev) => prev !== null && prev > 0 ? prev - 1 : prev)}
                 disabled={previewIdx <= 0}
-                className="shrink-0 w-10 h-10 rounded-full bg-background/80 backdrop-blur-sm border border-border/50 flex items-center justify-center hover:bg-background transition-colors disabled:opacity-30 disabled:cursor-not-allowed"
+                className="hidden sm:flex shrink-0 w-10 h-10 rounded-full bg-background/80 backdrop-blur-sm border border-border/50 items-center justify-center hover:bg-background transition-colors disabled:opacity-30 disabled:cursor-not-allowed"
               >
                 <ChevronRight className="w-5 h-5 text-foreground" />
               </button>
