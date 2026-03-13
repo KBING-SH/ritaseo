@@ -44,8 +44,8 @@ const STYLE_OPTIONS = [
 const RATIOS = [
   { value: "auto", label: "Auto", w: 12, h: 12 },
   { value: "1:1", label: "1:1", w: 12, h: 12 },
-  { value: "16:9", label: "16:9", w: 15, h: 9 },
-  { value: "9:16", label: "9:16", w: 9, h: 15 },
+  { value: "16:9", label: "16:9", w: 16, h: 8 },
+  { value: "9:16", label: "9:16", w: 8, h: 16 },
   { value: "4:3", label: "4:3", w: 14, h: 11 },
   { value: "3:4", label: "3:4", w: 11, h: 14 },
   { value: "2:3", label: "2:3", w: 10, h: 15 },
