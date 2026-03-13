@@ -134,7 +134,7 @@ const Index = () => {
                     className="flex-1 flex gap-3 overflow-x-auto scrollbar-hide"
                   >
                     {history.map((item, i) => (
-                      <div key={i} className="shrink-0 flex flex-col items-center gap-1">
+                      <div key={i} className="shrink-0 flex flex-col items-center gap-1 pt-2 pr-2">
                         <div className="relative">
                           <button
                             onClick={() => {
