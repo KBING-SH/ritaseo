@@ -1,4 +1,4 @@
-import { useState, useCallback } from "react";
+import { useState, useCallback, useRef } from "react";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import { ProductFooterSection } from "@/components/ProductFooterSection";
 import { StyleSelector } from "@/components/StyleSelector";
@@ -11,7 +11,7 @@ import { FAQSection } from "@/components/FAQSection";
 import { ContentSections } from "@/components/ContentSections";
 import { ToolkitSection } from "@/components/ToolkitSection";
 import { TestimonialsSection } from "@/components/TestimonialsSection";
-import { Loader2 } from "lucide-react";
+import { Loader2, ChevronLeft, ChevronRight } from "lucide-react";
 
 const RATIO_ASPECT: Record<string, string> = {
   "auto": "16/9", "1:1": "1/1", "16:9": "16/9", "9:16": "9/16",
@@ -23,17 +23,29 @@ const Index = () => {
   const [generatedImg, setGeneratedImg] = useState<string | null>(null);
   const [generatedRatio, setGeneratedRatio] = useState("16/9");
   const [isGenerating, setIsGenerating] = useState(false);
+  const [history, setHistory] = useState<{ img: string; ratio: string }[]>([]);
+  const [selectedHistoryIdx, setSelectedHistoryIdx] = useState<number | null>(null);
+  const historyRef = useRef<HTMLDivElement>(null);
 
   const handleGenerate = useCallback((styleImg: string, ratio: string) => {
     setIsGenerating(true);
     setGeneratedImg(null);
-    // Simulate generation delay
+    const aspectRatio = RATIO_ASPECT[ratio] || "16/9";
     setTimeout(() => {
       setGeneratedImg(styleImg);
-      setGeneratedRatio(RATIO_ASPECT[ratio] || "16/9");
+      setGeneratedRatio(aspectRatio);
       setIsGenerating(false);
+      setHistory((prev) => {
+        const next = [{ img: styleImg, ratio: aspectRatio }, ...prev];
+        return next.slice(0, 30);
+      });
+      setSelectedHistoryIdx(0);
     }, 2000);
   }, []);
+
+  const scrollHistory = (dir: number) => {
+    historyRef.current?.scrollBy({ left: dir * 200, behavior: "smooth" });
+  };
   return (
     <div className="min-h-screen bg-background transition-colors duration-300 relative">
       {/* Theme toggle - desktop top right */}
@@ -73,7 +85,7 @@ const Index = () => {
                 上传你的照片，Rita AI 将为你生成多种风格的趣味卡通形象。支持人像、宠物、风景等多种照片类型，操作简单，几秒完成。
               </p>
             </div>
-            <div className="flex-1 min-h-0 w-full px-4 pb-40 flex items-end justify-center">
+            <div className="flex-1 min-h-0 w-full px-4 pb-4 flex items-end justify-center">
               {isGenerating ? (
                 <div className="h-full max-w-full rounded-2xl border border-border/50 bg-muted/30 flex flex-col items-center justify-center gap-3" style={{ aspectRatio: generatedRatio }}>
                   <Loader2 className="w-10 h-10 text-primary animate-spin" />
@@ -89,6 +101,50 @@ const Index = () => {
                 </div>
               )}
             </div>
+
+            {/* History strip */}
+            {history.length > 0 && (
+              <div className="shrink-0 w-full px-4 pb-3">
+                <div className="flex items-center gap-2">
+                  {history.length > 6 && (
+                    <button
+                      onClick={() => scrollHistory(-1)}
+                      className="shrink-0 w-7 h-7 rounded-full border border-border bg-card flex items-center justify-center hover:bg-muted transition-colors"
+                    >
+                      <ChevronLeft className="w-4 h-4 text-title" />
+                    </button>
+                  )}
+                  <div
+                    ref={historyRef}
+                    className="flex-1 flex gap-2 overflow-x-auto scrollbar-hide"
+                  >
+                    {history.map((item, i) => (
+                      <button
+                        key={i}
+                        onClick={() => {
+                          setGeneratedImg(item.img);
+                          setGeneratedRatio(item.ratio);
+                          setSelectedHistoryIdx(i);
+                        }}
+                        className={`shrink-0 w-14 h-14 rounded-lg overflow-hidden border-2 transition-all ${
+                          selectedHistoryIdx === i ? "border-primary shadow-sm" : "border-border/50 hover:border-primary/40"
+                        }`}
+                      >
+                        <img src={item.img} alt={`历史记录 ${i + 1}`} className="w-full h-full object-cover" />
+                      </button>
+                    ))}
+                  </div>
+                  {history.length > 6 && (
+                    <button
+                      onClick={() => scrollHistory(1)}
+                      className="shrink-0 w-7 h-7 rounded-full border border-border bg-card flex items-center justify-center hover:bg-muted transition-colors"
+                    >
+                      <ChevronRight className="w-4 h-4 text-title" />
+                    </button>
+                  )}
+                </div>
+              </div>
+            )}
           </div>
         </div>
       </section>
