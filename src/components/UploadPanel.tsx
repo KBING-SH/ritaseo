@@ -76,7 +76,6 @@ export function UploadPanel() {
     const url = URL.createObjectURL(file);
     setUploadedImage(url);
     setShowSuccess(true);
-    setTimeout(() => setShowSuccess(false), 2500);
   }, []);
 
   const handleDrop = (e: React.DragEvent) => {
