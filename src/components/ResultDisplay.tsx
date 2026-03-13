@@ -19,6 +19,7 @@ interface ResultDisplayProps {
   onSetGeneratedImg: React.Dispatch<React.SetStateAction<string | null>>;
   onPreview: (idx: number) => void;
   compact?: boolean;
+  historyOnly?: boolean;
 }
 
 export function ResultDisplay({
@@ -32,6 +33,7 @@ export function ResultDisplay({
   onSetGeneratedImg,
   onPreview,
   compact = false,
+  historyOnly = false,
 }: ResultDisplayProps) {
   const historyRef = useRef<HTMLDivElement>(null);
 
@@ -45,7 +47,7 @@ export function ResultDisplay({
   return (
     <div className={compact ? "px-3 pb-3" : ""}>
       {/* Generated image / loading */}
-      {(isGenerating || generatedImg) && (
+      {!historyOnly && (isGenerating || generatedImg) && (
         <div className={`flex items-center justify-center ${compact ? "py-3" : "flex-1 min-h-0 w-full px-4 pb-4"}`}>
           {isGenerating ? (
             <div
