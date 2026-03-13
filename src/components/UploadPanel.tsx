@@ -68,6 +68,7 @@ export function UploadPanel() {
   const [selectedModel, setSelectedModel] = useState("chatgpt-image-1");
   const [selectedResolution, setSelectedResolution] = useState("1 MP");
   const [selectedFormat, setSelectedFormat] = useState("WebP");
+  const [previewStyle, setPreviewStyle] = useState<number | null>(null);
   const fileRef = useRef<HTMLInputElement>(null);
 
   const handleDragOver = (e: React.DragEvent) => { e.preventDefault(); setIsDragging(true); };
