@@ -68,56 +68,60 @@ export function ContentSections() {
           <UploadTooltip />
         </div>
       )}
-      <section className="py-10 md:py-24">
-        <div className="px-4 md:px-12 lg:px-20 max-w-[1600px] mx-auto space-y-12 lg:space-y-36">
+      <section className="py-10 md:py-24 space-y-10 md:space-y-20 lg:space-y-0">
+        <div className="max-w-[1600px] mx-auto space-y-0">
           {sections.map((section, i) => (
-            <article
+            <div
               key={i}
-              className={`flex flex-col lg:flex-row items-center gap-5 lg:gap-[80px] ${
-                section.imageFirst ? "" : "lg:flex-row-reverse"
-              }`}
+              className={`py-10 md:py-16 lg:py-24 ${i % 2 === 0 ? "bg-muted/40" : "bg-background"}`}
             >
-              {/* Image */}
-              <div className="w-full lg:w-[55%] shrink-0">
-                <div className="rounded-2xl overflow-hidden shadow-lg border border-border/50">
-                  <img
-                    src={section.image}
-                    alt={section.imageAlt}
-                    className="w-full h-auto object-cover"
-                    loading="lazy"
-                  />
-                </div>
-              </div>
-
-              {/* Text */}
-              <div className="w-full lg:w-[45%] space-y-5">
-                <div className="space-y-3">
-                  <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-secondary text-secondary-foreground text-xs font-semibold tracking-wide">
-                    <section.icon className="h-3.5 w-3.5" />
-                    <span>{section.subtitle}</span>
+              <article
+                className={`px-4 md:px-12 lg:px-20 max-w-[1600px] mx-auto flex flex-col lg:flex-row items-center gap-5 lg:gap-[80px] ${
+                  section.imageFirst ? "" : "lg:flex-row-reverse"
+                }`}
+              >
+                {/* Image */}
+                <div className="w-full lg:w-[55%] shrink-0">
+                  <div className="rounded-2xl overflow-hidden shadow-lg border border-border/50">
+                    <img
+                      src={section.image}
+                      alt={section.imageAlt}
+                      className="w-full h-auto object-cover"
+                      loading="lazy"
+                    />
                   </div>
-                  <h2 className="text-2xl md:text-3xl lg:text-4xl font-extrabold text-title leading-tight tracking-tight">
-                    {section.title}
-                  </h2>
                 </div>
-                <div className="space-y-4">
-                  {section.paragraphs.map((p, j) => (
-                    <p key={j} className="text-base md:text-lg text-body2 leading-relaxed">
-                      {p}
-                    </p>
-                  ))}
+
+                {/* Text */}
+                <div className="w-full lg:w-[45%] space-y-5">
+                  <div className="space-y-3">
+                    <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-secondary text-secondary-foreground text-xs font-semibold tracking-wide">
+                      <section.icon className="h-3.5 w-3.5" />
+                      <span>{section.subtitle}</span>
+                    </div>
+                    <h2 className="text-2xl md:text-3xl lg:text-4xl font-extrabold text-title leading-tight tracking-tight">
+                      {section.title}
+                    </h2>
+                  </div>
+                  <div className="space-y-4">
+                    {section.paragraphs.map((p, j) => (
+                      <p key={j} className="text-base md:text-lg text-body2 leading-relaxed">
+                        {p}
+                      </p>
+                    ))}
+                  </div>
+                  <div className="pt-2">
+                    <button
+                      onClick={handleTryNow}
+                      className="inline-flex items-center gap-2 px-8 py-3 rounded-full border border-border text-base font-semibold text-title transition-all hover:border-primary hover:text-primary hover:shadow-lg group"
+                    >
+                      <span>立即试用</span>
+                      <ChevronRight className="h-4 w-4 text-body-desc group-hover:text-primary group-hover:translate-x-0.5 transition-all" />
+                    </button>
+                  </div>
                 </div>
-                <div className="pt-2">
-                  <button
-                    onClick={handleTryNow}
-                    className="inline-flex items-center gap-2 px-8 py-3 rounded-full border border-border text-base font-semibold text-title transition-all hover:border-primary hover:text-primary hover:shadow-lg group"
-                  >
-                    <span>立即试用</span>
-                    <ChevronRight className="h-4 w-4 text-body-desc group-hover:text-primary group-hover:translate-x-0.5 transition-all" />
-                  </button>
-                </div>
-              </div>
-            </article>
+              </article>
+            </div>
           ))}
         </div>
       </section>
