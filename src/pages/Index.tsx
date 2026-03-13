@@ -140,7 +140,7 @@ const Index = () => {
                         <div className="relative">
                           <button
                             onClick={() => {
-                              setPreviewItem({ img: item.img, ratio: item.ratio });
+                              setPreviewIdx(i);
                             }}
                             className={`w-20 h-20 rounded-xl flex items-center justify-center border-2 transition-all ${
                               item.ratio !== "1/1" ? "bg-muted/50" : ""
