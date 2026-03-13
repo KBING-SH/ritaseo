@@ -98,9 +98,9 @@ export function UploadPanel() {
   };
 
   return (
-    <div className="rounded-xl border border-border/50 bg-card shadow-soft h-auto lg:h-full flex flex-col overflow-hidden">
+    <div className="rounded-xl border border-border/50 bg-card shadow-soft h-full flex flex-col overflow-hidden">
       {/* Content */}
-      <div className="overflow-visible lg:flex-1 lg:overflow-y-auto p-3 md:p-3 lg:p-4 space-y-1.5 md:space-y-1 lg:space-y-3 text-sm">
+      <div className="flex-1 overflow-y-auto p-3 md:p-3 lg:p-4 space-y-2 md:space-y-1.5 lg:space-y-3 text-sm">
         {/* Model selector */}
         <div>
           <label className="text-xs font-medium text-title mb-1 lg:mb-1.5 block">模型</label>
@@ -145,7 +145,7 @@ export function UploadPanel() {
                 onDrop={handleDrop}
                 onClick={() => fileRef.current?.click()}
                 className={cn(
-                  "h-14 md:h-12 lg:h-28 rounded-lg border-2 border-dashed flex flex-col items-center justify-center gap-0.5 transition-all cursor-pointer",
+                  "h-20 md:h-16 lg:h-28 rounded-lg border-2 border-dashed flex flex-col items-center justify-center gap-0.5 transition-all cursor-pointer",
                   isDragging ? "border-primary bg-primary/5" : "border-border hover:border-primary/40 hover:bg-hover-bg"
                 )}
               >
@@ -173,14 +173,14 @@ export function UploadPanel() {
           </label>
           <textarea
             placeholder="请描述下你想如何处理图片..."
-            className="w-full h-12 md:h-11 lg:h-24 rounded-lg border border-border/50 bg-card-alt px-3 py-1.5 text-sm text-title placeholder:text-body-desc resize-none md:resize-none lg:resize-y focus:outline-none focus:ring-1 focus:ring-primary/50"
+            className="w-full h-16 md:h-14 lg:h-24 rounded-lg border border-border/50 bg-card-alt px-3 py-1.5 text-sm text-title placeholder:text-body-desc resize-none md:resize-none lg:resize-y focus:outline-none focus:ring-1 focus:ring-primary/50"
           />
         </div>
 
         {/* Style selector */}
         <div>
           <label className="text-xs font-medium text-title mb-1 lg:mb-1.5 block">选择以下风格</label>
-          <div className="grid grid-cols-4 md:grid-cols-8 lg:grid-cols-4 gap-x-2 gap-y-1.5 md:gap-x-2 md:gap-y-0 lg:gap-x-4 lg:gap-y-3">
+          <div className="grid grid-cols-4 md:grid-cols-8 lg:grid-cols-4 gap-x-3 gap-y-2 md:gap-x-2 md:gap-y-0 lg:gap-x-4 lg:gap-y-3">
             {STYLE_OPTIONS.map((style, i) => (
               <StyleCard key={i} style={style} index={i} selected={selectedStyle === i} onSelect={setSelectedStyle} />
             ))}
