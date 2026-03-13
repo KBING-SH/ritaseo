@@ -97,7 +97,7 @@ export function UploadPanel() {
   };
 
   return (
-    <div className="rounded-xl border border-border/50 bg-card shadow-soft h-full flex flex-col overflow-hidden">
+    <div className="rounded-xl border border-border/50 bg-muted shadow-soft h-full flex flex-col overflow-hidden">
       {/* Content */}
       <div className="flex-1 overflow-y-auto p-3 md:p-3 lg:p-4 space-y-2 md:space-y-1.5 lg:space-y-3 text-sm">
         {/* Model selector */}
