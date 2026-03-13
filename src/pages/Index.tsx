@@ -42,7 +42,7 @@ const Index = () => {
           </div>
 
           {/* Hero content - only visible on desktop */}
-          <div className="hidden lg:flex flex-col items-center justify-center px-4 md:px-6 pb-[6%] flex-1">
+          <div className="hidden lg:flex flex-col items-center justify-start pt-10 px-4 md:px-6 flex-1">
             <div className="text-center shrink-0 mb-6">
               <h1 className="text-3xl md:text-5xl font-bold text-title leading-tight mb-3 md:mb-4">
                 免费在线照片转卡通
