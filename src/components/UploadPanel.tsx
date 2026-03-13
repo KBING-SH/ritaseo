@@ -33,14 +33,14 @@ const MODEL_OPTIONS = [
 export const MODEL_LABELS = MODEL_OPTIONS.map((m) => m.label);
 
 const STYLE_OPTIONS = [
-  { src: styleGhibli, label: "吉卜力" },
-  { src: stylePixel, label: "像素" },
-  { src: styleRealistic, label: "写实艺术" },
-  { src: styleInk, label: "水墨" },
-  { src: styleCartoon, label: "卡通片" },
-  { src: styleClassic, label: "复古时尚" },
-  { src: styleCute, label: "可爱" },
-  { src: styleMinimal, label: "极简" },
+  { src: styleGhibli, label: "吉卜力", prompt: "将照片转换为吉卜力动画风格，保留柔和的色彩、温暖的光影和手绘质感，呈现出宫崎骏式的梦幻氛围。" },
+  { src: stylePixel, label: "像素", prompt: "将照片转换为复古像素艺术风格，使用有限的调色板和清晰的像素块，呈现出8-bit游戏般的怀旧美感。" },
+  { src: styleRealistic, label: "写实艺术", prompt: "将照片转换为高度写实的数字绘画风格，保留细腻的光影和纹理细节，呈现出超现实主义的艺术质感。" },
+  { src: styleInk, label: "水墨", prompt: "将照片转换为东方水墨画风格，运用浓淡干湿的墨色变化，呈现出中国传统绘画的意境与韵味。" },
+  { src: styleCartoon, label: "卡通片", prompt: "将照片转换为明亮活泼的卡通风格，使用鲜艳的色彩、粗线条和夸张的表情，充满趣味和生命力。" },
+  { src: styleClassic, label: "复古时尚", prompt: "将照片转换为复古时尚风格，融合经典的色调和优雅的构图，呈现出老电影海报般的怀旧美感。" },
+  { src: styleCute, label: "可爱", prompt: "将照片转换为Q版可爱风格，大眼睛、圆润的轮廓和柔和的色彩，呈现出萌系二次元的甜美形象。" },
+  { src: styleMinimal, label: "极简", prompt: "将照片转换为极简插画风格，使用简洁的线条和有限的色彩，去除多余细节，呈现出干净利落的现代美感。" },
 ];
 
 const RATIOS = [
