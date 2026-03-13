@@ -99,13 +99,13 @@ export function UploadPanel() {
 
   return (
     <div className="rounded-xl border border-border/50 bg-card shadow-soft h-full flex flex-col overflow-hidden">
-      {/* Scrollable content */}
-      <div className="flex-1 overflow-y-auto md:overflow-y-hidden lg:overflow-y-auto p-3 md:p-3 space-y-2 md:space-y-2 lg:space-y-4 text-sm">
+      {/* Content */}
+      <div className="flex-1 overflow-y-auto md:overflow-y-hidden lg:overflow-y-auto p-3 md:p-3 space-y-1.5 md:space-y-1 lg:space-y-4 text-sm">
         {/* Model selector */}
         <div>
-          <label className="text-xs font-medium text-title mb-1.5 block">模型</label>
+          <label className="text-xs font-medium text-title mb-1 block">模型</label>
           <Select value={selectedModel} onValueChange={setSelectedModel}>
-            <SelectTrigger className="rounded-lg border-border/50 bg-card-alt text-title h-auto py-2 text-left">
+            <SelectTrigger className="rounded-lg border-border/50 bg-card-alt text-title h-auto py-1.5 text-left">
               <SelectValue />
             </SelectTrigger>
             <SelectContent className="max-h-72">
@@ -126,11 +126,11 @@ export function UploadPanel() {
 
         {/* Upload area */}
         <div>
-          <label className="text-xs font-medium text-title mb-1.5 block">图片</label>
+          <label className="text-xs font-medium text-title mb-1 block">图片</label>
           <div id="upload-drop-zone" className="relative">
             {uploadedImage ? (
               <div className="relative rounded-lg border border-border/50 overflow-hidden animate-fade-in">
-                <img src={uploadedImage} alt="uploaded" className="w-full h-24 object-cover" />
+                <img src={uploadedImage} alt="uploaded" className="w-full h-16 md:h-14 object-cover" />
                 <button
                   onClick={removeImage}
                   className="absolute top-1.5 right-1.5 w-5 h-5 rounded-full bg-foreground/60 hover:bg-foreground/80 flex items-center justify-center transition-colors"
@@ -145,18 +145,18 @@ export function UploadPanel() {
                 onDrop={handleDrop}
                 onClick={() => fileRef.current?.click()}
                 className={cn(
-                  "h-16 md:h-20 lg:h-28 rounded-lg border-2 border-dashed flex flex-col items-center justify-center gap-1 transition-all cursor-pointer",
+                  "h-14 md:h-12 lg:h-28 rounded-lg border-2 border-dashed flex flex-col items-center justify-center gap-0.5 transition-all cursor-pointer",
                   isDragging ? "border-primary bg-primary/5" : "border-border hover:border-primary/40 hover:bg-hover-bg"
                 )}
               >
-                <ImageIcon className="h-6 w-6 lg:h-8 lg:w-8 text-body-desc" />
-                <p className="text-xs text-body-desc">将图像拖放到此处，或点击浏览</p>
-                <p className="text-[10px] text-body-desc/60">最多支持8张图片</p>
+                <ImageIcon className="h-5 w-5 lg:h-8 lg:w-8 text-body-desc" />
+                <p className="text-[11px] text-body-desc">将图像拖放到此处，或点击浏览</p>
+                <p className="text-[10px] text-body-desc/60 hidden lg:block">最多支持8张图片</p>
               </div>
             )}
             <input ref={fileRef} type="file" accept="image/*" className="hidden" onChange={handleInputChange} />
             {showSuccess && (
-              <div className="flex items-center gap-1.5 mt-1.5 animate-fade-in">
+              <div className="flex items-center gap-1.5 mt-1 animate-fade-in">
                 <div className="w-4 h-4 rounded-full bg-primary/20 flex items-center justify-center">
                   <Check className="w-2.5 h-2.5 text-primary" />
                 </div>
@@ -168,19 +168,19 @@ export function UploadPanel() {
 
         {/* Prompt */}
         <div>
-          <label className="text-xs font-medium text-title mb-1.5 block">
+          <label className="text-xs font-medium text-title mb-1 block">
             提示词 <span className="text-destructive">*</span>
           </label>
           <textarea
             placeholder="请描述下你想如何处理图片..."
-            className="w-full h-14 md:h-16 lg:h-24 rounded-lg border border-border/50 bg-card-alt px-3 py-2 text-sm text-title placeholder:text-body-desc resize-y focus:outline-none focus:ring-1 focus:ring-primary/50"
+            className="w-full h-12 md:h-11 lg:h-24 rounded-lg border border-border/50 bg-card-alt px-3 py-1.5 text-sm text-title placeholder:text-body-desc resize-none md:resize-none lg:resize-y focus:outline-none focus:ring-1 focus:ring-primary/50"
           />
         </div>
 
         {/* Style selector */}
         <div>
-          <label className="text-xs font-medium text-title mb-1.5 block">选择以下风格</label>
-          <div className="grid grid-cols-4 md:grid-cols-8 lg:grid-cols-4 gap-x-2 gap-y-2 md:gap-x-2 md:gap-y-2 lg:gap-x-4 lg:gap-y-3">
+          <label className="text-xs font-medium text-title mb-1 block">选择以下风格</label>
+          <div className="grid grid-cols-4 md:grid-cols-8 lg:grid-cols-4 gap-x-2 gap-y-1.5 md:gap-x-2 md:gap-y-0 lg:gap-x-4 lg:gap-y-3">
             {STYLE_OPTIONS.map((style, i) => (
               <StyleCard key={i} style={style} index={i} selected={selectedStyle === i} onSelect={setSelectedStyle} />
             ))}
@@ -189,14 +189,14 @@ export function UploadPanel() {
 
         {/* Aspect Ratio */}
         <div>
-          <label className="text-xs font-medium text-title mb-1.5 block">纵横比</label>
+          <label className="text-xs font-medium text-title mb-1 block">纵横比</label>
           <div className="flex flex-wrap gap-1">
             {RATIOS.map((r) => (
               <button
                 key={r.value}
                 onClick={() => setSelectedRatio(r.value)}
                 className={cn(
-                  "flex items-center gap-0.5 py-1 px-1.5 rounded-md border text-[10px] font-medium transition-colors",
+                  "flex items-center gap-0.5 py-0.5 px-1.5 rounded-md border text-[10px] font-medium transition-colors",
                   selectedRatio === r.value
                     ? "border-primary bg-primary/10 text-primary"
                     : "border-border/50 text-body-desc hover:border-primary/40"
@@ -209,51 +209,51 @@ export function UploadPanel() {
           </div>
         </div>
 
-        {/* Resolution */}
-        <div>
-          <label className="text-xs font-medium text-title mb-1.5 block">分辨率</label>
-          <div className="flex flex-wrap gap-1.5">
-            {RESOLUTIONS.map((res) => (
-              <button
-                key={res}
-                onClick={() => setSelectedResolution(res)}
-                className={cn(
-                  "px-3 py-1.5 rounded-full border text-xs font-medium transition-colors",
-                  selectedResolution === res
-                    ? "border-primary bg-primary/10 text-primary"
-                    : "border-border/50 text-body-desc hover:border-primary/40"
-                )}
-              >
-                {res}
-              </button>
-            ))}
+        {/* Resolution & Format inline */}
+        <div className="flex gap-4 md:gap-6">
+          <div>
+            <label className="text-xs font-medium text-title mb-1 block">分辨率</label>
+            <div className="flex flex-wrap gap-1">
+              {RESOLUTIONS.map((res) => (
+                <button
+                  key={res}
+                  onClick={() => setSelectedResolution(res)}
+                  className={cn(
+                    "px-2 py-1 rounded-full border text-[11px] font-medium transition-colors",
+                    selectedResolution === res
+                      ? "border-primary bg-primary/10 text-primary"
+                      : "border-border/50 text-body-desc hover:border-primary/40"
+                  )}
+                >
+                  {res}
+                </button>
+              ))}
+            </div>
           </div>
-        </div>
-
-        {/* Image Format */}
-        <div>
-          <label className="text-xs font-medium text-title mb-1.5 block">图片格式</label>
-          <div className="flex flex-wrap gap-1.5">
-            {FORMATS.map((fmt) => (
-              <button
-                key={fmt}
-                onClick={() => setSelectedFormat(fmt)}
-                className={cn(
-                  "px-3 py-1.5 rounded-full border text-xs font-medium transition-colors",
-                  selectedFormat === fmt
-                    ? "border-primary bg-primary/10 text-primary"
-                    : "border-border/50 text-body-desc hover:border-primary/40"
-                )}
-              >
-                {fmt}
-              </button>
-            ))}
+          <div>
+            <label className="text-xs font-medium text-title mb-1 block">图片格式</label>
+            <div className="flex flex-wrap gap-1">
+              {FORMATS.map((fmt) => (
+                <button
+                  key={fmt}
+                  onClick={() => setSelectedFormat(fmt)}
+                  className={cn(
+                    "px-2 py-1 rounded-full border text-[11px] font-medium transition-colors",
+                    selectedFormat === fmt
+                      ? "border-primary bg-primary/10 text-primary"
+                      : "border-border/50 text-body-desc hover:border-primary/40"
+                  )}
+                >
+                  {fmt}
+                </button>
+              ))}
+            </div>
           </div>
         </div>
       </div>
 
       {/* Fixed bottom: generate */}
-      <div className="border-t border-border/50 p-3 md:p-4">
+      <div className="border-t border-border/50 p-3 md:p-3">
         <Button variant="gradient" size="lg" className="w-full">
           生成 ⚡10
         </Button>
