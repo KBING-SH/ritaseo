@@ -54,13 +54,13 @@ const Index = () => {
 
         {/* Left sidebar - desktop */}
         <aside className="hidden lg:flex w-[397px] xl:w-[422px] shrink-0 border-r border-border/50 bg-card">
-          <UploadPanel />
+          <UploadPanel onGenerate={handleGenerate} />
         </aside>
 
         {/* Mobile/Tablet: UploadPanel */}
         <div className="flex-1 min-w-0 flex flex-col overflow-visible lg:overflow-hidden">
           <div className="lg:hidden flex-1 min-h-0 overflow-visible">
-            <UploadPanel />
+            <UploadPanel onGenerate={handleGenerate} />
           </div>
 
           {/* Hero content - only visible on desktop */}
@@ -74,9 +74,20 @@ const Index = () => {
               </p>
             </div>
             <div className="flex-1 min-h-0 w-full px-4 pb-40 flex items-end justify-center">
-              <div className="w-full max-h-full aspect-[16/9] rounded-2xl overflow-hidden">
-                <StyleSelector />
-              </div>
+              {isGenerating ? (
+                <div className="w-full max-h-full rounded-2xl border border-border/50 bg-muted/30 flex flex-col items-center justify-center gap-3" style={{ aspectRatio: generatedRatio }}>
+                  <Loader2 className="w-10 h-10 text-primary animate-spin" />
+                  <p className="text-sm text-muted-foreground">正在生成中...</p>
+                </div>
+              ) : generatedImg ? (
+                <div className="w-full max-h-full rounded-2xl overflow-hidden border border-border/50 shadow-lg animate-fade-in" style={{ aspectRatio: generatedRatio }}>
+                  <img src={generatedImg} alt="生成结果" className="w-full h-full object-cover" />
+                </div>
+              ) : (
+                <div className="w-full max-h-full aspect-[16/9] rounded-2xl overflow-hidden">
+                  <StyleSelector />
+                </div>
+              )}
             </div>
           </div>
         </div>
