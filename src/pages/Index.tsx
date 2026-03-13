@@ -11,6 +11,7 @@ import { FAQSection } from "@/components/FAQSection";
 import { ContentSections } from "@/components/ContentSections";
 import { ToolkitSection } from "@/components/ToolkitSection";
 import { TestimonialsSection } from "@/components/TestimonialsSection";
+import { Dialog, DialogContent } from "@/components/ui/dialog";
 import { Loader2, ChevronLeft, ChevronRight, X, Trash2 } from "lucide-react";
 
 const RATIO_ASPECT: Record<string, string> = {
@@ -25,6 +26,7 @@ const Index = () => {
   const [isGenerating, setIsGenerating] = useState(false);
   const [history, setHistory] = useState<{ img: string; ratio: string; ratioLabel: string; time: Date }[]>([]);
   const [selectedHistoryIdx, setSelectedHistoryIdx] = useState<number | null>(null);
+  const [previewItem, setPreviewItem] = useState<{ img: string; ratio: string } | null>(null);
   const historyRef = useRef<HTMLDivElement>(null);
 
   const handleGenerate = useCallback((styleImg: string, ratio: string) => {
@@ -138,9 +140,7 @@ const Index = () => {
                         <div className="relative">
                           <button
                             onClick={() => {
-                              setGeneratedImg(item.img);
-                              setGeneratedRatio(item.ratio);
-                              setSelectedHistoryIdx(i);
+                              setPreviewItem({ img: item.img, ratio: item.ratio });
                             }}
                             className={`w-20 h-20 rounded-xl flex items-center justify-center border-2 transition-all ${
                               item.ratio !== "1/1" ? "bg-muted/50" : ""
@@ -192,6 +192,17 @@ const Index = () => {
           </div>
         </div>
       </section>
+
+      {/* History preview dialog */}
+      <Dialog open={!!previewItem} onOpenChange={(open) => !open && setPreviewItem(null)}>
+        <DialogContent className="max-w-[90vw] max-h-[90vh] p-2 bg-background/95 backdrop-blur-md border-border/50 flex items-center justify-center">
+          {previewItem && (
+            <div className="max-w-full max-h-[85vh] rounded-lg overflow-hidden" style={{ aspectRatio: previewItem.ratio }}>
+              <img src={previewItem.img} alt="预览大图" className="w-full h-full object-cover" />
+            </div>
+          )}
+        </DialogContent>
+      </Dialog>
 
       {/* Below first screen: sidebar sticks, content scrolls */}
       {/* Below first screen: full-width content */}
