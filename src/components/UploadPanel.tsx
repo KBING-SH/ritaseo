@@ -296,7 +296,7 @@ function StyleCard({ style, index, selected, onSelect }: {
       </div>
       <span className={cn(
         "text-[10px] leading-tight truncate w-full text-center",
-        selected ? "text-primary font-medium" : "text-body-desc"
+        selected ? "text-primary font-medium" : "text-muted-foreground"
       )}>{style.label}</span>
     </div>
   );
