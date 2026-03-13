@@ -275,10 +275,10 @@ function StyleCard({ style, index, selected, onSelect }: {
   return (
     <div
       onClick={() => onSelect(index)}
-      className="relative cursor-pointer flex flex-col items-center gap-1"
+      className="relative cursor-pointer flex flex-col items-center gap-1.5"
     >
       <div className={cn(
-        "relative w-full aspect-[4/3] rounded-lg overflow-hidden border-2 transition-all",
+        "relative w-full aspect-square rounded-xl overflow-hidden border-2 transition-all",
         selected ? "border-primary shadow-sm" : "border-transparent hover:border-primary/40"
       )}>
         <img
