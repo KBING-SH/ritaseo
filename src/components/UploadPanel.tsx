@@ -271,17 +271,17 @@ export function UploadPanel() {
             {/* Left arrow */}
             <button
               onClick={() => setPreviewStyle((prev) => prev !== null ? (prev - 1 + STYLE_OPTIONS.length) % STYLE_OPTIONS.length : 0)}
-              className="absolute -left-14 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full border border-border bg-card shadow-md flex items-center justify-center hover:bg-muted transition-colors z-20"
+              className="absolute left-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/80 dark:bg-card/80 backdrop-blur-sm shadow-lg border border-border/50 flex items-center justify-center hover:bg-white dark:hover:bg-card transition-colors z-20"
             >
-              <ChevronLeft className="w-5 h-5 text-title" />
+              <ChevronLeft className="w-6 h-6 text-title" />
             </button>
 
             {/* Right arrow */}
             <button
               onClick={() => setPreviewStyle((prev) => prev !== null ? (prev + 1) % STYLE_OPTIONS.length : 0)}
-              className="absolute -right-14 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full border border-border bg-card shadow-md flex items-center justify-center hover:bg-muted transition-colors z-20"
+              className="absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/80 dark:bg-card/80 backdrop-blur-sm shadow-lg border border-border/50 flex items-center justify-center hover:bg-white dark:hover:bg-card transition-colors z-20"
             >
-              <ChevronRight className="w-5 h-5 text-title" />
+              <ChevronRight className="w-6 h-6 text-title" />
             </button>
 
             {/* Main card */}
