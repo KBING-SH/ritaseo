@@ -254,7 +254,7 @@ export function UploadPanel() {
       </div>
 
       {/* Fixed bottom: generate */}
-      <div className="border-t border-border/50 p-3 md:p-3">
+      <div className="border-t border-border/50 p-3 md:p-3 lg:p-4">
         <Button variant="gradient" size="lg" className="w-full">
           生成 ⚡10
         </Button>
