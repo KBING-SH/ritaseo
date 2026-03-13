@@ -143,7 +143,7 @@ function UploadTooltip() {
       className="absolute animate-fade-in flex items-center justify-center"
       style={{ top: pos.top, left: pos.left, width: pos.width, height: pos.height }}
     >
-      <div className="bg-primary text-primary-foreground px-4 py-2 rounded-lg shadow-lg text-sm font-medium animate-bounce">
+      <div className="bg-primary text-primary-foreground px-4 py-2 rounded-lg shadow-lg text-sm font-medium animate-[bounce_0.5s_ease-in-out_3]">
         👆 在此插入图片，马上改图
       </div>
     </div>
