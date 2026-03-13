@@ -11,6 +11,7 @@ import { FAQSection } from "@/components/FAQSection";
 import { ContentSections } from "@/components/ContentSections";
 import { ToolkitSection } from "@/components/ToolkitSection";
 import { TestimonialsSection } from "@/components/TestimonialsSection";
+import { Dialog, DialogContent } from "@/components/ui/dialog";
 import { Loader2, ChevronLeft, ChevronRight, X, Trash2 } from "lucide-react";
 
 const RATIO_ASPECT: Record<string, string> = {
