@@ -24,29 +24,32 @@ const Index = () => {
       </header>
 
       {/* First screen: sidebar + hero, all scrolls together */}
-      <section className="min-h-0 lg:h-[calc(100vh-3.5rem)] flex">
-        {/* Left sidebar */}
+      <section className="h-[calc(100vh-3.5rem)] flex flex-col lg:flex-row">
+        {/* Left sidebar - desktop */}
         <aside className="hidden lg:flex w-[320px] xl:w-[340px] shrink-0 border-r border-border/50 bg-card">
           <UploadPanel />
         </aside>
 
-        {/* Right: hero content */}
-        <div className="flex-1 min-w-0 flex flex-col px-4 md:px-6 pt-4 md:pt-6 lg:pt-16 pb-3 md:pb-4">
-          {/* Mobile: show UploadPanel inline */}
-          <div className="lg:hidden mb-4">
+        {/* Mobile/Tablet: UploadPanel + hero stacked, fitting viewport */}
+        <div className="flex-1 min-w-0 flex flex-col overflow-hidden">
+          {/* Mobile/Tablet: show UploadPanel inline */}
+          <div className="lg:hidden flex-1 min-h-0 overflow-y-auto">
             <UploadPanel />
           </div>
 
-          <div className="text-center shrink-0 mt-4 md:mt-6 mb-4 md:mb-6">
-            <h1 className="text-3xl md:text-5xl font-bold text-title leading-tight mb-1.5 md:mb-2">
-              免费在线照片转卡通
-            </h1>
-            <p className="text-muted-foreground text-sm md:text-lg max-w-2xl mx-auto">
-              上传你的照片，Rita AI 将为你生成多种风格的趣味卡通形象。支持人像、宠物、风景等多种照片类型，操作简单，几秒完成。
-            </p>
-          </div>
-          <div className="w-full md:w-[80%] lg:w-[64%] mx-auto aspect-[16/9] rounded-2xl overflow-hidden">
-            <StyleSelector />
+          {/* Hero content - only visible on desktop */}
+          <div className="hidden lg:flex flex-col px-4 md:px-6 pt-16 pb-4 flex-1">
+            <div className="text-center shrink-0 mt-4 mb-6">
+              <h1 className="text-3xl md:text-5xl font-bold text-title leading-tight mb-1.5 md:mb-2">
+                免费在线照片转卡通
+              </h1>
+              <p className="text-muted-foreground text-sm md:text-lg max-w-2xl mx-auto">
+                上传你的照片，Rita AI 将为你生成多种风格的趣味卡通形象。支持人像、宠物、风景等多种照片类型，操作简单，几秒完成。
+              </p>
+            </div>
+            <div className="w-[64%] mx-auto aspect-[16/9] rounded-2xl overflow-hidden">
+              <StyleSelector />
+            </div>
           </div>
         </div>
       </section>
