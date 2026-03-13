@@ -100,7 +100,7 @@ export function UploadPanel() {
   return (
     <div className="rounded-xl border border-border/50 bg-card shadow-soft h-full flex flex-col overflow-hidden">
       {/* Scrollable content */}
-      <div className="flex-1 overflow-y-auto p-3 md:p-4 space-y-3 md:space-y-4 text-sm">
+      <div className="flex-1 overflow-y-auto p-3 md:p-4 space-y-2 md:space-y-3 lg:space-y-4 text-sm">
         {/* Model selector */}
         <div>
           <label className="text-xs font-medium text-title mb-1.5 block">模型</label>
