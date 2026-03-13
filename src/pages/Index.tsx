@@ -14,17 +14,10 @@ import { TestimonialsSection } from "@/components/TestimonialsSection";
 const Index = () => {
   return (
     <div className="min-h-screen bg-background transition-colors duration-300">
-      {/* Top bar - desktop only as separate element */}
-      <header className="hidden lg:flex sticky top-0 z-40 h-14 border-b border-border/50 bg-background/80 backdrop-blur-md items-center justify-between px-4 md:px-8">
-        <div className="flex items-center gap-2.5">
-          <div className="h-8 w-8 rounded-lg gradient-primary" />
-          <span className="text-base font-bold text-title">Rita</span>
-        </div>
-        <ThemeToggle />
-      </header>
+      {/* Top bar removed */}
 
       {/* First screen */}
-      <section className="h-screen lg:h-[calc(100vh-3.5rem)] flex flex-col lg:flex-row">
+      <section className="h-screen flex flex-col lg:flex-row">
         {/* Mobile/Tablet header inside first screen */}
         <div className="lg:hidden h-12 shrink-0 border-b border-border/50 bg-background/80 backdrop-blur-md flex items-center justify-between px-4">
           <div className="flex items-center gap-2.5">
