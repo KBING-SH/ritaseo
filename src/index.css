@@ -139,3 +139,13 @@
     box-shadow: 0 8px 30px -6px hsl(var(--foreground) / 0.1);
   }
 }
+
+@layer utilities {
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+}
