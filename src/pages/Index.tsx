@@ -1,4 +1,4 @@
-import { useState, useCallback, useRef } from "react";
+import { useState, useCallback } from "react";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import { ProductFooterSection } from "@/components/ProductFooterSection";
 import { StyleSelector } from "@/components/StyleSelector";
@@ -11,8 +11,9 @@ import { FAQSection } from "@/components/FAQSection";
 import { ContentSections } from "@/components/ContentSections";
 import { ToolkitSection } from "@/components/ToolkitSection";
 import { TestimonialsSection } from "@/components/TestimonialsSection";
+import { ResultDisplay } from "@/components/ResultDisplay";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
-import { Loader2, ChevronLeft, ChevronRight, X, Trash2 } from "lucide-react";
+import { ChevronLeft, ChevronRight, X } from "lucide-react";
 
 const RATIO_ASPECT: Record<string, string> = {
   "auto": "16/9", "1:1": "1/1", "16:9": "16/9", "9:16": "9/16",
