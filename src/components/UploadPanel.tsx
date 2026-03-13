@@ -103,7 +103,7 @@ export function UploadPanel({ onGenerate }: { onGenerate?: (styleImg: string, ra
   return (
     <div className="rounded-xl border border-border/50 bg-muted shadow-soft h-full flex flex-col overflow-hidden">
       {/* Content */}
-      <div className="flex-1 overflow-y-auto p-3 md:p-3 lg:p-4 space-y-2 md:space-y-1.5 lg:space-y-3 text-sm lg:scrollbar-hide">
+      <div className="flex-1 overflow-y-auto p-3 md:p-3 lg:p-4 space-y-2 md:space-y-1.5 lg:space-y-3 text-sm">
         {/* Model selector */}
         <div>
           <label className="text-xs font-medium text-title mb-1 lg:mb-1.5 block">模型</label>
