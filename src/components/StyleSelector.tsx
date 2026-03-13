@@ -77,7 +77,7 @@ export function StyleSelector() {
             <span className="block h-5 w-[2px] bg-white rounded-full" />
             <span className="block h-5 w-[2px] bg-white rounded-full" />
           </button>
-          <div className="w-[2px] bg-white h-[calc(50%-24px)]" />
+          <div className="w-[2px] bg-white flex-1" />
         </div>
       </div>
     </div>
