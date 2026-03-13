@@ -142,9 +142,10 @@ const Index = () => {
                               setGeneratedRatio(item.ratio);
                               setSelectedHistoryIdx(i);
                             }}
-                            className={`w-16 h-16 rounded-lg overflow-hidden border-2 transition-all ${
+                            className={`h-20 rounded-lg overflow-hidden border-2 transition-all ${
                               selectedHistoryIdx === i ? "border-primary shadow-sm" : "border-border/50 hover:border-primary/40"
                             }`}
+                            style={{ aspectRatio: item.ratio }}
                           >
                             <img src={item.img} alt={`历史记录 ${i + 1}`} className="w-full h-full object-cover" />
                           </button>
@@ -164,6 +165,7 @@ const Index = () => {
                             <X className="w-3 h-3 text-background" />
                           </button>
                         </div>
+                        <span className="text-[9px] font-medium text-muted-foreground">{item.ratioLabel}</span>
                         <span className="text-[9px] text-muted-foreground">
                           {item.time.toLocaleDateString("zh-CN")} {item.time.toLocaleTimeString("zh-CN", { hour: "2-digit", minute: "2-digit", second: "2-digit" })}
                         </span>
