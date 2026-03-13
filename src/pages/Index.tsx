@@ -85,7 +85,7 @@ const Index = () => {
                 上传你的照片，Rita AI 将为你生成多种风格的趣味卡通形象。支持人像、宠物、风景等多种照片类型，操作简单，几秒完成。
               </p>
             </div>
-            <div className={`flex-1 min-h-0 w-full px-4 flex items-end justify-center ${history.length > 0 ? "pb-4" : "pb-40"}`}>
+            <div className={`flex-1 min-h-0 w-full px-4 flex items-end justify-center ${history.length > 0 ? "pb-4" : "pb-[180px]"}`}>
               {isGenerating ? (
                 <div className="h-full max-w-full rounded-2xl border border-border/50 bg-muted/30 flex flex-col items-center justify-center gap-3" style={{ aspectRatio: generatedRatio }}>
                   <Loader2 className="w-10 h-10 text-primary animate-spin" />
