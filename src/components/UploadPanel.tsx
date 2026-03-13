@@ -168,7 +168,7 @@ export function UploadPanel() {
 
         {/* Prompt */}
         <div>
-          <label className="text-xs font-medium text-title mb-1 block">
+          <label className="text-xs font-medium text-title mb-1 lg:mb-1.5 block">
             提示词 <span className="text-destructive">*</span>
           </label>
           <textarea
