@@ -210,17 +210,17 @@ export function UploadPanel() {
           </div>
         </div>
 
-        {/* Resolution & Format inline */}
-        <div className="flex gap-4 md:gap-6">
+        {/* Resolution & Format - inline on mobile/tablet, stacked on desktop */}
+        <div className="flex gap-4 md:gap-6 lg:flex-col lg:gap-0 lg:space-y-3">
           <div>
-            <label className="text-xs font-medium text-title mb-1 block">分辨率</label>
-            <div className="flex flex-wrap gap-1">
+            <label className="text-xs font-medium text-title mb-1 lg:mb-1.5 block">分辨率</label>
+            <div className="flex flex-wrap gap-1 lg:gap-1.5">
               {RESOLUTIONS.map((res) => (
                 <button
                   key={res}
                   onClick={() => setSelectedResolution(res)}
                   className={cn(
-                    "px-2 py-1 rounded-full border text-[11px] font-medium transition-colors",
+                    "px-2 py-1 lg:px-3 lg:py-1.5 rounded-full border text-[11px] lg:text-xs font-medium transition-colors",
                     selectedResolution === res
                       ? "border-primary bg-primary/10 text-primary"
                       : "border-border/50 text-body-desc hover:border-primary/40"
@@ -232,14 +232,14 @@ export function UploadPanel() {
             </div>
           </div>
           <div>
-            <label className="text-xs font-medium text-title mb-1 block">图片格式</label>
-            <div className="flex flex-wrap gap-1">
+            <label className="text-xs font-medium text-title mb-1 lg:mb-1.5 block">图片格式</label>
+            <div className="flex flex-wrap gap-1 lg:gap-1.5">
               {FORMATS.map((fmt) => (
                 <button
                   key={fmt}
                   onClick={() => setSelectedFormat(fmt)}
                   className={cn(
-                    "px-2 py-1 rounded-full border text-[11px] font-medium transition-colors",
+                    "px-2 py-1 lg:px-3 lg:py-1.5 rounded-full border text-[11px] lg:text-xs font-medium transition-colors",
                     selectedFormat === fmt
                       ? "border-primary bg-primary/10 text-primary"
                       : "border-border/50 text-body-desc hover:border-primary/40"
