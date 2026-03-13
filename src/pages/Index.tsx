@@ -88,12 +88,26 @@ const Index = () => {
             <UploadPanel onGenerate={handleGenerate} />
           </div>
 
-          {/* Mobile result display - below upload panel */}
-          {hasMobileResult && (
-            <div className="lg:hidden shrink-0 border-t border-border/50 bg-card">
+          {/* Mobile: result display OR hero intro */}
+          <div className="lg:hidden shrink-0 border-t border-border/50 bg-card">
+            {hasMobileResult ? (
               <ResultDisplay {...resultProps} compact />
-            </div>
-          )}
+            ) : (
+              <div className="px-3 py-4 space-y-3">
+                <div className="text-center">
+                  <h1 className="text-xl font-bold text-title leading-tight mb-1.5">
+                    免费在线照片转卡通
+                  </h1>
+                  <p className="text-muted-foreground text-xs leading-relaxed max-w-xs mx-auto">
+                    上传照片，Rita AI 为你生成多种风格的趣味卡通形象
+                  </p>
+                </div>
+                <div className="w-full aspect-[16/9] rounded-xl overflow-hidden">
+                  <StyleSelector />
+                </div>
+              </div>
+            )}
+          </div>
 
           {/* Hero content - only visible on desktop */}
           <div className="hidden lg:flex flex-col items-center justify-start pt-4 px-4 md:px-6 flex-1 overflow-hidden">
