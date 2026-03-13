@@ -23,7 +23,7 @@ const Index = () => {
   const [generatedImg, setGeneratedImg] = useState<string | null>(null);
   const [generatedRatio, setGeneratedRatio] = useState("16/9");
   const [isGenerating, setIsGenerating] = useState(false);
-  const [history, setHistory] = useState<{ img: string; ratio: string }[]>([]);
+  const [history, setHistory] = useState<{ img: string; ratio: string; time: Date }[]>([]);
   const [selectedHistoryIdx, setSelectedHistoryIdx] = useState<number | null>(null);
   const historyRef = useRef<HTMLDivElement>(null);
 
