@@ -98,9 +98,9 @@ export function UploadPanel() {
   };
 
   return (
-    <div className="rounded-xl border border-border/50 bg-card shadow-soft h-full flex flex-col overflow-hidden">
+    <div className="rounded-xl border border-border/50 bg-card shadow-soft h-auto lg:h-full flex flex-col overflow-hidden">
       {/* Content */}
-      <div className="flex-1 overflow-y-auto md:overflow-y-hidden lg:overflow-y-auto p-3 md:p-3 space-y-1.5 md:space-y-1 lg:space-y-4 text-sm">
+      <div className="overflow-visible lg:flex-1 lg:overflow-y-auto p-3 md:p-3 space-y-1.5 md:space-y-1 lg:space-y-4 text-sm">
         {/* Model selector */}
         <div>
           <label className="text-xs font-medium text-title mb-1 block">模型</label>
