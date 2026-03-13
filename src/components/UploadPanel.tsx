@@ -100,7 +100,7 @@ export function UploadPanel() {
   return (
     <div className="rounded-xl border border-border/50 bg-card shadow-soft h-full flex flex-col overflow-hidden">
       {/* Scrollable content */}
-      <div className="flex-1 overflow-y-auto p-3 md:p-4 space-y-3 md:space-y-4 text-sm">
+      <div className="flex-1 overflow-y-auto p-3 md:p-4 space-y-2 md:space-y-3 lg:space-y-4 text-sm">
         {/* Model selector */}
         <div>
           <label className="text-xs font-medium text-title mb-1.5 block">模型</label>
@@ -145,11 +145,11 @@ export function UploadPanel() {
                 onDrop={handleDrop}
                 onClick={() => fileRef.current?.click()}
                 className={cn(
-                  "h-24 md:h-28 rounded-lg border-2 border-dashed flex flex-col items-center justify-center gap-1.5 transition-all cursor-pointer",
+                  "h-16 md:h-20 lg:h-28 rounded-lg border-2 border-dashed flex flex-col items-center justify-center gap-1 transition-all cursor-pointer",
                   isDragging ? "border-primary bg-primary/5" : "border-border hover:border-primary/40 hover:bg-hover-bg"
                 )}
               >
-                <ImageIcon className="h-8 w-8 text-body-desc" />
+                <ImageIcon className="h-6 w-6 lg:h-8 lg:w-8 text-body-desc" />
                 <p className="text-xs text-body-desc">将图像拖放到此处，或点击浏览</p>
                 <p className="text-[10px] text-body-desc/60">最多支持8张图片</p>
               </div>
@@ -173,14 +173,14 @@ export function UploadPanel() {
           </label>
           <textarea
             placeholder="请描述下你想如何处理图片..."
-            className="w-full h-20 md:h-24 rounded-lg border border-border/50 bg-card-alt px-3 py-2 text-sm text-title placeholder:text-body-desc resize-y focus:outline-none focus:ring-1 focus:ring-primary/50"
+            className="w-full h-14 md:h-16 lg:h-24 rounded-lg border border-border/50 bg-card-alt px-3 py-2 text-sm text-title placeholder:text-body-desc resize-y focus:outline-none focus:ring-1 focus:ring-primary/50"
           />
         </div>
 
         {/* Style selector */}
         <div>
           <label className="text-xs font-medium text-title mb-1.5 block">选择以下风格</label>
-          <div className="grid grid-cols-4 gap-x-4 gap-y-3">
+          <div className="grid grid-cols-4 gap-x-3 gap-y-2 md:gap-x-4 md:gap-y-2 lg:gap-x-4 lg:gap-y-3">
             {STYLE_OPTIONS.map((style, i) => (
               <StyleCard key={i} style={style} index={i} selected={selectedStyle === i} onSelect={setSelectedStyle} />
             ))}
@@ -196,7 +196,7 @@ export function UploadPanel() {
                 key={r.value}
                 onClick={() => setSelectedRatio(r.value)}
                 className={cn(
-                  "flex flex-col items-center gap-1 py-2 px-1 rounded-lg border text-[11px] font-medium transition-colors",
+                  "flex flex-col items-center gap-0.5 py-1.5 px-1 rounded-lg border text-[11px] font-medium transition-colors",
                   selectedRatio === r.value
                     ? "border-primary bg-primary/10 text-primary"
                     : "border-border/50 text-body-desc hover:border-primary/40"
