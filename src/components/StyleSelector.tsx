@@ -72,7 +72,7 @@ export function StyleSelector() {
           className="absolute z-10 top-0 bottom-0 flex flex-col items-center pointer-events-none"
           style={{ left: `${sliderPos}%`, transform: "translateX(-50%)" }}
         >
-          <div className="w-[2px] bg-white h-[calc(40%+60px)]" />
+          <div className="w-[2px] bg-white h-[calc(40%+90px)]" />
           <button className="pointer-events-auto w-12 h-12 rounded-full border-2 border-white cursor-ew-resize outline-none flex items-center justify-center gap-1.5 bg-black/20 backdrop-blur-sm">
             <span className="block h-5 w-[2px] bg-white rounded-full" />
             <span className="block h-5 w-[2px] bg-white rounded-full" />
