@@ -25,7 +25,7 @@ export function LoginDialog({ open, onOpenChange }: LoginDialogProps) {
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="max-w-[420px] p-0 gap-0 border border-border bg-card rounded-2xl shadow-xl [&>button.absolute.right-4.top-4]:hidden">
+      <DialogContent className="max-w-[420px] p-0 gap-0 border border-border bg-card rounded-2xl shadow-xl [&>button:last-child]:hidden">
         {/* Close */}
         <button
           onClick={() => onOpenChange(false)}
