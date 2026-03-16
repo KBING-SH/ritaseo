@@ -3,7 +3,7 @@ import { ImageIcon, Check, X, Eye, Copy, ChevronLeft, ChevronRight } from "lucid
 import { Button } from "@/components/ui/button";
 import { LoginDialog } from "@/components/LoginDialog";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { Select, SelectContent, SelectItem, SelectTrigger } from "@/components/ui/select";
 import { cn } from "@/lib/utils";
 
 
@@ -68,6 +68,7 @@ export function UploadPanel({ onGenerate }: { onGenerate?: (styleImg: string, ra
   const [selectedRatio, setSelectedRatio] = useState("1:1");
   const [selectedStyle, setSelectedStyle] = useState(0);
   const [selectedModel, setSelectedModel] = useState("chatgpt-image-1");
+  const selectedModelOption = MODEL_OPTIONS.find((m) => m.value === selectedModel) ?? MODEL_OPTIONS[0];
   const [selectedResolution, setSelectedResolution] = useState("1 MP");
   const [selectedFormat, setSelectedFormat] = useState("WebP");
   const [previewStyle, setPreviewStyle] = useState<number | null>(null);
@@ -111,7 +112,14 @@ export function UploadPanel({ onGenerate }: { onGenerate?: (styleImg: string, ra
           <label className="text-xs font-medium text-title mb-1 lg:mb-1.5 block">模型</label>
           <Select value={selectedModel} onValueChange={setSelectedModel}>
             <SelectTrigger className="rounded-lg border-border/50 bg-card text-title h-auto py-1.5 lg:py-2 text-left">
-              <SelectValue />
+              <div className="flex items-center gap-2.5 w-full pr-6">
+                <img src={selectedModelOption.logo} alt={selectedModelOption.label + " logo"} className="w-9 h-9 rounded-lg object-contain shrink-0" />
+                <div className="flex flex-col justify-center text-left flex-1 min-w-0">
+                  <span className="font-medium text-sm leading-snug truncate">{selectedModelOption.label}</span>
+                  <span className="text-xs text-muted-foreground leading-snug truncate">{selectedModelOption.desc}</span>
+                </div>
+                <span className="shrink-0 text-xs font-medium text-primary flex items-center gap-0.5 ml-auto">💎 {selectedModelOption.cost}</span>
+              </div>
             </SelectTrigger>
             <SelectContent className="max-h-72 w-[var(--radix-select-trigger-width)]">
               {MODEL_OPTIONS.map((m) => (
