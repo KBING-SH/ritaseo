@@ -25,11 +25,11 @@ export function LoginDialog({ open, onOpenChange }: LoginDialogProps) {
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="max-w-[420px] p-0 gap-0 border border-border bg-card rounded-2xl shadow-xl [&>button]:hidden">
+      <DialogContent className="max-w-[420px] p-0 gap-0 border border-border bg-card rounded-2xl shadow-xl [&>button:last-child]:hidden">
         {/* Close */}
         <button
           onClick={() => onOpenChange(false)}
-          className="absolute top-4 right-4 z-10 w-8 h-8 rounded-full hover:bg-muted flex items-center justify-center transition-colors"
+          className="absolute top-4 right-4 z-50 w-8 h-8 rounded-full hover:bg-muted flex items-center justify-center transition-colors"
         >
           <X className="w-4 h-4 text-muted-foreground" />
         </button>
