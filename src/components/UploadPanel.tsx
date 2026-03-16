@@ -21,13 +21,13 @@ import styleCute from "@/assets/style-cute.png";
 import styleMinimal from "@/assets/style-minimal.png";
 
 const MODEL_OPTIONS = [
-  { value: "chatgpt-image-1", label: "ChatGPT-image-1", desc: "理解能力强，可生成带文字的图片", logo: logoChatgpt },
-  { value: "nano-banana-pro-direct", label: "Nano-banana pro | direct connect", desc: "覆盖更多区域和线路，适用于网络波动场景", logo: logoBanana },
-  { value: "kling-v1.5", label: "Kling V1.5", desc: "支持生成时参考面部", logo: logoKling },
-  { value: "kling-v2", label: "Kling V2", desc: "细节丰富，非常适合精致图像", logo: logoKling },
-  { value: "nano-banana-pro", label: "Nano-banana pro", desc: "更鲜明的色彩和更丰富的细节", logo: logoBanana },
-  { value: "flux-kontext-dev", label: "Flux.1 Kontext Dev", desc: "适合快速生成草图", logo: logoFlux },
-  { value: "flux-kontext-max", label: "Flux.1 Kontext Max", desc: "可编辑、理解力和精细度强，适用于商业用途", logo: logoFlux },
+  { value: "chatgpt-image-1", label: "ChatGPT-image-1", desc: "理解能力强，可生成带文字的图片", logo: logoChatgpt, cost: "30-60" },
+  { value: "nano-banana-pro-direct", label: "Nano-banana pro | direct connect", desc: "覆盖更多区域和线路，适用于网络波动场景", logo: logoBanana, cost: "30-60" },
+  { value: "kling-v1.5", label: "Kling V1.5", desc: "支持生成时参考面部", logo: logoKling, cost: "10-30" },
+  { value: "kling-v2", label: "Kling V2", desc: "细节丰富，非常适合精致图像", logo: logoKling, cost: "10-30" },
+  { value: "nano-banana-pro", label: "Nano-banana pro", desc: "更鲜明的色彩和更丰富的细节", logo: logoBanana, cost: "15" },
+  { value: "flux-kontext-dev", label: "Flux.1 Kontext Dev", desc: "适合快速生成草图", logo: logoFlux, cost: "5" },
+  { value: "flux-kontext-max", label: "Flux.1 Kontext Max", desc: "可编辑、理解力和精细度强，适用于商业用途", logo: logoFlux, cost: "8" },
 ];
 
 export const MODEL_LABELS = MODEL_OPTIONS.map((m) => m.label);
@@ -116,10 +116,11 @@ export function UploadPanel({ onGenerate }: { onGenerate?: (styleImg: string, ra
                 <SelectItem key={m.value} value={m.value} className="py-2">
                   <div className="flex items-center gap-2.5 w-full">
                     <img src={m.logo} alt={m.label + " logo"} className="w-9 h-9 rounded-lg object-contain shrink-0" />
-                    <div className="flex flex-col justify-center text-left flex-1">
+                    <div className="flex flex-col justify-center text-left flex-1 min-w-0">
                       <span className="font-medium text-sm leading-snug">{m.label}</span>
                       <span className="text-xs text-muted-foreground leading-snug">{m.desc}</span>
                     </div>
+                    <span className="shrink-0 text-xs font-medium text-amber-500 flex items-center gap-0.5">💎 {m.cost}</span>
                   </div>
                 </SelectItem>
               ))}
