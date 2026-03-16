@@ -16,8 +16,8 @@ export function AutoComparisonSlider({
   beforeAlt = "原始照片",
   afterAlt = "卡通效果",
   speed = 10,
-  min = 15,
-  max = 85,
+  min = 0,
+  max = 100,
 }: AutoComparisonSliderProps) {
   const [sliderPos, setSliderPos] = useState(50);
   const directionRef = useRef<1 | -1>(1);
