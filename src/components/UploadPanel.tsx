@@ -201,13 +201,14 @@ export function UploadPanel({ onGenerate }: { onGenerate?: (styleImg: string, ra
                 key={r.value}
                 onClick={() => setSelectedRatio(r.value)}
                 className={cn(
-                  "flex flex-col items-center justify-center gap-1 py-1.5 px-1 rounded-lg border text-[10px] font-medium transition-all",
-                  "md:rounded-xl md:text-xs md:py-2",
-                  "lg:py-2.5 lg:rounded-xl lg:text-[11px]",
+                  "flex flex-col items-center justify-center gap-1 py-1.5 px-1 border text-[10px] font-medium transition-all",
+                  "md:text-xs md:py-2",
+                  "lg:py-2.5 lg:text-[11px]",
                   selectedRatio === r.value
                     ? "border-primary bg-primary text-primary-foreground shadow-sm"
                     : "border-border bg-card text-body2 hover:border-primary/50 hover:bg-primary/5"
                 )}
+                style={{ borderRadius: '14px' }}
               >
                 <RatioIcon w={r.w} h={r.h} active={selectedRatio === r.value} />
                 <span>{r.label}</span>
