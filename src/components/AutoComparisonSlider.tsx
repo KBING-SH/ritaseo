@@ -51,7 +51,7 @@ export function AutoComparisonSlider({
   }, [speed, min, max]);
 
   return (
-    <div className="relative w-full aspect-[4/3] overflow-hidden select-none">
+    <div className="relative w-full aspect-[3/2] overflow-hidden select-none">
       {/* After (cartoon - full background) */}
       <img
         src={afterSrc}
