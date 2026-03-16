@@ -268,9 +268,9 @@ export function UploadPanel({ onGenerate }: { onGenerate?: (styleImg: string, ra
           className="flex-1"
           onClick={() => onGenerate?.(STYLE_OPTIONS[selectedStyle].src, selectedRatio)}
         >
-          生成 ⚡10
+          现在领取每日 60 免费积分
         </Button>
-        <span className="text-xs text-muted-foreground whitespace-nowrap flex items-center gap-0.5">免费 ⚡30</span>
+        <span className="text-xs text-muted-foreground whitespace-nowrap flex items-center gap-0.5">10积分/次</span>
       </div>
 
       {/* Style Preview Dialog */}
