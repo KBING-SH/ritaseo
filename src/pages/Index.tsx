@@ -6,7 +6,7 @@ import { StyleSelector } from "@/components/StyleSelector";
 import { UploadPanel } from "@/components/UploadPanel";
 import { SocialProofBar } from "@/components/SocialProofBar";
 import { HowItWorks } from "@/components/HowItWorks";
-import { ArtGallery } from "@/components/ArtGallery";
+
 import { WhyChoose } from "@/components/WhyChoose";
 import { FAQSection } from "@/components/FAQSection";
 import { ContentSections } from "@/components/ContentSections";
@@ -211,7 +211,7 @@ const Index = () => {
       <div>
           <SocialProofBar />
           <HowItWorks />
-          <ArtGallery />
+          
           <ContentSections />
           <WhyChoose />
           <TestimonialsSection />
