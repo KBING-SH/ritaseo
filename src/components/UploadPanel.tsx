@@ -114,9 +114,9 @@ export function UploadPanel({ onGenerate }: { onGenerate?: (styleImg: string, ra
             <SelectContent className="max-h-72">
               {MODEL_OPTIONS.map((m) => (
                 <SelectItem key={m.value} value={m.value} className="py-2">
-                  <div className="flex items-center gap-2.5">
+                  <div className="flex items-center gap-2.5 w-full">
                     <img src={m.logo} alt={m.label + " logo"} className="w-9 h-9 rounded-lg object-contain shrink-0" />
-                    <div className="flex flex-col justify-center text-left">
+                    <div className="flex flex-col justify-center text-left flex-1">
                       <span className="font-medium text-sm leading-snug">{m.label}</span>
                       <span className="text-xs text-muted-foreground leading-snug">{m.desc}</span>
                     </div>
