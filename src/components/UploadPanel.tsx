@@ -62,6 +62,7 @@ const FORMATS = ["WebP", "JPG", "PNG"];
 
 export function UploadPanel({ onGenerate }: { onGenerate?: (styleImg: string, ratio: string) => void } = {}) {
   const [isDragging, setIsDragging] = useState(false);
+  const [showLoginDialog, setShowLoginDialog] = useState(false);
   const [uploadedImage, setUploadedImage] = useState<string | null>(null);
   const [showSuccess, setShowSuccess] = useState(false);
   const [selectedRatio, setSelectedRatio] = useState("1:1");
