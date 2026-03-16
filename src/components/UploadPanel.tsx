@@ -149,7 +149,7 @@ export function UploadPanel({ onGenerate }: { onGenerate?: (styleImg: string, ra
                 onClick={() => fileRef.current?.click()}
                 className={cn(
                   "h-20 md:h-[90px] lg:h-28 rounded-lg border-2 border-dashed flex flex-col items-center justify-center gap-0.5 transition-all cursor-pointer",
-                  isDragging ? "border-primary bg-primary/5" : "border-border hover:border-primary/40 hover:bg-hover-bg"
+                  isDragging ? "border-primary bg-primary/5" : "border-border hover:border-primary"
                 )}
               >
                 <ImageIcon className="h-5 w-5 lg:h-8 lg:w-8 text-body-desc" />
