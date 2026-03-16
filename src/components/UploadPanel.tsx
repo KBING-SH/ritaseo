@@ -111,16 +111,18 @@ export function UploadPanel({ onGenerate }: { onGenerate?: (styleImg: string, ra
             <SelectTrigger className="rounded-lg border-border/50 bg-card text-title h-auto py-1.5 lg:py-2 text-left">
               <SelectValue />
             </SelectTrigger>
-            <SelectContent className="max-h-72">
+            <SelectContent className="max-h-72 w-[var(--radix-select-trigger-width)]">
               {MODEL_OPTIONS.map((m) => (
                 <SelectItem key={m.value} value={m.value} className="py-2">
-                  <div className="flex items-center gap-2.5 w-full pr-12 relative">
+                  <div className="flex items-center gap-2.5">
                     <img src={m.logo} alt={m.label + " logo"} className="w-9 h-9 rounded-lg object-contain shrink-0" />
-                    <div className="flex flex-col justify-center text-left flex-1 min-w-0 pr-16">
-                      <span className="font-medium text-sm leading-snug">{m.label}</span>
+                    <div className="flex flex-col justify-center text-left flex-1 min-w-0">
+                      <div className="flex items-center justify-between gap-2">
+                        <span className="font-medium text-sm leading-snug truncate">{m.label}</span>
+                        <span className="shrink-0 text-xs font-medium text-primary flex items-center gap-0.5">💎 {m.cost}</span>
+                      </div>
                       <span className="text-xs text-muted-foreground leading-snug">{m.desc}</span>
                     </div>
-                    <span className="absolute right-0 top-1/2 -translate-y-1/2 text-xs font-medium text-primary flex items-center gap-0.5 whitespace-nowrap">💎 {m.cost}</span>
                   </div>
                 </SelectItem>
               ))}
