@@ -1,5 +1,6 @@
 import { useState, useRef, useCallback } from "react";
 import { ImageIcon, Check, X, Eye, Copy, ChevronLeft, ChevronRight } from "lucide-react";
+import { lovable } from "@/integrations/lovable/index";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
@@ -269,7 +270,14 @@ export function UploadPanel({ onGenerate }: { onGenerate?: (styleImg: string, ra
           variant="gradient"
           size="default"
           className="flex-1"
-          onClick={() => onGenerate?.(STYLE_OPTIONS[selectedStyle].src, selectedRatio)}
+          onClick={async () => {
+            const { error } = await lovable.auth.signInWithOAuth("google", {
+              redirect_uri: window.location.origin,
+            });
+            if (error) {
+              toast.error("登录失败，请重试");
+            }
+          }}
         >
           现在领取每日 60 免费积分
         </Button>
