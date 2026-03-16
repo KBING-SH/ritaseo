@@ -112,7 +112,14 @@ export function UploadPanel({ onGenerate }: { onGenerate?: (styleImg: string, ra
           <label className="text-xs font-medium text-title mb-1 lg:mb-1.5 block">模型</label>
           <Select value={selectedModel} onValueChange={setSelectedModel}>
             <SelectTrigger className="rounded-lg border-border/50 bg-card text-title h-auto py-1.5 lg:py-2 text-left">
-              <SelectValue />
+              <div className="flex items-center gap-2.5 w-full pr-6">
+                <img src={selectedModelOption.logo} alt={selectedModelOption.label + " logo"} className="w-9 h-9 rounded-lg object-contain shrink-0" />
+                <div className="flex flex-col justify-center text-left flex-1 min-w-0">
+                  <span className="font-medium text-sm leading-snug truncate">{selectedModelOption.label}</span>
+                  <span className="text-xs text-muted-foreground leading-snug truncate">{selectedModelOption.desc}</span>
+                </div>
+                <span className="shrink-0 text-xs font-medium text-primary flex items-center gap-0.5 ml-auto">💎 {selectedModelOption.cost}</span>
+              </div>
             </SelectTrigger>
             <SelectContent className="max-h-72 w-[var(--radix-select-trigger-width)]">
               {MODEL_OPTIONS.map((m) => (
