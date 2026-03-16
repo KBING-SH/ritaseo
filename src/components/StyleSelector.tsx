@@ -25,11 +25,11 @@ export function StyleSelector() {
 
       setSliderPos((prev) => {
         let next = prev + directionRef.current * speed * delta;
-        if (next >= 85) {
-          next = 85;
+        if (next >= 100) {
+          next = 100;
           directionRef.current = -1;
-        } else if (next <= 15) {
-          next = 15;
+        } else if (next <= 0) {
+          next = 0;
           directionRef.current = 1;
         }
         return next;
