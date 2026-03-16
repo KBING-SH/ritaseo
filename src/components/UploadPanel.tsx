@@ -1,5 +1,6 @@
 import { useState, useRef, useCallback } from "react";
 import { ImageIcon, Check, X, Eye, Copy, ChevronLeft, ChevronRight } from "lucide-react";
+import { lovable } from "@/integrations/lovable/index";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
