@@ -1,8 +1,10 @@
 import { useState, useEffect } from "react";
 import { User, PawPrint, Mountain, ChevronRight } from "lucide-react";
-import sectionPortrait from "@/assets/section-portrait.webp";
 import sectionPet from "@/assets/section-pet.webp";
 import sectionLandscape from "@/assets/section-landscape.webp";
+import beforeImg from "@/assets/before.webp";
+import afterImg from "@/assets/after.webp";
+import { AutoComparisonSlider } from "@/components/AutoComparisonSlider";
 
 const sections = [
   {
