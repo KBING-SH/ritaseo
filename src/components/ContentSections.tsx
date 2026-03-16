@@ -86,12 +86,21 @@ export function ContentSections() {
                 {/* Image */}
                 <div className="w-full lg:w-[55%] shrink-0">
                   <div className="rounded-2xl overflow-hidden shadow-lg border border-border/50">
-                    <img
-                      src={section.image}
-                      alt={section.imageAlt}
-                      className="w-full h-auto object-cover"
-                      loading="lazy"
-                    />
+                    {section.comparison ? (
+                      <AutoComparisonSlider
+                        beforeSrc={section.comparison.before}
+                        afterSrc={section.comparison.after}
+                        beforeAlt="原始照片"
+                        afterAlt="卡通效果"
+                      />
+                    ) : (
+                      <img
+                        src={section.image!}
+                        alt={section.imageAlt}
+                        className="w-full h-auto object-cover"
+                        loading="lazy"
+                      />
+                    )}
                   </div>
                 </div>
 
