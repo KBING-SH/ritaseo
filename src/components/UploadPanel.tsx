@@ -1,11 +1,11 @@
 import { useState, useRef, useCallback } from "react";
 import { ImageIcon, Check, X, Eye, Copy, ChevronLeft, ChevronRight } from "lucide-react";
-import { lovable } from "@/integrations/lovable/index";
 import { Button } from "@/components/ui/button";
+import { LoginDialog } from "@/components/LoginDialog";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { cn } from "@/lib/utils";
-import { toast } from "sonner";
+
 
 import logoChatgpt from "@/assets/logo-chatgpt.png";
 import logoBanana from "@/assets/logo-banana.png";
@@ -62,6 +62,7 @@ const FORMATS = ["WebP", "JPG", "PNG"];
 
 export function UploadPanel({ onGenerate }: { onGenerate?: (styleImg: string, ratio: string) => void } = {}) {
   const [isDragging, setIsDragging] = useState(false);
+  const [showLoginDialog, setShowLoginDialog] = useState(false);
   const [uploadedImage, setUploadedImage] = useState<string | null>(null);
   const [showSuccess, setShowSuccess] = useState(false);
   const [selectedRatio, setSelectedRatio] = useState("1:1");
@@ -270,19 +271,14 @@ export function UploadPanel({ onGenerate }: { onGenerate?: (styleImg: string, ra
           variant="gradient"
           size="default"
           className="flex-1"
-          onClick={async () => {
-            const { error } = await lovable.auth.signInWithOAuth("google", {
-              redirect_uri: window.location.origin,
-            });
-            if (error) {
-              toast.error("登录失败，请重试");
-            }
-          }}
+          onClick={() => setShowLoginDialog(true)}
         >
           现在领取每日 60 免费积分
         </Button>
         <span className="text-xs text-muted-foreground whitespace-nowrap flex items-center gap-0.5">10积分/次</span>
       </div>
+
+      <LoginDialog open={showLoginDialog} onOpenChange={setShowLoginDialog} />
 
       {/* Style Preview Dialog */}
       <Dialog open={previewStyle !== null} onOpenChange={(open) => !open && setPreviewStyle(null)}>
