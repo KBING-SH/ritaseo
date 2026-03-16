@@ -120,7 +120,7 @@ export function UploadPanel({ onGenerate }: { onGenerate?: (styleImg: string, ra
                       <span className="font-medium text-sm leading-snug">{m.label}</span>
                       <span className="text-xs text-muted-foreground leading-snug">{m.desc}</span>
                     </div>
-                    <span className="shrink-0 text-xs font-medium text-amber-500 flex items-center gap-0.5">💎 {m.cost}</span>
+                    <span className="shrink-0 text-xs font-medium text-amber-500 flex items-center gap-0.5 ml-auto">💎 {m.cost}</span>
                   </div>
                 </SelectItem>
               ))}
