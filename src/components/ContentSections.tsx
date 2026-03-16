@@ -11,7 +11,8 @@ const sections = [
     icon: User,
     title: "人像卡通化",
     subtitle: "把你的照片，变成专属卡通头像",
-    image: sectionPortrait,
+    image: null,
+    comparison: { before: beforeImg, after: afterImg },
     imageAlt: "人像卡通化",
     paragraphs: [
       "想把自拍变成迪士尼风、吉卜力风的卡通头像？Rita AI 人像卡通化功能支持一键转换，智能识别面部特征，生成表情生动、风格独特的卡通形象。无需注册、免费无水印，几秒即可下载高清卡通头像。",
