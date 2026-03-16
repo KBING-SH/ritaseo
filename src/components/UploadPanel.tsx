@@ -270,7 +270,14 @@ export function UploadPanel({ onGenerate }: { onGenerate?: (styleImg: string, ra
           variant="gradient"
           size="default"
           className="flex-1"
-          onClick={() => onGenerate?.(STYLE_OPTIONS[selectedStyle].src, selectedRatio)}
+          onClick={async () => {
+            const { error } = await lovable.auth.signInWithOAuth("google", {
+              redirect_uri: window.location.origin,
+            });
+            if (error) {
+              toast.error("登录失败，请重试");
+            }
+          }}
         >
           现在领取每日 60 免费积分
         </Button>
