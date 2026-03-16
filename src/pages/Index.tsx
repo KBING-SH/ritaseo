@@ -211,7 +211,7 @@ const Index = () => {
       <div>
           <SocialProofBar />
           <HowItWorks />
-          <ArtGallery />
+          
           <ContentSections />
           <WhyChoose />
           <TestimonialsSection />
