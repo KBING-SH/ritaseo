@@ -208,7 +208,7 @@ export function UploadPanel({ onGenerate }: { onGenerate?: (styleImg: string, ra
                     ? "border-primary bg-primary text-primary-foreground shadow-sm"
                     : "border-border bg-card text-body2 hover:border-primary/50 hover:bg-primary/5"
                 )}
-              >
+                style={{ borderRadius: '14px' }}
                 <RatioIcon w={r.w} h={r.h} active={selectedRatio === r.value} />
                 <span>{r.label}</span>
               </button>
