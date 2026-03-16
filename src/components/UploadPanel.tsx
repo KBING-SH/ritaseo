@@ -115,7 +115,7 @@ export function UploadPanel({ onGenerate }: { onGenerate?: (styleImg: string, ra
             </SelectTrigger>
             <SelectContent className="max-h-72 w-[var(--radix-select-trigger-width)]">
               {MODEL_OPTIONS.map((m) => (
-                <SelectItem key={m.value} value={m.value} className="py-2">
+                <SelectItem key={m.value} value={m.value} className="py-2 pr-2 [&>span:last-child]:hidden">
                   <div className="flex items-center gap-2.5 w-full">
                     <img src={m.logo} alt={m.label + " logo"} className="w-9 h-9 rounded-lg object-contain shrink-0" />
                     <div className="flex flex-col justify-center text-left flex-1 min-w-0">
