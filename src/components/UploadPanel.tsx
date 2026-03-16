@@ -68,6 +68,7 @@ export function UploadPanel({ onGenerate }: { onGenerate?: (styleImg: string, ra
   const [selectedRatio, setSelectedRatio] = useState("1:1");
   const [selectedStyle, setSelectedStyle] = useState(0);
   const [selectedModel, setSelectedModel] = useState("chatgpt-image-1");
+  const selectedModelOption = MODEL_OPTIONS.find((m) => m.value === selectedModel) ?? MODEL_OPTIONS[0];
   const [selectedResolution, setSelectedResolution] = useState("1 MP");
   const [selectedFormat, setSelectedFormat] = useState("WebP");
   const [previewStyle, setPreviewStyle] = useState<number | null>(null);
