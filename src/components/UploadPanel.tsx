@@ -271,19 +271,14 @@ export function UploadPanel({ onGenerate }: { onGenerate?: (styleImg: string, ra
           variant="gradient"
           size="default"
           className="flex-1"
-          onClick={async () => {
-            const { error } = await lovable.auth.signInWithOAuth("google", {
-              redirect_uri: window.location.origin,
-            });
-            if (error) {
-              toast.error("登录失败，请重试");
-            }
-          }}
+          onClick={() => setShowLoginDialog(true)}
         >
           现在领取每日 60 免费积分
         </Button>
         <span className="text-xs text-muted-foreground whitespace-nowrap flex items-center gap-0.5">10积分/次</span>
       </div>
+
+      <LoginDialog open={showLoginDialog} onOpenChange={setShowLoginDialog} />
 
       {/* Style Preview Dialog */}
       <Dialog open={previewStyle !== null} onOpenChange={(open) => !open && setPreviewStyle(null)}>
