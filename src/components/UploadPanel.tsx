@@ -277,7 +277,12 @@ export function UploadPanel({ onGenerate }: { onGenerate?: (styleImg: string, ra
           variant="gradient"
           size="default"
           className="flex-1"
-          onClick={() => setShowLoginDialog(true)}
+          onClick={() => {
+            const style = STYLE_OPTIONS[selectedStyle];
+            if (onGenerate && style) {
+              onGenerate(style.src, selectedRatio);
+            }
+          }}
         >
           现在领取每日 60 免费积分
         </Button>
