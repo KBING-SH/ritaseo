@@ -91,7 +91,7 @@ export function ImageActionBar({ imageUrl, compact = false }: ImageActionBarProp
         </button>
 
         {shareOpen && (
-          <div className={`absolute z-50 ${compact ? "bottom-full mb-2 right-0" : "left-full ml-2 top-0"} w-48 bg-card border border-border rounded-xl shadow-lg p-2 animate-fade-in`}>
+          <div className={`absolute z-50 ${compact ? "bottom-full mb-2 right-0" : "right-full mr-2 top-0"} w-48 bg-card border border-border rounded-xl shadow-lg p-2 animate-fade-in`}>
             <div className="flex items-center justify-between px-2 py-1 mb-1">
               <span className="text-xs font-semibold text-foreground">分享到</span>
               <button onClick={() => setShareOpen(false)} className="text-muted-foreground hover:text-foreground transition-colors">
