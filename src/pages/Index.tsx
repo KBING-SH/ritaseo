@@ -1,4 +1,4 @@
-import { useState, useCallback } from "react";
+import { useState, useCallback, useRef } from "react";
 import { Loader2 } from "lucide-react";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import { ImageActionBar } from "@/components/ImageActionBar";
@@ -30,6 +30,19 @@ const Index = () => {
   const [history, setHistory] = useState<{ img: string; ratio: string; ratioLabel: string; time: Date }[]>([]);
   const [selectedHistoryIdx, setSelectedHistoryIdx] = useState<number | null>(null);
   const [previewIdx, setPreviewIdx] = useState<number | null>(null);
+  const styleSetterRef = useRef<((styleIndex: number) => void) | null>(null);
+
+  const handleSelectStyle = useCallback((styleIndex: number) => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+    const waitAndSet = () => {
+      if (window.scrollY <= 5) {
+        styleSetterRef.current?.(styleIndex);
+      } else {
+        requestAnimationFrame(waitAndSet);
+      }
+    };
+    requestAnimationFrame(waitAndSet);
+  }, []);
 
   const handleGenerate = useCallback((styleImg: string, ratio: string) => {
     setIsGenerating(true);
@@ -81,13 +94,13 @@ const Index = () => {
 
         {/* Left sidebar - desktop */}
         <aside className="hidden lg:flex lg:w-[30%] shrink-0 border-r border-border/50 bg-card">
-          <UploadPanel onGenerate={handleGenerate} />
+          <UploadPanel onGenerate={handleGenerate} externalStyleRef={styleSetterRef} />
         </aside>
 
         {/* Mobile/Tablet: UploadPanel + Result */}
         <div className="flex-1 lg:w-[70%] min-w-0 flex flex-col overflow-hidden">
           <div className="lg:hidden flex-1 min-h-0 overflow-hidden">
-            <UploadPanel onGenerate={handleGenerate} />
+            <UploadPanel onGenerate={handleGenerate} externalStyleRef={styleSetterRef} />
           </div>
 
           {/* Mobile: result display OR hero intro */}
@@ -219,7 +232,7 @@ const Index = () => {
           <SocialProofBar />
           <HowItWorks />
           
-          <ContentSections />
+          <ContentSections onSelectStyle={handleSelectStyle} />
           <WhyChoose />
           <TestimonialsSection />
           <FAQSection />

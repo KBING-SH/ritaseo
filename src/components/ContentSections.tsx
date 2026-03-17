@@ -46,21 +46,27 @@ const sections = [
   },
 ];
 
-export function ContentSections() {
+// Map section index to style index: 0=吉卜力, 1=卡通片, 2=水墨
+const SECTION_STYLE_MAP = [0, 4, 3];
+
+export function ContentSections({ onSelectStyle }: { onSelectStyle?: (styleIndex: number) => void }) {
   const [showTooltip, setShowTooltip] = useState(false);
 
-  const handleTryNow = () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-
-    const checkScrollDone = () => {
-      if (window.scrollY <= 5) {
-        setShowTooltip(true);
-        setTimeout(() => setShowTooltip(false), 3000);
-      } else {
-        requestAnimationFrame(checkScrollDone);
-      }
-    };
-    requestAnimationFrame(checkScrollDone);
+  const handleTryNow = (sectionIndex: number) => {
+    if (onSelectStyle) {
+      onSelectStyle(SECTION_STYLE_MAP[sectionIndex] ?? 0);
+    } else {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+      const checkScrollDone = () => {
+        if (window.scrollY <= 5) {
+          setShowTooltip(true);
+          setTimeout(() => setShowTooltip(false), 3000);
+        } else {
+          requestAnimationFrame(checkScrollDone);
+        }
+      };
+      requestAnimationFrame(checkScrollDone);
+    }
   };
 
   return (
@@ -124,7 +130,7 @@ export function ContentSections() {
                   </div>
                   <div className="pt-2">
                     <button
-                      onClick={handleTryNow}
+                      onClick={() => handleTryNow(i)}
                       className="inline-flex items-center gap-2 px-8 py-3 rounded-full border border-border text-base font-semibold text-title transition-all hover:border-primary hover:text-primary hover:shadow-lg group"
                     >
                       <span>立即试用</span>
