@@ -9,7 +9,7 @@ export function StepUploadAnimation({ active = true }: { active?: boolean }) {
     return (
       <div className="w-full h-full bg-card flex items-center justify-center">
         <div className="w-full h-full flex flex-col p-[8%] gap-[4%]">
-          <p className="text-[0.65em] text-body-desc font-medium leading-none">上传参考图片</p>
+          <p className="text-[0.65em] text-body-desc font-medium leading-none">Upload reference image</p>
           <div className="relative flex-1 rounded-lg border-2 border-dashed border-border/60 flex flex-col items-center justify-center gap-[4%] bg-muted/10 min-h-0">
             <ImageIcon className="w-[12%] h-[12%] min-w-4 min-h-4 text-body-desc/40" />
             <span className="text-[0.55em] text-body-desc/40">单击或拖动图像即可上传</span>
