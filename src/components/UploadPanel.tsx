@@ -240,7 +240,7 @@ export function UploadPanel({ onGenerate, externalStyleRef }: { onGenerate?: (st
 
         {/* Resolution */}
         <div>
-          <label className="text-xs md:text-sm font-medium text-title mb-1 lg:mb-1.5 block">分辨率</label>
+          <label className="text-xs md:text-sm font-medium text-title mb-1 lg:mb-1.5 block">Resolution</label>
           <div className="flex flex-wrap gap-1 md:gap-1.5 lg:gap-1.5">
             {RESOLUTIONS.map((res) => (
               <button
