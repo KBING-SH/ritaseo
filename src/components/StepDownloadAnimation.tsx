@@ -140,7 +140,7 @@ export function StepDownloadAnimation({ active = true }: { active?: boolean }) {
           ) : (
             <>
               <Download className="w-[0.5em] h-[0.5em] text-body-desc" />
-              <span className="text-[0.4em] text-body-desc">下载</span>
+              <span className="text-[0.4em] text-body-desc">Download</span>
             </>
           )}
         </motion.div>
