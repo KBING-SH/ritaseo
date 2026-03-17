@@ -1,5 +1,6 @@
 import { useRef } from "react";
 import { Loader2, ChevronLeft, ChevronRight, X, Trash2 } from "lucide-react";
+import { ImageActionBar } from "@/components/ImageActionBar";
 
 interface HistoryItem {
   img: string;
@@ -60,13 +61,16 @@ export function ResultDisplay({
               <p className="text-sm text-muted-foreground">正在生成中...</p>
             </div>
           ) : generatedImg ? (
-            <div
-              className={`rounded-2xl overflow-hidden border border-border/50 shadow-lg animate-fade-in ${
-                compact ? "w-full h-48" : "h-full max-w-full"
-              }`}
-              style={compact ? undefined : { aspectRatio: generatedRatio }}
-            >
-              <img src={generatedImg} alt="生成结果" className="w-full h-full object-cover" />
+            <div className="flex flex-col items-center gap-2 w-full">
+              <div
+                className={`rounded-2xl overflow-hidden border border-border/50 shadow-lg animate-fade-in ${
+                  compact ? "w-full h-48" : "h-full max-w-full"
+                }`}
+                style={compact ? undefined : { aspectRatio: generatedRatio }}
+              >
+                <img src={generatedImg} alt="生成结果" className="w-full h-full object-cover" />
+              </div>
+              <ImageActionBar imageUrl={generatedImg} compact />
             </div>
           ) : null}
         </div>
