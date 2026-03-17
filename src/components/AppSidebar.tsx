@@ -67,7 +67,7 @@ export function AppSidebar({ mobileOpen, onClose }: AppSidebarProps) {
       {/* Logo area */}
       <div className="flex items-center justify-between px-4 h-16 border-b border-border/50">
         <div className="flex items-center gap-2.5">
-          <div className="h-8 w-8 rounded-lg gradient-primary" />
+          <img src="/rita-logo.webp" alt="Rita" className="h-8 w-8 rounded-lg" />
           <span className="text-base font-bold text-title">Rita</span>
         </div>
         <button onClick={onClose} className="lg:hidden p-1 rounded-md hover:bg-hover-bg transition-colors">
