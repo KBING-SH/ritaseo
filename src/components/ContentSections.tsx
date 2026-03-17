@@ -17,8 +17,8 @@ const sections = [
     comparison: { before: portraitBefore, after: portraitAfter },
     imageAlt: "AI Photo to Cartoon Portrait",
     paragraphs: [
-      "Want to turn a portrait photo into a cartoon avatar or cartoon effect? Using AI Photo to Cartoon tools like rita, you can upload a clear portrait to transform it into a playful cartoon image. This process is suitable for creating unique social avatars that stand out on platforms where visual identity matters. With rita, there's no need for complicated steps or prior design skills—just a few clicks to achieve a stylized cartoon portrait that reflects your personality.",
-      "Portrait AI Photo to Cartoon is also useful for content creation and gifts for friends or family. Whether you want to surprise someone with a fun cartoon version of their photo or craft engaging visuals for social media, this approach fits smoothly into creative projects. The ease of customization lets you explore different cartoon styles without repeated adjustments, making it accessible and enjoyable. Switch your photo into a cartoon style to make sharing more entertaining; upload your photo and generate the result.",
+      "A portrait cartoon avatar offers a creative way to transform your photos using AI photo to cartoon technology. With rita, you can upload a clear portrait to create a distinctive cartoon effect that works well for social media profiles or personalized gifts. This AI photo to cartoon tool allows you to achieve a unique look with simple steps.",
+      "Suitable for content creators and anyone seeking a creative visual, this cartoon style adds charm and personality to your images. Through rita, you can explore enjoyable AI photo to cartoon transformations that enhance your online presence or create memorable keepsakes. Upload your photo and generate the result to see how straightforward the cartoon effect can be.",
     ],
     imageFirst: true,
   },
