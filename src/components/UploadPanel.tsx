@@ -184,7 +184,7 @@ export function UploadPanel({ onGenerate, externalStyleRef }: { onGenerate?: (st
                 <div className="w-4 h-4 rounded-full bg-primary/20 flex items-center justify-center">
                   <Check className="w-2.5 h-2.5 text-primary" />
                 </div>
-                <span className="text-xs text-primary">上传成功</span>
+                <span className="text-xs text-primary">Upload successful</span>
               </div>
             )}
           </div>
