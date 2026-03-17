@@ -229,7 +229,7 @@ const Index = () => {
       {/* Below first screen: sidebar sticks, content scrolls */}
       {/* Below first screen: full-width content */}
       <div>
-          <SocialProofBar />
+          
           <HowItWorks />
           
           <ContentSections onSelectStyle={handleSelectStyle} />
