@@ -93,7 +93,7 @@ export function StepDownloadAnimation({ active = true }: { active?: boolean }) {
     <div className="w-full h-full bg-card relative overflow-hidden flex flex-col p-[5%] gap-[3%]">
       {/* Result image */}
       <div className="flex-1 min-h-0 flex flex-col gap-[3px]">
-        <span className="text-[0.45em] text-body-desc">生成结果</span>
+        <span className="text-[0.45em] text-body-desc">Generated Result</span>
         <motion.div
           className="flex-1 rounded-[0.3em] overflow-hidden border border-border/30 min-h-0 relative"
           animate={{ opacity: showResult ? 1 : 0.3 }}
