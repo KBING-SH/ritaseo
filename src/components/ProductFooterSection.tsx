@@ -3,12 +3,12 @@ import { ChevronDown } from "lucide-react";
 import { useIsMobile } from "@/hooks/use-mobile";
 
 const productColumns = [
-  { title: "AI 对话", links: ["Rita", "Rita Pro", "ChatGPT 5.4", "ChatGPT 5.2", "Gemini 3.1 Pro", "Claude Opus 4.6", "Claude Sonnet 4.6", "Claude Opus 4.5", "Gemini 3 Pro", "Claude 4.5 Sonnet", "ChatGPT 5.1", "DeepSeek V3.1", "Grok 4.1", "ChatGPT 4o", "ChatGPT 5"] },
-  { title: "AI 图片", links: ["Nano Banana 2", "Nano Banana Pro", "Midjourney", "ChatGPT Image", "Flux", "Stable Diffusion", "Kling"] },
-  { title: "AI 视频", links: ["Veo", "Kling"] },
-  { title: "AI 音频", links: ["Suno"] },
-  { title: "AI 艺术工具", links: ["AI 图片生成器", "AI 画质提升工具", "AI 背景移除工具", "AI 水印去除工具", "AI 照片转卡通工具", "AI 圣诞形象生成器", "AI 吉卜力风格转换器", "AI 标志生成器", "AI 像素艺术生成器", "AI 海报生成器", "AI 视频生成器", "AI 扩图工具", "AI 皮克斯风格生成器", "AI 头像生成器", "AI 老照片修复器", "Seedance 2.0"] },
-  { title: "AI 工具", links: ["AI 检测器", "AI 人性化工具", "AI 数学解题器", "AI 故事生成器", "AI 改写器", "AI 图片转文字工具", "AI 论文写作工具", "AI 图片翻译工具", "AI 邮件生成器", "AI 算命师", "AI 翻译器", "AI 化学解题器"] },
+  { title: "AI Chat", links: ["Rita", "Rita Pro", "ChatGPT 5.4", "ChatGPT 5.2", "Gemini 3.1 Pro", "Claude Opus 4.6", "Claude Sonnet 4.6", "Claude Opus 4.5", "Gemini 3 Pro", "Claude 4.5 Sonnet", "ChatGPT 5.1", "DeepSeek V3.1", "Grok 4.1", "ChatGPT 4o", "ChatGPT 5"] },
+  { title: "AI Image", links: ["Nano Banana 2", "Nano Banana Pro", "Midjourney", "ChatGPT Image", "Flux", "Stable Diffusion", "Kling"] },
+  { title: "AI Video", links: ["Veo", "Kling"] },
+  { title: "AI Audio", links: ["Suno"] },
+  { title: "AI Art Tools", links: ["AI Image Generator", "AI Image Upscaler", "AI Background Remover", "AI Watermark Remover", "AI Photo to Cartoon", "AI Christmas Avatar", "AI Ghibli Style", "AI Logo Generator", "AI Pixel Art Generator", "AI Poster Generator", "AI Video Generator", "AI Outpainting", "AI Pixar Style", "AI Avatar Generator", "AI Photo Restore", "Seedance 2.0"] },
+  { title: "AI Tools", links: ["AI Detector", "AI Humanizer", "AI Math Solver", "AI Story Generator", "AI Rewriter", "AI Image to Text", "AI Essay Writer", "AI Image Translator", "AI Email Generator", "AI Fortune Teller", "AI Translator", "AI Chemistry Solver"] },
 ];
 
 export const ProductFooterSection = () => {
