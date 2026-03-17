@@ -130,7 +130,7 @@ export function ContentSections({ onSelectStyle }: { onSelectStyle?: (styleIndex
                   </div>
                   <div className="pt-2">
                     <button
-                      onClick={handleTryNow}
+                      onClick={() => handleTryNow(i)}
                       className="inline-flex items-center gap-2 px-8 py-3 rounded-full border border-border text-base font-semibold text-title transition-all hover:border-primary hover:text-primary hover:shadow-lg group"
                     >
                       <span>立即试用</span>
