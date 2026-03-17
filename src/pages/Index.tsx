@@ -5,7 +5,7 @@ import { ImageActionBar } from "@/components/ImageActionBar";
 import { ProductFooterSection } from "@/components/ProductFooterSection";
 import { StyleSelector } from "@/components/StyleSelector";
 import { UploadPanel } from "@/components/UploadPanel";
-import { SocialProofBar } from "@/components/SocialProofBar";
+
 import { HowItWorks } from "@/components/HowItWorks";
 
 import { WhyChoose } from "@/components/WhyChoose";
