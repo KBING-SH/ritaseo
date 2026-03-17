@@ -208,7 +208,7 @@ const Index = () => {
 
                 <img
                   src={history[previewIdx].img}
-                  alt="预览大图"
+                  alt="Preview"
                   className="max-h-[75vh] sm:max-h-[78vh] max-w-[88vw] sm:max-w-[72vw] rounded-lg object-contain"
                   style={{ aspectRatio: history[previewIdx].ratio }}
                 />
