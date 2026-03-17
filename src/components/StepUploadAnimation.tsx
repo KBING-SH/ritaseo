@@ -37,7 +37,7 @@ export function StepUploadAnimation({ active = true }: { active?: boolean }) {
             transition={{ duration: CYCLE, times: [0, 0.25, 0.28, 0.35, 0.5, 0.85, 0.93, 1], repeat: Infinity }}
           >
             <ImageIcon className="w-[12%] h-[12%] min-w-4 min-h-4 text-body-desc/40" />
-            <span className="text-[0.55em] text-body-desc/40">单击或拖动图像即可上传</span>
+            <span className="text-[0.55em] text-body-desc/40">Click or drag image to upload</span>
           </motion.div>
           <motion.div
             className="absolute inset-[6%] rounded-md overflow-hidden shadow-md"
