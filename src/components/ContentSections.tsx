@@ -133,7 +133,7 @@ export function ContentSections({ onSelectStyle }: { onSelectStyle?: (styleIndex
                       onClick={() => handleTryNow(i)}
                       className="inline-flex items-center gap-2 px-8 py-3 rounded-full gradient-primary text-primary-foreground text-base font-semibold transition-all hover:opacity-90 hover:shadow-lg group"
                     >
-                      <span>立即试用</span>
+                      <span>点击做同款</span>
                       <ChevronRight className="h-4 w-4 text-primary-foreground/70 group-hover:translate-x-0.5 transition-all" />
                     </button>
                   </div>
