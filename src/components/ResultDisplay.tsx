@@ -68,7 +68,7 @@ export function ResultDisplay({
                 }`}
                 style={compact ? undefined : { aspectRatio: generatedRatio }}
               >
-                <img src={generatedImg} alt="生成结果" className="w-full h-full object-cover" />
+                <img src={generatedImg} alt="Generated result" className="w-full h-full object-cover" />
               </div>
               <ImageActionBar imageUrl={generatedImg} compact />
             </div>
