@@ -30,6 +30,19 @@ const Index = () => {
   const [history, setHistory] = useState<{ img: string; ratio: string; ratioLabel: string; time: Date }[]>([]);
   const [selectedHistoryIdx, setSelectedHistoryIdx] = useState<number | null>(null);
   const [previewIdx, setPreviewIdx] = useState<number | null>(null);
+  const styleSetterRef = useRef<((styleIndex: number) => void) | null>(null);
+
+  const handleSelectStyle = useCallback((styleIndex: number) => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+    const waitAndSet = () => {
+      if (window.scrollY <= 5) {
+        styleSetterRef.current?.(styleIndex);
+      } else {
+        requestAnimationFrame(waitAndSet);
+      }
+    };
+    requestAnimationFrame(waitAndSet);
+  }, []);
 
   const handleGenerate = useCallback((styleImg: string, ratio: string) => {
     setIsGenerating(true);
