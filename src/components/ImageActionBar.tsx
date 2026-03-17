@@ -109,6 +109,7 @@ export function ImageActionBar({ imageUrl, compact = false }: ImageActionBarProp
                 </button>
               ))}
             </div>
+           </div>
           </div>
         )}
       </div>
