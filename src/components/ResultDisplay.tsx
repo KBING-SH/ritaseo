@@ -82,8 +82,8 @@ export function ResultDisplay({
           {/* Header */}
           <div className="flex items-center justify-between mb-2">
             <div className="flex items-baseline gap-2">
-              <span className={`font-semibold text-title ${compact ? "text-xs" : "text-sm"}`}>历史</span>
-              <span className="text-[11px] text-muted-foreground">最多保存30次记录</span>
+              <span className={`font-semibold text-title ${compact ? "text-xs" : "text-sm"}`}>History</span>
+              <span className="text-[11px] text-muted-foreground">Up to 30 records saved</span>
             </div>
             <button
               onClick={() => { onSetHistory([]); onSetSelectedHistoryIdx(null); onSetGeneratedImg(null); }}
