@@ -49,7 +49,7 @@ export function StepUploadAnimation({ active = true }: { active?: boolean }) {
             }}
             transition={{ duration: CYCLE, times: [0, 0.2, 0.3, 0.48, 0.52, 0.55, 0.88, 0.95, 1], ease: "easeOut", repeat: Infinity }}
           >
-            <img src={demoPortrait} alt="示例人像照片" className="w-full h-full object-cover" />
+            <img src={demoPortrait} alt="Sample portrait" className="w-full h-full object-cover" />
           </motion.div>
           <motion.div
             className="absolute inset-0 rounded-lg border-2 border-primary pointer-events-none"
