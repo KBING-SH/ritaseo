@@ -69,9 +69,9 @@ export function ImageActionBar({ imageUrl, compact = false }: ImageActionBarProp
       a.click();
       document.body.removeChild(a);
       URL.revokeObjectURL(url);
-      toast.success("图片已下载");
+      toast.success("Image downloaded");
     } catch {
-      toast.error("下载失败，请重试");
+      toast.error("Download failed, please try again");
     }
   };
 
