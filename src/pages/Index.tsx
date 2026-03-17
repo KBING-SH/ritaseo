@@ -142,7 +142,6 @@ const Index = () => {
                   <ImageActionBar imageUrl={generatedImg} />
                 </div>
               )}
-              ) : null}
             </div>
 
             {/* Desktop history strip */}
