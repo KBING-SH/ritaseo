@@ -81,9 +81,13 @@ export function ImageActionBar({ imageUrl, compact = false }: ImageActionBarProp
       </button>
 
       {/* Share */}
-      <div className="relative" ref={popoverRef}>
+      <div
+        className="relative"
+        ref={popoverRef}
+        onMouseEnter={() => setShareOpen(true)}
+        onMouseLeave={() => setShareOpen(false)}
+      >
         <button
-          onClick={() => setShareOpen(!shareOpen)}
           className={`${btnClass} bg-card border border-border flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary/50 hover:bg-primary/5 transition-all duration-200 cursor-pointer ${shareOpen ? "border-primary/50 text-primary bg-primary/5" : ""}`}
           title="分享"
         >
@@ -91,7 +95,7 @@ export function ImageActionBar({ imageUrl, compact = false }: ImageActionBarProp
         </button>
 
         {shareOpen && (
-          <div className={`absolute z-50 ${compact ? "bottom-full mb-2 right-0" : "right-full mr-2 top-0"} bg-card border border-border rounded-xl shadow-lg p-1.5 animate-fade-in`}>
+          <div className={`absolute z-50 ${compact ? "top-full mt-2 right-0" : "top-full mt-2 right-0"} bg-card border border-border rounded-xl shadow-lg p-1.5 animate-fade-in`}>
             <div className="flex items-center gap-1.5">
               {SHARE_PLATFORMS.map((platform) => (
                 <button
