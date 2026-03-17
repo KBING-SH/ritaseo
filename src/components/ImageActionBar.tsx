@@ -8,12 +8,12 @@ interface ImageActionBarProps {
 }
 
 const SHARE_PLATFORMS = [
-  { name: "Twitter / X", icon: "𝕏", getUrl: (url: string) => `https://twitter.com/intent/tweet?url=${encodeURIComponent(url)}&text=${encodeURIComponent("Check out this AI-generated image!")}` },
-  { name: "Facebook", icon: "f", getUrl: (url: string) => `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}` },
-  { name: "Pinterest", icon: "P", getUrl: (url: string, imgUrl: string) => `https://pinterest.com/pin/create/button/?url=${encodeURIComponent(url)}&media=${encodeURIComponent(imgUrl)}` },
-  { name: "WhatsApp", icon: "W", getUrl: (url: string) => `https://wa.me/?text=${encodeURIComponent(url)}` },
-  { name: "Telegram", icon: "T", getUrl: (url: string) => `https://t.me/share/url?url=${encodeURIComponent(url)}` },
-  { name: "Reddit", icon: "R", getUrl: (url: string) => `https://reddit.com/submit?url=${encodeURIComponent(url)}&title=${encodeURIComponent("AI Generated Image")}` },
+  { name: "Twitter / X", color: "bg-gray-900 dark:bg-gray-100 text-white dark:text-gray-900", icon: "𝕏", getUrl: (url: string) => `https://twitter.com/intent/tweet?url=${encodeURIComponent(url)}&text=${encodeURIComponent("Check out this AI-generated image!")}` },
+  { name: "Facebook", color: "bg-blue-600 text-white", icon: "f", getUrl: (url: string) => `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}` },
+  { name: "Pinterest", color: "bg-red-600 text-white", icon: "P", getUrl: (url: string, imgUrl: string) => `https://pinterest.com/pin/create/button/?url=${encodeURIComponent(url)}&media=${encodeURIComponent(imgUrl)}` },
+  { name: "WhatsApp", color: "bg-green-500 text-white", icon: "W", getUrl: (url: string) => `https://wa.me/?text=${encodeURIComponent(url)}` },
+  { name: "Telegram", color: "bg-sky-500 text-white", icon: "T", getUrl: (url: string) => `https://t.me/share/url?url=${encodeURIComponent(url)}` },
+  { name: "Reddit", color: "bg-orange-500 text-white", icon: "R", getUrl: (url: string) => `https://reddit.com/submit?url=${encodeURIComponent(url)}&title=${encodeURIComponent("AI Generated Image")}` },
 ];
 
 export function ImageActionBar({ imageUrl, compact = false }: ImageActionBarProps) {
