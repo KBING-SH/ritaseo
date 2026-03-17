@@ -11,46 +11,46 @@ import { AutoComparisonSlider } from "@/components/AutoComparisonSlider";
 const sections = [
   {
     icon: User,
-    title: "人像卡通化",
-    subtitle: "把你的照片，变成专属卡通头像",
+    title: "Turn Portrait Photos into Cartoon Avatars with AI Photo to Cartoon",
+    subtitle: "Transform your selfies into unique cartoon avatars",
     image: null,
     comparison: { before: portraitBefore, after: portraitAfter },
-    imageAlt: "人像卡通化",
+    imageAlt: "AI Photo to Cartoon Portrait",
     paragraphs: [
-      "想把自拍变成迪士尼风、吉卜力风的卡通头像？Rita AI 人像卡通化功能支持一键转换，智能识别面部特征，生成表情生动、风格独特的卡通形象。无需注册、免费无水印，几秒即可下载高清卡通头像。",
-      "无论是用作社交媒体头像、个人品牌形象，还是送给朋友的趣味礼物，Rita AI 都能帮你轻松打造有辨识度的卡通人像。支持 GPT-4o、Kling V2 等多款 AI 模型，满足从简约到精致的多种风格需求。",
+      "Want to turn a portrait photo into a cartoon avatar or cartoon effect? Using AI Photo to Cartoon tools like rita, you can upload a clear portrait to transform it into a playful cartoon image. This process is suitable for creating unique social avatars that stand out on platforms where visual identity matters. With rita, there's no need for complicated steps or prior design skills—just a few clicks to achieve a stylized cartoon portrait that reflects your personality.",
+      "Portrait AI Photo to Cartoon is also useful for content creation and gifts for friends or family. Whether you want to surprise someone with a fun cartoon version of their photo or craft engaging visuals for social media, this approach fits smoothly into creative projects. The ease of customization lets you explore different cartoon styles without repeated adjustments, making it accessible and enjoyable. Switch your photo into a cartoon style to make sharing more entertaining; upload your photo and generate the result.",
     ],
     imageFirst: true,
   },
   {
     icon: PawPrint,
-    title: "宠物照片变卡通",
-    subtitle: "为你的萌宠打造专属卡通形象",
+    title: "Cartoonize Your Pet Photos for Playful Portraits and Social Sharing with AI Photo to Cartoon",
+    subtitle: "Create charming cartoon portraits of your pets",
     image: null,
     comparison: { before: petBefore, after: petAfter },
-    imageAlt: "宠物照片变卡通",
+    imageAlt: "AI Photo to Cartoon Pet",
     paragraphs: [
-      "用 Rita AI 把你家猫咪、狗狗的照片变成超萌卡通形象！只需上传宠物照片，AI 自动识别宠物特征，生成风格各异的卡通版本——可爱风、像素风、水墨风任你挑选。",
-      "生成的卡通宠物图适合用作头像、表情包素材，也可以打印出来做成贴纸或周边。整个过程在线免费完成，无需下载软件，无水印直接保存。",
+      "Want to turn a pet photo into a charming cartoon portrait or cartoon effect? Using AI Photo to Cartoon tools like rita, you can upload your favorite pet snapshot and see it transform into a delightful cartoon version. This pet AI Photo to Cartoon feature captures your furry friend's unique personality, making it suitable for creating social avatars that stand out with playful charm. Whether it's your dog's grin or your cat's curious stare, rita helps bring those moments to life with just a few clicks.",
+      "This AI Photo to Cartoon approach integrates well into content creation and social media posting, adding a fun twist to your pet's images without complicated steps. You can choose from various cartoon styles or customize prompts to craft a one-of-a-kind portrait that's ideal as gifts for friends or family who appreciate your pet. The process is straightforward and enjoyable, making it easy to share your pet's new cartoon look across platforms. If you want a social avatar or creative visual, upload your photo and generate the result.",
     ],
     imageFirst: false,
   },
   {
     icon: Mountain,
-    title: "风景照片变卡通",
-    subtitle: "让风景照片呈现全新的卡通视觉",
+    title: "Cartoonize Your Landscape Photos for Unique Artistic Effects with AI Photo to Cartoon",
+    subtitle: "Transform scenic photos into cartoon artwork",
     image: null,
     comparison: { before: landscapeBefore, after: landscapeAfter },
-    imageAlt: "风景照片变卡通",
+    imageAlt: "AI Photo to Cartoon Landscape",
     paragraphs: [
-      "想让旅行照、风景照变成动画电影里的画面？Rita AI 支持将任意风景照片转化为卡通风格——吉卜力田园、像素城市、水墨山水，一键生成，效果惊艳。",
-      "生成的卡通风景图适合用作手机壁纸、社交封面或博客配图。搭配 Flux Kontext Max 模型，细节丰富、色彩鲜明，适用于商业用途和内容创作。",
+      "Want to turn a landscape photo into a cartoon effect that stands out? With rita's AI Photo to Cartoon tools, you can transform your scenic shots into captivating cartoon artwork, making landscape AI Photo to Cartoon a creative extension of your photo editing. This approach preserves the essence of your original image while adding a playful, artistic touch that's suitable for enhancing your social avatar or sharing on social media platforms. Simply upload a clear landscape photo, and rita will help you explore a variety of cartoon styles without complicated steps.",
+      "This AI Photo to Cartoon transformation fits well into content creation projects or personalized gifts for friends and family, offering a fresh way to showcase travel memories or nature scenes. Whether you're designing visuals for a blog background or crafting a unique present, rita's intuitive process allows you to click through options and generate cartoon landscapes with ease. Try rita once and you'll find that turning a photo into a cartoon style is approachable and enjoyable.",
     ],
     imageFirst: true,
   },
 ];
 
-// Map section index to style index: 0=吉卜力, 1=卡通片, 2=水墨
+// Map section index to style index: 0=Ghibli, 1=Cartoon, 2=Ink
 const SECTION_STYLE_MAP = [0, 1, 3];
 
 export function ContentSections({ onSelectStyle }: { onSelectStyle?: (styleIndex: number) => void }) {
@@ -75,7 +75,6 @@ export function ContentSections({ onSelectStyle }: { onSelectStyle?: (styleIndex
 
   return (
     <>
-      {/* Floating tooltip on upload area */}
       {showTooltip && (
         <div className="fixed z-50 pointer-events-none" style={{ top: 0, left: 0, width: '100%', height: '100%' }}>
           <UploadTooltip />
@@ -93,15 +92,14 @@ export function ContentSections({ onSelectStyle }: { onSelectStyle?: (styleIndex
                   section.imageFirst ? "" : "lg:flex-row-reverse"
                 }`}
               >
-                {/* Image */}
                 <div className="w-full lg:w-[55%] shrink-0">
                   <div className="rounded-2xl overflow-hidden shadow-lg border border-border/50">
                     {section.comparison ? (
                       <AutoComparisonSlider
                         beforeSrc={section.comparison.before}
                         afterSrc={section.comparison.after}
-                        beforeAlt="原始照片"
-                        afterAlt="卡通效果"
+                        beforeAlt="Original photo"
+                        afterAlt="Cartoon effect"
                       />
                     ) : (
                       <img
@@ -114,7 +112,6 @@ export function ContentSections({ onSelectStyle }: { onSelectStyle?: (styleIndex
                   </div>
                 </div>
 
-                {/* Text */}
                 <div className="w-full lg:w-[45%] space-y-5">
                   <div className="space-y-3">
                     <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-secondary text-secondary-foreground text-xs font-semibold tracking-wide">
@@ -137,7 +134,7 @@ export function ContentSections({ onSelectStyle }: { onSelectStyle?: (styleIndex
                       onClick={() => handleTryNow(i)}
                       className="inline-flex items-center gap-2 px-8 py-3 rounded-full gradient-primary text-primary-foreground text-base font-semibold transition-all hover:opacity-90 hover:shadow-lg group"
                     >
-                      <span>点击做同款</span>
+                      <span>Try it now</span>
                       <ChevronRight className="h-4 w-4 text-primary-foreground/70 group-hover:translate-x-0.5 transition-all" />
                     </button>
                   </div>
@@ -176,7 +173,7 @@ function UploadTooltip() {
       style={{ top: pos.top, left: pos.left, width: pos.width, height: pos.height }}
     >
       <div className="bg-primary text-primary-foreground px-4 py-2 rounded-lg shadow-lg text-sm font-medium animate-[bounce_1s_ease-in-out_3]">
-        👆 在此插入图片，马上改图
+        👆 Upload your image here to get started
       </div>
     </div>
   );

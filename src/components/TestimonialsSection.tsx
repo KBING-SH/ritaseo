@@ -1,68 +1,46 @@
 import { Star } from "lucide-react";
-import { useEffect, useRef } from "react";
 import { cn } from "@/lib/utils";
 
 const testimonials = [
   {
-    name: "小林",
-    role: "自媒体博主",
-    avatar: "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=400&h=400&fit=crop",
-    content: "用 Rita 把自拍转成吉卜力风格的头像，发到小红书上收到好多赞！操作非常简单，上传照片选风格就搞定了。",
-    rating: 5,
-  },
-  {
-    name: "Emily W.",
-    role: "平面设计师",
+    name: "Sarah M.",
+    role: "Graphic Designer",
     avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=400&fit=crop",
-    content: "多模型切换功能非常实用，Kling V2 生成的细节很惊艳。作为设计师，直接省去了手绘卡通头像的时间。",
-    rating: 5,
-  },
-  {
-    name: "张明",
-    role: "宠物摄影爱好者",
-    avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop",
-    content: "给我家猫猫生成了超可爱的卡通形象！水墨风格特别有意境，已经打印出来挂在墙上了。",
-    rating: 5,
-  },
-  {
-    name: "Sophia L.",
-    role: "产品经理",
-    avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=400&fit=crop",
-    content: "团队头像统一用 Rita 生成卡通版本，效果非常统一且专业。自定义提示词功能可以精确控制想要的风格。",
-    rating: 5,
-  },
-  {
-    name: "王芳",
-    role: "大学生",
-    avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=400&h=400&fit=crop",
-    content: "免费无水印真的太良心了！用像素风格做了一套表情包，在班群里超火。8 种风格都试了，每种都不错。",
-    rating: 5,
-  },
-  {
-    name: "田中悠太",
-    role: "内容创作者",
-    avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=400&fit=crop",
-    content: "给旅行风景照做了卡通化处理，复古时尚风格出来的效果很惊喜，有种手绘质感，特别适合做明信片。",
+    content: "I found the AI Photo to Cartoon tool quite useful for creating unique cartoon versions of my photos. The results were generally good, though sometimes the cartoon effect felt a bit too strong. Overall, it's a handy tool for quick cartoon transformations.",
     rating: 4,
   },
   {
-    name: "Lisa Chen",
-    role: "UI 设计师",
-    avatar: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400&h=400&fit=crop",
-    content: "ChatGPT-image-1 模型的理解力真的强，输入提示词后生成的效果和预期非常接近，细节把控很到位。",
+    name: "David L.",
+    role: "Photographer",
+    avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop",
+    content: "This AI Photo to Cartoon service made it easy to turn my photos into cartoons. The process was straightforward, and the output looked natural for the most part. It's a convenient way to add a creative touch to images without much effort.",
     rating: 5,
   },
   {
-    name: "赵凯",
-    role: "短视频运营",
-    avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop",
-    content: "支持 1:1 和 2:3 比例切换很实用，做社交头像和手机壁纸都方便。生成速度也很快，几秒就出图。",
-    rating: 5,
+    name: "Emily R.",
+    role: "Content Creator",
+    avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=400&fit=crop",
+    content: "The AI Photo to Cartoon feature worked, but I noticed some inconsistencies in how it rendered different photos. Some cartoons looked great, while others missed details. It's a decent tool but could use some improvements for more consistent results.",
+    rating: 3,
+  },
+  {
+    name: "Michael T.",
+    role: "Marketing Specialist",
+    avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=400&fit=crop",
+    content: "Using AI Photo to Cartoon helped me produce cartoon-style images quickly. The tool is simple to use and delivers satisfying results, though occasionally the cartoon effect was a bit exaggerated. Still, it's a useful option for casual cartoonizing.",
+    rating: 4,
+  },
+  {
+    name: "Jessica K.",
+    role: "Social Media Manager",
+    avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=400&h=400&fit=crop",
+    content: "I enjoyed experimenting with AI Photo to Cartoon to create fun, cartoon-like images for social media. The results were appealing, and the tool was easy to navigate. Some photos worked better than others, but overall it's a good creative resource.",
+    rating: 4,
   },
 ];
 
-const row1 = testimonials.slice(0, 4);
-const row2 = testimonials.slice(4, 8);
+const row1 = testimonials.slice(0, 3);
+const row2 = testimonials.slice(3, 5);
 
 function MarqueeRow({
   items,
@@ -125,10 +103,10 @@ export function TestimonialsSection() {
     <section className="py-10 md:py-24 overflow-hidden">
       <div className="container px-4 md:px-8 max-w-6xl mb-6 md:mb-12">
         <h2 className="text-xl md:text-3xl font-bold text-title text-center mb-2 md:mb-3">
-          用户怎么说
+          AI Photo to Cartoon Reviews
         </h2>
         <p className="text-sm md:text-base text-body-desc text-center max-w-lg mx-auto">
-          来自全球创作者的真实反馈
+          Real feedback from users
         </p>
       </div>
 
