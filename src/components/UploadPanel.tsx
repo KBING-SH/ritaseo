@@ -215,7 +215,7 @@ export function UploadPanel({ onGenerate, externalStyleRef }: { onGenerate?: (st
 
         {/* Aspect Ratio */}
         <div>
-          <label className="text-xs md:text-sm font-medium text-title mb-1 lg:mb-1.5 block">纵横比</label>
+          <label className="text-xs md:text-sm font-medium text-title mb-1 lg:mb-1.5 block">Aspect Ratio</label>
           <div className="grid grid-cols-5 gap-1.5 md:gap-2 lg:gap-2">
             {RATIOS.map((r) => (
               <button
