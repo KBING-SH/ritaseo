@@ -29,7 +29,7 @@ export function StepUploadAnimation({ active = true }: { active?: boolean }) {
   return (
     <div className="w-full h-full bg-card relative overflow-hidden flex items-center justify-center">
       <div className="w-full h-full flex flex-col p-[8%] gap-[4%]">
-        <p className="text-[0.65em] text-body-desc font-medium leading-none">上传参考图片</p>
+        <p className="text-[0.65em] text-body-desc font-medium leading-none">Upload reference image</p>
         <div className="relative flex-1 rounded-lg border-2 border-dashed border-border/60 flex flex-col items-center justify-center gap-[4%] bg-muted/10 min-h-0">
           <motion.div
             className="flex flex-col items-center gap-1"
