@@ -1,5 +1,6 @@
 import { useRef } from "react";
 import { Loader2, ChevronLeft, ChevronRight, X, Trash2 } from "lucide-react";
+import { ImageActionBar } from "@/components/ImageActionBar";
 
 interface HistoryItem {
   img: string;
