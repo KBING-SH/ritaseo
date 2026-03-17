@@ -4,36 +4,33 @@ import afterImg from "@/assets/after.webp";
 
 export function StyleSelector() {
   const [sliderPos, setSliderPos] = useState(50);
-  const [containerWidth, setContainerWidth] = useState(0);
   const containerRef = useRef<HTMLDivElement>(null);
   const animationRef = useRef<number>(0);
   const directionRef = useRef<1 | -1>(1);
+  const isDraggingRef = useRef(false);
+  const lastTimeRef = useRef(0);
 
   const refCallback = useCallback((node: HTMLDivElement | null) => {
     (containerRef as React.MutableRefObject<HTMLDivElement | null>).current = node;
-    if (node) setContainerWidth(node.offsetWidth);
   }, []);
 
+  // Auto-animation
   useEffect(() => {
-    let lastTime = 0;
-    const speed = 12; // percent per second
+    const speed = 12;
 
     const animate = (time: number) => {
-      if (lastTime === 0) lastTime = time;
-      const delta = (time - lastTime) / 1000;
-      lastTime = time;
+      if (lastTimeRef.current === 0) lastTimeRef.current = time;
+      const delta = (time - lastTimeRef.current) / 1000;
+      lastTimeRef.current = time;
 
-      setSliderPos((prev) => {
-        let next = prev + directionRef.current * speed * delta;
-        if (next >= 100) {
-          next = 100;
-          directionRef.current = -1;
-        } else if (next <= 0) {
-          next = 0;
-          directionRef.current = 1;
-        }
-        return next;
-      });
+      if (!isDraggingRef.current) {
+        setSliderPos((prev) => {
+          let next = prev + directionRef.current * speed * delta;
+          if (next >= 100) { next = 100; directionRef.current = -1; }
+          else if (next <= 0) { next = 0; directionRef.current = 1; }
+          return next;
+        });
+      }
 
       animationRef.current = requestAnimationFrame(animate);
     };
@@ -42,11 +39,44 @@ export function StyleSelector() {
     return () => cancelAnimationFrame(animationRef.current);
   }, []);
 
+  // Manual drag
+  const getPercent = useCallback((clientX: number) => {
+    const rect = containerRef.current?.getBoundingClientRect();
+    if (!rect) return 50;
+    return Math.max(0, Math.min(100, ((clientX - rect.left) / rect.width) * 100));
+  }, []);
+
+  const handlePointerDown = useCallback((e: React.PointerEvent) => {
+    isDraggingRef.current = true;
+    lastTimeRef.current = 0; // reset so animation resumes smoothly
+    const pct = getPercent(e.clientX);
+    setSliderPos(pct);
+    // Update direction based on current position
+    directionRef.current = pct > 50 ? -1 : 1;
+    (e.target as HTMLElement).setPointerCapture(e.pointerId);
+  }, [getPercent]);
+
+  const handlePointerMove = useCallback((e: React.PointerEvent) => {
+    if (!isDraggingRef.current) return;
+    const pct = getPercent(e.clientX);
+    setSliderPos(pct);
+    directionRef.current = pct > 50 ? -1 : 1;
+  }, [getPercent]);
+
+  const handlePointerUp = useCallback(() => {
+    isDraggingRef.current = false;
+    lastTimeRef.current = 0;
+  }, []);
+
   return (
     <div className="rounded-2xl xl:rounded-[32px] border border-border/50 bg-card shadow-soft overflow-hidden h-full">
       <div
         ref={refCallback}
-        className="relative w-full h-full overflow-hidden select-none"
+        className="relative w-full h-full overflow-hidden select-none cursor-grab active:cursor-grabbing"
+        onPointerDown={handlePointerDown}
+        onPointerMove={handlePointerMove}
+        onPointerUp={handlePointerUp}
+        onPointerCancel={handlePointerUp}
       >
         {/* After (cartoon - full background) */}
         <img
@@ -56,7 +86,7 @@ export function StyleSelector() {
           draggable={false}
         />
 
-        {/* Before (original - clipped via clip-path for perfect alignment) */}
+        {/* Before (original - clipped) */}
         <div
           className="absolute inset-0 z-[8]"
           style={{ clipPath: `inset(0 ${100 - sliderPos}% 0 0)` }}
