@@ -150,7 +150,7 @@ export function UploadPanel({ onGenerate, externalStyleRef }: { onGenerate?: (st
 
         {/* Upload area */}
         <div>
-          <label className="text-xs font-medium text-title mb-1 lg:mb-1.5 block">图片</label>
+          <label className="text-xs font-medium text-title mb-1 lg:mb-1.5 block">Image</label>
           <div id="upload-drop-zone" className="relative">
             {uploadedImage ? (
               <div className="relative rounded-lg border border-border/50 overflow-hidden animate-fade-in">
