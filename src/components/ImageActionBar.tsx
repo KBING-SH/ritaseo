@@ -95,8 +95,8 @@ export function ImageActionBar({ imageUrl, compact = false }: ImageActionBarProp
         </button>
 
         {shareOpen && (
-          <div className={`absolute z-50 ${compact ? "top-full mt-2 right-0" : "top-full mt-2 right-0"} bg-card border border-border rounded-xl shadow-lg p-1.5 animate-fade-in`}>
-            <div className="flex items-center gap-1.5">
+          <div className="absolute z-50 top-0 right-full mr-2 bg-card border border-border rounded-xl shadow-lg p-1.5 animate-fade-in">
+            <div className="flex flex-col items-center gap-1.5">
               {SHARE_PLATFORMS.map((platform) => (
                 <button
                   key={platform.name}
