@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
 import { User, PawPrint, Mountain, ChevronRight } from "lucide-react";
-import sectionPet from "@/assets/section-pet.webp";
 import sectionLandscape from "@/assets/section-landscape.webp";
+import petBefore from "@/assets/pet-before.jpg";
+import petAfter from "@/assets/pet-after.jpg";
 import portraitBefore from "@/assets/portrait-before.jpg";
 import portraitAfter from "@/assets/portrait-after.jpg";
 import { AutoComparisonSlider } from "@/components/AutoComparisonSlider";
@@ -24,7 +25,8 @@ const sections = [
     icon: PawPrint,
     title: "宠物照片变卡通",
     subtitle: "为你的萌宠打造专属卡通形象",
-    image: sectionPet,
+    image: null,
+    comparison: { before: petBefore, after: petAfter },
     imageAlt: "宠物照片变卡通",
     paragraphs: [
       "用 Rita AI 把你家猫咪、狗狗的照片变成超萌卡通形象！只需上传宠物照片，AI 自动识别宠物特征，生成风格各异的卡通版本——可爱风、像素风、水墨风任你挑选。",
