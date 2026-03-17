@@ -143,7 +143,7 @@ const Index = () => {
               ) : isGenerating ? (
                 <div className="h-full max-w-full rounded-2xl border border-border/50 bg-muted/30 flex flex-col items-center justify-center gap-3" style={{ aspectRatio: generatedRatio }}>
                   <Loader2 className="w-10 h-10 text-primary animate-spin" />
-                  <p className="text-sm text-muted-foreground">正在生成中...</p>
+                  <p className="text-sm text-muted-foreground">Generating...</p>
                 </div>
               ) : generatedImg ? (
                 <div className="h-full max-w-full rounded-2xl overflow-hidden border border-border/50 shadow-lg animate-fade-in" style={{ aspectRatio: generatedRatio }}>
