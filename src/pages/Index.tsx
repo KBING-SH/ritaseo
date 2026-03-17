@@ -232,7 +232,7 @@ const Index = () => {
           <SocialProofBar />
           <HowItWorks />
           
-          <ContentSections />
+          <ContentSections onSelectStyle={handleSelectStyle} />
           <WhyChoose />
           <TestimonialsSection />
           <FAQSection />
