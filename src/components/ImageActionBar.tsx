@@ -91,26 +91,19 @@ export function ImageActionBar({ imageUrl, compact = false }: ImageActionBarProp
         </button>
 
         {shareOpen && (
-          <div className={`absolute z-50 ${compact ? "bottom-full mb-2 right-0" : "right-full mr-2 top-0"} w-44 bg-card border border-border rounded-xl shadow-lg p-1.5 animate-fade-in`}>
-            <div className="flex items-center justify-between px-1.5 py-1">
-              <span className="text-xs font-semibold text-foreground">分享到</span>
-              <button onClick={() => setShareOpen(false)} className="text-muted-foreground hover:text-foreground transition-colors">
-                <X className="w-3.5 h-3.5" />
-              </button>
-            </div>
-
-            {SHARE_PLATFORMS.map((platform) => (
-              <button
-                key={platform.name}
-                onClick={() => handleSharePlatform(platform.getUrl)}
-                className="w-full flex items-center gap-2 px-1.5 py-1 rounded-lg text-foreground hover:bg-hover-bg transition-colors cursor-pointer"
-              >
-                <span className={`w-6 h-6 rounded-md flex items-center justify-center text-[11px] font-bold ${platform.color}`}>
+          <div className={`absolute z-50 ${compact ? "bottom-full mb-2 right-0" : "right-full mr-2 top-0"} bg-card border border-border rounded-xl shadow-lg p-1.5 animate-fade-in`}>
+            <div className="flex items-center gap-1.5">
+              {SHARE_PLATFORMS.map((platform) => (
+                <button
+                  key={platform.name}
+                  onClick={() => handleSharePlatform(platform.getUrl)}
+                  title={platform.name}
+                  className={`w-8 h-8 rounded-lg flex items-center justify-center text-[11px] font-bold hover:opacity-80 transition-opacity cursor-pointer ${platform.color}`}
+                >
                   {platform.icon}
-                </span>
-                <span className="text-xs">{platform.name}</span>
-              </button>
-            ))}
+                </button>
+              ))}
+            </div>
           </div>
         )}
       </div>
