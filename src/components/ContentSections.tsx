@@ -131,7 +131,7 @@ export function ContentSections({ onSelectStyle }: { onSelectStyle?: (styleIndex
                   <div className="pt-2">
                     <button
                       onClick={() => handleTryNow(i)}
-                      className="inline-flex items-center gap-2 px-8 py-3 rounded-full border border-border text-base font-semibold text-title transition-all hover:border-primary hover:text-primary hover:shadow-lg group"
+                      className="inline-flex items-center gap-2 px-8 py-3 rounded-full gradient-primary text-primary-foreground text-base font-semibold transition-all hover:opacity-90 hover:shadow-lg group"
                     >
                       <span>立即试用</span>
                       <ChevronRight className="h-4 w-4 text-body-desc group-hover:text-primary group-hover:translate-x-0.5 transition-all" />
