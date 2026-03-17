@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from "react";
-import { Download, Share2, Link, X } from "lucide-react";
+import { Download, Share2, X } from "lucide-react";
 import { toast } from "sonner";
 
 interface ImageActionBarProps {
