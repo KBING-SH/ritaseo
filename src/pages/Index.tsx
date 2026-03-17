@@ -112,10 +112,10 @@ const Index = () => {
               <div className="px-3 py-4 space-y-3">
                 <div className="text-center">
                   <h1 className="text-xl font-bold text-title leading-tight mb-1.5">
-                    免费在线照片转卡通
+                    Free Online Photo to Cartoon
                   </h1>
                   <p className="text-muted-foreground text-xs leading-relaxed max-w-xs mx-auto">
-                    上传你的照片，Rita AI 将为你生成多种风格的趣味卡通形象。支持人像、宠物、风景等多种照片类型，操作简单，几秒完成。
+                    Upload your photo and Rita AI will generate fun cartoon images in multiple styles. Supports portraits, pets, landscapes and more — simple to use, ready in seconds.
                   </p>
                 </div>
                 <div className="w-full aspect-[16/9] rounded-xl overflow-hidden">
@@ -129,10 +129,10 @@ const Index = () => {
           <div className="hidden lg:flex flex-col items-center justify-start pt-4 px-4 md:px-6 flex-1 overflow-hidden">
             <div className="text-center shrink-0 mb-4">
               <h1 className="text-3xl md:text-5xl font-bold text-title leading-tight mb-3 md:mb-4">
-                免费在线照片转卡通
+                Free Online Photo to Cartoon
               </h1>
               <p className="text-muted-foreground text-sm md:text-lg max-w-2xl mx-auto leading-relaxed">
-                上传你的照片，Rita AI 将为你生成多种风格的趣味卡通形象。支持人像、宠物、风景等多种照片类型，操作简单，几秒完成。
+                Upload your photo and Rita AI will generate fun cartoon images in multiple styles. Supports portraits, pets, landscapes and more — simple to use, ready in seconds.
               </p>
             </div>
             <div className={`flex-1 min-h-0 w-full px-4 flex items-end justify-center relative ${history.length > 0 ? "pb-4" : "pb-[180px]"}`}>
