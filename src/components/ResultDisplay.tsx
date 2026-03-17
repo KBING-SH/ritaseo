@@ -124,7 +124,7 @@ export function ResultDisplay({
                         className={`rounded-lg overflow-hidden ${compact ? "max-w-[56px] max-h-[56px]" : "max-w-[72px] max-h-[72px]"}`}
                         style={{ aspectRatio: item.ratio }}
                       >
-                        <img src={item.img} alt={`历史记录 ${i + 1}`} className="w-full h-full object-cover" />
+                        <img src={item.img} alt={`History ${i + 1}`} className="w-full h-full object-cover" />
                       </div>
                     </button>
                     <button
