@@ -74,7 +74,7 @@ export function LoginDialog({ open, onOpenChange }: LoginDialogProps) {
 
           {/* Email login */}
           <button className="w-full flex items-center justify-center px-4 py-3 rounded-xl border border-border bg-muted/30 hover:bg-muted/60 transition-colors text-sm font-medium text-title">
-            使用邮箱登录
+            Sign in with Email
           </button>
 
           {/* Terms */}
