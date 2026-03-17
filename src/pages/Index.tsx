@@ -147,7 +147,7 @@ const Index = () => {
                 </div>
               ) : generatedImg ? (
                 <div className="h-full max-w-full rounded-2xl overflow-hidden border border-border/50 shadow-lg animate-fade-in" style={{ aspectRatio: generatedRatio }}>
-                  <img src={generatedImg} alt="生成结果" className="w-full h-full object-cover" />
+                  <img src={generatedImg} alt="Generated result" className="w-full h-full object-cover" />
                 </div>
               ) : null}
               {/* Action bar pinned to right edge */}
