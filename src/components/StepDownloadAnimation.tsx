@@ -157,7 +157,7 @@ export function StepDownloadAnimation({ active = true }: { active?: boolean }) {
           {showSharedDone ? (
             <motion.div className="flex items-center gap-[3px]" initial={{ scale: 0.8, opacity: 0 }} animate={{ scale: 1, opacity: 1 }}>
               <Check className="w-[0.6em] h-[0.6em] text-primary" />
-              <span className="text-[0.4em] text-primary font-medium">已分享</span>
+              <span className="text-[0.4em] text-primary font-medium">Shared</span>
             </motion.div>
           ) : (
             <>
