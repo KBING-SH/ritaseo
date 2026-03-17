@@ -58,7 +58,7 @@ export function ResultDisplay({
               style={compact ? undefined : { aspectRatio: generatedRatio }}
             >
               <Loader2 className={`text-primary animate-spin ${compact ? "w-8 h-8" : "w-10 h-10"}`} />
-              <p className="text-sm text-muted-foreground">正在生成中...</p>
+              <p className="text-sm text-muted-foreground">Generating...</p>
             </div>
           ) : generatedImg ? (
             <div className="flex flex-col items-center gap-2 w-full">
