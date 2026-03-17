@@ -60,7 +60,7 @@ const RATIOS = [
 const RESOLUTIONS = ["Auto", "0.5 MP", "1 MP", "2 MP", "4 MP"];
 const FORMATS = ["WebP", "JPG", "PNG"];
 
-export function UploadPanel({ onGenerate }: { onGenerate?: (styleImg: string, ratio: string) => void } = {}) {
+export function UploadPanel({ onGenerate, externalStyleRef }: { onGenerate?: (styleImg: string, ratio: string) => void; externalStyleRef?: React.MutableRefObject<((styleIndex: number) => void) | null> } = {}) {
   const [isDragging, setIsDragging] = useState(false);
   const [showLoginDialog, setShowLoginDialog] = useState(false);
   const [uploadedImage, setUploadedImage] = useState<string | null>(null);
@@ -74,6 +74,16 @@ export function UploadPanel({ onGenerate }: { onGenerate?: (styleImg: string, ra
   const [previewStyle, setPreviewStyle] = useState<number | null>(null);
   const [promptText, setPromptText] = useState("");
   const fileRef = useRef<HTMLInputElement>(null);
+
+  // Expose a method to set style externally
+  if (externalStyleRef) {
+    externalStyleRef.current = (styleIndex: number) => {
+      if (STYLE_OPTIONS[styleIndex]) {
+        setSelectedStyle(styleIndex);
+        setPromptText(STYLE_OPTIONS[styleIndex].prompt);
+      }
+    };
+  }
 
   const handleDragOver = (e: React.DragEvent) => { e.preventDefault(); setIsDragging(true); };
   const handleDragLeave = () => setIsDragging(false);
