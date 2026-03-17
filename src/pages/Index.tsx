@@ -86,7 +86,7 @@ const Index = () => {
         {/* Mobile/Tablet header inside first screen */}
         <div className="lg:hidden h-12 shrink-0 border-b border-border/50 bg-background/80 backdrop-blur-md flex items-center justify-between px-4">
           <div className="flex items-center gap-2.5">
-            <div className="h-7 w-7 rounded-lg gradient-primary" />
+            <img src={ritaLogo} alt="Rita" className="h-7 w-7 rounded-lg" />
             <span className="text-sm font-bold text-title">Rita</span>
           </div>
           <ThemeToggle />
