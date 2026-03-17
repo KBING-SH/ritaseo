@@ -30,8 +30,8 @@ const sections = [
     comparison: { before: petBefore, after: petAfter },
     imageAlt: "AI Photo to Cartoon Pet",
     paragraphs: [
-      "Want to turn a pet photo into a charming cartoon portrait or cartoon effect? Using AI Photo to Cartoon tools like rita, you can upload your favorite pet snapshot and see it transform into a delightful cartoon version. This pet AI Photo to Cartoon feature captures your furry friend's unique personality, making it suitable for creating social avatars that stand out with playful charm. Whether it's your dog's grin or your cat's curious stare, rita helps bring those moments to life with just a few clicks.",
-      "This AI Photo to Cartoon approach integrates well into content creation and social media posting, adding a fun twist to your pet's images without complicated steps. You can choose from various cartoon styles or customize prompts to craft a one-of-a-kind portrait that's ideal as gifts for friends or family who appreciate your pet. The process is straightforward and enjoyable, making it easy to share your pet's new cartoon look across platforms. If you want a social avatar or creative visual, upload your photo and generate the result.",
+      "Pet AI Photo to Cartoon creates appealing cartoon portraits that reflect your furry friend's personality with ease. Using the AI photo to cartoon feature, you can upload a favorite pet photo and transform it into a playful avatar ideal for social media profiles or sharing with friends. With rita, this AI photo to cartoon process is simple and enjoyable without complicated steps.",
+      "This AI photo to cartoon tool is suitable for creating unique gifts or adding a creative touch to your pet's online presence. Whether you want a whimsical cartoon of your dog or a charming animated look for your cat, rita helps bring your idea to life with just a few clicks. Convert your photo into a cartoon style to make sharing more engaging; upload your photo and generate the result.",
     ],
     imageFirst: false,
   },
