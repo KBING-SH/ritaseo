@@ -57,7 +57,7 @@ const RATIOS = [
   { value: "4:5", label: "4:5", w: 22, h: 27 },
 ];
 
-const RESOLUTIONS = ["Auto", "0.5 MP", "1 MP", "2 MP", "4 MP"];
+const RESOLUTIONS = ["1 MP", "2 MP", "4 MP"];
 const FORMATS = ["WebP", "JPG", "PNG"];
 
 export function UploadPanel({ onGenerate, externalStyleRef }: { onGenerate?: (styleImg: string, ratio: string) => void; externalStyleRef?: React.MutableRefObject<((styleIndex: number) => void) | null> } = {}) {
