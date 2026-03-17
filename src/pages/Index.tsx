@@ -2,6 +2,7 @@ import { useState, useCallback, useRef } from "react";
 import { Loader2 } from "lucide-react";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import { ImageActionBar } from "@/components/ImageActionBar";
+import ritaLogo from "@/assets/rita-logo.webp";
 import { ProductFooterSection } from "@/components/ProductFooterSection";
 import { StyleSelector } from "@/components/StyleSelector";
 import { UploadPanel } from "@/components/UploadPanel";
@@ -86,7 +87,7 @@ const Index = () => {
         {/* Mobile/Tablet header inside first screen */}
         <div className="lg:hidden h-12 shrink-0 border-b border-border/50 bg-background/80 backdrop-blur-md flex items-center justify-between px-4">
           <div className="flex items-center gap-2.5">
-            <div className="h-7 w-7 rounded-lg gradient-primary" />
+            <img src={ritaLogo} alt="Rita" className="h-7 w-7 rounded-lg" />
             <span className="text-sm font-bold text-title">Rita</span>
           </div>
           <ThemeToggle />
@@ -244,7 +245,7 @@ const Index = () => {
               <div className="flex flex-col lg:flex-row gap-12 lg:gap-10 mb-12">
                 <div className="lg:w-40 shrink-0 space-y-2">
                   <div className="flex items-center gap-2.5">
-                    <div className="h-9 w-9 rounded-xl gradient-primary" />
+                    <img src={ritaLogo} alt="Rita" className="h-9 w-9 rounded-xl" />
                     <span className="text-xl font-bold text-title italic">Rita</span>
                   </div>
                   <p className="text-xs text-muted-foreground leading-snug">Rita让创意和效率人人可得</p>
