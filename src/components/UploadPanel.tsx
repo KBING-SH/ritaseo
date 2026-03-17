@@ -273,9 +273,9 @@ export function UploadPanel({ onGenerate, externalStyleRef }: { onGenerate?: (st
             }
           }}
         >
-          现在领取每日 60 免费积分
+          Claim 60 Free Credits Daily
         </Button>
-        <span className="text-xs text-muted-foreground whitespace-nowrap flex items-center gap-0.5">10积分/次</span>
+        <span className="text-xs text-muted-foreground whitespace-nowrap flex items-center gap-0.5">10 credits/use</span>
       </div>
 
       <LoginDialog open={showLoginDialog} onOpenChange={setShowLoginDialog} />
