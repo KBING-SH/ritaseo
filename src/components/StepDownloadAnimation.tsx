@@ -107,7 +107,7 @@ export function StepDownloadAnimation({ active = true }: { active?: boolean }) {
           />
           {!showResult && (
             <div className="absolute inset-0 bg-card/60 flex items-center justify-center">
-              <span className="text-[0.45em] text-body-desc">生成中...</span>
+              <span className="text-[0.45em] text-body-desc">Generating...</span>
             </div>
           )}
         </motion.div>
