@@ -22,26 +22,26 @@ import styleCute from "@/assets/style-cute.png";
 import styleMinimal from "@/assets/style-minimal.png";
 
 const MODEL_OPTIONS = [
-  { value: "chatgpt-image-1", label: "ChatGPT-image-1", desc: "理解能力强，可生成带文字的图片", logo: logoChatgpt, cost: "30-60" },
-  { value: "nano-banana-pro-direct", label: "Nano-banana pro | direct connect", desc: "覆盖更多区域和线路，适用于网络波动场景", logo: logoBanana, cost: "30-60" },
-  { value: "kling-v1.5", label: "Kling V1.5", desc: "支持生成时参考面部", logo: logoKling, cost: "10-30" },
-  { value: "kling-v2", label: "Kling V2", desc: "细节丰富，非常适合精致图像", logo: logoKling, cost: "10-30" },
-  { value: "nano-banana-pro", label: "Nano-banana pro", desc: "更鲜明的色彩和更丰富的细节", logo: logoBanana, cost: "15" },
-  { value: "flux-kontext-dev", label: "Flux.1 Kontext Dev", desc: "适合快速生成草图", logo: logoFlux, cost: "5" },
-  { value: "flux-kontext-max", label: "Flux.1 Kontext Max", desc: "可编辑、理解力和精细度强，适用于商业用途", logo: logoFlux, cost: "8" },
+  { value: "chatgpt-image-1", label: "ChatGPT-image-1", desc: "Strong comprehension, can generate images with text", logo: logoChatgpt, cost: "30-60" },
+  { value: "nano-banana-pro-direct", label: "Nano-banana pro | direct connect", desc: "Broader coverage and routing for unstable networks", logo: logoBanana, cost: "30-60" },
+  { value: "kling-v1.5", label: "Kling V1.5", desc: "Supports face reference during generation", logo: logoKling, cost: "10-30" },
+  { value: "kling-v2", label: "Kling V2", desc: "Rich details, ideal for refined images", logo: logoKling, cost: "10-30" },
+  { value: "nano-banana-pro", label: "Nano-banana pro", desc: "Vivid colors and richer details", logo: logoBanana, cost: "15" },
+  { value: "flux-kontext-dev", label: "Flux.1 Kontext Dev", desc: "Great for quick sketch generation", logo: logoFlux, cost: "5" },
+  { value: "flux-kontext-max", label: "Flux.1 Kontext Max", desc: "Editable, strong comprehension and precision for commercial use", logo: logoFlux, cost: "8" },
 ];
 
 export const MODEL_LABELS = MODEL_OPTIONS.map((m) => m.label);
 
 const STYLE_OPTIONS = [
-  { src: styleGhibli, label: "吉卜力", prompt: "将照片转换为吉卜力动画风格，保留柔和的色彩、温暖的光影和手绘质感，呈现出宫崎骏式的梦幻氛围。" },
-  { src: stylePixel, label: "像素", prompt: "将照片转换为复古像素艺术风格，使用有限的调色板和清晰的像素块，呈现出8-bit游戏般的怀旧美感。" },
-  { src: styleRealistic, label: "写实艺术", prompt: "将照片转换为高度写实的数字绘画风格，保留细腻的光影和纹理细节，呈现出超现实主义的艺术质感。" },
-  { src: styleInk, label: "水墨", prompt: "将照片转换为东方水墨画风格，运用浓淡干湿的墨色变化，呈现出中国传统绘画的意境与韵味。" },
-  { src: styleCartoon, label: "卡通片", prompt: "将照片转换为明亮活泼的卡通风格，使用鲜艳的色彩、粗线条和夸张的表情，充满趣味和生命力。" },
-  { src: styleClassic, label: "复古时尚", prompt: "将照片转换为复古时尚风格，融合经典的色调和优雅的构图，呈现出老电影海报般的怀旧美感。" },
-  { src: styleCute, label: "可爱", prompt: "将照片转换为Q版可爱风格，大眼睛、圆润的轮廓和柔和的色彩，呈现出萌系二次元的甜美形象。" },
-  { src: styleMinimal, label: "极简", prompt: "将照片转换为极简插画风格，使用简洁的线条和有限的色彩，去除多余细节，呈现出干净利落的现代美感。" },
+  { src: styleGhibli, label: "Ghibli", prompt: "Transform the photo into Ghibli animation style, preserving soft colors, warm lighting and hand-drawn textures, creating a Miyazaki-esque dreamy atmosphere." },
+  { src: stylePixel, label: "Pixel", prompt: "Transform the photo into retro pixel art style, using a limited color palette and crisp pixel blocks, creating an 8-bit game-like nostalgic aesthetic." },
+  { src: styleRealistic, label: "Realistic", prompt: "Transform the photo into a highly realistic digital painting style, preserving fine lighting and texture details, creating a hyperrealistic artistic quality." },
+  { src: styleInk, label: "Ink Wash", prompt: "Transform the photo into an East Asian ink wash painting style, using variations of ink density and flow, creating the mood and charm of traditional Chinese painting." },
+  { src: styleCartoon, label: "Cartoon", prompt: "Transform the photo into a bright and lively cartoon style, using vivid colors, bold outlines and exaggerated expressions, full of fun and energy." },
+  { src: styleClassic, label: "Retro", prompt: "Transform the photo into retro fashion style, blending classic tones and elegant composition, creating a nostalgic old movie poster aesthetic." },
+  { src: styleCute, label: "Cute", prompt: "Transform the photo into a chibi cute style, with big eyes, rounded contours and soft colors, creating a sweet anime-inspired look." },
+  { src: styleMinimal, label: "Minimal", prompt: "Transform the photo into a minimal illustration style, using clean lines and limited colors, removing excess detail, creating a crisp modern aesthetic." },
 ];
 
 const RATIOS = [
