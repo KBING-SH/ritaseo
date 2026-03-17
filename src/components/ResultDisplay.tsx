@@ -88,7 +88,7 @@ export function ResultDisplay({
             <button
               onClick={() => { onSetHistory([]); onSetSelectedHistoryIdx(null); onSetGeneratedImg(null); }}
               className="text-muted-foreground hover:text-destructive transition-colors"
-              title="清空历史"
+              title="Clear history"
             >
               <Trash2 className="w-4 h-4" />
             </button>
