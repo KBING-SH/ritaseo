@@ -46,21 +46,27 @@ const sections = [
   },
 ];
 
-export function ContentSections() {
+// Map section index to style index: 0=吉卜力, 1=卡通片, 2=水墨
+const SECTION_STYLE_MAP = [0, 4, 3];
+
+export function ContentSections({ onSelectStyle }: { onSelectStyle?: (styleIndex: number) => void }) {
   const [showTooltip, setShowTooltip] = useState(false);
 
-  const handleTryNow = () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-
-    const checkScrollDone = () => {
-      if (window.scrollY <= 5) {
-        setShowTooltip(true);
-        setTimeout(() => setShowTooltip(false), 3000);
-      } else {
-        requestAnimationFrame(checkScrollDone);
-      }
-    };
-    requestAnimationFrame(checkScrollDone);
+  const handleTryNow = (sectionIndex: number) => {
+    if (onSelectStyle) {
+      onSelectStyle(SECTION_STYLE_MAP[sectionIndex] ?? 0);
+    } else {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+      const checkScrollDone = () => {
+        if (window.scrollY <= 5) {
+          setShowTooltip(true);
+          setTimeout(() => setShowTooltip(false), 3000);
+        } else {
+          requestAnimationFrame(checkScrollDone);
+        }
+      };
+      requestAnimationFrame(checkScrollDone);
+    }
   };
 
   return (
