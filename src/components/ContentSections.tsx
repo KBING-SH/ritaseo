@@ -39,7 +39,8 @@ const sections = [
     icon: Mountain,
     title: "风景照片变卡通",
     subtitle: "让风景照片呈现全新的卡通视觉",
-    image: sectionLandscape,
+    image: null,
+    comparison: { before: landscapeBefore, after: landscapeAfter },
     imageAlt: "风景照片变卡通",
     paragraphs: [
       "想让旅行照、风景照变成动画电影里的画面？Rita AI 支持将任意风景照片转化为卡通风格——吉卜力田园、像素城市、水墨山水，一键生成，效果惊艳。",
