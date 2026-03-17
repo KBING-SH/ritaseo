@@ -113,7 +113,7 @@ export function StepStyleAnimation({ active = true }: { active?: boolean }) {
 
   return (
     <div className="w-full h-full bg-card relative overflow-hidden flex flex-col p-[5%] gap-[2%]">
-      <p className="text-[0.55em] text-body-desc font-medium leading-none">选择以下风格</p>
+      <p className="text-[0.55em] text-body-desc font-medium leading-none">Select a Style</p>
 
       <div className="grid grid-cols-4 gap-[2.5%] flex-1 min-h-0">
         {STYLES.map((style, i) => (
