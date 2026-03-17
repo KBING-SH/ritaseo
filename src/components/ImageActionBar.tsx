@@ -91,7 +91,7 @@ export function ImageActionBar({ imageUrl, compact = false }: ImageActionBarProp
       <button
         onClick={handleDownload}
         className={`${btnClass} bg-card border border-border flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary/50 hover:bg-primary/5 transition-all duration-200 cursor-pointer`}
-        title="下载图片"
+        title="Download image"
       >
         <Download className={compact ? "w-4 h-4" : "w-[18px] h-[18px]"} />
       </button>
