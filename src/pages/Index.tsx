@@ -132,8 +132,11 @@ const Index = () => {
                   <p className="text-sm text-muted-foreground">正在生成中...</p>
                 </div>
               ) : generatedImg ? (
-                <div className="h-full max-w-full rounded-2xl overflow-hidden border border-border/50 shadow-lg animate-fade-in" style={{ aspectRatio: generatedRatio }}>
-                  <img src={generatedImg} alt="生成结果" className="w-full h-full object-cover" />
+                <div className="flex items-center gap-3 h-full max-w-full">
+                  <div className="h-full max-w-full rounded-2xl overflow-hidden border border-border/50 shadow-lg animate-fade-in" style={{ aspectRatio: generatedRatio }}>
+                    <img src={generatedImg} alt="生成结果" className="w-full h-full object-cover" />
+                  </div>
+                  <ImageActionBar imageUrl={generatedImg} />
                 </div>
               ) : null}
             </div>
