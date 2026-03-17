@@ -70,7 +70,7 @@ export function StepUploadAnimation({ active = true }: { active?: boolean }) {
           </motion.div>
           <p className="text-[0.55em] text-body-desc leading-none">Prompt</p>
           <div className="h-[1.8em] rounded-md border border-border/40 bg-muted/10 px-[4%] flex items-center">
-            <span className="text-[0.5em] text-body-desc/40">请描述你的想法...</span>
+            <span className="text-[0.5em] text-body-desc/40">Describe your idea...</span>
           </div>
         </div>
       </div>

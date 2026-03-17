@@ -146,7 +146,7 @@ export function ResultDisplay({
                   <span className="text-[9px] font-medium text-muted-foreground">{item.ratioLabel}</span>
                   {!compact && (
                     <span className="text-[9px] text-muted-foreground">
-                      {item.time.toLocaleDateString("zh-CN")} {item.time.toLocaleTimeString("zh-CN", { hour: "2-digit", minute: "2-digit", second: "2-digit" })}
+                      {item.time.toLocaleDateString("en-US")} {item.time.toLocaleTimeString("en-US", { hour: "2-digit", minute: "2-digit", second: "2-digit" })}
                     </span>
                   )}
                 </div>

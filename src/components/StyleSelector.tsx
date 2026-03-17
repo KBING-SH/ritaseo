@@ -93,7 +93,7 @@ export function StyleSelector() {
         >
           <img
             src={beforeImg}
-            alt="原始照片"
+            alt="Original photo"
             className="absolute inset-0 w-full h-full block object-cover object-center"
             draggable={false}
           />

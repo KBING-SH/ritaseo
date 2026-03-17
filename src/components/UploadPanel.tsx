@@ -354,7 +354,7 @@ export function UploadPanel({ onGenerate, externalStyleRef }: { onGenerate?: (st
                       }
                     }}
                   >
-                    使用提示词
+                    Use Prompt
                   </Button>
                 </div>
               </div>

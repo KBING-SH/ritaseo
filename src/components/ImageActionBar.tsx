@@ -105,7 +105,7 @@ export function ImageActionBar({ imageUrl, compact = false }: ImageActionBarProp
       >
         <button
           className={`${btnClass} bg-card border border-border flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary/50 hover:bg-primary/5 transition-all duration-200 cursor-pointer ${shareOpen ? "border-primary/50 text-primary bg-primary/5" : ""}`}
-          title="分享"
+          title="Share"
         >
           <Share2 className={compact ? "w-4 h-4" : "w-[18px] h-[18px]"} />
         </button>

@@ -47,7 +47,7 @@ export const ProductFooterSection = () => {
         onClick={() => setOpen(!open)}
         className="flex items-center justify-between w-full mb-2"
       >
-        <h4 className="font-bold text-title text-sm">产品</h4>
+        <h4 className="font-bold text-title text-sm">Products</h4>
         <ChevronDown
           className={`h-4 w-4 text-muted-foreground transition-transform duration-200 ${open ? "rotate-180" : ""}`}
         />

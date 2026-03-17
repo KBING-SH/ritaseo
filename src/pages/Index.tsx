@@ -253,17 +253,17 @@ const Index = () => {
                 <ProductFooterSection />
                 <div className="flex gap-10 lg:gap-12 shrink-0 text-sm">
                   <div>
-                    <h4 className="font-bold text-title mb-4 text-sm">关于</h4>
+                    <h4 className="font-bold text-title mb-4 text-sm">About</h4>
                     <ul className="space-y-1.5">
-                      {["关于我们", "联系我们"].map((l) => (
+                      {["About Us", "Contact Us"].map((l) => (
                         <li key={l}><a href="#" className="text-xs text-body-desc hover:text-primary transition-colors">{l}</a></li>
                       ))}
                     </ul>
                   </div>
                   <div>
-                    <h4 className="font-bold text-title mb-4 text-sm">合规</h4>
+                    <h4 className="font-bold text-title mb-4 text-sm">Legal</h4>
                     <ul className="space-y-1.5">
-                      {["条款条件", "隐私政策", "版权政策", "退款政策", "AML政策"].map((l) => (
+                      {["Terms & Conditions", "Privacy Policy", "Copyright Policy", "Refund Policy", "AML Policy"].map((l) => (
                         <li key={l}><a href="#" className="text-xs text-body-desc hover:text-primary transition-colors">{l}</a></li>
                       ))}
                     </ul>

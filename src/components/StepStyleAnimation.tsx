@@ -169,7 +169,7 @@ export function StepStyleAnimation({ active = true }: { active?: boolean }) {
         transition={{ duration: 0.1 }}
       >
         {!isLoading && (
-          <span className="text-[0.5em] font-semibold text-white">生成 ⚡10</span>
+          <span className="text-[0.5em] font-semibold text-white">Generate ⚡10</span>
         )}
         {isLoading && (
           <div className="flex items-center gap-[3px]">

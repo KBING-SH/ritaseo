@@ -6,20 +6,20 @@ import { StepDownloadAnimation } from "./StepDownloadAnimation";
 const steps = [
   {
     step: "01",
-    title: "上传照片",
-    desc: "拖拽或点击上传人像、宠物、风景照片，支持 PNG / JPG / WEBP，最大 32 MB。",
+    title: "Upload Photo",
+    desc: "Drag and drop or click to upload portrait, pet, or landscape photos. Supports PNG / JPG / WEBP, up to 32 MB.",
     color: "from-primary to-theme1",
   },
   {
     step: "02",
-    title: "选风格 · 一键生成",
-    desc: "挑选喜欢的卡通风格，点击生成，Rita AI 几秒内即可交付高质量卡通图。",
+    title: "Pick Style · Generate",
+    desc: "Choose your favorite cartoon style and click generate. Rita AI delivers a high-quality cartoon image in seconds.",
     color: "from-theme1 to-emerald-400",
   },
   {
     step: "03",
-    title: "下载 & 分享",
-    desc: "高清无水印图片即时下载，也可一键分享至社交平台，秀出你的卡通形象。",
+    title: "Download & Share",
+    desc: "Instantly download HD watermark-free images, or share to social platforms with one click to show off your cartoon avatar.",
     color: "from-theme2 to-primary",
   },
 ];
@@ -43,8 +43,8 @@ export function HowItWorks() {
   return (
     <section className="py-10 md:py-24 bg-card-alt">
       <div className="container px-4 md:px-8">
-        <h2 className="text-xl md:text-3xl font-bold text-title text-center mb-2 md:mb-3">简单三步，照片秒变卡通</h2>
-        <p className="text-sm md:text-base text-body-desc text-center mb-6 md:mb-12">无需设计基础，上传即出图</p>
+        <h2 className="text-xl md:text-3xl font-bold text-title text-center mb-2 md:mb-3">Three Simple Steps to Cartoonize Your Photo</h2>
+        <p className="text-sm md:text-base text-body-desc text-center mb-6 md:mb-12">No design skills needed — upload and get results instantly</p>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
           {steps.map((s, i) => {
             const Component = COMPONENTS[i];

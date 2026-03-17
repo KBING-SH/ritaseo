@@ -79,10 +79,10 @@ export function LoginDialog({ open, onOpenChange }: LoginDialogProps) {
 
           {/* Terms */}
           <p className="text-xs text-muted-foreground text-center mt-6 leading-relaxed">
-            登录即表示您同意我们的{" "}
-            <a href="/terms" className="text-primary hover:underline">服务条款</a>
-            {" "}和{" "}
-            <a href="/privacy" className="text-primary hover:underline">隐私政策</a>
+            By signing in, you agree to our{" "}
+            <a href="/terms" className="text-primary hover:underline">Terms of Service</a>
+            {" "}and{" "}
+            <a href="/privacy" className="text-primary hover:underline">Privacy Policy</a>
           </p>
         </div>
       </DialogContent>

@@ -4,58 +4,58 @@ import { MODEL_LABELS } from "@/components/UploadPanel";
 const features = [
   {
     icon: Zap,
-    title: "免费使用",
-    desc: "无需注册、无需付费，打开即用。上传照片一键生成卡通形象，零门槛体验 AI 创作。",
+    title: "Free to Use",
+    desc: "No sign-up or payment needed — just open and go. Upload a photo and generate a cartoon avatar in one click, with zero barriers to AI creation.",
     accent: "from-[hsl(45,100%,60%)] to-[hsl(30,95%,55%)]",
     iconBg: "bg-gradient-to-br from-[hsl(45,100%,60%)] to-[hsl(30,95%,55%)]",
-    stat: "0元",
-    statLabel: "使用成本",
+    stat: "$0",
+    statLabel: "Cost",
   },
   {
     icon: Wand2,
-    title: "多模型驱动",
+    title: "Multi-Model Powered",
     descFn: (models: string[]) =>
-      `内置 ${models.join("、")} 等先进 AI 模型，不同模型擅长不同风格，确保每次生成都精准出色。`,
+      `Built-in ${models.join(", ")} and more advanced AI models, each excelling at different styles, ensuring every generation is precise and impressive.`,
     accent: "from-[hsl(240,74%,61%)] to-[hsl(280,65%,60%)]",
     iconBg: "bg-gradient-to-br from-[hsl(240,74%,61%)] to-[hsl(280,65%,60%)]",
     stat: "7+",
-    statLabel: "AI 模型",
+    statLabel: "AI Models",
   },
   {
     icon: Download,
-    title: "高清无水印",
-    desc: "生成结果高清无水印，可直接用于社交头像、内容创作、商业设计等场景，无需二次处理。",
+    title: "HD & Watermark-Free",
+    desc: "Generated results are high-definition and watermark-free, ready to use for social avatars, content creation, commercial design, and more — no post-processing needed.",
     accent: "from-[hsl(162,63%,50%)] to-[hsl(180,60%,45%)]",
     iconBg: "bg-gradient-to-br from-[hsl(162,63%,50%)] to-[hsl(180,60%,45%)]",
     stat: "HD",
-    statLabel: "输出画质",
+    statLabel: "Output Quality",
   },
   {
     icon: Sparkles,
-    title: "多种风格可选",
-    desc: "吉卜力、像素、水墨、复古时尚等多种热门风格可选，一张照片多种玩法，灵感不受限。",
+    title: "Multiple Styles",
+    desc: "Choose from Ghibli, Pixel, Ink, Retro Fashion, and many more popular styles — one photo, multiple creative options with unlimited inspiration.",
     accent: "from-[hsl(340,75%,55%)] to-[hsl(300,60%,55%)]",
     iconBg: "bg-gradient-to-br from-[hsl(340,75%,55%)] to-[hsl(300,60%,55%)]",
     stat: "8+",
-    statLabel: "风格可选",
+    statLabel: "Styles",
   },
   {
     icon: Paintbrush,
-    title: "自定义提示词",
-    desc: "支持输入自定义提示词，精准控制卡通效果的细节和氛围，打造独一无二的个性形象。",
+    title: "Custom Prompts",
+    desc: "Enter your own custom prompts to precisely control cartoon effect details and mood, creating a one-of-a-kind personalized image.",
     accent: "from-[hsl(200,80%,55%)] to-[hsl(220,75%,55%)]",
     iconBg: "bg-gradient-to-br from-[hsl(200,80%,55%)] to-[hsl(220,75%,55%)]",
     stat: "∞",
-    statLabel: "创意可能",
+    statLabel: "Possibilities",
   },
   {
     icon: Shield,
-    title: "隐私安全",
-    desc: "照片仅用于生成卡通图片，处理完成后自动删除，不存储、不分享，保障你的隐私安全。",
+    title: "Privacy & Security",
+    desc: "Photos are only used to generate cartoon images. They are automatically deleted after processing — never stored or shared, keeping your privacy safe.",
     accent: "from-[hsl(150,55%,45%)] to-[hsl(162,63%,50%)]",
     iconBg: "bg-gradient-to-br from-[hsl(150,55%,45%)] to-[hsl(162,63%,50%)]",
     stat: "100%",
-    statLabel: "隐私保障",
+    statLabel: "Privacy",
   },
 ];
 
@@ -66,10 +66,10 @@ export function WhyChoose() {
     <section className="py-10 md:py-24 bg-card-alt">
       <div className="container px-4 md:px-8 max-w-6xl">
         <h2 className="text-xl md:text-3xl font-bold text-title text-center mb-2 md:mb-3">
-          为什么选择 Rita
+          Why Choose Rita
         </h2>
         <p className="text-sm md:text-base text-body-desc text-center mb-8 md:mb-14 max-w-xl mx-auto">
-          强大的 AI 能力 + 极简操作体验，让每个人都能轻松创作卡通形象
+          Powerful AI + simple workflow — making cartoon creation accessible to everyone
         </p>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5">

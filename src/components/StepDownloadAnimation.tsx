@@ -162,7 +162,7 @@ export function StepDownloadAnimation({ active = true }: { active?: boolean }) {
           ) : (
             <>
               <Share2 className="w-[0.5em] h-[0.5em] text-body-desc" />
-              <span className="text-[0.4em] text-body-desc">分享</span>
+              <span className="text-[0.4em] text-body-desc">Share</span>
             </>
           )}
         </motion.div>
