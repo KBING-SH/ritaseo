@@ -228,47 +228,6 @@ export function UploadPanel({ onGenerate }: { onGenerate?: (styleImg: string, ra
           </div>
         </div>
 
-        {/* Resolution */}
-        <div>
-          <label className="text-xs md:text-sm font-medium text-title mb-1 lg:mb-1.5 block">分辨率</label>
-          <div className="flex flex-wrap gap-1 md:gap-1.5 lg:gap-1.5">
-            {RESOLUTIONS.map((res) => (
-              <button
-                key={res}
-                onClick={() => setSelectedResolution(res)}
-                className={cn(
-                  "px-3 py-1.5 md:px-4 md:py-2 rounded-lg border text-[11px] md:text-xs font-medium transition-all",
-                  selectedResolution === res
-                    ? "border-primary bg-primary text-primary-foreground shadow-sm"
-                    : "border-border bg-card text-body2 hover:border-primary/50 hover:bg-primary/5"
-                )}
-              >
-                {res}
-              </button>
-            ))}
-          </div>
-        </div>
-
-        {/* Image Format */}
-        <div>
-          <label className="text-xs md:text-sm font-medium text-title mb-1 lg:mb-1.5 block">图片格式</label>
-          <div className="flex flex-wrap gap-1 md:gap-1.5 lg:gap-1.5">
-            {FORMATS.map((fmt) => (
-              <button
-                key={fmt}
-                onClick={() => setSelectedFormat(fmt)}
-                className={cn(
-                  "px-3 py-1.5 md:px-4 md:py-2 rounded-lg border text-[11px] md:text-xs font-medium transition-all",
-                  selectedFormat === fmt
-                    ? "border-primary bg-primary text-primary-foreground shadow-sm"
-                    : "border-border bg-card text-body2 hover:border-primary/50 hover:bg-primary/5"
-                )}
-              >
-                {fmt}
-              </button>
-            ))}
-          </div>
-        </div>
       </div>
 
       {/* Fixed bottom: generate */}
