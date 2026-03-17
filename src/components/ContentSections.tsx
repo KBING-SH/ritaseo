@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
 import { User, PawPrint, Mountain, ChevronRight } from "lucide-react";
-import sectionPet from "@/assets/section-pet.webp";
 import sectionLandscape from "@/assets/section-landscape.webp";
+import petBefore from "@/assets/pet-before.jpg";
+import petAfter from "@/assets/pet-after.jpg";
 import portraitBefore from "@/assets/portrait-before.jpg";
 import portraitAfter from "@/assets/portrait-after.jpg";
 import { AutoComparisonSlider } from "@/components/AutoComparisonSlider";
