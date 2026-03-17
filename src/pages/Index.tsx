@@ -143,11 +143,11 @@ const Index = () => {
               ) : isGenerating ? (
                 <div className="h-full max-w-full rounded-2xl border border-border/50 bg-muted/30 flex flex-col items-center justify-center gap-3" style={{ aspectRatio: generatedRatio }}>
                   <Loader2 className="w-10 h-10 text-primary animate-spin" />
-                  <p className="text-sm text-muted-foreground">正在生成中...</p>
+                  <p className="text-sm text-muted-foreground">Generating...</p>
                 </div>
               ) : generatedImg ? (
                 <div className="h-full max-w-full rounded-2xl overflow-hidden border border-border/50 shadow-lg animate-fade-in" style={{ aspectRatio: generatedRatio }}>
-                  <img src={generatedImg} alt="生成结果" className="w-full h-full object-cover" />
+                  <img src={generatedImg} alt="Generated result" className="w-full h-full object-cover" />
                 </div>
               ) : null}
               {/* Action bar pinned to right edge */}
@@ -208,7 +208,7 @@ const Index = () => {
 
                 <img
                   src={history[previewIdx].img}
-                  alt="预览大图"
+                  alt="Preview"
                   className="max-h-[75vh] sm:max-h-[78vh] max-w-[88vw] sm:max-w-[72vw] rounded-lg object-contain"
                   style={{ aspectRatio: history[previewIdx].ratio }}
                 />
@@ -248,22 +248,22 @@ const Index = () => {
                     <img src={ritaLogo} alt="Rita" className="h-9 w-9 rounded-xl" />
                     <span className="text-xl font-bold text-title italic">Rita</span>
                   </div>
-                  <p className="text-xs text-muted-foreground leading-snug">Rita让创意和效率人人可得</p>
+                  <p className="text-xs text-muted-foreground leading-snug">Rita makes creativity and efficiency accessible to everyone</p>
                 </div>
                 <ProductFooterSection />
                 <div className="flex gap-10 lg:gap-12 shrink-0 text-sm">
                   <div>
-                    <h4 className="font-bold text-title mb-4 text-sm">关于</h4>
+                    <h4 className="font-bold text-title mb-4 text-sm">About</h4>
                     <ul className="space-y-1.5">
-                      {["关于我们", "联系我们"].map((l) => (
+                      {["About Us", "Contact Us"].map((l) => (
                         <li key={l}><a href="#" className="text-xs text-body-desc hover:text-primary transition-colors">{l}</a></li>
                       ))}
                     </ul>
                   </div>
                   <div>
-                    <h4 className="font-bold text-title mb-4 text-sm">合规</h4>
+                    <h4 className="font-bold text-title mb-4 text-sm">Legal</h4>
                     <ul className="space-y-1.5">
-                      {["条款条件", "隐私政策", "版权政策", "退款政策", "AML政策"].map((l) => (
+                      {["Terms & Conditions", "Privacy Policy", "Copyright Policy", "Refund Policy", "AML Policy"].map((l) => (
                         <li key={l}><a href="#" className="text-xs text-body-desc hover:text-primary transition-colors">{l}</a></li>
                       ))}
                     </ul>

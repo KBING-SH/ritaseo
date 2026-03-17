@@ -3,27 +3,27 @@ import { Star, Award, Users, MessageSquare } from "lucide-react";
 const stats = [
   {
     icon: Award,
-    value: "#1 热门推荐",
+    value: "#1 Featured",
     label: "Product Hunt",
     color: "text-orange-500",
   },
   {
     icon: Star,
     value: "4.9 / 5.0",
-    label: "用户综合评分",
+    label: "User Rating",
     color: "text-yellow-500",
     stars: true,
   },
   {
     icon: MessageSquare,
     value: "50,000+",
-    label: "用户好评",
+    label: "Positive Reviews",
     color: "text-primary",
   },
   {
     icon: Users,
     value: "2,000,000+",
-    label: "活跃用户",
+    label: "Active Users",
     color: "text-emerald-500",
   },
 ];

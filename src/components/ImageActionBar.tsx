@@ -69,9 +69,9 @@ export function ImageActionBar({ imageUrl, compact = false }: ImageActionBarProp
       a.click();
       document.body.removeChild(a);
       URL.revokeObjectURL(url);
-      toast.success("图片已下载");
+      toast.success("Image downloaded");
     } catch {
-      toast.error("下载失败，请重试");
+      toast.error("Download failed, please try again");
     }
   };
 
@@ -91,7 +91,7 @@ export function ImageActionBar({ imageUrl, compact = false }: ImageActionBarProp
       <button
         onClick={handleDownload}
         className={`${btnClass} bg-card border border-border flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary/50 hover:bg-primary/5 transition-all duration-200 cursor-pointer`}
-        title="下载图片"
+        title="Download image"
       >
         <Download className={compact ? "w-4 h-4" : "w-[18px] h-[18px]"} />
       </button>
@@ -105,7 +105,7 @@ export function ImageActionBar({ imageUrl, compact = false }: ImageActionBarProp
       >
         <button
           className={`${btnClass} bg-card border border-border flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary/50 hover:bg-primary/5 transition-all duration-200 cursor-pointer ${shareOpen ? "border-primary/50 text-primary bg-primary/5" : ""}`}
-          title="分享"
+          title="Share"
         >
           <Share2 className={compact ? "w-4 h-4" : "w-[18px] h-[18px]"} />
         </button>

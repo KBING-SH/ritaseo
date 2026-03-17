@@ -93,7 +93,7 @@ export function StepDownloadAnimation({ active = true }: { active?: boolean }) {
     <div className="w-full h-full bg-card relative overflow-hidden flex flex-col p-[5%] gap-[3%]">
       {/* Result image */}
       <div className="flex-1 min-h-0 flex flex-col gap-[3px]">
-        <span className="text-[0.45em] text-body-desc">生成结果</span>
+        <span className="text-[0.45em] text-body-desc">Generated Result</span>
         <motion.div
           className="flex-1 rounded-[0.3em] overflow-hidden border border-border/30 min-h-0 relative"
           animate={{ opacity: showResult ? 1 : 0.3 }}
@@ -101,13 +101,13 @@ export function StepDownloadAnimation({ active = true }: { active?: boolean }) {
         >
           <img
             src={demoResult}
-            alt="生成的卡通效果图"
+            alt="Generated cartoon effect"
             className="w-full h-full object-cover"
             style={{ transform: "translateZ(0)" }}
           />
           {!showResult && (
             <div className="absolute inset-0 bg-card/60 flex items-center justify-center">
-              <span className="text-[0.45em] text-body-desc">生成中...</span>
+              <span className="text-[0.45em] text-body-desc">Generating...</span>
             </div>
           )}
         </motion.div>
@@ -127,7 +127,7 @@ export function StepDownloadAnimation({ active = true }: { active?: boolean }) {
           {showDlDone ? (
             <motion.div className="flex items-center gap-[3px]" initial={{ scale: 0.8, opacity: 0 }} animate={{ scale: 1, opacity: 1 }}>
               <Check className="w-[0.6em] h-[0.6em] text-primary" />
-              <span className="text-[0.4em] text-primary font-medium">已下载</span>
+              <span className="text-[0.4em] text-primary font-medium">Downloaded</span>
             </motion.div>
           ) : showDlProgress ? (
             <div className="flex items-center gap-[3px]">
@@ -135,12 +135,12 @@ export function StepDownloadAnimation({ active = true }: { active?: boolean }) {
                 <motion.div className="h-full rounded-full bg-primary" initial={{ width: "0%" }} animate={{ width: "100%" }} transition={{ duration: 1.1, ease: "easeOut" }} />
               </motion.div>
               <Download className="w-[0.5em] h-[0.5em] text-primary" />
-              <span className="text-[0.4em] text-body-desc">下载中...</span>
+              <span className="text-[0.4em] text-body-desc">Downloading...</span>
             </div>
           ) : (
             <>
               <Download className="w-[0.5em] h-[0.5em] text-body-desc" />
-              <span className="text-[0.4em] text-body-desc">下载</span>
+              <span className="text-[0.4em] text-body-desc">Download</span>
             </>
           )}
         </motion.div>
@@ -157,12 +157,12 @@ export function StepDownloadAnimation({ active = true }: { active?: boolean }) {
           {showSharedDone ? (
             <motion.div className="flex items-center gap-[3px]" initial={{ scale: 0.8, opacity: 0 }} animate={{ scale: 1, opacity: 1 }}>
               <Check className="w-[0.6em] h-[0.6em] text-primary" />
-              <span className="text-[0.4em] text-primary font-medium">已分享</span>
+              <span className="text-[0.4em] text-primary font-medium">Shared</span>
             </motion.div>
           ) : (
             <>
               <Share2 className="w-[0.5em] h-[0.5em] text-body-desc" />
-              <span className="text-[0.4em] text-body-desc">分享</span>
+              <span className="text-[0.4em] text-body-desc">Share</span>
             </>
           )}
         </motion.div>

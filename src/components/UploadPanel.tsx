@@ -22,26 +22,26 @@ import styleCute from "@/assets/style-cute.png";
 import styleMinimal from "@/assets/style-minimal.png";
 
 const MODEL_OPTIONS = [
-  { value: "chatgpt-image-1", label: "ChatGPT-image-1", desc: "理解能力强，可生成带文字的图片", logo: logoChatgpt, cost: "30-60" },
-  { value: "nano-banana-pro-direct", label: "Nano-banana pro | direct connect", desc: "覆盖更多区域和线路，适用于网络波动场景", logo: logoBanana, cost: "30-60" },
-  { value: "kling-v1.5", label: "Kling V1.5", desc: "支持生成时参考面部", logo: logoKling, cost: "10-30" },
-  { value: "kling-v2", label: "Kling V2", desc: "细节丰富，非常适合精致图像", logo: logoKling, cost: "10-30" },
-  { value: "nano-banana-pro", label: "Nano-banana pro", desc: "更鲜明的色彩和更丰富的细节", logo: logoBanana, cost: "15" },
-  { value: "flux-kontext-dev", label: "Flux.1 Kontext Dev", desc: "适合快速生成草图", logo: logoFlux, cost: "5" },
-  { value: "flux-kontext-max", label: "Flux.1 Kontext Max", desc: "可编辑、理解力和精细度强，适用于商业用途", logo: logoFlux, cost: "8" },
+  { value: "chatgpt-image-1", label: "ChatGPT-image-1", desc: "Strong comprehension, can generate images with text", logo: logoChatgpt, cost: "30-60" },
+  { value: "nano-banana-pro-direct", label: "Nano-banana pro | direct connect", desc: "Broader coverage and routing for unstable networks", logo: logoBanana, cost: "30-60" },
+  { value: "kling-v1.5", label: "Kling V1.5", desc: "Supports face reference during generation", logo: logoKling, cost: "10-30" },
+  { value: "kling-v2", label: "Kling V2", desc: "Rich details, ideal for refined images", logo: logoKling, cost: "10-30" },
+  { value: "nano-banana-pro", label: "Nano-banana pro", desc: "Vivid colors and richer details", logo: logoBanana, cost: "15" },
+  { value: "flux-kontext-dev", label: "Flux.1 Kontext Dev", desc: "Great for quick sketch generation", logo: logoFlux, cost: "5" },
+  { value: "flux-kontext-max", label: "Flux.1 Kontext Max", desc: "Editable, strong comprehension and precision for commercial use", logo: logoFlux, cost: "8" },
 ];
 
 export const MODEL_LABELS = MODEL_OPTIONS.map((m) => m.label);
 
 const STYLE_OPTIONS = [
-  { src: styleGhibli, label: "吉卜力", prompt: "将照片转换为吉卜力动画风格，保留柔和的色彩、温暖的光影和手绘质感，呈现出宫崎骏式的梦幻氛围。" },
-  { src: stylePixel, label: "像素", prompt: "将照片转换为复古像素艺术风格，使用有限的调色板和清晰的像素块，呈现出8-bit游戏般的怀旧美感。" },
-  { src: styleRealistic, label: "写实艺术", prompt: "将照片转换为高度写实的数字绘画风格，保留细腻的光影和纹理细节，呈现出超现实主义的艺术质感。" },
-  { src: styleInk, label: "水墨", prompt: "将照片转换为东方水墨画风格，运用浓淡干湿的墨色变化，呈现出中国传统绘画的意境与韵味。" },
-  { src: styleCartoon, label: "卡通片", prompt: "将照片转换为明亮活泼的卡通风格，使用鲜艳的色彩、粗线条和夸张的表情，充满趣味和生命力。" },
-  { src: styleClassic, label: "复古时尚", prompt: "将照片转换为复古时尚风格，融合经典的色调和优雅的构图，呈现出老电影海报般的怀旧美感。" },
-  { src: styleCute, label: "可爱", prompt: "将照片转换为Q版可爱风格，大眼睛、圆润的轮廓和柔和的色彩，呈现出萌系二次元的甜美形象。" },
-  { src: styleMinimal, label: "极简", prompt: "将照片转换为极简插画风格，使用简洁的线条和有限的色彩，去除多余细节，呈现出干净利落的现代美感。" },
+  { src: styleGhibli, label: "Ghibli", prompt: "Transform the photo into Ghibli animation style, preserving soft colors, warm lighting and hand-drawn textures, creating a Miyazaki-esque dreamy atmosphere." },
+  { src: stylePixel, label: "Pixel", prompt: "Transform the photo into retro pixel art style, using a limited color palette and crisp pixel blocks, creating an 8-bit game-like nostalgic aesthetic." },
+  { src: styleRealistic, label: "Realistic", prompt: "Transform the photo into a highly realistic digital painting style, preserving fine lighting and texture details, creating a hyperrealistic artistic quality." },
+  { src: styleInk, label: "Ink Wash", prompt: "Transform the photo into an East Asian ink wash painting style, using variations of ink density and flow, creating the mood and charm of traditional Chinese painting." },
+  { src: styleCartoon, label: "Cartoon", prompt: "Transform the photo into a bright and lively cartoon style, using vivid colors, bold outlines and exaggerated expressions, full of fun and energy." },
+  { src: styleClassic, label: "Retro", prompt: "Transform the photo into retro fashion style, blending classic tones and elegant composition, creating a nostalgic old movie poster aesthetic." },
+  { src: styleCute, label: "Cute", prompt: "Transform the photo into a chibi cute style, with big eyes, rounded contours and soft colors, creating a sweet anime-inspired look." },
+  { src: styleMinimal, label: "Minimal", prompt: "Transform the photo into a minimal illustration style, using clean lines and limited colors, removing excess detail, creating a crisp modern aesthetic." },
 ];
 
 const RATIOS = [
@@ -119,7 +119,7 @@ export function UploadPanel({ onGenerate, externalStyleRef }: { onGenerate?: (st
       <div className="flex-1 overflow-y-auto p-3 md:p-3 lg:p-4 space-y-2 md:space-y-1.5 lg:space-y-3 text-sm">
         {/* Model selector */}
         <div>
-          <label className="text-xs font-medium text-title mb-1 lg:mb-1.5 block">模型</label>
+          <label className="text-xs font-medium text-title mb-1 lg:mb-1.5 block">Model</label>
           <Select value={selectedModel} onValueChange={setSelectedModel}>
             <SelectTrigger className="rounded-lg border-border/50 bg-card text-title h-auto py-1.5 lg:py-2 text-left">
               <div className="flex items-center gap-2.5 w-full pr-6">
@@ -150,11 +150,11 @@ export function UploadPanel({ onGenerate, externalStyleRef }: { onGenerate?: (st
 
         {/* Upload area */}
         <div>
-          <label className="text-xs font-medium text-title mb-1 lg:mb-1.5 block">图片</label>
+          <label className="text-xs font-medium text-title mb-1 lg:mb-1.5 block">Image</label>
           <div id="upload-drop-zone" className="relative">
             {uploadedImage ? (
               <div className="relative rounded-lg border border-border/50 overflow-hidden animate-fade-in">
-                <img src={uploadedImage} alt="已上传的图片" className="w-full h-20 md:h-[90px] lg:h-28 object-cover" />
+                <img src={uploadedImage} alt="Uploaded image" className="w-full h-20 md:h-[90px] lg:h-28 object-cover" />
                 <button
                   onClick={removeImage}
                   className="absolute top-1.5 right-1.5 w-5 h-5 rounded-full bg-foreground/60 hover:bg-foreground/80 flex items-center justify-center transition-colors"
@@ -174,8 +174,8 @@ export function UploadPanel({ onGenerate, externalStyleRef }: { onGenerate?: (st
                 )}
               >
                 <ImageIcon className="h-5 w-5 lg:h-8 lg:w-8 text-body-desc" />
-                <p className="text-[16px] text-body-desc">将图像拖放到此处，或点击浏览</p>
-                <p className="text-[14px] text-body-desc/60">支持 jpg/jpeg/png/webp，最大 32MB</p>
+                <p className="text-[16px] text-body-desc">Drag & drop image here, or click to browse</p>
+                <p className="text-[14px] text-body-desc/60">Supports jpg/jpeg/png/webp, max 32MB</p>
               </div>
             )}
             <input ref={fileRef} type="file" accept="image/*" className="hidden" onChange={handleInputChange} />
@@ -184,7 +184,7 @@ export function UploadPanel({ onGenerate, externalStyleRef }: { onGenerate?: (st
                 <div className="w-4 h-4 rounded-full bg-primary/20 flex items-center justify-center">
                   <Check className="w-2.5 h-2.5 text-primary" />
                 </div>
-                <span className="text-xs text-primary">上传成功</span>
+                <span className="text-xs text-primary">Upload successful</span>
               </div>
             )}
           </div>
@@ -193,19 +193,19 @@ export function UploadPanel({ onGenerate, externalStyleRef }: { onGenerate?: (st
         {/* Prompt */}
         <div>
           <label className="text-xs font-medium text-title mb-1 lg:mb-1.5 block">
-            提示词 <span className="text-destructive">*</span>
+            Prompt <span className="text-destructive">*</span>
           </label>
           <textarea
             value={promptText}
             onChange={(e) => setPromptText(e.target.value)}
-            placeholder="请描述下你想如何处理图片..."
+            placeholder="Describe how you want to process the image..."
             className="w-full h-[54px] md:h-14 lg:h-24 rounded-lg border border-border/50 bg-card px-3 py-1.5 text-sm text-title placeholder:text-body-desc resize-none md:resize-none lg:resize-y focus:outline-none focus:ring-1 focus:ring-primary/50"
           />
         </div>
 
         {/* Style selector */}
         <div>
-          <label className="text-xs font-medium text-title mb-1 lg:mb-1.5 block">选择以下风格</label>
+          <label className="text-xs font-medium text-title mb-1 lg:mb-1.5 block">Select a Style</label>
           <div className="grid grid-cols-4 md:grid-cols-4 lg:grid-cols-4 gap-x-2 gap-y-2 md:gap-x-2 md:gap-y-1.5 lg:gap-x-2 lg:gap-y-2">
             {STYLE_OPTIONS.map((style, i) => (
               <StyleCard key={i} style={style} index={i} selected={selectedStyle === i} onSelect={(idx) => { setSelectedStyle(idx); setPromptText(STYLE_OPTIONS[idx].prompt); }} onPreview={() => setPreviewStyle(i)} />
@@ -215,7 +215,7 @@ export function UploadPanel({ onGenerate, externalStyleRef }: { onGenerate?: (st
 
         {/* Aspect Ratio */}
         <div>
-          <label className="text-xs md:text-sm font-medium text-title mb-1 lg:mb-1.5 block">纵横比</label>
+          <label className="text-xs md:text-sm font-medium text-title mb-1 lg:mb-1.5 block">Aspect Ratio</label>
           <div className="grid grid-cols-5 gap-1.5 md:gap-2 lg:gap-2">
             {RATIOS.map((r) => (
               <button
@@ -240,7 +240,7 @@ export function UploadPanel({ onGenerate, externalStyleRef }: { onGenerate?: (st
 
         {/* Resolution */}
         <div>
-          <label className="text-xs md:text-sm font-medium text-title mb-1 lg:mb-1.5 block">分辨率</label>
+          <label className="text-xs md:text-sm font-medium text-title mb-1 lg:mb-1.5 block">Resolution</label>
           <div className="flex flex-wrap gap-1 md:gap-1.5 lg:gap-1.5">
             {RESOLUTIONS.map((res) => (
               <button
@@ -273,9 +273,9 @@ export function UploadPanel({ onGenerate, externalStyleRef }: { onGenerate?: (st
             }
           }}
         >
-          现在领取每日 60 免费积分
+          Claim 60 Free Credits Daily
         </Button>
-        <span className="text-xs text-muted-foreground whitespace-nowrap flex items-center gap-0.5">10积分/次</span>
+        <span className="text-xs text-muted-foreground whitespace-nowrap flex items-center gap-0.5">10 credits/use</span>
       </div>
 
       <LoginDialog open={showLoginDialog} onOpenChange={setShowLoginDialog} />
@@ -337,7 +337,7 @@ export function UploadPanel({ onGenerate, externalStyleRef }: { onGenerate?: (st
                   <h3 className="text-lg sm:text-xl font-bold text-title mb-4 sm:mb-5">
                     {previewStyle !== null && STYLE_OPTIONS[previewStyle].label}
                   </h3>
-                  <p className="text-sm font-semibold text-title mb-2">提示词</p>
+                  <p className="text-sm font-semibold text-title mb-2">Prompt</p>
                   <div className="rounded-xl border border-border/50 bg-muted p-3 sm:p-4 flex-1">
                     <p className="text-sm text-muted-foreground leading-relaxed">
                       {previewStyle !== null && STYLE_OPTIONS[previewStyle].prompt}
@@ -354,7 +354,7 @@ export function UploadPanel({ onGenerate, externalStyleRef }: { onGenerate?: (st
                       }
                     }}
                   >
-                    使用提示词
+                    Use Prompt
                   </Button>
                 </div>
               </div>

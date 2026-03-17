@@ -81,7 +81,7 @@ export function StyleSelector() {
         {/* After (cartoon - full background) */}
         <img
           src={afterImg}
-          alt="卡通效果"
+          alt="Cartoon effect"
           className="absolute inset-0 w-full h-full block object-cover object-center"
           draggable={false}
         />
@@ -93,7 +93,7 @@ export function StyleSelector() {
         >
           <img
             src={beforeImg}
-            alt="原始照片"
+            alt="Original photo"
             className="absolute inset-0 w-full h-full block object-cover object-center"
             draggable={false}
           />

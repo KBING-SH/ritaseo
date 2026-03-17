@@ -12,14 +12,14 @@ import styleCute from "@/assets/style-cute.png";
 import styleMinimal from "@/assets/style-minimal.png";
 
 const STYLES = [
-  { src: styleGhibli, label: "吉卜力" },
-  { src: stylePixel, label: "像素" },
-  { src: styleRealistic, label: "写实" },
-  { src: styleInk, label: "水墨" },
-  { src: styleCartoon, label: "卡通" },
-  { src: styleClassic, label: "复古" },
-  { src: styleCute, label: "可爱" },
-  { src: styleMinimal, label: "极简" },
+  { src: styleGhibli, label: "Ghibli" },
+  { src: stylePixel, label: "Pixel" },
+  { src: styleRealistic, label: "Realistic" },
+  { src: styleInk, label: "Ink Wash" },
+  { src: styleCartoon, label: "Cartoon" },
+  { src: styleClassic, label: "Retro" },
+  { src: styleCute, label: "Cute" },
+  { src: styleMinimal, label: "Minimal" },
 ];
 
 // Grid center positions for cursor (left%, top%)
@@ -113,7 +113,7 @@ export function StepStyleAnimation({ active = true }: { active?: boolean }) {
 
   return (
     <div className="w-full h-full bg-card relative overflow-hidden flex flex-col p-[5%] gap-[2%]">
-      <p className="text-[0.55em] text-body-desc font-medium leading-none">选择以下风格</p>
+      <p className="text-[0.55em] text-body-desc font-medium leading-none">Select a Style</p>
 
       <div className="grid grid-cols-4 gap-[2.5%] flex-1 min-h-0">
         {STYLES.map((style, i) => (
@@ -169,7 +169,7 @@ export function StepStyleAnimation({ active = true }: { active?: boolean }) {
         transition={{ duration: 0.1 }}
       >
         {!isLoading && (
-          <span className="text-[0.5em] font-semibold text-white">生成 ⚡10</span>
+          <span className="text-[0.5em] font-semibold text-white">Generate ⚡10</span>
         )}
         {isLoading && (
           <div className="flex items-center gap-[3px]">

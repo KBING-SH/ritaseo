@@ -58,7 +58,7 @@ export function ResultDisplay({
               style={compact ? undefined : { aspectRatio: generatedRatio }}
             >
               <Loader2 className={`text-primary animate-spin ${compact ? "w-8 h-8" : "w-10 h-10"}`} />
-              <p className="text-sm text-muted-foreground">正在生成中...</p>
+              <p className="text-sm text-muted-foreground">Generating...</p>
             </div>
           ) : generatedImg ? (
             <div className="flex flex-col items-center gap-2 w-full">
@@ -68,7 +68,7 @@ export function ResultDisplay({
                 }`}
                 style={compact ? undefined : { aspectRatio: generatedRatio }}
               >
-                <img src={generatedImg} alt="生成结果" className="w-full h-full object-cover" />
+                <img src={generatedImg} alt="Generated result" className="w-full h-full object-cover" />
               </div>
               <ImageActionBar imageUrl={generatedImg} compact />
             </div>
@@ -82,13 +82,13 @@ export function ResultDisplay({
           {/* Header */}
           <div className="flex items-center justify-between mb-2">
             <div className="flex items-baseline gap-2">
-              <span className={`font-semibold text-title ${compact ? "text-xs" : "text-sm"}`}>历史</span>
-              <span className="text-[11px] text-muted-foreground">最多保存30次记录</span>
+              <span className={`font-semibold text-title ${compact ? "text-xs" : "text-sm"}`}>History</span>
+              <span className="text-[11px] text-muted-foreground">Up to 30 records saved</span>
             </div>
             <button
               onClick={() => { onSetHistory([]); onSetSelectedHistoryIdx(null); onSetGeneratedImg(null); }}
               className="text-muted-foreground hover:text-destructive transition-colors"
-              title="清空历史"
+              title="Clear history"
             >
               <Trash2 className="w-4 h-4" />
             </button>
@@ -124,7 +124,7 @@ export function ResultDisplay({
                         className={`rounded-lg overflow-hidden ${compact ? "max-w-[56px] max-h-[56px]" : "max-w-[72px] max-h-[72px]"}`}
                         style={{ aspectRatio: item.ratio }}
                       >
-                        <img src={item.img} alt={`历史记录 ${i + 1}`} className="w-full h-full object-cover" />
+                        <img src={item.img} alt={`History ${i + 1}`} className="w-full h-full object-cover" />
                       </div>
                     </button>
                     <button
@@ -146,7 +146,7 @@ export function ResultDisplay({
                   <span className="text-[9px] font-medium text-muted-foreground">{item.ratioLabel}</span>
                   {!compact && (
                     <span className="text-[9px] text-muted-foreground">
-                      {item.time.toLocaleDateString("zh-CN")} {item.time.toLocaleTimeString("zh-CN", { hour: "2-digit", minute: "2-digit", second: "2-digit" })}
+                      {item.time.toLocaleDateString("en-US")} {item.time.toLocaleTimeString("en-US", { hour: "2-digit", minute: "2-digit", second: "2-digit" })}
                     </span>
                   )}
                 </div>
