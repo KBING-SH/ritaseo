@@ -11,7 +11,7 @@ import { AutoComparisonSlider } from "@/components/AutoComparisonSlider";
 const sections = [
   {
     icon: User,
-    title: "Turn Portrait Photos into Cartoon Avatars with AI Photo to Cartoon",
+    title: "Portrait AI Photo to Cartoon for Personalized Avatars and Gifts",
     subtitle: "Transform your selfies into unique cartoon avatars",
     image: null,
     comparison: { before: portraitBefore, after: portraitAfter },
