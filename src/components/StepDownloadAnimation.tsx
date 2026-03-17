@@ -135,7 +135,7 @@ export function StepDownloadAnimation({ active = true }: { active?: boolean }) {
                 <motion.div className="h-full rounded-full bg-primary" initial={{ width: "0%" }} animate={{ width: "100%" }} transition={{ duration: 1.1, ease: "easeOut" }} />
               </motion.div>
               <Download className="w-[0.5em] h-[0.5em] text-primary" />
-              <span className="text-[0.4em] text-body-desc">下载中...</span>
+              <span className="text-[0.4em] text-body-desc">Downloading...</span>
             </div>
           ) : (
             <>
