@@ -18,7 +18,7 @@ export function LoginDialog({ open, onOpenChange }: LoginDialogProps) {
       redirect_uri: window.location.origin,
     });
     if (error) {
-      toast.error("登录失败，请重试");
+      toast.error("Login failed, please try again");
     }
     setLoading(false);
   };
