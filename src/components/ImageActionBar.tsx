@@ -91,8 +91,8 @@ export function ImageActionBar({ imageUrl, compact = false }: ImageActionBarProp
         </button>
 
         {shareOpen && (
-          <div className={`absolute z-50 ${compact ? "bottom-full mb-2 right-0" : "right-full mr-2 top-0"} w-48 bg-card border border-border rounded-xl shadow-lg p-2 animate-fade-in`}>
-            <div className="flex items-center justify-between px-2 py-1 mb-1">
+          <div className={`absolute z-50 ${compact ? "bottom-full mb-2 right-0" : "right-full mr-2 top-0"} w-44 bg-card border border-border rounded-xl shadow-lg p-1.5 animate-fade-in`}>
+            <div className="flex items-center justify-between px-1.5 py-1">
               <span className="text-xs font-semibold text-foreground">分享到</span>
               <button onClick={() => setShareOpen(false)} className="text-muted-foreground hover:text-foreground transition-colors">
                 <X className="w-3.5 h-3.5" />
@@ -103,25 +103,14 @@ export function ImageActionBar({ imageUrl, compact = false }: ImageActionBarProp
               <button
                 key={platform.name}
                 onClick={() => handleSharePlatform(platform.getUrl)}
-                className="w-full flex items-center gap-2.5 px-2 py-1.5 rounded-lg text-sm text-foreground hover:bg-hover-bg transition-colors cursor-pointer"
+                className="w-full flex items-center gap-2 px-1.5 py-1 rounded-lg text-foreground hover:bg-hover-bg transition-colors cursor-pointer"
               >
-                <span className="w-6 h-6 rounded-md bg-muted flex items-center justify-center text-xs font-bold text-muted-foreground">
+                <span className={`w-6 h-6 rounded-md flex items-center justify-center text-[11px] font-bold ${platform.color}`}>
                   {platform.icon}
                 </span>
                 <span className="text-xs">{platform.name}</span>
               </button>
             ))}
-
-            <div className="border-t border-border my-1" />
-            <button
-              onClick={handleCopyLink}
-              className="w-full flex items-center gap-2.5 px-2 py-1.5 rounded-lg text-sm text-foreground hover:bg-hover-bg transition-colors cursor-pointer"
-            >
-              <span className="w-6 h-6 rounded-md bg-muted flex items-center justify-center">
-                <Link className="w-3.5 h-3.5 text-muted-foreground" />
-              </span>
-              <span className="text-xs">复制链接</span>
-            </button>
           </div>
         )}
       </div>
