@@ -101,7 +101,7 @@ export function StepDownloadAnimation({ active = true }: { active?: boolean }) {
         >
           <img
             src={demoResult}
-            alt="生成的卡通效果图"
+            alt="Generated cartoon effect"
             className="w-full h-full object-cover"
             style={{ transform: "translateZ(0)" }}
           />
