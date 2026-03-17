@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from "react";
-import { Download, Share2, Link, X } from "lucide-react";
+import { Download, Share2, X } from "lucide-react";
 import { toast } from "sonner";
 
 interface ImageActionBarProps {
@@ -8,12 +8,12 @@ interface ImageActionBarProps {
 }
 
 const SHARE_PLATFORMS = [
-  { name: "Twitter / X", icon: "𝕏", getUrl: (url: string) => `https://twitter.com/intent/tweet?url=${encodeURIComponent(url)}&text=${encodeURIComponent("Check out this AI-generated image!")}` },
-  { name: "Facebook", icon: "f", getUrl: (url: string) => `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}` },
-  { name: "Pinterest", icon: "P", getUrl: (url: string, imgUrl: string) => `https://pinterest.com/pin/create/button/?url=${encodeURIComponent(url)}&media=${encodeURIComponent(imgUrl)}` },
-  { name: "WhatsApp", icon: "W", getUrl: (url: string) => `https://wa.me/?text=${encodeURIComponent(url)}` },
-  { name: "Telegram", icon: "T", getUrl: (url: string) => `https://t.me/share/url?url=${encodeURIComponent(url)}` },
-  { name: "Reddit", icon: "R", getUrl: (url: string) => `https://reddit.com/submit?url=${encodeURIComponent(url)}&title=${encodeURIComponent("AI Generated Image")}` },
+  { name: "Twitter / X", color: "bg-gray-900 dark:bg-gray-100 text-white dark:text-gray-900", icon: "𝕏", getUrl: (url: string) => `https://twitter.com/intent/tweet?url=${encodeURIComponent(url)}&text=${encodeURIComponent("Check out this AI-generated image!")}` },
+  { name: "Facebook", color: "bg-blue-600 text-white", icon: "f", getUrl: (url: string) => `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}` },
+  { name: "Pinterest", color: "bg-red-600 text-white", icon: "P", getUrl: (url: string, imgUrl: string) => `https://pinterest.com/pin/create/button/?url=${encodeURIComponent(url)}&media=${encodeURIComponent(imgUrl)}` },
+  { name: "WhatsApp", color: "bg-green-500 text-white", icon: "W", getUrl: (url: string) => `https://wa.me/?text=${encodeURIComponent(url)}` },
+  { name: "Telegram", color: "bg-sky-500 text-white", icon: "T", getUrl: (url: string) => `https://t.me/share/url?url=${encodeURIComponent(url)}` },
+  { name: "Reddit", color: "bg-orange-500 text-white", icon: "R", getUrl: (url: string) => `https://reddit.com/submit?url=${encodeURIComponent(url)}&title=${encodeURIComponent("AI Generated Image")}` },
 ];
 
 export function ImageActionBar({ imageUrl, compact = false }: ImageActionBarProps) {
@@ -91,8 +91,8 @@ export function ImageActionBar({ imageUrl, compact = false }: ImageActionBarProp
         </button>
 
         {shareOpen && (
-          <div className={`absolute z-50 ${compact ? "bottom-full mb-2 right-0" : "right-full mr-2 top-0"} w-48 bg-card border border-border rounded-xl shadow-lg p-2 animate-fade-in`}>
-            <div className="flex items-center justify-between px-2 py-1 mb-1">
+          <div className={`absolute z-50 ${compact ? "bottom-full mb-2 right-0" : "right-full mr-2 top-0"} w-44 bg-card border border-border rounded-xl shadow-lg p-1.5 animate-fade-in`}>
+            <div className="flex items-center justify-between px-1.5 py-1">
               <span className="text-xs font-semibold text-foreground">分享到</span>
               <button onClick={() => setShareOpen(false)} className="text-muted-foreground hover:text-foreground transition-colors">
                 <X className="w-3.5 h-3.5" />
@@ -103,25 +103,14 @@ export function ImageActionBar({ imageUrl, compact = false }: ImageActionBarProp
               <button
                 key={platform.name}
                 onClick={() => handleSharePlatform(platform.getUrl)}
-                className="w-full flex items-center gap-2.5 px-2 py-1.5 rounded-lg text-sm text-foreground hover:bg-hover-bg transition-colors cursor-pointer"
+                className="w-full flex items-center gap-2 px-1.5 py-1 rounded-lg text-foreground hover:bg-hover-bg transition-colors cursor-pointer"
               >
-                <span className="w-6 h-6 rounded-md bg-muted flex items-center justify-center text-xs font-bold text-muted-foreground">
+                <span className={`w-6 h-6 rounded-md flex items-center justify-center text-[11px] font-bold ${platform.color}`}>
                   {platform.icon}
                 </span>
                 <span className="text-xs">{platform.name}</span>
               </button>
             ))}
-
-            <div className="border-t border-border my-1" />
-            <button
-              onClick={handleCopyLink}
-              className="w-full flex items-center gap-2.5 px-2 py-1.5 rounded-lg text-sm text-foreground hover:bg-hover-bg transition-colors cursor-pointer"
-            >
-              <span className="w-6 h-6 rounded-md bg-muted flex items-center justify-center">
-                <Link className="w-3.5 h-3.5 text-muted-foreground" />
-              </span>
-              <span className="text-xs">复制链接</span>
-            </button>
           </div>
         )}
       </div>
