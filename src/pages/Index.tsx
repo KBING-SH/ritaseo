@@ -121,7 +121,7 @@ const Index = () => {
                 上传你的照片，Rita AI 将为你生成多种风格的趣味卡通形象。支持人像、宠物、风景等多种照片类型，操作简单，几秒完成。
               </p>
             </div>
-            <div className={`flex-1 min-h-0 w-full px-4 flex items-end justify-center ${history.length > 0 ? "pb-4" : "pb-[180px]"}`}>
+            <div className={`flex-1 min-h-0 w-full px-4 flex items-end justify-center relative ${history.length > 0 ? "pb-4" : "pb-[180px]"}`}>
               {!isGenerating && !generatedImg ? (
                 <div className="w-full max-h-full aspect-[16/9] rounded-2xl overflow-hidden">
                   <StyleSelector />
@@ -132,13 +132,16 @@ const Index = () => {
                   <p className="text-sm text-muted-foreground">正在生成中...</p>
                 </div>
               ) : generatedImg ? (
-                <div className="flex items-center gap-3 h-full max-w-full">
-                  <div className="h-full max-w-full rounded-2xl overflow-hidden border border-border/50 shadow-lg animate-fade-in" style={{ aspectRatio: generatedRatio }}>
-                    <img src={generatedImg} alt="生成结果" className="w-full h-full object-cover" />
-                  </div>
-                  <ImageActionBar imageUrl={generatedImg} />
+                <div className="h-full max-w-full rounded-2xl overflow-hidden border border-border/50 shadow-lg animate-fade-in" style={{ aspectRatio: generatedRatio }}>
+                  <img src={generatedImg} alt="生成结果" className="w-full h-full object-cover" />
                 </div>
               ) : null}
+              {/* Action bar pinned to right edge */}
+              {generatedImg && !isGenerating && (
+                <div className="absolute right-4 top-1/2 -translate-y-1/2">
+                  <ImageActionBar imageUrl={generatedImg} />
+                </div>
+              )}
             </div>
 
             {/* Desktop history strip */}
