@@ -81,7 +81,7 @@ export function ContentSections({ onSelectStyle }: { onSelectStyle?: (styleIndex
           <UploadTooltip />
         </div>
       )}
-      <section className="py-10 md:py-24 space-y-10 md:space-y-20 lg:space-y-0">
+      <section className="space-y-0">
         <div className="max-w-[1600px] mx-auto space-y-0">
           {sections.map((section, i) => (
             <div
