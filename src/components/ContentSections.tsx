@@ -37,7 +37,7 @@ const sections = [
   },
   {
     icon: Mountain,
-    title: "Cartoonize Your Landscape Photos for Unique Artistic Effects with AI Photo to Cartoon",
+    title: "Transforming Landscapes into Charming Cartoon Effects with AI Photo to Cartoon",
     subtitle: "Transform scenic photos into cartoon artwork",
     image: null,
     comparison: { before: landscapeBefore, after: landscapeAfter },
