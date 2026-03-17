@@ -66,7 +66,7 @@ export function StepUploadAnimation({ active = true }: { active?: boolean }) {
             <div className="w-3 h-3 rounded-full bg-primary/20 flex items-center justify-center flex-shrink-0">
               <Check className="w-2 h-2 text-primary" />
             </div>
-            <span className="text-[0.5em] text-primary leading-none">上传成功</span>
+            <span className="text-[0.5em] text-primary leading-none">Upload successful</span>
           </motion.div>
           <p className="text-[0.55em] text-body-desc leading-none">提示词</p>
           <div className="h-[1.8em] rounded-md border border-border/40 bg-muted/10 px-[4%] flex items-center">
