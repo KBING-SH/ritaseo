@@ -44,10 +44,10 @@ export function LoginDialog({ open, onOpenChange }: LoginDialogProps) {
           </div>
 
           {/* Subtitle */}
-          <p className="text-sm text-muted-foreground text-center mb-1">还没有账号？</p>
+          <p className="text-sm text-muted-foreground text-center mb-1">Don't have an account?</p>
           <p className="text-sm text-center mb-8">
-            <span className="text-primary font-medium cursor-pointer hover:underline">注册</span>
-            <span className="text-muted-foreground"> 即可获得 40 免费积分</span>
+            <span className="text-primary font-medium cursor-pointer hover:underline">Sign up</span>
+            <span className="text-muted-foreground"> to get 40 free credits</span>
           </p>
 
           {/* Google login */}
