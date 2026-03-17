@@ -154,7 +154,7 @@ export function UploadPanel({ onGenerate, externalStyleRef }: { onGenerate?: (st
           <div id="upload-drop-zone" className="relative">
             {uploadedImage ? (
               <div className="relative rounded-lg border border-border/50 overflow-hidden animate-fade-in">
-                <img src={uploadedImage} alt="已上传的图片" className="w-full h-20 md:h-[90px] lg:h-28 object-cover" />
+                <img src={uploadedImage} alt="Uploaded image" className="w-full h-20 md:h-[90px] lg:h-28 object-cover" />
                 <button
                   onClick={removeImage}
                   className="absolute top-1.5 right-1.5 w-5 h-5 rounded-full bg-foreground/60 hover:bg-foreground/80 flex items-center justify-center transition-colors"
