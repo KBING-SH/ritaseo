@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { User, PawPrint, Mountain, ChevronRight } from "lucide-react";
-import sectionLandscape from "@/assets/section-landscape.webp";
+import landscapeBefore from "@/assets/landscape-before.jpg";
+import landscapeAfter from "@/assets/landscape-after.jpg";
 import petBefore from "@/assets/pet-before.jpg";
 import petAfter from "@/assets/pet-after.jpg";
 import portraitBefore from "@/assets/portrait-before.jpg";
