@@ -337,7 +337,7 @@ export function UploadPanel({ onGenerate, externalStyleRef }: { onGenerate?: (st
                   <h3 className="text-lg sm:text-xl font-bold text-title mb-4 sm:mb-5">
                     {previewStyle !== null && STYLE_OPTIONS[previewStyle].label}
                   </h3>
-                  <p className="text-sm font-semibold text-title mb-2">提示词</p>
+                  <p className="text-sm font-semibold text-title mb-2">Prompt</p>
                   <div className="rounded-xl border border-border/50 bg-muted p-3 sm:p-4 flex-1">
                     <p className="text-sm text-muted-foreground leading-relaxed">
                       {previewStyle !== null && STYLE_OPTIONS[previewStyle].prompt}
