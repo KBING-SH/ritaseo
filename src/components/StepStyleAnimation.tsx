@@ -12,14 +12,14 @@ import styleCute from "@/assets/style-cute.png";
 import styleMinimal from "@/assets/style-minimal.png";
 
 const STYLES = [
-  { src: styleGhibli, label: "吉卜力" },
-  { src: stylePixel, label: "像素" },
-  { src: styleRealistic, label: "写实" },
-  { src: styleInk, label: "水墨" },
-  { src: styleCartoon, label: "卡通" },
-  { src: styleClassic, label: "复古" },
-  { src: styleCute, label: "可爱" },
-  { src: styleMinimal, label: "极简" },
+  { src: styleGhibli, label: "Ghibli" },
+  { src: stylePixel, label: "Pixel" },
+  { src: styleRealistic, label: "Realistic" },
+  { src: styleInk, label: "Ink Wash" },
+  { src: styleCartoon, label: "Cartoon" },
+  { src: styleClassic, label: "Retro" },
+  { src: styleCute, label: "Cute" },
+  { src: styleMinimal, label: "Minimal" },
 ];
 
 // Grid center positions for cursor (left%, top%)
