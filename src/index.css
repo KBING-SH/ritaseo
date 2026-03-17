@@ -4,56 +4,57 @@
 
 @layer base {
   :root {
-    --primary: 240 73.9% 61%;
+    --primary: 240 74% 61%;
     --primary-foreground: 0 0% 100%;
 
     --background: 0 0% 100%;
-    --foreground: 0 0% 9%;
+    --foreground: 240 1% 20%;
 
     --card: 0 0% 100%;
     --card-foreground: 0 0% 9%;
-    --card-alt: 240 12% 95.5%;
+    --card-alt: 240 10% 96%;
 
     --popover: 0 0% 100%;
     --popover-foreground: 0 0% 9%;
 
-    --secondary: 240 12% 95.5%;
-    --secondary-foreground: 0 0% 20%;
+    --secondary: 240 10% 94%;
+    --secondary-foreground: 240 1% 64%;
 
-    --muted: 240 12% 95.5%;
-    --muted-foreground: 0 0% 47.5%;
+    --muted: 240 10% 96%;
+    --muted-foreground: 240 1% 64%;
 
-    --accent: 240 12% 95.5%;
-    --accent-foreground: 0 0% 20%;
+    --accent: 240 10% 94%;
+    --accent-foreground: 0 0% 9%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 240 15% 88%;
+    --border: 240 4% 90%;
     --input: 240 15% 88%;
     --ring: 240 73.9% 61%;
 
-    --radius: 0.75rem;
+    --radius: 0.5rem;
 
     /* Custom semantic tokens */
-    --title: 0 0% 19.6%;
-    --body2: 0 0.3% 47.1%;
-    --body-desc: 0 0.3% 63.1%;
-    --hover-bg: 300 3.6% 92.2%;
+    --title: 240 1% 20%;
+    --body2: 240 1% 47%;
+    --body-desc: 240 1% 64%;
+    --hover-bg: 240 11% 96%;
     --menu-selected: 0 0% 100%;
-    --gradient-start: 240 73.9% 61%;
-    --gradient-end: 162 63% 63.5%;
-    --theme1: 162 63% 63.5%;
-    --theme2: 240 73.9% 61%;
+    --gradient-start: 240 74% 61%;
+    --gradient-end: 160 56% 64%;
+    --theme1: 160 56% 64%;
+    --theme2: 240 74% 61%;
 
-    --sidebar-background: 0 0% 98%;
-    --sidebar-foreground: 240 5.3% 26.1%;
-    --sidebar-primary: 240 5.9% 10%;
-    --sidebar-primary-foreground: 0 0% 98%;
-    --sidebar-accent: 240 4.8% 95.9%;
-    --sidebar-accent-foreground: 240 5.9% 10%;
-    --sidebar-border: 220 13% 91%;
+    --sidebar-background: 240 6% 95%;
+    --sidebar-foreground: 0 0% 9%;
+    --sidebar-primary: 240 74% 61%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 10% 94%;
+    --sidebar-accent-foreground: 0 0% 9%;
+    --sidebar-border: 240 4% 90%;
     --sidebar-ring: 240 73.9% 61%;
+    --sidebar-hover: 240 11% 96%;
   }
 
   .dark {
