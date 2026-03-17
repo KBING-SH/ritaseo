@@ -244,7 +244,7 @@ const Index = () => {
               <div className="flex flex-col lg:flex-row gap-12 lg:gap-10 mb-12">
                 <div className="lg:w-40 shrink-0 space-y-2">
                   <div className="flex items-center gap-2.5">
-                    <div className="h-9 w-9 rounded-xl gradient-primary" />
+                    <img src={ritaLogo} alt="Rita" className="h-9 w-9 rounded-xl" />
                     <span className="text-xl font-bold text-title italic">Rita</span>
                   </div>
                   <p className="text-xs text-muted-foreground leading-snug">Rita让创意和效率人人可得</p>
