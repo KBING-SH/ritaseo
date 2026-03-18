@@ -45,10 +45,10 @@ const SCRIPT: { step: Step; duration: number }[] = [
   { step: { type: "move", target: 3 }, duration: 600 },        // move to 中国墨
   { step: { type: "select", target: 3 }, duration: 200 },       // click
   { step: { type: "hold" }, duration: 1200 },
-  { step: { type: "move", target: 1 }, duration: 600 },         // move to 像素
+  { step: { type: "move", target: 1 }, duration: 600 },         // move to Pixel
   { step: { type: "select", target: 1 }, duration: 200 },       // click
   { step: { type: "hold" }, duration: 1200 },
-  { step: { type: "move", target: 4 }, duration: 600 },         // move to 卡通
+  { step: { type: "move", target: 4 }, duration: 600 },         // move to Cartoon
   { step: { type: "select", target: 4 }, duration: 200 },       // click
   { step: { type: "hold" }, duration: 1000 },
   { step: { type: "moveBtn" }, duration: 600 },                  // move to button

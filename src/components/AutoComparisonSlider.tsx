@@ -13,8 +13,8 @@ interface AutoComparisonSliderProps {
 export function AutoComparisonSlider({
   beforeSrc,
   afterSrc,
-  beforeAlt = "原始照片",
-  afterAlt = "卡通效果",
+  beforeAlt = "Original photo",
+  afterAlt = "Cartoon effect",
   speed = 10,
   min = 0,
   max = 100,

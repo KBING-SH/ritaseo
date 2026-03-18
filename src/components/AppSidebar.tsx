@@ -13,37 +13,37 @@ interface SidebarItem {
 
 const menuItems: SidebarItem[] = [
   {
-    label: "AI 图像",
+    label: "AI Image",
     icon: Image,
     children: [
-      { label: "图像生成" },
-      { label: "照片卡通化", active: true },
-      { label: "图像增强" },
+      { label: "Image Generation" },
+      { label: "Photo to Cartoon", active: true },
+      { label: "Image Enhancement" },
     ],
   },
   {
-    label: "AI 特效",
+    label: "AI Effects",
     icon: Sparkles,
     children: [
-      { label: "智能抠图" },
-      { label: "背景替换" },
+      { label: "Smart Cutout" },
+      { label: "Background Replace" },
     ],
   },
   {
-    label: "图像工具",
+    label: "Image Tools",
     icon: Wand2,
     children: [
-      { label: "图像压缩" },
-      { label: "格式转换" },
-      { label: "尺寸调整" },
+      { label: "Image Compression" },
+      { label: "Format Conversion" },
+      { label: "Resize" },
     ],
   },
   {
-    label: "模型库",
+    label: "Model Library",
     icon: Layers,
   },
   {
-    label: "调色板",
+    label: "Palette",
     icon: Palette,
   },
 ];

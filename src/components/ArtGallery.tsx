@@ -100,7 +100,7 @@ export function ArtGallery() {
             onClick={handleTryNow}
             className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full gradient-primary text-primary-foreground text-sm font-medium hover:opacity-90 transition-opacity shadow-soft"
           >
-            ✨ 立即体验 AI 创作
+            ✨ Try AI Creation Now
           </button>
         </div>
       </section>
