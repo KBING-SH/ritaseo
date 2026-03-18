@@ -36,9 +36,19 @@ const row2 = galleryImages.slice(7);
 
 function GalleryRow({ items, reverse = false }: { items: typeof galleryImages; reverse?: boolean }) {
   const repeated = [...items, ...items, ...items, ...items];
+  const { scrollRef, handlers } = useDraggableMarquee();
+
   return (
-    <div className="overflow-hidden" style={{ maskImage: "linear-gradient(to right, transparent, black 8%, black 92%, transparent)" }}>
-      <div className={`flex gap-4 w-max ${reverse ? "animate-marquee-reverse" : "animate-marquee"}`}>
+    <div
+      className="overflow-hidden cursor-grab active:cursor-grabbing select-none touch-none scrollbar-hide"
+      style={{ maskImage: "linear-gradient(to right, transparent, black 8%, black 92%, transparent)" }}
+      {...handlers}
+    >
+      <div
+        ref={scrollRef}
+        className={`flex gap-4 w-max ${reverse ? "animate-marquee-reverse" : "animate-marquee"}`}
+        style={{ willChange: "transform" }}
+      >
         {repeated.map((img, i) => (
           <div
             key={i}
@@ -47,9 +57,12 @@ function GalleryRow({ items, reverse = false }: { items: typeof galleryImages; r
             <div className="rounded-xl overflow-hidden border border-border/50 shadow-soft group-hover:shadow-soft-lg transition-shadow duration-300">
               <img
                 src={img.src}
-                alt={img.label}
+                alt={`${img.label} — AI cartoon style example by Rita`}
                 className="w-full aspect-[4/3] object-cover group-hover:scale-105 transition-transform duration-500"
                 loading="lazy"
+                width="240"
+                height="180"
+                draggable={false}
               />
             </div>
             <p className="text-xs text-body-desc text-center mt-2">{img.label}</p>
