@@ -15,7 +15,7 @@ const sections = [
     subtitle: "Transform your selfies into unique cartoon avatars",
     image: null,
     comparison: { before: portraitBefore, after: portraitAfter },
-    imageAlt: "AI Photo to Cartoon Portrait",
+    imageAlt: "Young woman's selfie transformed into a colorful cartoon avatar using AI Photo to Cartoon",
     paragraphs: [
       "Create a cartoon portrait with AI Photo to Cartoon by uploading a clear photo. This tool converts your portrait into a charming cartoon avatar that highlights your unique features. Choose a style and enjoy a personalized image suitable for social media or gifts. Explore AI Photo to Cartoon to see your portrait in a new way.",
     ],
@@ -27,7 +27,7 @@ const sections = [
     subtitle: "Create charming cartoon portraits of your pets",
     image: null,
     comparison: { before: petBefore, after: petAfter },
-    imageAlt: "AI Photo to Cartoon Pet",
+    imageAlt: "Golden retriever puppy turned into a playful cartoon portrait with AI Photo to Cartoon",
     paragraphs: [
       "Generate a cartoon portrait of your pet using AI Photo to Cartoon. Upload a clear photo of your pet and let the tool transform it into a playful cartoon style. This effect brings out your pet's personality in a fun and engaging way. Share your pet's new look created by AI Photo to Cartoon with friends and family.",
     ],
@@ -39,7 +39,7 @@ const sections = [
     subtitle: "Transform scenic photos into cartoon artwork",
     image: null,
     comparison: { before: landscapeBefore, after: landscapeAfter },
-    imageAlt: "AI Photo to Cartoon Landscape",
+    imageAlt: "Mountain lake scenery converted into vibrant cartoon artwork using AI Photo to Cartoon",
     paragraphs: [
       "Apply a cartoon effect with AI Photo to Cartoon that turns your landscape photos into appealing cartoon images. Upload your favorite scene and watch it become a colorful cartoon portrait. Enjoy a fresh artistic interpretation of your landscapes with AI Photo to Cartoon.",
     ],
