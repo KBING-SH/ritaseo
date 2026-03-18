@@ -98,19 +98,6 @@ function MarqueeRow({
               <blockquote className="text-xs md:text-sm text-body2 leading-relaxed md:leading-[1.75] mb-2 md:mb-4 line-clamp-3">
                 "{t.content}"
               </blockquote>
-              <div className="flex gap-0.5 mb-2 md:mb-4">
-                {Array.from({ length: 5 }).map((_, s) => (
-                  <Star
-                    key={s}
-                    className={cn(
-                      "h-3 w-3",
-                      s < t.rating
-                        ? "text-amber-400 fill-amber-400"
-                        : "text-border fill-border"
-                    )}
-                  />
-                ))}
-              </div>
               <figcaption className="flex items-center gap-2 md:gap-3">
                 <img
                   src={t.avatar}
