@@ -170,9 +170,6 @@ export function TestimonialsSection() {
         <h2 className="text-xl md:text-3xl font-bold text-title text-center mb-2 md:mb-3">
           What Users Say About AI Photo to Cartoon
         </h2>
-        <p className="text-sm md:text-base text-body-desc text-center max-w-lg mx-auto">
-          Rated 4.9/5.0 from 50,000+ reviews — read real user experiences
-        </p>
       </div>
 
       <div className="space-y-3 md:space-y-5">
