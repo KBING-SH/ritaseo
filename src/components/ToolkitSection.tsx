@@ -32,47 +32,49 @@ export function ToolkitSection() {
   const { scrollRef, handlers } = useDraggableMarquee();
 
   return (
-    <section className="py-10 md:py-24 bg-card-alt overflow-hidden">
+    <nav aria-labelledby="more-tools-title" className="py-10 md:py-24 bg-card-alt overflow-hidden">
       <div className="container px-4 md:px-8 max-w-6xl mb-6 md:mb-10">
-        <h2 className="text-xl md:text-3xl font-bold text-title text-center mb-2 md:mb-3">
-          More Free AI Image Tools by Rita
+        <h2 id="more-tools-title" className="text-xl md:text-3xl font-bold text-title text-center mb-2 md:mb-3">
+          Explore More Rita AI Image Tools
         </h2>
         <p className="text-sm md:text-base text-body-desc text-center">
           Upscale, remove backgrounds, generate pixel art and more — all powered by AI
         </p>
       </div>
 
-      <div
-        className="overflow-hidden cursor-grab active:cursor-grabbing select-none touch-none scrollbar-hide"
+      <ul
+        className="overflow-hidden cursor-grab active:cursor-grabbing select-none touch-none scrollbar-hide list-none p-0 m-0"
         style={{ maskImage: "linear-gradient(to right, transparent, black 5%, black 95%, transparent)" }}
         {...handlers}
       >
-        <div ref={scrollRef} className="flex gap-5 w-max animate-marquee" style={{ willChange: "transform" }}>
-          {repeated.map((t, i) => (
-            <a
-              key={i}
-              href={t.href}
-              className="shrink-0 w-[220px] md:w-[260px] cursor-pointer group block"
-              draggable={false}
-            >
-              <div className={`rounded-2xl bg-gradient-to-br ${t.gradient} p-5 pb-0 overflow-hidden transition-all duration-300 group-hover:-translate-y-1 group-hover:shadow-soft-lg`}>
-                <h3 className="text-sm font-bold text-title mb-4">{t.name}</h3>
-                <div className="flex justify-center">
-                  <img
-                    src={t.image}
-                    alt={`${t.name} — AI-powered creative tool by Rita`}
-                    className="w-[85%] aspect-[3/4] object-cover object-top rounded-t-xl shadow-lg"
-                    loading="lazy"
-                    width="187"
-                    height="249"
-                    draggable={false}
-                  />
+        <li className="contents">
+          <div ref={scrollRef} className="flex gap-5 w-max animate-marquee" style={{ willChange: "transform" }}>
+            {repeated.map((t, i) => (
+              <a
+                key={i}
+                href={t.href}
+                className="shrink-0 w-[220px] md:w-[260px] cursor-pointer group block"
+                draggable={false}
+              >
+                <div className={`rounded-2xl bg-gradient-to-br ${t.gradient} p-5 pb-0 overflow-hidden transition-all duration-300 group-hover:-translate-y-1 group-hover:shadow-soft-lg`}>
+                  <h3 className="text-sm font-bold text-title mb-4">{t.name}</h3>
+                  <div className="flex justify-center">
+                    <img
+                      src={t.image}
+                      alt={`${t.name} — AI-powered creative tool by Rita`}
+                      className="w-[85%] aspect-[3/4] object-cover object-top rounded-t-xl shadow-lg"
+                      loading="lazy"
+                      width="187"
+                      height="249"
+                      draggable={false}
+                    />
+                  </div>
                 </div>
-              </div>
-            </a>
-          ))}
-        </div>
-      </div>
-    </section>
+              </a>
+            ))}
+          </div>
+        </li>
+      </ul>
+    </nav>
   );
 }
