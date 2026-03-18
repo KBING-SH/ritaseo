@@ -7,7 +7,7 @@ const steps = [
   {
     step: "01",
     title: "Upload Photo",
-    desc: "Drag and drop or click to upload portrait, pet, or landscape photos. Supports PNG / JPG / WEBP, up to 32 MB.",
+    desc: "Drag and drop or click to upload portrait, pet, or landscape photos. Supports PNG / JPG / WEBP, desc: "Drag and drop or click to upload portrait, pet, or landscape photos. Supports PNG / JPG / WEBP, up to 20 MB.",",
     color: "from-primary to-theme1",
   },
   {
