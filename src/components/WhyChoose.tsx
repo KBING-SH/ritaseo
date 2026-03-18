@@ -98,7 +98,7 @@ export function WhyChoose() {
               </div>
 
               <p className="text-sm text-body-desc leading-relaxed">
-                {f.descFn ? f.descFn(modelNames) : f.desc}
+                {f.desc}
               </p>
             </div>
           ))}
