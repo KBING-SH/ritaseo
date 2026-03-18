@@ -11,7 +11,7 @@ import { AutoComparisonSlider } from "@/components/AutoComparisonSlider";
 const sections = [
   {
     icon: User,
-    title: "Portrait Cartoon Style",
+    title: "AI Portrait to Cartoon — Turn Selfies into Cartoon Avatars",
     subtitle: "Transform your selfies into unique cartoon avatars",
     image: null,
     comparison: { before: portraitBefore, after: portraitAfter },
@@ -23,7 +23,7 @@ const sections = [
   },
   {
     icon: PawPrint,
-    title: "Pet Cartoon Portraits",
+    title: "AI Pet Photo to Cartoon — Cartoon Portraits for Cats & Dogs",
     subtitle: "Create charming cartoon portraits of your pets",
     image: null,
     comparison: { before: petBefore, after: petAfter },
@@ -35,7 +35,7 @@ const sections = [
   },
   {
     icon: Mountain,
-    title: "Landscape Cartoons",
+    title: "AI Landscape to Cartoon — Scenic Photos as Cartoon Art",
     subtitle: "Transform scenic photos into cartoon artwork",
     image: null,
     comparison: { before: landscapeBefore, after: landscapeAfter },

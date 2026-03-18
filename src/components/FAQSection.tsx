@@ -37,7 +37,7 @@ export function FAQSection() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
-    <section className="py-10 md:py-24">
+    <section className="py-10 md:py-24" itemScope itemType="https://schema.org/FAQPage">
       <div className="container px-4 md:px-8 max-w-3xl">
         {/* Header */}
         <div className="flex items-center justify-center gap-3 mb-6 md:mb-10">
@@ -56,6 +56,9 @@ export function FAQSection() {
               <div
                 key={i}
                 className={cn(!isLast && "border-b border-border/40")}
+                itemScope
+                itemProp="mainEntity"
+                itemType="https://schema.org/Question"
               >
                 <button
                   onClick={() => setOpenIndex(isOpen ? null : i)}
@@ -76,6 +79,7 @@ export function FAQSection() {
                       {String(i + 1).padStart(2, "0")}
                     </span>
                     <span
+                      itemProp="name"
                       className={cn(
                         "text-[15px] font-medium transition-colors",
                         isOpen ? "text-title" : "text-title group-hover:text-primary"
@@ -98,9 +102,12 @@ export function FAQSection() {
                     "grid transition-all duration-300 ease-out",
                     isOpen ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
                   )}
+                  itemScope
+                  itemProp="acceptedAnswer"
+                  itemType="https://schema.org/Answer"
                 >
                   <div className="overflow-hidden">
-                    <p className="px-6 pb-5 pl-[3.75rem] text-sm text-body-desc leading-[1.8]">
+                    <p itemProp="text" className="px-6 pb-5 pl-[3.75rem] text-sm text-body-desc leading-[1.8]">
                       {faq.a}
                     </p>
                   </div>
