@@ -58,7 +58,7 @@ const features = [
 ];
 
 export function WhyChoose() {
-  const modelNames = MODEL_LABELS.slice(0, 3);
+  
 
   return (
     <section className="py-10 md:py-24 bg-card-alt">
