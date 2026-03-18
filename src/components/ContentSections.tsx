@@ -15,7 +15,7 @@ const sections = [
     subtitle: "Transform your selfies into unique cartoon avatars",
     image: null,
     comparison: { before: portraitBefore, after: portraitAfter },
-    imageAlt: "AI Photo to Cartoon Portrait",
+    imageAlt: "Young woman's selfie transformed into a colorful cartoon avatar using AI Photo to Cartoon",
     paragraphs: [
       "Create a cartoon portrait with AI Photo to Cartoon by uploading a clear photo. This tool converts your portrait into a charming cartoon avatar that highlights your unique features. Choose a style and enjoy a personalized image suitable for social media or gifts. Explore AI Photo to Cartoon to see your portrait in a new way.",
     ],
