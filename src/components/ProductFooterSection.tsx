@@ -85,8 +85,8 @@ export const ProductFooterSection = () => {
           <h5 className="font-semibold text-title mb-2 text-xs">{col.title}</h5>
           <ul className="space-y-1.5">
             {col.links.map((link) => (
-              <li key={link}>
-                <a href="#" className="text-xs text-body-desc hover:text-primary transition-colors">{link}</a>
+              <li key={link.label}>
+                <a href={link.href} className="text-xs text-body-desc hover:text-primary transition-colors">{link.label}</a>
               </li>
             ))}
           </ul>

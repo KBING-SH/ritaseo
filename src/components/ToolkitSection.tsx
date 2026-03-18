@@ -46,22 +46,25 @@ export function ToolkitSection() {
       >
         <div className="flex gap-5 w-max animate-marquee">
           {repeated.map((t, i) => (
-            <div
+            <a
               key={i}
-              className="shrink-0 w-[220px] md:w-[260px] cursor-pointer group"
+              href={t.href}
+              className="shrink-0 w-[220px] md:w-[260px] cursor-pointer group block"
             >
               <div className={`rounded-2xl bg-gradient-to-br ${t.gradient} p-5 pb-0 overflow-hidden transition-all duration-300 group-hover:-translate-y-1 group-hover:shadow-soft-lg`}>
                 <h3 className="text-sm font-bold text-title mb-4">{t.name}</h3>
                 <div className="flex justify-center">
                   <img
                     src={t.image}
-                    alt={t.name}
+                    alt={`${t.name} — AI-powered creative tool by Rita`}
                     className="w-[85%] aspect-[3/4] object-cover object-top rounded-t-xl shadow-lg"
                     loading="lazy"
+                    width="187"
+                    height="249"
                   />
                 </div>
               </div>
-            </div>
+            </a>
           ))}
         </div>
       </div>
