@@ -10,6 +10,7 @@ import toolOutpaint from "@/assets/tool-outpaint.webp";
 import toolVideo from "@/assets/tool-video.webp";
 import toolRestore from "@/assets/tool-restore.webp";
 import toolPixar from "@/assets/tool-pixar.webp";
+import { useDraggableMarquee } from "@/hooks/use-draggable-marquee";
 
 const tools = [
   { name: "AI Image Generator", href: "https://www.rita.ai/ai-image-generator", gradient: "from-[hsl(210,80%,82%)] to-[hsl(240,65%,85%)]", image: toolImagegen },
@@ -28,6 +29,7 @@ const tools = [
 
 export function ToolkitSection() {
   const repeated = [...tools, ...tools, ...tools, ...tools];
+  const { scrollRef, handlers } = useDraggableMarquee();
 
   return (
     <section className="py-10 md:py-24 bg-card-alt overflow-hidden">
@@ -41,15 +43,17 @@ export function ToolkitSection() {
       </div>
 
       <div
-        className="overflow-hidden"
+        className="overflow-hidden cursor-grab active:cursor-grabbing select-none touch-none scrollbar-hide"
         style={{ maskImage: "linear-gradient(to right, transparent, black 5%, black 95%, transparent)" }}
+        {...handlers}
       >
-        <div className="flex gap-5 w-max animate-marquee">
+        <div ref={scrollRef} className="flex gap-5 w-max animate-marquee">
           {repeated.map((t, i) => (
             <a
               key={i}
               href={t.href}
               className="shrink-0 w-[220px] md:w-[260px] cursor-pointer group block"
+              draggable={false}
             >
               <div className={`rounded-2xl bg-gradient-to-br ${t.gradient} p-5 pb-0 overflow-hidden transition-all duration-300 group-hover:-translate-y-1 group-hover:shadow-soft-lg`}>
                 <h3 className="text-sm font-bold text-title mb-4">{t.name}</h3>
@@ -61,6 +65,7 @@ export function ToolkitSection() {
                     loading="lazy"
                     width="187"
                     height="249"
+                    draggable={false}
                   />
                 </div>
               </div>
