@@ -63,6 +63,7 @@ function MarqueeRow({
           "flex gap-3 md:gap-5 w-max",
           reverse ? "animate-marquee-reverse" : "animate-marquee"
         )}
+        style={{ willChange: "transform" }}
       >
         {[...items, ...items, ...items, ...items].map((t, i) => (
           <div

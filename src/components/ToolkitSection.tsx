@@ -47,7 +47,7 @@ export function ToolkitSection() {
         style={{ maskImage: "linear-gradient(to right, transparent, black 5%, black 95%, transparent)" }}
         {...handlers}
       >
-        <div ref={scrollRef} className="flex gap-5 w-max animate-marquee">
+        <div ref={scrollRef} className="flex gap-5 w-max animate-marquee" style={{ willChange: "transform" }}>
           {repeated.map((t, i) => (
             <a
               key={i}
