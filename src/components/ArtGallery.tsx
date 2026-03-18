@@ -14,20 +14,20 @@ import afterImg from "@/assets/after.webp";
 import beforeImg from "@/assets/before.webp";
 
 const galleryImages = [
-  { src: styleGhibli, label: "吉卜力风格" },
-  { src: sectionPortrait, label: "人像卡通" },
-  { src: stylePixel, label: "像素艺术" },
-  { src: styleCute, label: "可爱风格" },
-  { src: sectionPet, label: "宠物卡通" },
-  { src: styleRealistic, label: "写实艺术" },
-  { src: styleInk, label: "水墨风格" },
-  { src: afterImg, label: "动漫风格" },
-  { src: styleCartoon, label: "卡通风格" },
-  { src: sectionLandscape, label: "风景卡通" },
-  { src: styleClassic, label: "复古风格" },
-  { src: styleMinimal, label: "极简风格" },
-  { src: beforeImg, label: "原图参考" },
-  { src: styleCute, label: "萌系风格" },
+  { src: styleGhibli, label: "Ghibli Style" },
+  { src: sectionPortrait, label: "Portrait Cartoon" },
+  { src: stylePixel, label: "Pixel Art" },
+  { src: styleCute, label: "Cute Style" },
+  { src: sectionPet, label: "Pet Cartoon" },
+  { src: styleRealistic, label: "Realistic Art" },
+  { src: styleInk, label: "Ink Style" },
+  { src: afterImg, label: "Anime Style" },
+  { src: styleCartoon, label: "Cartoon Style" },
+  { src: sectionLandscape, label: "Landscape Cartoon" },
+  { src: styleClassic, label: "Retro Style" },
+  { src: styleMinimal, label: "Minimal Style" },
+  { src: beforeImg, label: "Original Reference" },
+  { src: styleCute, label: "Kawaii Style" },
 ];
 
 const row1 = galleryImages.slice(0, 7);
