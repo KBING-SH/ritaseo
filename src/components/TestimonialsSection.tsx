@@ -38,10 +38,45 @@ const testimonials = [
     content: "I enjoyed experimenting with AI Photo to Cartoon to create fun, cartoon-like images for social media. The results were appealing, and the tool was easy to navigate. Some photos worked better than others, but overall it's a good creative resource.",
     rating: 4,
   },
+  {
+    name: "Alex W.",
+    role: "Illustrator",
+    avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop",
+    content: "As an illustrator, I was curious about AI Photo to Cartoon. It surprised me — the Ghibli and ink wash styles are genuinely impressive. I now use it for quick concept references before starting my own illustrations. Great time saver.",
+    rating: 5,
+  },
+  {
+    name: "Rachel H.",
+    role: "Teacher",
+    avatar: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=400&h=400&fit=crop",
+    content: "My students absolutely loved seeing their class photos turned into cartoons! AI Photo to Cartoon made our end-of-year slideshow so much more fun. The process was easy enough that even my less tech-savvy colleagues could use it.",
+    rating: 5,
+  },
+  {
+    name: "James P.",
+    role: "Small Business Owner",
+    avatar: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=400&h=400&fit=crop",
+    content: "I used AI Photo to Cartoon to create cartoon avatars for my team's profile pictures on our website. Customers love the friendly, approachable look. The HD watermark-free output meant I could use them directly — no extra editing needed.",
+    rating: 4,
+  },
+  {
+    name: "Linda C.",
+    role: "Pet Blogger",
+    avatar: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400&h=400&fit=crop",
+    content: "Turning my cats' photos into cartoon portraits was the highlight of my week! AI Photo to Cartoon captured their personalities perfectly. My followers on Instagram went crazy for the results. Definitely recommend for any pet content creator.",
+    rating: 5,
+  },
+  {
+    name: "Chris N.",
+    role: "UX Designer",
+    avatar: "https://images.unsplash.com/photo-1519345182560-3f2917c472ef?w=400&h=400&fit=crop",
+    content: "The variety of styles in AI Photo to Cartoon is what sets it apart. I've tried pixel, chibi, and realistic — each produces a distinct look. It's become part of my design toolkit for creating playful mockups and presentation visuals.",
+    rating: 4,
+  },
 ];
 
-const row1 = testimonials.slice(0, 3);
-const row2 = testimonials.slice(3, 5);
+const row1 = testimonials.slice(0, 5);
+const row2 = testimonials.slice(5, 10);
 
 function MarqueeRow({
   items,
