@@ -1,21 +1,19 @@
 import { Zap, Paintbrush, Download, Wand2, Sparkles, Shield } from "lucide-react";
-import { MODEL_LABELS } from "@/components/UploadPanel";
 
 const features = [
   {
     icon: Zap,
-    title: "Free to Use",
-    desc: "No sign-up or payment needed — just open and go. Upload a photo and generate a cartoon avatar in one click, with zero barriers to AI creation.",
+    title: "Simple Workflow",
+    desc: "Upload a photo, choose a style, and generate a cartoon image in a few steps — get started quickly with no complicated setup.",
     accent: "from-[hsl(45,100%,60%)] to-[hsl(30,95%,55%)]",
     iconBg: "bg-gradient-to-br from-[hsl(45,100%,60%)] to-[hsl(30,95%,55%)]",
-    stat: "$0",
-    statLabel: "Cost",
+    stat: "3",
+    statLabel: "Steps",
   },
   {
     icon: Wand2,
-    title: "Multi-Model Powered",
-    descFn: (models: string[]) =>
-      `Built-in ${models.join(", ")} and more advanced AI models, each excelling at different styles, ensuring every generation is precise and impressive.`,
+    title: "Multiple AI Models",
+    desc: "Powered by multiple AI models for different visual styles, ensuring varied and expressive cartoon generation results.",
     accent: "from-[hsl(240,74%,61%)] to-[hsl(280,65%,60%)]",
     iconBg: "bg-gradient-to-br from-[hsl(240,74%,61%)] to-[hsl(280,65%,60%)]",
     stat: "7+",
@@ -23,17 +21,17 @@ const features = [
   },
   {
     icon: Download,
-    title: "HD & Watermark-Free",
-    desc: "Generated results are high-definition and watermark-free, ready to use for social avatars, content creation, commercial design, and more — no post-processing needed.",
+    title: "High-Quality Output",
+    desc: "Download ready-to-use cartoon images suitable for social avatars, content creation, and personal projects.",
     accent: "from-[hsl(162,63%,50%)] to-[hsl(180,60%,45%)]",
     iconBg: "bg-gradient-to-br from-[hsl(162,63%,50%)] to-[hsl(180,60%,45%)]",
     stat: "HD",
-    statLabel: "Output Quality",
+    statLabel: "Quality",
   },
   {
     icon: Sparkles,
     title: "Multiple Styles",
-    desc: "Choose from Ghibli, Pixel, Ink, Retro Fashion, and many more popular styles — one photo, multiple creative options with unlimited inspiration.",
+    desc: "Explore different cartoon looks including Ghibli, Pixel, Ink, Retro, and more — one photo, multiple creative options.",
     accent: "from-[hsl(340,75%,55%)] to-[hsl(300,60%,55%)]",
     iconBg: "bg-gradient-to-br from-[hsl(340,75%,55%)] to-[hsl(300,60%,55%)]",
     stat: "8+",
@@ -42,7 +40,7 @@ const features = [
   {
     icon: Paintbrush,
     title: "Custom Prompts",
-    desc: "Enter your own custom prompts to precisely control cartoon effect details and mood, creating a one-of-a-kind personalized image.",
+    desc: "Enter your own prompts to guide cartoon effect details and mood, creating personalized results tailored to your vision.",
     accent: "from-[hsl(200,80%,55%)] to-[hsl(220,75%,55%)]",
     iconBg: "bg-gradient-to-br from-[hsl(200,80%,55%)] to-[hsl(220,75%,55%)]",
     stat: "∞",
@@ -50,17 +48,17 @@ const features = [
   },
   {
     icon: Shield,
-    title: "Privacy & Security",
-    desc: "Photos are only used to generate cartoon images. They are automatically deleted after processing — never stored or shared, keeping your privacy safe.",
+    title: "Privacy Focused",
+    desc: "We prioritize user privacy during image processing. Uploaded photos are handled according to Rita's privacy policy.",
     accent: "from-[hsl(150,55%,45%)] to-[hsl(162,63%,50%)]",
     iconBg: "bg-gradient-to-br from-[hsl(150,55%,45%)] to-[hsl(162,63%,50%)]",
-    stat: "100%",
+    stat: "✓",
     statLabel: "Privacy",
   },
 ];
 
 export function WhyChoose() {
-  const modelNames = MODEL_LABELS.slice(0, 3);
+  
 
   return (
     <section className="py-10 md:py-24 bg-card-alt">
@@ -100,7 +98,7 @@ export function WhyChoose() {
               </div>
 
               <p className="text-sm text-body-desc leading-relaxed">
-                {f.descFn ? f.descFn(modelNames) : f.desc}
+                {f.desc}
               </p>
             </div>
           ))}
