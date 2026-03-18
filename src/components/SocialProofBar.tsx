@@ -38,16 +38,7 @@ export function SocialProofBar() {
           >
             <s.icon className={`h-4 w-4 md:h-5 md:w-5 ${s.color} shrink-0`} />
             <div>
-              <div className="flex items-center gap-1">
                 <span className="text-sm md:text-lg font-bold text-title">{s.value}</span>
-                {s.stars && (
-                  <div className="flex">
-                    {[...Array(5)].map((_, j) => (
-                      <Star key={j} className="h-3 w-3 fill-yellow-400 text-yellow-400" />
-                    ))}
-                  </div>
-                )}
-              </div>
               <span className="text-[10px] md:text-xs text-body-desc">{s.label}</span>
             </div>
           </div>
