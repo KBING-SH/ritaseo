@@ -232,6 +232,7 @@ const Index = () => {
       {/* Below first screen: full-width content */}
       <div>
           
+          <ToolFeatures />
           <HowItWorks />
           
           <ContentSections onSelectStyle={handleSelectStyle} />
