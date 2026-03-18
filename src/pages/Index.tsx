@@ -255,16 +255,25 @@ const Index = () => {
                   <div>
                     <h4 className="font-bold text-title mb-4 text-sm">About</h4>
                     <ul className="space-y-1.5">
-                      {["About Us", "Contact Us"].map((l) => (
-                        <li key={l}><a href="#" className="text-xs text-body-desc hover:text-primary transition-colors">{l}</a></li>
+                      {[
+                        { label: "About Us", href: "https://www.rita.ai/about" },
+                        { label: "Contact Us", href: "https://www.rita.ai/contact" },
+                      ].map((l) => (
+                        <li key={l.label}><a href={l.href} className="text-xs text-body-desc hover:text-primary transition-colors">{l.label}</a></li>
                       ))}
                     </ul>
                   </div>
                   <div>
                     <h4 className="font-bold text-title mb-4 text-sm">Legal</h4>
                     <ul className="space-y-1.5">
-                      {["Terms & Conditions", "Privacy Policy", "Copyright Policy", "Refund Policy", "AML Policy"].map((l) => (
-                        <li key={l}><a href="#" className="text-xs text-body-desc hover:text-primary transition-colors">{l}</a></li>
+                      {[
+                        { label: "Terms & Conditions", href: "https://www.rita.ai/terms" },
+                        { label: "Privacy Policy", href: "https://www.rita.ai/privacy" },
+                        { label: "Copyright Policy", href: "https://www.rita.ai/copyright" },
+                        { label: "Refund Policy", href: "https://www.rita.ai/refund" },
+                        { label: "AML Policy", href: "https://www.rita.ai/aml" },
+                      ].map((l) => (
+                        <li key={l.label}><a href={l.href} className="text-xs text-body-desc hover:text-primary transition-colors">{l.label}</a></li>
                       ))}
                     </ul>
                   </div>

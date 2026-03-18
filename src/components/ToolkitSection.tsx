@@ -12,18 +12,18 @@ import toolRestore from "@/assets/tool-restore.webp";
 import toolPixar from "@/assets/tool-pixar.webp";
 
 const tools = [
-  { name: "AI Image Generator", gradient: "from-[hsl(210,80%,82%)] to-[hsl(240,65%,85%)]", image: toolImagegen },
-  { name: "AI Image Upscaler", gradient: "from-[hsl(270,55%,82%)] to-[hsl(300,50%,80%)]", image: toolUpscale },
-  { name: "AI Background Remover", gradient: "from-[hsl(350,60%,82%)] to-[hsl(15,65%,82%)]", image: toolBgRemover },
-  { name: "AI Watermark Remover", gradient: "from-[hsl(260,50%,82%)] to-[hsl(290,55%,80%)]", image: toolWatermark },
-  { name: "AI Anime Generator", gradient: "from-[hsl(180,55%,80%)] to-[hsl(200,60%,82%)]", image: toolAnime },
-  { name: "AI Pixel Art Generator", gradient: "from-[hsl(15,70%,82%)] to-[hsl(40,65%,80%)]", image: toolPixel },
-  { name: "AI Ghibli Style", gradient: "from-[hsl(45,60%,82%)] to-[hsl(80,50%,80%)]", image: toolGhibli },
-  { name: "AI Avatar Generator", gradient: "from-[hsl(170,55%,80%)] to-[hsl(200,60%,82%)]", image: toolAvatar },
-  { name: "AI Outpainting", gradient: "from-[hsl(30,65%,82%)] to-[hsl(50,60%,80%)]", image: toolOutpaint },
-  { name: "AI Video Generator", gradient: "from-[hsl(200,65%,82%)] to-[hsl(230,55%,85%)]", image: toolVideo },
-  { name: "AI Pixar Style", gradient: "from-[hsl(300,45%,82%)] to-[hsl(330,50%,80%)]", image: toolPixar },
-  { name: "AI Photo Restore", gradient: "from-[hsl(150,50%,80%)] to-[hsl(180,55%,82%)]", image: toolRestore },
+  { name: "AI Image Generator", href: "https://www.rita.ai/ai-image-generator", gradient: "from-[hsl(210,80%,82%)] to-[hsl(240,65%,85%)]", image: toolImagegen },
+  { name: "AI Image Upscaler", href: "https://www.rita.ai/ai-image-upscaler", gradient: "from-[hsl(270,55%,82%)] to-[hsl(300,50%,80%)]", image: toolUpscale },
+  { name: "AI Background Remover", href: "https://www.rita.ai/ai-background-remover", gradient: "from-[hsl(350,60%,82%)] to-[hsl(15,65%,82%)]", image: toolBgRemover },
+  { name: "AI Watermark Remover", href: "https://www.rita.ai/ai-watermark-remover", gradient: "from-[hsl(260,50%,82%)] to-[hsl(290,55%,80%)]", image: toolWatermark },
+  { name: "AI Anime Generator", href: "https://www.rita.ai/ai-anime-generator", gradient: "from-[hsl(180,55%,80%)] to-[hsl(200,60%,82%)]", image: toolAnime },
+  { name: "AI Pixel Art Generator", href: "https://www.rita.ai/ai-pixel-art-generator", gradient: "from-[hsl(15,70%,82%)] to-[hsl(40,65%,80%)]", image: toolPixel },
+  { name: "AI Ghibli Style", href: "https://www.rita.ai/ai-ghibli-style", gradient: "from-[hsl(45,60%,82%)] to-[hsl(80,50%,80%)]", image: toolGhibli },
+  { name: "AI Avatar Generator", href: "https://www.rita.ai/ai-avatar-generator", gradient: "from-[hsl(170,55%,80%)] to-[hsl(200,60%,82%)]", image: toolAvatar },
+  { name: "AI Outpainting", href: "https://www.rita.ai/ai-outpainting", gradient: "from-[hsl(30,65%,82%)] to-[hsl(50,60%,80%)]", image: toolOutpaint },
+  { name: "AI Video Generator", href: "https://www.rita.ai/ai-video-generator", gradient: "from-[hsl(200,65%,82%)] to-[hsl(230,55%,85%)]", image: toolVideo },
+  { name: "AI Pixar Style", href: "https://www.rita.ai/ai-pixar-style", gradient: "from-[hsl(300,45%,82%)] to-[hsl(330,50%,80%)]", image: toolPixar },
+  { name: "AI Photo Restore", href: "https://www.rita.ai/ai-photo-restore", gradient: "from-[hsl(150,50%,80%)] to-[hsl(180,55%,82%)]", image: toolRestore },
 ];
 
 export function ToolkitSection() {
@@ -46,22 +46,25 @@ export function ToolkitSection() {
       >
         <div className="flex gap-5 w-max animate-marquee">
           {repeated.map((t, i) => (
-            <div
+            <a
               key={i}
-              className="shrink-0 w-[220px] md:w-[260px] cursor-pointer group"
+              href={t.href}
+              className="shrink-0 w-[220px] md:w-[260px] cursor-pointer group block"
             >
               <div className={`rounded-2xl bg-gradient-to-br ${t.gradient} p-5 pb-0 overflow-hidden transition-all duration-300 group-hover:-translate-y-1 group-hover:shadow-soft-lg`}>
                 <h3 className="text-sm font-bold text-title mb-4">{t.name}</h3>
                 <div className="flex justify-center">
                   <img
                     src={t.image}
-                    alt={t.name}
+                    alt={`${t.name} — AI-powered creative tool by Rita`}
                     className="w-[85%] aspect-[3/4] object-cover object-top rounded-t-xl shadow-lg"
                     loading="lazy"
+                    width="187"
+                    height="249"
                   />
                 </div>
               </div>
-            </div>
+            </a>
           ))}
         </div>
       </div>
