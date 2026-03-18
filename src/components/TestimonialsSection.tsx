@@ -1,4 +1,3 @@
-import { Star } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useDraggableMarquee } from "@/hooks/use-draggable-marquee";
 
