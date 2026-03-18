@@ -89,8 +89,11 @@ function MarqueeRow({
             <div className="flex items-center gap-2 md:gap-3">
               <img
                 src={t.avatar}
-                alt={t.name}
+                alt={`${t.name}, ${t.role} — AI Photo to Cartoon reviewer`}
                 className="h-7 w-7 md:h-9 md:w-9 rounded-full object-cover"
+                loading="lazy"
+                width="36"
+                height="36"
                 draggable={false}
               />
               <div>

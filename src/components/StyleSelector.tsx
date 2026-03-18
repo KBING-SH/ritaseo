@@ -95,8 +95,10 @@ export function StyleSelector() {
         >
           <img
             src={beforeImg}
-            alt="Original photo"
+            alt="Original photo before AI cartoon transformation"
             className="absolute inset-0 w-full h-full block object-cover object-center"
+            width="800"
+            height="450"
             draggable={false}
           />
         </div>

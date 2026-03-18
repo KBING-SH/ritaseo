@@ -35,10 +35,10 @@ export function ToolkitSection() {
     <section className="py-10 md:py-24 bg-card-alt overflow-hidden">
       <div className="container px-4 md:px-8 max-w-6xl mb-6 md:mb-10">
         <h2 className="text-xl md:text-3xl font-bold text-title text-center mb-2 md:mb-3">
-          Explore More AI Image Tools
+          More Free AI Image Tools by Rita
         </h2>
         <p className="text-sm md:text-base text-body-desc text-center">
-          Meet your creative needs across different scenarios
+          Upscale, remove backgrounds, generate pixel art and more — all powered by AI
         </p>
       </div>
 
