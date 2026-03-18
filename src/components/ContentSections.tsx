@@ -27,7 +27,7 @@ const sections = [
     subtitle: "Create charming cartoon portraits of your pets",
     image: null,
     comparison: { before: petBefore, after: petAfter },
-    imageAlt: "AI Photo to Cartoon Pet",
+    imageAlt: "Golden retriever puppy turned into a playful cartoon portrait with AI Photo to Cartoon",
     paragraphs: [
       "Generate a cartoon portrait of your pet using AI Photo to Cartoon. Upload a clear photo of your pet and let the tool transform it into a playful cartoon style. This effect brings out your pet's personality in a fun and engaging way. Share your pet's new look created by AI Photo to Cartoon with friends and family.",
     ],
