@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useDraggableMarquee } from "@/hooks/use-draggable-marquee";
 import styleGhibli from "@/assets/style-ghibli.webp";
 import stylePixel from "@/assets/style-pixel.webp";
 import styleRealistic from "@/assets/style-realistic.webp";
