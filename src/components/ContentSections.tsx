@@ -39,7 +39,7 @@ const sections = [
     subtitle: "Transform scenic photos into cartoon artwork",
     image: null,
     comparison: { before: landscapeBefore, after: landscapeAfter },
-    imageAlt: "AI Photo to Cartoon Landscape",
+    imageAlt: "Mountain lake scenery converted into vibrant cartoon artwork using AI Photo to Cartoon",
     paragraphs: [
       "Apply a cartoon effect with AI Photo to Cartoon that turns your landscape photos into appealing cartoon images. Upload your favorite scene and watch it become a colorful cartoon portrait. Enjoy a fresh artistic interpretation of your landscapes with AI Photo to Cartoon.",
     ],
