@@ -1,30 +1,29 @@
-import { Star, Award, Users, MessageSquare } from "lucide-react";
+import { Award, Layers, ImageDown, Camera } from "lucide-react";
 
 const stats = [
   {
     icon: Award,
-    value: "#1 Featured",
+    value: "Featured on",
     label: "Product Hunt",
     color: "text-orange-500",
   },
   {
-    icon: Star,
-    value: "4.9 / 5.0",
-    label: "User Rating (50K+ reviews)",
-    color: "text-yellow-500",
-    stars: true,
-  },
-  {
-    icon: MessageSquare,
-    value: "50,000+",
-    label: "Positive Reviews",
+    icon: Layers,
+    value: "8+ Styles",
+    label: "Cartoon styles available",
     color: "text-primary",
   },
   {
-    icon: Users,
-    value: "2,000,000+",
-    label: "Active Users",
+    icon: ImageDown,
+    value: "HD",
+    label: "Watermark-free output",
     color: "text-emerald-500",
+  },
+  {
+    icon: Camera,
+    value: "Supports",
+    label: "Portraits, pets, landscapes",
+    color: "text-sky-500",
   },
 ];
 
@@ -39,16 +38,7 @@ export function SocialProofBar() {
           >
             <s.icon className={`h-4 w-4 md:h-5 md:w-5 ${s.color} shrink-0`} />
             <div>
-              <div className="flex items-center gap-1">
                 <span className="text-sm md:text-lg font-bold text-title">{s.value}</span>
-                {s.stars && (
-                  <div className="flex">
-                    {[...Array(5)].map((_, j) => (
-                      <Star key={j} className="h-3 w-3 fill-yellow-400 text-yellow-400" />
-                    ))}
-                  </div>
-                )}
-              </div>
               <span className="text-[10px] md:text-xs text-body-desc">{s.label}</span>
             </div>
           </div>
