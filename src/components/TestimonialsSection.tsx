@@ -1,5 +1,6 @@
 import { Star } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { useDraggableMarquee } from "@/hooks/use-draggable-marquee";
 
 const testimonials = [
   {
@@ -49,13 +50,20 @@ function MarqueeRow({
   items: typeof testimonials;
   reverse?: boolean;
 }) {
+  const { scrollRef, handlers } = useDraggableMarquee();
+
   return (
-    <div className="relative overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
+    <div
+      className="relative overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)] cursor-grab active:cursor-grabbing select-none touch-none scrollbar-hide"
+      {...handlers}
+    >
       <div
+        ref={scrollRef}
         className={cn(
           "flex gap-3 md:gap-5 w-max",
           reverse ? "animate-marquee-reverse" : "animate-marquee"
         )}
+        style={{ willChange: "transform" }}
       >
         {[...items, ...items, ...items, ...items].map((t, i) => (
           <div
@@ -83,6 +91,7 @@ function MarqueeRow({
                 src={t.avatar}
                 alt={t.name}
                 className="h-7 w-7 md:h-9 md:w-9 rounded-full object-cover"
+                draggable={false}
               />
               <div>
                 <p className="text-xs md:text-sm font-semibold text-title leading-snug">

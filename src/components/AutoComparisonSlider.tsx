@@ -22,7 +22,11 @@ export function AutoComparisonSlider({
   const [sliderPos, setSliderPos] = useState(50);
   const directionRef = useRef<1 | -1>(1);
   const animationRef = useRef<number>(0);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const draggingRef = useRef(false);
+  const pausedRef = useRef(false);
 
+  // Auto-animation
   useEffect(() => {
     let lastTime = 0;
 
@@ -31,17 +35,19 @@ export function AutoComparisonSlider({
       const delta = (time - lastTime) / 1000;
       lastTime = time;
 
-      setSliderPos((prev) => {
-        let next = prev + directionRef.current * speed * delta;
-        if (next >= max) {
-          next = max;
-          directionRef.current = -1;
-        } else if (next <= min) {
-          next = min;
-          directionRef.current = 1;
-        }
-        return next;
-      });
+      if (!pausedRef.current) {
+        setSliderPos((prev) => {
+          let next = prev + directionRef.current * speed * delta;
+          if (next >= max) {
+            next = max;
+            directionRef.current = -1;
+          } else if (next <= min) {
+            next = min;
+            directionRef.current = 1;
+          }
+          return next;
+        });
+      }
 
       animationRef.current = requestAnimationFrame(animate);
     };
@@ -50,8 +56,56 @@ export function AutoComparisonSlider({
     return () => cancelAnimationFrame(animationRef.current);
   }, [speed, min, max]);
 
+  // Convert pointer position to slider percentage
+  const posFromEvent = useCallback(
+    (clientX: number) => {
+      const el = containerRef.current;
+      if (!el) return 50;
+      const rect = el.getBoundingClientRect();
+      const pct = ((clientX - rect.left) / rect.width) * 100;
+      return Math.max(min, Math.min(max, pct));
+    },
+    [min, max]
+  );
+
+  const handlePointerDown = useCallback(
+    (e: React.PointerEvent) => {
+      draggingRef.current = true;
+      pausedRef.current = true;
+      (e.target as HTMLElement).setPointerCapture(e.pointerId);
+      setSliderPos(posFromEvent(e.clientX));
+    },
+    [posFromEvent]
+  );
+
+  const handlePointerMove = useCallback(
+    (e: React.PointerEvent) => {
+      if (!draggingRef.current) return;
+      setSliderPos(posFromEvent(e.clientX));
+    },
+    [posFromEvent]
+  );
+
+  const handlePointerUp = useCallback(() => {
+    if (!draggingRef.current) return;
+    draggingRef.current = false;
+    // Update direction based on current position for smooth resume
+    setSliderPos((pos) => {
+      directionRef.current = pos > (max + min) / 2 ? -1 : 1;
+      return pos;
+    });
+    pausedRef.current = false;
+  }, [max, min]);
+
   return (
-    <div className="relative w-full aspect-[3/2] overflow-hidden select-none">
+    <div
+      ref={containerRef}
+      className="relative w-full aspect-[3/2] overflow-hidden select-none cursor-ew-resize touch-none"
+      onPointerDown={handlePointerDown}
+      onPointerMove={handlePointerMove}
+      onPointerUp={handlePointerUp}
+      onPointerCancel={handlePointerUp}
+    >
       {/* After (cartoon - full background) */}
       <img
         src={afterSrc}
