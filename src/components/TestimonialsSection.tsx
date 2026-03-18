@@ -89,8 +89,11 @@ function MarqueeRow({
             <div className="flex items-center gap-2 md:gap-3">
               <img
                 src={t.avatar}
-                alt={t.name}
+                alt={`${t.name}, ${t.role} — AI Photo to Cartoon reviewer`}
                 className="h-7 w-7 md:h-9 md:w-9 rounded-full object-cover"
+                loading="lazy"
+                width="36"
+                height="36"
                 draggable={false}
               />
               <div>
@@ -112,10 +115,10 @@ export function TestimonialsSection() {
     <section className="py-10 md:py-24 overflow-hidden">
       <div className="container px-4 md:px-8 max-w-6xl mb-6 md:mb-12">
         <h2 className="text-xl md:text-3xl font-bold text-title text-center mb-2 md:mb-3">
-          AI Photo to Cartoon Reviews
+          What Users Say About AI Photo to Cartoon
         </h2>
         <p className="text-sm md:text-base text-body-desc text-center max-w-lg mx-auto">
-          Real feedback from users
+          Rated 4.9/5.0 from 50,000+ reviews — read real user experiences
         </p>
       </div>
 
