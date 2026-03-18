@@ -157,19 +157,15 @@ export function TestimonialsSection() {
   return (
     <section
       className="py-10 md:py-24 overflow-hidden"
-      itemScope
-      itemType="https://schema.org/WebApplication"
+      aria-labelledby="user-feedback-title"
     >
-      <meta itemProp="name" content="Rita AI Photo to Cartoon" />
-      <div itemProp="aggregateRating" itemScope itemType="https://schema.org/AggregateRating" className="hidden">
-        <meta itemProp="ratingValue" content="4.9" />
-        <meta itemProp="reviewCount" content="50000" />
-        <meta itemProp="bestRating" content="5" />
-      </div>
       <div className="container px-4 md:px-8 max-w-6xl mb-6 md:mb-12">
-        <h2 className="text-xl md:text-3xl font-bold text-title text-center mb-2 md:mb-3">
-          What Users Say About AI Photo to Cartoon
+        <h2 id="user-feedback-title" className="text-xl md:text-3xl font-bold text-title text-center mb-2 md:mb-3">
+          What Users Say
         </h2>
+        <p className="text-sm md:text-base text-body-desc text-center max-w-lg mx-auto">
+          Sample feedback from users who tried Rita for cartoon-style image creation.
+        </p>
       </div>
 
       <div className="space-y-3 md:space-y-5">
