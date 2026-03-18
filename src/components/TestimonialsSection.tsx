@@ -69,11 +69,19 @@ function MarqueeRow({
           <div
             key={i}
             className="w-[260px] md:w-[380px] shrink-0 rounded-xl md:rounded-2xl border border-border/50 bg-card p-3 md:p-5 shadow-soft hover:shadow-soft-lg transition-shadow duration-300"
+            itemScope
+            itemProp="review"
+            itemType="https://schema.org/Review"
           >
-            <p className="text-xs md:text-sm text-body2 leading-relaxed md:leading-[1.75] mb-2 md:mb-4 line-clamp-3">
+            <blockquote
+              itemProp="reviewBody"
+              className="text-xs md:text-sm text-body2 leading-relaxed md:leading-[1.75] mb-2 md:mb-4 line-clamp-3"
+            >
               "{t.content}"
-            </p>
-            <div className="flex gap-0.5 mb-2 md:mb-4">
+            </blockquote>
+            <div className="flex gap-0.5 mb-2 md:mb-4" itemProp="reviewRating" itemScope itemType="https://schema.org/Rating">
+              <meta itemProp="ratingValue" content={String(t.rating)} />
+              <meta itemProp="bestRating" content="5" />
               {Array.from({ length: 5 }).map((_, s) => (
                 <Star
                   key={s}
@@ -86,7 +94,7 @@ function MarqueeRow({
                 />
               ))}
             </div>
-            <div className="flex items-center gap-2 md:gap-3">
+            <div className="flex items-center gap-2 md:gap-3" itemProp="author" itemScope itemType="https://schema.org/Person">
               <img
                 src={t.avatar}
                 alt={`${t.name}, ${t.role} — AI Photo to Cartoon reviewer`}
@@ -97,10 +105,10 @@ function MarqueeRow({
                 draggable={false}
               />
               <div>
-                <p className="text-xs md:text-sm font-semibold text-title leading-snug">
+                <p className="text-xs md:text-sm font-semibold text-title leading-snug" itemProp="name">
                   {t.name}
                 </p>
-                <p className="text-[10px] md:text-xs text-body-desc">{t.role}</p>
+                <p className="text-[10px] md:text-xs text-body-desc" itemProp="jobTitle">{t.role}</p>
               </div>
             </div>
           </div>
@@ -112,7 +120,17 @@ function MarqueeRow({
 
 export function TestimonialsSection() {
   return (
-    <section className="py-10 md:py-24 overflow-hidden">
+    <section
+      className="py-10 md:py-24 overflow-hidden"
+      itemScope
+      itemType="https://schema.org/WebApplication"
+    >
+      <meta itemProp="name" content="Rita AI Photo to Cartoon" />
+      <div itemProp="aggregateRating" itemScope itemType="https://schema.org/AggregateRating" className="hidden">
+        <meta itemProp="ratingValue" content="4.9" />
+        <meta itemProp="reviewCount" content="50000" />
+        <meta itemProp="bestRating" content="5" />
+      </div>
       <div className="container px-4 md:px-8 max-w-6xl mb-6 md:mb-12">
         <h2 className="text-xl md:text-3xl font-bold text-title text-center mb-2 md:mb-3">
           What Users Say About AI Photo to Cartoon

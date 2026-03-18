@@ -111,6 +111,9 @@ export function AutoComparisonSlider({
         src={afterSrc}
         alt={afterAlt}
         className="absolute inset-0 w-full h-full block object-cover object-center"
+        width="600"
+        height="400"
+        loading="lazy"
         draggable={false}
       />
 
@@ -123,6 +126,9 @@ export function AutoComparisonSlider({
           src={beforeSrc}
           alt={beforeAlt}
           className="absolute inset-0 w-full h-full block object-cover object-center"
+          width="600"
+          height="400"
+          loading="lazy"
           draggable={false}
         />
       </div>
