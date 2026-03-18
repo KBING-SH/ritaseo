@@ -10,7 +10,7 @@ const stats = [
   {
     icon: Star,
     value: "4.9 / 5.0",
-    label: "User Rating",
+    label: "User Rating (50K+ reviews)",
     color: "text-yellow-500",
     stars: true,
   },
