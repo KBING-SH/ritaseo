@@ -133,7 +133,7 @@ function UploadTooltip() {
       style={{ top: pos.top, left: pos.left, width: pos.width, height: pos.height }}
     >
       <div className="bg-primary text-primary-foreground px-4 py-2 rounded-lg shadow-lg text-sm font-medium animate-[bounce_1s_ease-in-out_3]">
-        👆 在此插入图片，马上改图
+        👆 Upload your image here to get started
       </div>
     </div>
   );

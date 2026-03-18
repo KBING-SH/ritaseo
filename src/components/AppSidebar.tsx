@@ -55,7 +55,7 @@ interface AppSidebarProps {
 
 export function AppSidebar({ mobileOpen, onClose }: AppSidebarProps) {
   const [expanded, setExpanded] = useState<Record<string, boolean>>({
-    "AI 图像": true,
+    "AI Image": true,
   });
 
   const toggleExpand = (label: string) => {
