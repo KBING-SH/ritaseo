@@ -42,7 +42,7 @@ type Step =
 
 const SCRIPT: { step: Step; duration: number }[] = [
   { step: { type: "idle" }, duration: 800 },
-  { step: { type: "move", target: 3 }, duration: 600 },        // move to 中国墨
+  { step: { type: "move", target: 3 }, duration: 600 },        // move to Ink
   { step: { type: "select", target: 3 }, duration: 200 },       // click
   { step: { type: "hold" }, duration: 1200 },
   { step: { type: "move", target: 1 }, duration: 600 },         // move to Pixel
