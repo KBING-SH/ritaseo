@@ -116,10 +116,10 @@ export function UploadPanel({ onGenerate, externalStyleRef }: { onGenerate?: (st
   return (
     <div className="rounded-xl border border-border/50 bg-muted shadow-soft h-full flex flex-col overflow-hidden">
       {/* Content */}
-      <div className="flex-1 overflow-y-auto p-3 md:p-3 lg:p-4 space-y-2 md:space-y-1.5 lg:space-y-3 text-sm">
+      <div className="flex-1 overflow-y-auto p-3 md:p-4 lg:p-5 space-y-3 md:space-y-3 lg:space-y-4 text-sm">
         {/* Model selector */}
         <div>
-          <label className="text-xs font-medium text-title mb-1 lg:mb-1.5 block">Model</label>
+          <label className="text-xs font-medium text-title mb-1.5 lg:mb-2 block">Model</label>
           <Select value={selectedModel} onValueChange={setSelectedModel}>
             <SelectTrigger className="rounded-lg border-border/50 bg-card text-title h-auto py-1.5 lg:py-2 text-left">
               <div className="flex items-center gap-2.5 w-full pr-6">
