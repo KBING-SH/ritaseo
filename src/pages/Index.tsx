@@ -95,12 +95,12 @@ const Index = () => {
         </div>
 
         {/* Left sidebar - desktop */}
-        <aside className="hidden lg:flex lg:w-[30%] shrink-0 border-r border-border/50 bg-card">
+        <aside className="hidden lg:flex lg:w-[22%] shrink-0 border-r border-border/50 bg-card">
           <UploadPanel onGenerate={handleGenerate} externalStyleRef={styleSetterRef} />
         </aside>
 
         {/* Mobile/Tablet: UploadPanel + Result */}
-        <div className="flex-1 lg:w-[70%] min-w-0 flex flex-col overflow-hidden">
+        <div className="flex-1 lg:w-[78%] min-w-0 flex flex-col overflow-hidden">
           <div className="lg:hidden flex-1 min-h-0 overflow-hidden">
             <UploadPanel onGenerate={handleGenerate} externalStyleRef={styleSetterRef} />
           </div>
