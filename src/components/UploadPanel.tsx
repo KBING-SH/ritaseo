@@ -173,9 +173,9 @@ export function UploadPanel({ onGenerate, externalStyleRef }: { onGenerate?: (st
                   isDragging ? "border-primary bg-primary/5" : "border-border hover:border-primary"
                 )}
               >
-                <ImageIcon className="h-6 w-6 lg:h-9 lg:w-9 text-body-desc" />
-                <p className="text-xs lg:text-sm text-body-desc">Drag & drop image here, or click to browse</p>
-                <p className="text-[11px] lg:text-xs text-body-desc/60">Supports jpg/jpeg/png/webp, max 20MB</p>
+                <ImageIcon className="h-8 w-8 lg:h-11 lg:w-11 text-body-desc" />
+                <p className="text-sm lg:text-base text-body-desc">Drag & drop image here, or click to browse</p>
+                <p className="text-xs lg:text-sm text-body-desc/60">Supports jpg/jpeg/png/webp, max 20MB</p>
               </div>
             )}
             <input ref={fileRef} type="file" accept="image/*" className="hidden" onChange={handleInputChange} />
