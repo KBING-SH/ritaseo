@@ -116,10 +116,10 @@ export function UploadPanel({ onGenerate, externalStyleRef }: { onGenerate?: (st
   return (
     <div className="rounded-xl border border-border/50 bg-muted shadow-soft h-full flex flex-col overflow-hidden">
       {/* Content */}
-      <div className="flex-1 overflow-y-auto p-3 md:p-3 lg:p-4 space-y-2 md:space-y-1.5 lg:space-y-3 text-sm">
+      <div className="flex-1 overflow-y-auto p-3 md:p-4 lg:p-5 space-y-3 md:space-y-3 lg:space-y-4 text-sm">
         {/* Model selector */}
         <div>
-          <label className="text-xs font-medium text-title mb-1 lg:mb-1.5 block">Model</label>
+          <label className="text-xs font-medium text-title mb-1.5 lg:mb-2 block">Model</label>
           <Select value={selectedModel} onValueChange={setSelectedModel}>
             <SelectTrigger className="rounded-lg border-border/50 bg-card text-title h-auto py-1.5 lg:py-2 text-left">
               <div className="flex items-center gap-2.5 w-full pr-6">
@@ -150,11 +150,11 @@ export function UploadPanel({ onGenerate, externalStyleRef }: { onGenerate?: (st
 
         {/* Upload area */}
         <div>
-          <label className="text-xs font-medium text-title mb-1 lg:mb-1.5 block">Image</label>
+          <label className="text-xs font-medium text-title mb-1.5 lg:mb-2 block">Image</label>
           <div id="upload-drop-zone" className="relative">
             {uploadedImage ? (
               <div className="relative rounded-lg border border-border/50 overflow-hidden animate-fade-in">
-                <img src={uploadedImage} alt="Uploaded image" className="w-full h-20 md:h-[90px] lg:h-28 object-cover" />
+                <img src={uploadedImage} alt="Uploaded image" className="w-full h-24 md:h-28 lg:h-36 object-cover" />
                 <button
                   onClick={removeImage}
                   className="absolute top-1.5 right-1.5 w-5 h-5 rounded-full bg-foreground/60 hover:bg-foreground/80 flex items-center justify-center transition-colors"
@@ -169,13 +169,13 @@ export function UploadPanel({ onGenerate, externalStyleRef }: { onGenerate?: (st
                 onDrop={handleDrop}
                 onClick={() => fileRef.current?.click()}
                 className={cn(
-                  "h-20 md:h-[90px] lg:h-28 rounded-lg border-2 border-dashed flex flex-col items-center justify-center gap-0.5 transition-all cursor-pointer",
+                  "h-24 md:h-28 lg:h-36 rounded-lg border-2 border-dashed flex flex-col items-center justify-center gap-1 transition-all cursor-pointer",
                   isDragging ? "border-primary bg-primary/5" : "border-border hover:border-primary"
                 )}
               >
-                <ImageIcon className="h-5 w-5 lg:h-8 lg:w-8 text-body-desc" />
-                <p className="text-[16px] text-body-desc">Drag & drop image here, or click to browse</p>
-                <p className="text-[14px] text-body-desc/60"><p className="text-[14px] text-body-desc/60">Supports jpg/jpeg/png/webp, max 20MB</p></p>
+                <ImageIcon className="h-6 w-6 lg:h-9 lg:w-9 text-body-desc" />
+                <p className="text-xs lg:text-sm text-body-desc">Drag & drop image here, or click to browse</p>
+                <p className="text-[11px] lg:text-xs text-body-desc/60">Supports jpg/jpeg/png/webp, max 20MB</p>
               </div>
             )}
             <input ref={fileRef} type="file" accept="image/*" className="hidden" onChange={handleInputChange} />
@@ -192,21 +192,21 @@ export function UploadPanel({ onGenerate, externalStyleRef }: { onGenerate?: (st
 
         {/* Prompt */}
         <div>
-          <label className="text-xs font-medium text-title mb-1 lg:mb-1.5 block">
+          <label className="text-xs font-medium text-title mb-1.5 lg:mb-2 block">
             Prompt <span className="text-destructive">*</span>
           </label>
           <textarea
             value={promptText}
             onChange={(e) => setPromptText(e.target.value)}
             placeholder="Describe how you want to process the image..."
-            className="w-full h-[54px] md:h-14 lg:h-24 rounded-lg border border-border/50 bg-card px-3 py-1.5 text-sm text-title placeholder:text-body-desc resize-none md:resize-none lg:resize-y focus:outline-none focus:ring-1 focus:ring-primary/50"
+            className="w-full h-16 md:h-20 lg:h-28 rounded-lg border border-border/50 bg-card px-3 py-2 text-sm text-title placeholder:text-body-desc resize-none md:resize-none lg:resize-y focus:outline-none focus:ring-1 focus:ring-primary/50"
           />
         </div>
 
         {/* Style selector */}
         <div>
-          <label className="text-xs font-medium text-title mb-1 lg:mb-1.5 block">Select a Style</label>
-          <div className="grid grid-cols-4 md:grid-cols-4 lg:grid-cols-4 gap-x-2 gap-y-2 md:gap-x-2 md:gap-y-1.5 lg:gap-x-2 lg:gap-y-2">
+          <label className="text-xs font-medium text-title mb-1.5 lg:mb-2 block">Select a Style</label>
+          <div className="grid grid-cols-4 gap-x-2.5 gap-y-2.5 md:gap-x-3 md:gap-y-2.5 lg:gap-x-3 lg:gap-y-3">
             {STYLE_OPTIONS.map((style, i) => (
               <StyleCard key={i} style={style} index={i} selected={selectedStyle === i} onSelect={(idx) => { setSelectedStyle(idx); setPromptText(STYLE_OPTIONS[idx].prompt); }} onPreview={() => setPreviewStyle(i)} />
             ))}
@@ -215,16 +215,16 @@ export function UploadPanel({ onGenerate, externalStyleRef }: { onGenerate?: (st
 
         {/* Aspect Ratio */}
         <div>
-          <label className="text-xs md:text-sm font-medium text-title mb-1 lg:mb-1.5 block">Aspect Ratio</label>
-          <div className="grid grid-cols-5 gap-1.5 md:gap-2 lg:gap-2">
+          <label className="text-xs md:text-sm font-medium text-title mb-1.5 lg:mb-2 block">Aspect Ratio</label>
+          <div className="grid grid-cols-5 gap-2 md:gap-2.5 lg:gap-2.5">
             {RATIOS.map((r) => (
               <button
                 key={r.value}
                 onClick={() => setSelectedRatio(r.value)}
                 className={cn(
-                  "flex flex-col items-center justify-center gap-1 py-1.5 px-1 border text-[10px] font-medium transition-all",
-                  "md:text-xs md:py-2",
-                  "lg:py-2.5 lg:text-[11px]",
+                  "flex flex-col items-center justify-center gap-1 py-2 px-1 border text-[10px] font-medium transition-all",
+                  "md:text-xs md:py-2.5",
+                  "lg:py-3 lg:text-[11px]",
                   selectedRatio === r.value
                     ? "border-primary bg-primary text-primary-foreground shadow-sm"
                     : "border-border bg-card text-body2 hover:border-primary/50 hover:bg-primary/5"
@@ -240,14 +240,14 @@ export function UploadPanel({ onGenerate, externalStyleRef }: { onGenerate?: (st
 
         {/* Resolution */}
         <div>
-          <label className="text-xs md:text-sm font-medium text-title mb-1 lg:mb-1.5 block">Resolution</label>
-          <div className="flex flex-wrap gap-1 md:gap-1.5 lg:gap-1.5">
+          <label className="text-xs md:text-sm font-medium text-title mb-1.5 lg:mb-2 block">Resolution</label>
+          <div className="flex flex-wrap gap-1.5 md:gap-2 lg:gap-2">
             {RESOLUTIONS.map((res) => (
               <button
                 key={res}
                 onClick={() => setSelectedResolution(res)}
                 className={cn(
-                  "px-3 py-1.5 md:px-4 md:py-2 rounded-lg border text-[11px] md:text-xs font-medium transition-all",
+                  "px-4 py-2 md:px-5 md:py-2.5 rounded-lg border text-xs md:text-sm font-medium transition-all",
                   selectedResolution === res
                     ? "border-primary bg-primary text-primary-foreground shadow-sm"
                     : "border-border bg-card text-body2 hover:border-primary/50 hover:bg-primary/5"
@@ -261,7 +261,7 @@ export function UploadPanel({ onGenerate, externalStyleRef }: { onGenerate?: (st
       </div>
 
       {/* Fixed bottom: generate */}
-      <div className="border-t border-border/50 p-3 md:p-3 lg:p-4 flex items-center gap-2">
+      <div className="border-t border-border/50 p-3 md:p-4 lg:p-5 flex items-center gap-2">
         <Button
           variant="gradient"
           size="default"
@@ -376,7 +376,7 @@ function StyleCard({ style, index, selected, onSelect, onPreview }: {
   return (
     <div
       onClick={() => onSelect(index)}
-      className="relative cursor-pointer flex flex-col items-center gap-1.5"
+      className="relative cursor-pointer flex flex-col items-center gap-2"
     >
       <div className={cn(
         "relative w-full aspect-square rounded-xl overflow-hidden border-2 transition-all",
@@ -404,7 +404,7 @@ function StyleCard({ style, index, selected, onSelect, onPreview }: {
         </button>
       </div>
       <span className={cn(
-        "text-[10px] leading-tight truncate w-full text-center",
+        "text-[11px] leading-tight truncate w-full text-center",
         selected ? "text-primary font-medium" : "text-muted-foreground"
       )}>{style.label}</span>
     </div>
