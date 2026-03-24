@@ -240,14 +240,14 @@ export function UploadPanel({ onGenerate, externalStyleRef }: { onGenerate?: (st
 
         {/* Resolution */}
         <div>
-          <label className="text-xs md:text-sm font-medium text-title mb-1 lg:mb-1.5 block">Resolution</label>
-          <div className="flex flex-wrap gap-1 md:gap-1.5 lg:gap-1.5">
+          <label className="text-xs md:text-sm font-medium text-title mb-1.5 lg:mb-2 block">Resolution</label>
+          <div className="flex flex-wrap gap-1.5 md:gap-2 lg:gap-2">
             {RESOLUTIONS.map((res) => (
               <button
                 key={res}
                 onClick={() => setSelectedResolution(res)}
                 className={cn(
-                  "px-3 py-1.5 md:px-4 md:py-2 rounded-lg border text-[11px] md:text-xs font-medium transition-all",
+                  "px-4 py-2 md:px-5 md:py-2.5 rounded-lg border text-xs md:text-sm font-medium transition-all",
                   selectedResolution === res
                     ? "border-primary bg-primary text-primary-foreground shadow-sm"
                     : "border-border bg-card text-body2 hover:border-primary/50 hover:bg-primary/5"
