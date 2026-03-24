@@ -261,7 +261,7 @@ export function UploadPanel({ onGenerate, externalStyleRef }: { onGenerate?: (st
       </div>
 
       {/* Fixed bottom: generate */}
-      <div className="border-t border-border/50 p-3 md:p-3 lg:p-4 flex items-center gap-2">
+      <div className="border-t border-border/50 p-3 md:p-4 lg:p-5 flex items-center gap-2">
         <Button
           variant="gradient"
           size="default"
