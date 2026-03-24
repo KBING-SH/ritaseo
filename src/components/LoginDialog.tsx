@@ -47,7 +47,7 @@ export function LoginDialog({ open, onOpenChange }: LoginDialogProps) {
           <p className="text-sm text-muted-foreground text-center mb-1">Don't have an account?</p>
           <p className="text-sm text-center mb-8">
             <span className="text-primary font-medium cursor-pointer hover:underline">Sign up</span>
-            <span className="text-muted-foreground"> to get 40 free credits</span>
+            <span className="text-muted-foreground"> to get 60 free credits</span>
           </p>
 
           {/* Google login */}
