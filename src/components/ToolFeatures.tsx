@@ -18,7 +18,7 @@ export function ToolFeatures() {
         </h2>
         <ul className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
           {features.map((f, i) => (
-            <li key={i} className="flex flex-col items-center justify-center text-center gap-3 rounded-xl border border-border/50 bg-card p-4 shadow-soft aspect-square">
+            <li key={i} className="flex flex-col items-center justify-center text-center gap-3 rounded-xl border border-border/50 bg-card p-4 shadow-soft h-[160px]">
               <f.icon className="h-6 w-6 text-primary shrink-0" />
               <span className="text-xs text-body2 leading-relaxed">{f.text}</span>
             </li>
