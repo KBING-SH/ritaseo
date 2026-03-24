@@ -74,13 +74,32 @@ const productColumns = [
   ]},
 ];
 
+const aboutLinks = [
+  { label: "About Us", href: "https://www.rita.ai/about" },
+  { label: "Contact Us", href: "https://www.rita.ai/contact" },
+];
+
+const legalLinks = [
+  { label: "Terms & Conditions", href: "https://www.rita.ai/terms" },
+  { label: "Privacy Policy", href: "https://www.rita.ai/privacy" },
+  { label: "Copyright Policy", href: "https://www.rita.ai/copyright" },
+  { label: "Refund Policy", href: "https://www.rita.ai/refund" },
+  { label: "AML Policy", href: "https://www.rita.ai/aml" },
+];
+
+const allColumns = [
+  ...productColumns,
+  { title: "About", links: aboutLinks },
+  { title: "Legal", links: legalLinks },
+];
+
 export const ProductFooterSection = () => {
   const [open, setOpen] = useState(false);
   const isMobile = useIsMobile();
 
   const content = (
-    <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-x-8 gap-y-8">
-      {productColumns.map((col) => (
+    <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-8 gap-x-8 gap-y-8">
+      {allColumns.map((col) => (
         <div key={col.title}>
           <h5 className="font-semibold text-white mb-2 text-sm">{col.title}</h5>
           <div className="w-8 h-[2px] bg-primary mb-3" />
@@ -99,7 +118,6 @@ export const ProductFooterSection = () => {
   if (!isMobile) {
     return (
       <div className="flex-1">
-        <h4 className="font-bold text-white mb-5 text-base">Products</h4>
         {content}
       </div>
     );
@@ -111,9 +129,9 @@ export const ProductFooterSection = () => {
         onClick={() => setOpen(!open)}
         className="flex items-center justify-between w-full mb-2"
       >
-        <h4 className="font-bold text-title text-sm">Products</h4>
+        <h4 className="font-bold text-white text-sm">Products</h4>
         <ChevronDown
-          className={`h-4 w-4 text-muted-foreground transition-transform duration-200 ${open ? "rotate-180" : ""}`}
+          className={`h-4 w-4 text-white/40 transition-transform duration-200 ${open ? "rotate-180" : ""}`}
         />
       </button>
       {open && <div className="mt-2">{content}</div>}
