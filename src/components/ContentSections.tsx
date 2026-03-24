@@ -86,7 +86,7 @@ export function ContentSections({ onSelectStyle }: { onSelectStyle?: (styleIndex
                 section.imageFirst ? "" : "lg:flex-row-reverse"
               }`}
             >
-              <div className="w-full lg:w-[55%] shrink-0">
+              <div className="w-full lg:w-[40%] shrink-0">
                 <div className="rounded-xl overflow-hidden shadow-lg border border-border/30">
                   {section.comparison ? (
                     <AutoComparisonSlider
