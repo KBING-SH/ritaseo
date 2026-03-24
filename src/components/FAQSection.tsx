@@ -39,56 +39,42 @@ export function FAQSection() {
   return (
     <section className="py-8 md:py-12" itemScope itemType="https://schema.org/FAQPage">
       <div className="max-w-[1500px] mx-auto px-4 md:px-8">
-        <div className="rounded-2xl p-6 md:p-10 lg:p-14">
-          {/* Header */}
-          <div className="flex items-center justify-center gap-3 mb-6 md:mb-10">
-            <div className="h-10 w-10 rounded-xl gradient-primary flex items-center justify-center shadow-md">
-              <MessageCircleQuestion className="h-5 w-5 text-white" />
-            </div>
-            <h2 className="text-2xl md:text-3xl font-bold text-title">FAQ</h2>
+        {/* Header */}
+        <div className="flex items-center justify-center gap-3 mb-6 md:mb-10">
+          <div className="h-10 w-10 rounded-xl gradient-primary flex items-center justify-center shadow-md">
+            <MessageCircleQuestion className="h-5 w-5 text-white" />
           </div>
+          <h2 className="text-2xl md:text-3xl font-bold text-title">FAQ</h2>
+        </div>
 
-          {/* FAQ list */}
-          <div className="max-w-[900px] mx-auto rounded-xl border border-border/40 bg-background overflow-hidden">
+        {/* FAQ list - each item is a separate card */}
+        <div className="max-w-[900px] mx-auto space-y-3">
           {faqs.map((faq, i) => {
             const isOpen = openIndex === i;
-            const isLast = i === faqs.length - 1;
             return (
               <div
                 key={i}
-                className={cn(!isLast && "border-b border-border/40")}
+                className={cn(
+                  "rounded-xl border bg-card shadow-sm transition-all duration-200",
+                  isOpen ? "border-primary/30 shadow-md" : "border-border/60 hover:border-border"
+                )}
                 itemScope
                 itemProp="mainEntity"
                 itemType="https://schema.org/Question"
               >
                 <button
                   onClick={() => setOpenIndex(isOpen ? null : i)}
-                  className={cn(
-                    "w-full flex items-center justify-between gap-4 px-6 py-5 text-left cursor-pointer group transition-colors duration-200",
-                    isOpen ? "bg-primary/[0.04]" : "hover:bg-hover-bg"
-                  )}
+                  className="w-full flex items-center justify-between gap-4 px-5 py-4 text-left cursor-pointer group"
                 >
-                  <div className="flex items-center gap-3.5">
-                    <span
-                      className={cn(
-                        "text-xs font-bold tabular-nums w-6 h-6 rounded-lg flex items-center justify-center shrink-0 transition-all duration-300",
-                        isOpen
-                          ? "gradient-primary text-white shadow-sm"
-                          : "bg-muted text-body-desc"
-                      )}
-                    >
-                      {String(i + 1).padStart(2, "0")}
-                    </span>
-                    <span
-                      itemProp="name"
-                      className={cn(
-                        "text-[15px] font-medium transition-colors",
-                        isOpen ? "text-title" : "text-title group-hover:text-primary"
-                      )}
-                    >
-                      {faq.q}
-                    </span>
-                  </div>
+                  <span
+                    itemProp="name"
+                    className={cn(
+                      "text-[15px] font-medium transition-colors",
+                      isOpen ? "text-title" : "text-title group-hover:text-primary"
+                    )}
+                  >
+                    {faq.q}
+                  </span>
                   <ChevronDown
                     className={cn(
                       "h-4 w-4 shrink-0 transition-all duration-300",
@@ -108,7 +94,7 @@ export function FAQSection() {
                   itemType="https://schema.org/Answer"
                 >
                   <div className="overflow-hidden">
-                    <p itemProp="text" className="px-6 pb-5 pl-[3.75rem] text-sm text-body-desc leading-[1.8]">
+                    <p itemProp="text" className="px-5 pb-4 text-sm text-body-desc leading-[1.8]">
                       {faq.a}
                     </p>
                   </div>
@@ -116,7 +102,6 @@ export function FAQSection() {
               </div>
             );
           })}
-          </div>
         </div>
       </div>
     </section>
