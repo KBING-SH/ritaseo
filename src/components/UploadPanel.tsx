@@ -215,16 +215,16 @@ export function UploadPanel({ onGenerate, externalStyleRef }: { onGenerate?: (st
 
         {/* Aspect Ratio */}
         <div>
-          <label className="text-xs md:text-sm font-medium text-title mb-1 lg:mb-1.5 block">Aspect Ratio</label>
-          <div className="grid grid-cols-5 gap-1.5 md:gap-2 lg:gap-2">
+          <label className="text-xs md:text-sm font-medium text-title mb-1.5 lg:mb-2 block">Aspect Ratio</label>
+          <div className="grid grid-cols-5 gap-2 md:gap-2.5 lg:gap-2.5">
             {RATIOS.map((r) => (
               <button
                 key={r.value}
                 onClick={() => setSelectedRatio(r.value)}
                 className={cn(
-                  "flex flex-col items-center justify-center gap-1 py-1.5 px-1 border text-[10px] font-medium transition-all",
-                  "md:text-xs md:py-2",
-                  "lg:py-2.5 lg:text-[11px]",
+                  "flex flex-col items-center justify-center gap-1 py-2 px-1 border text-[10px] font-medium transition-all",
+                  "md:text-xs md:py-2.5",
+                  "lg:py-3 lg:text-[11px]",
                   selectedRatio === r.value
                     ? "border-primary bg-primary text-primary-foreground shadow-sm"
                     : "border-border bg-card text-body2 hover:border-primary/50 hover:bg-primary/5"
