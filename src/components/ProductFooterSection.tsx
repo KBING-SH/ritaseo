@@ -82,11 +82,12 @@ export const ProductFooterSection = () => {
     <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-x-8 gap-y-8">
       {productColumns.map((col) => (
         <div key={col.title}>
-          <h5 className="font-semibold text-title mb-3 text-sm">{col.title}</h5>
+          <h5 className="font-semibold text-white mb-2 text-sm">{col.title}</h5>
+          <div className="w-8 h-[2px] bg-primary mb-3" />
           <ul className="space-y-2">
             {col.links.map((link) => (
               <li key={link.label}>
-                <a href={link.href} className="text-sm text-body2 hover:text-primary transition-colors">{link.label}</a>
+                <a href={link.href} className="text-sm text-white/60 hover:text-white transition-colors">{link.label}</a>
               </li>
             ))}
           </ul>
@@ -98,7 +99,7 @@ export const ProductFooterSection = () => {
   if (!isMobile) {
     return (
       <div className="flex-1">
-        <h4 className="font-bold text-title mb-5 text-base">Products</h4>
+        <h4 className="font-bold text-white mb-5 text-base">Products</h4>
         {content}
       </div>
     );
