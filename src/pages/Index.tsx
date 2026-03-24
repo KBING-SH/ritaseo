@@ -100,7 +100,7 @@ const Index = () => {
         </aside>
 
         {/* Mobile/Tablet: UploadPanel + Result */}
-        <div className="flex-1 lg:w-[70%] min-w-0 flex flex-col overflow-hidden">
+        <div className="flex-1 lg:w-[78%] min-w-0 flex flex-col overflow-hidden">
           <div className="lg:hidden flex-1 min-h-0 overflow-hidden">
             <UploadPanel onGenerate={handleGenerate} externalStyleRef={styleSetterRef} />
           </div>
