@@ -116,6 +116,7 @@ export function FAQSection() {
               </div>
             );
           })}
+          </div>
         </div>
       </div>
     </section>
