@@ -243,31 +243,31 @@ const Index = () => {
 
           {/* Footer */}
           <footer className="border-t border-border/50 bg-card-alt">
-            <div className="max-w-[1500px] mx-auto px-4 md:px-8 py-12 md:py-16">
-              <div className="flex flex-col lg:flex-row gap-12 lg:gap-10 mb-12">
-                <div className="lg:w-40 shrink-0 space-y-2">
+            <div className="max-w-[1500px] mx-auto px-4 md:px-8 py-14 md:py-20">
+              <div className="flex flex-col lg:flex-row gap-12 lg:gap-14 mb-14">
+                <div className="lg:w-48 shrink-0 space-y-3">
                   <div className="flex items-center gap-2.5">
-                    <img src={ritaLogo} alt="Rita" className="h-9 w-9 rounded-xl" />
-                    <span className="text-xl font-bold text-title italic">Rita</span>
+                    <img src={ritaLogo} alt="Rita" className="h-10 w-10 rounded-xl" />
+                    <span className="text-2xl font-bold text-title italic">Rita</span>
                   </div>
-                  <p className="text-xs text-muted-foreground leading-snug">Rita makes creativity and efficiency accessible to everyone</p>
+                  <p className="text-sm text-muted-foreground leading-relaxed">Rita makes creativity and efficiency accessible to everyone</p>
                 </div>
                 <ProductFooterSection />
-                <div className="flex gap-10 lg:gap-12 shrink-0 text-sm">
+                <div className="flex gap-12 lg:gap-14 shrink-0">
                   <div>
-                    <h4 className="font-bold text-title mb-4 text-sm">About</h4>
-                    <ul className="space-y-1.5">
+                    <h4 className="font-bold text-title mb-5 text-base">About</h4>
+                    <ul className="space-y-2.5">
                       {[
                         { label: "About Us", href: "https://www.rita.ai/about" },
                         { label: "Contact Us", href: "https://www.rita.ai/contact" },
                       ].map((l) => (
-                        <li key={l.label}><a href={l.href} className="text-xs text-body-desc hover:text-primary transition-colors">{l.label}</a></li>
+                        <li key={l.label}><a href={l.href} className="text-sm text-body2 hover:text-primary transition-colors">{l.label}</a></li>
                       ))}
                     </ul>
                   </div>
                   <div>
-                    <h4 className="font-bold text-title mb-4 text-sm">Legal</h4>
-                    <ul className="space-y-1.5">
+                    <h4 className="font-bold text-title mb-5 text-base">Legal</h4>
+                    <ul className="space-y-2.5">
                       {[
                         { label: "Terms & Conditions", href: "https://www.rita.ai/terms" },
                         { label: "Privacy Policy", href: "https://www.rita.ai/privacy" },
@@ -275,13 +275,13 @@ const Index = () => {
                         { label: "Refund Policy", href: "https://www.rita.ai/refund" },
                         { label: "AML Policy", href: "https://www.rita.ai/aml" },
                       ].map((l) => (
-                        <li key={l.label}><a href={l.href} className="text-xs text-body-desc hover:text-primary transition-colors">{l.label}</a></li>
+                        <li key={l.label}><a href={l.href} className="text-sm text-body2 hover:text-primary transition-colors">{l.label}</a></li>
                       ))}
                     </ul>
                   </div>
                 </div>
               </div>
-              <div className="border-t border-border/50 pt-6 text-xs text-body-desc text-center">
+              <div className="border-t border-border/50 pt-6 text-sm text-body-desc text-center">
                 © 2026 Rita. All rights reserved.
               </div>
             </div>
