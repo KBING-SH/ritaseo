@@ -243,7 +243,7 @@ const Index = () => {
 
           {/* Footer */}
           <footer className="border-t border-border/50 bg-card-alt">
-            <div className="max-w-[1100px] mx-auto px-4 md:px-8 py-12 md:py-16">
+            <div className="max-w-[1500px] mx-auto px-4 md:px-8 py-12 md:py-16">
               <div className="flex flex-col lg:flex-row gap-12 lg:gap-10 mb-12">
                 <div className="lg:w-40 shrink-0 space-y-2">
                   <div className="flex items-center gap-2.5">

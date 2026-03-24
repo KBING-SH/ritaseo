@@ -33,7 +33,7 @@ export function ToolkitSection() {
 
   return (
     <nav aria-labelledby="more-tools-title" className="py-8 md:py-12 overflow-hidden">
-      <div className="max-w-[1100px] mx-auto px-4 md:px-8 mb-6 md:mb-10">
+      <div className="max-w-[1500px] mx-auto px-4 md:px-8 mb-6 md:mb-10">
         <h2 id="more-tools-title" className="text-xl md:text-3xl font-bold text-title text-center mb-2 md:mb-3">
           Explore More Rita AI Image Tools
         </h2>

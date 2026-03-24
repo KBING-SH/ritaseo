@@ -62,7 +62,7 @@ export function WhyChoose() {
 
   return (
     <section className="py-8 md:py-12">
-      <div className="max-w-[1100px] mx-auto px-4 md:px-8">
+      <div className="max-w-[1500px] mx-auto px-4 md:px-8">
         <h2 className="text-xl md:text-3xl font-bold text-title text-center mb-2 md:mb-3">
           Why Choose Rita
         </h2>
