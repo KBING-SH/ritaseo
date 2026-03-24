@@ -79,14 +79,14 @@ export const ProductFooterSection = () => {
   const isMobile = useIsMobile();
 
   const content = (
-    <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-x-6 gap-y-6 text-sm">
+    <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-x-8 gap-y-8">
       {productColumns.map((col) => (
         <div key={col.title}>
-          <h5 className="font-semibold text-title mb-2 text-xs">{col.title}</h5>
-          <ul className="space-y-1.5">
+          <h5 className="font-semibold text-title mb-3 text-sm">{col.title}</h5>
+          <ul className="space-y-2">
             {col.links.map((link) => (
               <li key={link.label}>
-                <a href={link.href} className="text-xs text-body-desc hover:text-primary transition-colors">{link.label}</a>
+                <a href={link.href} className="text-sm text-body2 hover:text-primary transition-colors">{link.label}</a>
               </li>
             ))}
           </ul>
