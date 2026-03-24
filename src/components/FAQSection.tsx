@@ -39,7 +39,7 @@ export function FAQSection() {
   return (
     <section className="py-8 md:py-12" itemScope itemType="https://schema.org/FAQPage">
       <div className="max-w-[1500px] mx-auto px-4 md:px-8">
-        <div className="rounded-2xl border border-border/50 bg-card shadow-soft p-6 md:p-10 lg:p-14">
+        <div className="rounded-2xl p-6 md:p-10 lg:p-14">
           {/* Header */}
           <div className="flex items-center justify-center gap-3 mb-6 md:mb-10">
             <div className="h-10 w-10 rounded-xl gradient-primary flex items-center justify-center shadow-md">
