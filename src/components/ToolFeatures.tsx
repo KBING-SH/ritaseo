@@ -12,7 +12,7 @@ const features = [
 export function ToolFeatures() {
   return (
     <section className="py-8 md:py-12" aria-labelledby="tool-features-title">
-      <div className="max-w-[1100px] mx-auto px-4 md:px-8">
+      <div className="max-w-[1500px] mx-auto px-4 md:px-8">
         <h2 id="tool-features-title" className="text-xl md:text-2xl font-bold text-title text-center mb-6 md:mb-10">
           AI Photo to Cartoon — Tool Features
         </h2>
