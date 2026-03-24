@@ -136,7 +136,7 @@ const Index = () => {
                 Upload your photo and Rita AI will generate fun cartoon images in multiple styles. Supports portraits, pets, landscapes and more — simple to use, ready in seconds.
               </p>
             </div>
-            <div className={`flex-1 min-h-0 w-full px-4 flex items-center justify-center relative -mt-[100px] ${history.length > 0 ? "pb-4" : ""}`}>
+            <div className={`flex-1 min-h-0 w-full px-4 flex items-center justify-center relative ${history.length > 0 ? "pb-4" : ""}`}>
               {!isGenerating && !generatedImg ? (
                 <div className="w-[70%] max-h-full aspect-[16/9] rounded-2xl overflow-hidden">
                   <StyleSelector />
