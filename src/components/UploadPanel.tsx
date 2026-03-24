@@ -61,6 +61,7 @@ const RESOLUTIONS = ["1 MP", "2 MP", "4 MP"];
 const FORMATS = ["WebP", "JPG", "PNG"];
 
 export function UploadPanel({ onGenerate, externalStyleRef }: { onGenerate?: (styleImg: string, ratio: string) => void; externalStyleRef?: React.MutableRefObject<((styleIndex: number) => void) | null> } = {}) {
+  const [isLoggedIn, setIsLoggedIn] = useState(true);
   const [isDragging, setIsDragging] = useState(false);
   const [showLoginDialog, setShowLoginDialog] = useState(false);
   const [uploadedImage, setUploadedImage] = useState<string | null>(null);
