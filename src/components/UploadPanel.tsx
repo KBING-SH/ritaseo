@@ -376,7 +376,7 @@ function StyleCard({ style, index, selected, onSelect, onPreview }: {
   return (
     <div
       onClick={() => onSelect(index)}
-      className="relative cursor-pointer flex flex-col items-center gap-1.5"
+      className="relative cursor-pointer flex flex-col items-center gap-2"
     >
       <div className={cn(
         "relative w-full aspect-square rounded-xl overflow-hidden border-2 transition-all",
