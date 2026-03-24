@@ -114,7 +114,7 @@ export function UploadPanel({ onGenerate, externalStyleRef }: { onGenerate?: (st
   };
 
   return (
-    <div className="bg-background h-full flex flex-col overflow-hidden">
+    <div className="rounded-xl border border-border/50 bg-muted shadow-soft h-full flex flex-col overflow-hidden">
       {/* Content */}
       <div className="flex-1 overflow-y-auto p-3 md:p-4 lg:p-5 space-y-3 md:space-y-3 lg:space-y-4 text-sm">
         {/* Model selector */}
