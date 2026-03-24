@@ -380,7 +380,7 @@ function StyleCard({ style, index, selected, onSelect, onPreview }: {
     >
       <div className={cn(
         "relative w-full aspect-square rounded-xl overflow-hidden border-2 transition-all",
-        selected ? "border-primary shadow-sm" : "border-transparent hover:border-primary/40"
+        selected ? "border-primary shadow-sm" : "border-border hover:border-primary/40"
       )}>
         <img
           src={style.src}
