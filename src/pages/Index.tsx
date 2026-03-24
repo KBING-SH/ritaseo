@@ -95,7 +95,7 @@ const Index = () => {
         </div>
 
         {/* Left sidebar - desktop */}
-        <aside className="hidden lg:flex shrink-0 border-r border-border/50 bg-background" style={{ width: 'clamp(240px, 25vw, 380px)' }}>
+        <aside className="hidden lg:flex shrink-0 border-r border-border/50 bg-background" style={{ width: 'clamp(260px, 23vw, 360px)' }}>
           <UploadPanel onGenerate={handleGenerate} externalStyleRef={styleSetterRef} />
         </aside>
 
