@@ -38,17 +38,18 @@ export function FAQSection() {
 
   return (
     <section className="py-8 md:py-12" itemScope itemType="https://schema.org/FAQPage">
-      <div className="max-w-[1100px] mx-auto px-4 md:px-8">
-        {/* Header */}
-        <div className="flex items-center justify-center gap-3 mb-6 md:mb-10">
-          <div className="h-10 w-10 rounded-xl gradient-primary flex items-center justify-center shadow-md">
-            <MessageCircleQuestion className="h-5 w-5 text-white" />
+      <div className="max-w-[1500px] mx-auto px-4 md:px-8">
+        <div className="rounded-2xl border border-border/50 bg-card shadow-soft p-6 md:p-10 lg:p-14">
+          {/* Header */}
+          <div className="flex items-center justify-center gap-3 mb-6 md:mb-10">
+            <div className="h-10 w-10 rounded-xl gradient-primary flex items-center justify-center shadow-md">
+              <MessageCircleQuestion className="h-5 w-5 text-white" />
+            </div>
+            <h2 className="text-2xl md:text-3xl font-bold text-title">FAQ</h2>
           </div>
-          <h2 className="text-2xl md:text-3xl font-bold text-title">FAQ</h2>
-        </div>
 
-        {/* FAQ list */}
-        <div className="rounded-2xl border border-border/50 bg-card shadow-soft overflow-hidden">
+          {/* FAQ list */}
+          <div className="max-w-[900px] mx-auto rounded-xl border border-border/40 bg-background overflow-hidden">
           {faqs.map((faq, i) => {
             const isOpen = openIndex === i;
             const isLast = i === faqs.length - 1;
