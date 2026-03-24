@@ -136,18 +136,18 @@ const Index = () => {
                 Upload your photo and Rita AI will generate fun cartoon images in multiple styles. Supports portraits, pets, landscapes and more — simple to use, ready in seconds.
               </p>
             </div>
-            <div className={`flex-1 min-h-0 w-full px-4 flex items-center justify-center relative -mt-[100px] ${history.length > 0 ? "pb-4" : ""}`}>
+            <div className={`flex-1 min-h-0 w-full px-4 flex items-center justify-center relative ${history.length > 0 ? "pb-4" : ""}`}>
               {!isGenerating && !generatedImg ? (
                 <div className="w-[70%] max-h-full aspect-[16/9] rounded-2xl overflow-hidden">
                   <StyleSelector />
                 </div>
               ) : isGenerating ? (
-                <div className="h-full max-w-full rounded-2xl border border-border/50 bg-muted/30 flex flex-col items-center justify-center gap-3" style={{ aspectRatio: generatedRatio }}>
+                <div className="max-h-full max-w-full rounded-2xl border border-border/50 bg-muted/30 flex flex-col items-center justify-center gap-3" style={{ aspectRatio: generatedRatio }}>
                   <Loader2 className="w-10 h-10 text-primary animate-spin" />
                   <p className="text-sm text-muted-foreground">Generating...</p>
                 </div>
               ) : generatedImg ? (
-                <div className="h-full max-w-full rounded-2xl overflow-hidden border border-border/50 shadow-lg animate-fade-in" style={{ aspectRatio: generatedRatio }}>
+                <div className="max-h-full max-w-full rounded-2xl overflow-hidden border border-border/50 shadow-lg animate-fade-in" style={{ aspectRatio: generatedRatio }}>
                   <img src={generatedImg} alt="Generated result" className="w-full h-full object-cover" />
                 </div>
               ) : null}
