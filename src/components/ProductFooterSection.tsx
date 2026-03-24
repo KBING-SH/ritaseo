@@ -99,7 +99,7 @@ export const ProductFooterSection = () => {
   if (!isMobile) {
     return (
       <div className="flex-1">
-        <h4 className="font-bold text-title mb-5 text-base">Products</h4>
+        <h4 className="font-bold text-white mb-5 text-base">Products</h4>
         {content}
       </div>
     );
