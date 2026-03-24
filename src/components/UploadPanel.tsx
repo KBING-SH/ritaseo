@@ -61,6 +61,7 @@ const RESOLUTIONS = ["1 MP", "2 MP", "4 MP"];
 const FORMATS = ["WebP", "JPG", "PNG"];
 
 export function UploadPanel({ onGenerate, externalStyleRef }: { onGenerate?: (styleImg: string, ratio: string) => void; externalStyleRef?: React.MutableRefObject<((styleIndex: number) => void) | null> } = {}) {
+  const [isLoggedIn, setIsLoggedIn] = useState(true);
   const [isDragging, setIsDragging] = useState(false);
   const [showLoginDialog, setShowLoginDialog] = useState(false);
   const [uploadedImage, setUploadedImage] = useState<string | null>(null);
@@ -258,6 +259,34 @@ export function UploadPanel({ onGenerate, externalStyleRef }: { onGenerate?: (st
             ))}
           </div>
         </div>
+        {/* Login state toggle */}
+        <div>
+          <label className="text-xs md:text-sm font-medium text-title mb-1.5 lg:mb-2 block">Login Status</label>
+          <div className="flex gap-2">
+            <button
+              onClick={() => setIsLoggedIn(true)}
+              className={cn(
+                "flex-1 px-3 py-2 rounded-lg border text-xs md:text-sm font-medium transition-all",
+                isLoggedIn
+                  ? "border-primary bg-primary text-primary-foreground shadow-sm"
+                  : "border-border bg-card text-body2 hover:border-primary/50 hover:bg-primary/5"
+              )}
+            >
+              Logged In
+            </button>
+            <button
+              onClick={() => setIsLoggedIn(false)}
+              className={cn(
+                "flex-1 px-3 py-2 rounded-lg border text-xs md:text-sm font-medium transition-all",
+                !isLoggedIn
+                  ? "border-primary bg-primary text-primary-foreground shadow-sm"
+                  : "border-border bg-card text-body2 hover:border-primary/50 hover:bg-primary/5"
+              )}
+            >
+              Not Logged In
+            </button>
+          </div>
+        </div>
       </div>
 
       {/* Fixed bottom: generate */}
@@ -267,6 +296,10 @@ export function UploadPanel({ onGenerate, externalStyleRef }: { onGenerate?: (st
           size="default"
           className="flex-1"
           onClick={() => {
+            if (!isLoggedIn) {
+              setShowLoginDialog(true);
+              return;
+            }
             const style = STYLE_OPTIONS[selectedStyle];
             if (onGenerate && style) {
               onGenerate(style.src, selectedRatio);
