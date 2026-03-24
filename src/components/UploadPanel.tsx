@@ -207,7 +207,7 @@ export function UploadPanel({ onGenerate, externalStyleRef }: { onGenerate?: (st
         {/* Style selector */}
         <div>
           <label className="text-xs font-medium text-title mb-1.5 lg:mb-2 block">Select a Style</label>
-          <div className="grid grid-cols-4 gap-x-2.5 gap-y-2.5 md:gap-x-3 md:gap-y-2.5 lg:gap-x-3 lg:gap-y-3">
+          <div className="grid grid-cols-4 gap-x-2.5 gap-y-2.5 md:gap-x-3 md:gap-y-2.5 lg:gap-x-3 lg:gap-y-3" style={{ gridTemplateColumns: 'repeat(4, minmax(50px, 1fr))' }}>
             {STYLE_OPTIONS.map((style, i) => (
               <StyleCard key={i} style={style} index={i} selected={selectedStyle === i} onSelect={(idx) => { setSelectedStyle(idx); setPromptText(STYLE_OPTIONS[idx].prompt); }} onPreview={() => setPreviewStyle(i)} />
             ))}
