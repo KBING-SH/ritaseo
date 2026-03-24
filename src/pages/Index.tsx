@@ -132,7 +132,7 @@ const Index = () => {
               <h1 className="text-3xl md:text-5xl font-bold text-title leading-tight mb-3 md:mb-4">
                 Free Online Photo to Cartoon
               </h1>
-              <p className="text-muted-foreground text-sm md:text-lg max-w-2xl mx-auto leading-relaxed">
+              <p className="text-muted-foreground text-sm md:text-lg max-w-[900px] mx-auto leading-relaxed">
                 Upload your photo and Rita AI will generate fun cartoon images in multiple styles. Supports portraits, pets, landscapes and more — simple to use, ready in seconds.
               </p>
             </div>
