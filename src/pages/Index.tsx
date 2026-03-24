@@ -253,35 +253,6 @@ const Index = () => {
                   <p className="text-sm text-white/60 leading-relaxed">Rita makes creativity and efficiency accessible to everyone</p>
                 </div>
                 <ProductFooterSection />
-                <div className="flex gap-12 lg:gap-14 shrink-0">
-                  <div>
-                    <h4 className="font-bold text-white mb-2 text-base">About</h4>
-                    <div className="w-10 h-[2px] bg-primary mb-4" />
-                    <ul className="space-y-2.5">
-                      {[
-                        { label: "About Us", href: "https://www.rita.ai/about" },
-                        { label: "Contact Us", href: "https://www.rita.ai/contact" },
-                      ].map((l) => (
-                        <li key={l.label}><a href={l.href} className="text-sm text-white/60 hover:text-white transition-colors">{l.label}</a></li>
-                      ))}
-                    </ul>
-                  </div>
-                  <div>
-                    <h4 className="font-bold text-white mb-2 text-base">Legal</h4>
-                    <div className="w-10 h-[2px] bg-primary mb-4" />
-                    <ul className="space-y-2.5">
-                      {[
-                        { label: "Terms & Conditions", href: "https://www.rita.ai/terms" },
-                        { label: "Privacy Policy", href: "https://www.rita.ai/privacy" },
-                        { label: "Copyright Policy", href: "https://www.rita.ai/copyright" },
-                        { label: "Refund Policy", href: "https://www.rita.ai/refund" },
-                        { label: "AML Policy", href: "https://www.rita.ai/aml" },
-                      ].map((l) => (
-                        <li key={l.label}><a href={l.href} className="text-sm text-white/60 hover:text-white transition-colors">{l.label}</a></li>
-                      ))}
-                    </ul>
-                  </div>
-                </div>
               </div>
               <div className="border-t border-white/10 pt-6 text-sm text-white/40 text-center">
                 © 2026 Rita. All rights reserved.
