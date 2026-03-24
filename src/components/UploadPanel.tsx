@@ -404,7 +404,7 @@ function StyleCard({ style, index, selected, onSelect, onPreview }: {
         </button>
       </div>
       <span className={cn(
-        "text-[10px] leading-tight truncate w-full text-center",
+        "text-[11px] leading-tight truncate w-full text-center",
         selected ? "text-primary font-medium" : "text-muted-foreground"
       )}>{style.label}</span>
     </div>
