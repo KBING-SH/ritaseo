@@ -45,7 +45,7 @@ export function FAQSection() {
         </div>
 
         {/* FAQ list */}
-        <div className="max-w-[900px] mx-auto space-y-3">
+        <div className="max-w-[750px] mx-auto space-y-3">
           {faqs.map((faq, i) => {
             const isOpen = openIndex === i;
             return (
