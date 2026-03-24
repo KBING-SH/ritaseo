@@ -69,7 +69,7 @@ export function FAQSection() {
                   <span
                     itemProp="name"
                     className={cn(
-                      "text-[15px] font-medium transition-colors",
+                      "text-base font-medium transition-colors",
                       isOpen ? "text-title" : "text-title group-hover:text-primary"
                     )}
                   >
