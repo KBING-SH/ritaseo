@@ -41,8 +41,8 @@ export function HowItWorks() {
   }, [activeIndex]);
 
   return (
-    <section className="py-10 md:py-24 bg-card-alt">
-      <div className="container px-4 md:px-8">
+    <section className="py-8 md:py-12">
+      <div className="max-w-[1100px] mx-auto px-4 md:px-8">
         <h2 className="text-xl md:text-3xl font-bold text-title text-center mb-2 md:mb-3">How to Turn a Photo into a Cartoon in 3 Steps</h2>
         <p className="text-sm md:text-base text-body-desc text-center mb-6 md:mb-12">No design skills needed — upload your photo, pick a style, and download the cartoon instantly</p>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">

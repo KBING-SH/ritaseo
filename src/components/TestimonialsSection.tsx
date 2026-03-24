@@ -126,10 +126,10 @@ function MarqueeRow({
 export function TestimonialsSection() {
   return (
     <section
-      className="py-10 md:py-24 overflow-hidden"
+      className="py-8 md:py-12 overflow-hidden"
       aria-labelledby="user-feedback-title"
     >
-      <div className="container px-4 md:px-8 max-w-6xl mb-6 md:mb-12">
+      <div className="max-w-[1100px] mx-auto px-4 md:px-8 mb-6 md:mb-12">
         <h2 id="user-feedback-title" className="text-xl md:text-3xl font-bold text-title text-center mb-2 md:mb-3">
           What Users Say
         </h2>
