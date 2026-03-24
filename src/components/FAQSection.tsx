@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { ChevronDown, MessageCircleQuestion } from "lucide-react";
+import { ChevronDown } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const faqs = [
@@ -34,20 +34,17 @@ const faqs = [
 ];
 
 export function FAQSection() {
-  const [openIndex, setOpenIndex] = useState<number | null>(0);
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
     <section className="py-8 md:py-12" itemScope itemType="https://schema.org/FAQPage">
       <div className="max-w-[1500px] mx-auto px-4 md:px-8">
         {/* Header */}
-        <div className="flex items-center justify-center gap-3 mb-6 md:mb-10">
-          <div className="h-10 w-10 rounded-xl gradient-primary flex items-center justify-center shadow-md">
-            <MessageCircleQuestion className="h-5 w-5 text-white" />
-          </div>
+        <div className="text-center mb-8 md:mb-12">
           <h2 className="text-2xl md:text-3xl font-bold text-title">FAQ</h2>
         </div>
 
-        {/* FAQ list - each item is a separate card */}
+        {/* FAQ list */}
         <div className="max-w-[900px] mx-auto space-y-3">
           {faqs.map((faq, i) => {
             const isOpen = openIndex === i;
@@ -55,8 +52,8 @@ export function FAQSection() {
               <div
                 key={i}
                 className={cn(
-                  "rounded-xl border bg-card shadow-sm transition-all duration-200",
-                  isOpen ? "border-primary/30 shadow-md" : "border-border/60 hover:border-border"
+                  "rounded-xl bg-card shadow-sm transition-all duration-200 border border-border/60 border-l-[3px]",
+                  isOpen ? "border-l-primary shadow-md" : "border-l-transparent hover:border-l-primary/40"
                 )}
                 itemScope
                 itemProp="mainEntity"
@@ -64,12 +61,12 @@ export function FAQSection() {
               >
                 <button
                   onClick={() => setOpenIndex(isOpen ? null : i)}
-                  className="w-full flex items-center justify-between gap-4 px-5 py-4 text-left cursor-pointer group"
+                  className="w-full flex items-center justify-between gap-4 px-6 py-5 text-left cursor-pointer group"
                 >
                   <span
                     itemProp="name"
                     className={cn(
-                      "text-base font-medium transition-colors",
+                      "text-base font-semibold transition-colors",
                       isOpen ? "text-title" : "text-title group-hover:text-primary"
                     )}
                   >
@@ -94,7 +91,7 @@ export function FAQSection() {
                   itemType="https://schema.org/Answer"
                 >
                   <div className="overflow-hidden">
-                    <p itemProp="text" className="px-5 pb-4 text-sm text-body-desc leading-[1.8]">
+                    <p itemProp="text" className="px-6 pb-5 text-sm text-body-desc leading-[1.8]">
                       {faq.a}
                     </p>
                   </div>
