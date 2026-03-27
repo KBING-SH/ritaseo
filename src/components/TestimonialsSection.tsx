@@ -3,64 +3,64 @@ import { useDraggableMarquee } from "@/hooks/use-draggable-marquee";
 
 const testimonials = [
   {
-    name: "Emily Carter",
-    role: "High School Student",
+    name: "Sarah M.",
+    role: "Graphic Designer",
     avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=400&fit=crop",
-    content: "I've been using this AI math tool for a few weeks, and it has made difficult problems easier to follow. The step-by-step explanations help me understand ideas that used to feel confusing. It has become a useful part of my math homework routine.",
+    content: "I found the AI Photo to Cartoon tool quite useful for creating unique cartoon versions of my photos. The results were generally good, though sometimes the cartoon effect felt a bit too strong. Overall, it's a handy tool for quick cartoon transformations.",
   },
   {
-    name: "Rajesh Kumar",
-    role: "College Engineering Student",
+    name: "David L.",
+    role: "Photographer",
     avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop",
-    content: "This AI math tool is useful when I work through calculus and algebra problems. The detailed steps make it easier to follow the reasoning behind each solution, which matters for my coursework. It gives me solid study support when I need to review a problem carefully.",
+    content: "This AI Photo to Cartoon service made it easy to turn my photos into cartoons. The process was straightforward, and the output looked natural for the most part. It's a convenient way to add a creative touch to images without much effort.",
   },
   {
-    name: "Sofia Martinez",
-    role: "Middle School Teacher",
+    name: "Emily R.",
+    role: "Content Creator",
     avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=400&fit=crop",
-    content: "As a teacher, I find this AI math tool useful for giving students clearer explanations and extra practice. It helps me prepare questions and reinforce lessons in a more focused way. Being able to upload problems and review solutions saves time during lesson planning.",
+    content: "The AI Photo to Cartoon feature worked, but I noticed some inconsistencies in how it rendered different photos. Some cartoons looked great, while others missed details. It's a decent tool but could use some improvements for more consistent results.",
   },
   {
-    name: "Liam O'Connor",
-    role: "University Student",
+    name: "Michael T.",
+    role: "Marketing Specialist",
     avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=400&fit=crop",
-    content: "Using this AI math tool has made statistics problems feel more manageable. The step-by-step guidance makes the concepts easier to follow and less overwhelming during exam review. It's a dependable study resource when I need extra support.",
+    content: "Using AI Photo to Cartoon helped me produce cartoon-style images quickly. The tool is simple to use and delivers satisfying results, though occasionally the cartoon effect was a bit exaggerated. Still, it's a useful option for casual cartoonizing.",
   },
   {
-    name: "Mei Lin",
-    role: "High School Math Tutor",
+    name: "Jessica K.",
+    role: "Social Media Manager",
     avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=400&h=400&fit=crop",
-    content: "This AI math tool works well as extra support during tutoring sessions. It gives clear solutions that I can review with my students, and the explanations make it easier for them to understand each step. It fits naturally into regular math practice.",
+    content: "I enjoyed experimenting with AI Photo to Cartoon to create fun, cartoon-like images for social media. The results were appealing, and the tool was easy to navigate. Some photos worked better than others, but overall it's a good creative resource.",
   },
   {
-    name: "David Johnson",
-    role: "College Student",
+    name: "Alex W.",
+    role: "Illustrator",
     avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop",
-    content: "I find this AI math tool useful for checking my work and reviewing different ways to solve a problem. Uploading an image of an equation is convenient, and the explanations make it easier to learn from mistakes instead of only checking the answer.",
+    content: "As an illustrator, I was curious about AI Photo to Cartoon. It surprised me — the Ghibli and ink wash styles are genuinely impressive. I now use it for quick concept references before starting my own illustrations. Great time saver.",
   },
   {
-    name: "Amina Hassan",
-    role: "STEM Professional",
+    name: "Rachel H.",
+    role: "Teacher",
     avatar: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=400&h=400&fit=crop",
-    content: "In my STEM work, I appreciate how this AI math tool handles topics like linear algebra and differential equations. The step-by-step solutions are clear and practical, which makes it useful when I need to revisit a concept or review a method.",
+    content: "My students absolutely loved seeing their class photos turned into cartoons! AI Photo to Cartoon made our end-of-year slideshow so much more fun. The process was easy enough that even my less tech-savvy colleagues could use it.",
   },
   {
-    name: "Carlos Diaz",
-    role: "High School Student",
+    name: "James P.",
+    role: "Small Business Owner",
     avatar: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=400&h=400&fit=crop",
-    content: "This AI math tool has changed how I approach math problems. The explanations are straightforward and make it easier to understand the reasoning behind each step. It gives me useful support whenever I get stuck during homework.",
+    content: "I used AI Photo to Cartoon to create cartoon avatars for my team's profile pictures on our website. Customers love the friendly, approachable look. It was ready to use directly — no extra editing needed.",
   },
   {
-    name: "Hana Lee",
-    role: "College Mathematics Major",
+    name: "Linda C.",
+    role: "Pet Blogger",
     avatar: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400&h=400&fit=crop",
-    content: "The AI math tool breaks down harder problems into clearer steps, which supports my learning. It helps me review different methods for solving equations and gives me a better grasp of the process. It has been useful during exam preparation.",
+    content: "Turning my cats' photos into cartoon portraits was the highlight of my week! AI Photo to Cartoon captured their personalities perfectly. My followers on Instagram went crazy for the results. Definitely recommend for any pet content creator.",
   },
   {
-    name: "Michael Thompson",
-    role: "High School Student",
+    name: "Chris N.",
+    role: "UX Designer",
     avatar: "https://images.unsplash.com/photo-1519345182560-3f2917c472ef?w=400&h=400&fit=crop",
-    content: "I've tried several math tools, and this AI math tool stands out for its clear explanations and steady support. It helps me work through algebra and geometry problems in a way that feels easier to follow. Over time, it has helped me feel more confident in class.",
+    content: "The variety of styles in AI Photo to Cartoon is what sets it apart. I've tried pixel, chibi, and realistic — each produces a distinct look. It's become part of my design toolkit for creating playful mockups and presentation visuals.",
   },
 ];
 
@@ -134,7 +134,7 @@ export function TestimonialsSection() {
           What Users Say
         </h2>
         <p className="text-sm md:text-base text-body-desc text-center max-w-lg mx-auto">
-          Sample feedback from users who tried Rita's AI math tool for learning and problem solving.
+          Sample feedback from users who tried Rita for cartoon-style image creation.
         </p>
       </div>
 

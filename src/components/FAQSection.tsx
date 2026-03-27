@@ -4,36 +4,32 @@ import { cn } from "@/lib/utils";
 
 const faqs = [
   {
-    q: "What are AI math tools and how do they work?",
-    a: "AI math tools help users work through math problems by analyzing a typed or uploaded question and returning clearer answers with step-by-step guidance. They are often used for topics such as algebra, geometry, calculus, and statistics.",
+    q: "What is AI Photo to Cartoon?",
+    a: "AI Photo to Cartoon is a technology that transforms your photos into cartoon-style images using artificial intelligence.",
   },
   {
-    q: "What is an AI math tool best suited for solving various math problems?",
-    a: "An AI math tool like Rita is useful for working through different kinds of math questions by letting users type or upload problems and review answers with clearer explanations. This makes it a practical option for study, homework, and review.",
+    q: "How does AI Photo to Cartoon work?",
+    a: "AI Photo to Cartoon uses AI algorithms to analyze your photo and recreate it with cartoon-like features and effects.",
   },
   {
-    q: "Can AI math solvers provide step-by-step solutions?",
-    a: "Yes, AI math tools can provide step-by-step solutions. This kind of guidance helps users follow the method behind the answer instead of only seeing the final result.",
+    q: "Can I use AI Photo to Cartoon for any photo?",
+    a: "AI Photo to Cartoon works best with clear, well-lit photos, but it can be applied to most types of images.",
   },
   {
-    q: "Is it possible for an AI math tool to solve problems from images?",
-    a: "Yes, AI math tools like Rita can support uploaded questions, including screenshots or images of math problems. This gives users another way to enter a question and review the solution.",
+    q: "Is AI Photo to Cartoon easy to use?",
+    a: "Yes, AI Photo to Cartoon tools are designed to be user-friendly, allowing you to convert photos into cartoons quickly.",
   },
   {
-    q: "What is the purpose of an AI math problem generator?",
-    a: "An AI math problem generator helps educators prepare practice questions based on a topic or concept. This supports lesson planning and gives students more focused material for review.",
+    q: "Are the results from AI Photo to Cartoon customizable?",
+    a: "Some AI Photo to Cartoon tools offer options to adjust the style or intensity of the cartoon effect.",
   },
   {
-    q: "Can AI math word problem generators create problems for different skill levels?",
-    a: "AI math problem generators can be used to create practice that fits different lesson goals and study levels. This makes them useful when teachers want more targeted review material.",
+    q: "Can AI Photo to Cartoon be used for professional purposes?",
+    a: "AI Photo to Cartoon can be used for various purposes, including personal and creative projects, depending on the quality needed.",
   },
   {
-    q: "How can students use AI math tools for learning and homework support?",
-    a: "Students can use AI math tools to type or upload questions and receive answers with clearer explanations. This helps them review each step more carefully during homework and study.",
-  },
-  {
-    q: "Can AI math tools assist with probability and statistics problems?",
-    a: "Yes, AI math tools can assist with statistics problems by providing clearer solutions and step-by-step guidance. This makes statistics easier to review and understand during study sessions.",
+    q: "Is AI Photo to Cartoon safe to use?",
+    a: "AI Photo to Cartoon services generally prioritize user privacy and data security, but it's good to review each service's policies.",
   },
 ];
 

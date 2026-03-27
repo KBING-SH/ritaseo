@@ -1,12 +1,12 @@
-import { Calculator, BookOpen, Camera, BarChart3, Sparkles, Gift } from "lucide-react";
+import { FileImage, Palette, RectangleHorizontal, MonitorUp, Sparkles, Gift } from "lucide-react";
 
 const features = [
-  { icon: Calculator, text: "Solve algebra, geometry, calculus, and statistics problems with step-by-step guidance." },
-  { icon: BookOpen, text: "Connect each answer to the underlying method for deeper learning and review." },
-  { icon: Camera, text: "Type a question or upload a screenshot or image to see how the problem is solved." },
-  { icon: BarChart3, text: "Statistics support with clearer solutions and step-by-step process breakdowns." },
-  { icon: Sparkles, text: "AI math problem maker for educators to generate practice questions by topic." },
-  { icon: Gift, text: "Claim 60 free credits daily — each solve costs 10 credits." },
+  { icon: FileImage, text: "Supports JPG, JPEG, PNG, and WEBP uploads up to 20 MB." },
+  { icon: Palette, text: "Choose from styles such as Ghibli, Pixel, Realistic, Ink Wash, Cartoon, Retro, Cute, and Minimal." },
+  { icon: RectangleHorizontal, text: "Available aspect ratios include Auto, 1:1, 16:9, 9:16, 4:3, 3:4, 2:3, 3:2, 5:4, and 4:5." },
+  { icon: MonitorUp, text: "Output resolutions include 1 MP, 2 MP, and 4 MP." },
+  { icon: Sparkles, text: "Custom prompts can be used to guide image style and mood." },
+  { icon: Gift, text: "Claim 60 free credits daily — each generation costs 10 credits." },
 ];
 
 export function ToolFeatures() {
@@ -14,7 +14,7 @@ export function ToolFeatures() {
     <section className="py-8 md:py-12 bg-background" aria-labelledby="tool-features-title">
       <div className="max-w-[1000px] mx-auto px-4 md:px-8">
         <h2 id="tool-features-title" className="text-xl md:text-2xl font-bold text-title text-center mb-6 md:mb-10">
-          AI Math Tool — Features
+          AI Photo to Cartoon — Tool Features
         </h2>
         <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {features.map((f, i) => (

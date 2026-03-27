@@ -1,65 +1,61 @@
 import { useState, useEffect } from "react";
-import { Brain, GraduationCap, BarChart3, Calculator, BookOpen, ChevronRight } from "lucide-react";
+import { User, PawPrint, Mountain, ChevronRight } from "lucide-react";
+import landscapeBefore from "@/assets/landscape-before.jpg";
+import landscapeAfter from "@/assets/landscape-after.jpg";
+import petBefore from "@/assets/pet-before.jpg";
+import petAfter from "@/assets/pet-after.jpg";
+import portraitBefore from "@/assets/portrait-before.jpg";
+import portraitAfter from "@/assets/portrait-after.jpg";
+import { AutoComparisonSlider } from "@/components/AutoComparisonSlider";
 
 const sections = [
   {
-    icon: Brain,
-    title: "AI Math Learning Support",
-    subtitle: "Step-by-step guidance for math topics",
+    icon: User,
+    title: "AI Portrait to Cartoon — Turn Selfies into Cartoon Avatars",
+    subtitle: "Transform your selfies into unique cartoon avatars",
+    image: null,
+    comparison: { before: portraitBefore, after: portraitAfter },
+    imageAlt: "Young woman's selfie transformed into a colorful cartoon avatar using AI Photo to Cartoon",
     paragraphs: [
-      "An AI math tool helps users work through math topics with clearer explanations and step-by-step guidance. By focusing on common areas such as algebra, geometry, calculus, and statistics, it supports learning in a more direct and practical way.",
-      "With this approach, users can connect each answer to the underlying method instead of only viewing the result. They can type a question or upload a screenshot or image to see how the problem is solved in practice.",
+      "Create a cartoon portrait with AI Photo to Cartoon by uploading a clear photo. This tool converts your portrait into a charming cartoon avatar that highlights your unique features. Choose a style and enjoy a personalized image suitable for social media or gifts. Explore AI Photo to Cartoon to see your portrait in a new way.",
     ],
     imageFirst: true,
   },
   {
-    icon: Calculator,
-    title: "Smart Solve AI Features",
-    subtitle: "Type or upload math problems",
+    icon: PawPrint,
+    title: "AI Pet Photo to Cartoon — Cartoon Portraits for Cats & Dogs",
+    subtitle: "Create charming cartoon portraits of your pets",
+    image: null,
+    comparison: { before: petBefore, after: petAfter },
+    imageAlt: "Golden retriever puppy turned into a playful cartoon portrait with AI Photo to Cartoon",
     paragraphs: [
-      "An AI math tool like Rita helps students work through math questions by typing or uploading problems from different topics. It gives answers with clearer steps, making it easier to follow the logic without leaving the study flow.",
-      "Using Rita feels like having steady support during homework or review. It supports learning by giving explanations that make each step easier to follow.",
+      "Generate a cartoon portrait of your pet using AI Photo to Cartoon. Upload a clear photo of your pet and let the tool transform it into a playful cartoon style. This effect brings out your pet's personality in a fun and engaging way. Share your pet's new look created by AI Photo to Cartoon with friends and family.",
     ],
     imageFirst: false,
   },
   {
-    icon: GraduationCap,
-    title: "Custom AI Math Problem Maker",
-    subtitle: "Generate practice questions for educators",
+    icon: Mountain,
+    title: "AI Landscape to Cartoon — Scenic Photos as Cartoon Art",
+    subtitle: "Transform scenic photos into cartoon artwork",
+    image: null,
+    comparison: { before: landscapeBefore, after: landscapeAfter },
+    imageAlt: "Mountain lake scenery converted into vibrant cartoon artwork using AI Photo to Cartoon",
     paragraphs: [
-      "An AI math tool can also support educators when preparing practice materials. By using an AI math problem maker, teachers can enter a topic or concept and receive practice questions that fit lesson goals and classroom review.",
-      "With this approach, instructors can prepare more varied exercises while keeping the work focused on the topic being taught. It adds useful support when building math practice for class.",
-    ],
-    imageFirst: true,
-  },
-  {
-    icon: BarChart3,
-    title: "Statistics AI Calculator Features",
-    subtitle: "Step-by-step statistics guidance",
-    paragraphs: [
-      "An AI math tool like this also supports statistics questions with step-by-step guidance. It helps users follow the process behind the numbers, making statistics easier to study and review.",
-      "This works well for students who want to understand how an answer is formed instead of only seeing the final result. It gives extra support during study sessions and homework review.",
-    ],
-    imageFirst: false,
-  },
-  {
-    icon: BookOpen,
-    title: "Statistics Answers AI Tool",
-    subtitle: "Clearer solutions for statistics questions",
-    paragraphs: [
-      "An AI math tool offers a direct way to work through statistics questions with clearer solutions. After entering a problem, this AI math tool analyzes it and returns answers in a way that is easier to follow.",
-      "With this approach, users can review the method step by step and build a steadier understanding of statistics. It serves as practical support for homework, review, and general study.",
+      "Apply a cartoon effect with AI Photo to Cartoon that turns your landscape photos into appealing cartoon images. Upload your favorite scene and watch it become a colorful cartoon portrait. Enjoy a fresh artistic interpretation of your landscapes with AI Photo to Cartoon.",
     ],
     imageFirst: true,
   },
 ];
 
+// Map section index to style index: 0=Ghibli, 1=Cartoon, 2=Ink
+const SECTION_STYLE_MAP = [0, 1, 3];
+
 export function ContentSections({ onSelectStyle }: { onSelectStyle?: (styleIndex: number) => void }) {
   const [showTooltip, setShowTooltip] = useState(false);
 
-  const handleTryNow = () => {
+  const handleTryNow = (sectionIndex: number) => {
     if (onSelectStyle) {
-      onSelectStyle(0);
+      onSelectStyle(SECTION_STYLE_MAP[sectionIndex] ?? 0);
     } else {
       window.scrollTo({ top: 0, behavior: "smooth" });
       const checkScrollDone = () => {
@@ -90,14 +86,27 @@ export function ContentSections({ onSelectStyle }: { onSelectStyle?: (styleIndex
                 section.imageFirst ? "" : "lg:flex-row-reverse"
               }`}
             >
-              {/* Icon illustration area */}
-              <div className="w-full lg:w-[40%] shrink-0 flex items-center justify-center">
-                <div className="w-full aspect-[4/3] rounded-xl bg-muted/30 border border-border/30 flex items-center justify-center">
-                  <section.icon className="h-16 w-16 md:h-20 md:w-20 text-primary/40" strokeWidth={1.5} />
+              <div className="w-full lg:w-[50%] shrink-0">
+                <div className="rounded-xl overflow-hidden shadow-lg border border-border/30">
+                  {section.comparison ? (
+                    <AutoComparisonSlider
+                      beforeSrc={section.comparison.before}
+                      afterSrc={section.comparison.after}
+                      beforeAlt="Original photo"
+                      afterAlt="Cartoon effect"
+                    />
+                  ) : (
+                    <img
+                      src={section.image!}
+                      alt={section.imageAlt}
+                      className="w-full h-auto object-cover"
+                      loading="lazy"
+                    />
+                  )}
                 </div>
               </div>
 
-              <div className="w-full lg:w-[55%] space-y-5">
+              <div className="w-full lg:w-[45%] space-y-5">
                 <div className="space-y-3">
                   <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-secondary text-secondary-foreground text-xs font-semibold tracking-wide">
                     <section.icon className="h-3.5 w-3.5" />
@@ -116,7 +125,7 @@ export function ContentSections({ onSelectStyle }: { onSelectStyle?: (styleIndex
                 </div>
                 <div className="pt-2">
                   <button
-                    onClick={() => handleTryNow()}
+                    onClick={() => handleTryNow(i)}
                     className="inline-flex items-center gap-2 px-8 py-3 rounded-full gradient-primary text-primary-foreground text-base font-semibold transition-all hover:opacity-90 hover:shadow-lg group"
                   >
                     <span>Try it now</span>

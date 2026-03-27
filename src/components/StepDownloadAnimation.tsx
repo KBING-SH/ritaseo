@@ -1,40 +1,50 @@
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Check, BookOpen, Lightbulb, RotateCcw } from "lucide-react";
+import { Download, Share2, Check } from "lucide-react";
+import demoResult from "@/assets/demo-result.png";
 
 type Step =
   | "idle"
-  | "showSolution"
-  | "highlightStep1"
-  | "highlightStep2"
-  | "highlightStep3"
-  | "showInsight"
-  | "tryAnother"
+  | "showResult"
+  | "moveToDl"
+  | "clickDl"
+  | "downloading"
+  | "dlDone"
+  | "moveToShare"
+  | "clickShare"
+  | "showPlatforms"
+  | "selectPlatform"
+  | "shared"
   | "reset";
 
 const SCRIPT: { step: Step; duration: number }[] = [
   { step: "idle", duration: 500 },
-  { step: "showSolution", duration: 1200 },
-  { step: "highlightStep1", duration: 1400 },
-  { step: "highlightStep2", duration: 1400 },
-  { step: "highlightStep3", duration: 1400 },
-  { step: "showInsight", duration: 2000 },
-  { step: "tryAnother", duration: 1200 },
-  { step: "reset", duration: 500 },
+  { step: "showResult", duration: 1200 },
+  { step: "moveToDl", duration: 500 },
+  { step: "clickDl", duration: 200 },
+  { step: "downloading", duration: 1200 },
+  { step: "dlDone", duration: 1000 },
+  { step: "moveToShare", duration: 500 },
+  { step: "clickShare", duration: 200 },
+  { step: "showPlatforms", duration: 800 },
+  { step: "selectPlatform", duration: 300 },
+  { step: "shared", duration: 1500 },
+  { step: "reset", duration: 600 },
 ];
 
-const SOLUTION_STEPS = [
-  { text: "∫ x² dx", note: "Apply power rule" },
-  { text: "= x^(2+1) / (2+1)", note: "Increase exponent by 1" },
-  { text: "= x³/3 + C", note: "Final answer" },
+const PLATFORMS = [
+  { icon: "𝕏", label: "Twitter" },
+  { icon: "📘", label: "Facebook" },
+  { icon: "💬", label: "WeChat" },
+  { icon: "📷", label: "Instagram" },
 ];
+
+const DL_POS: [number, number] = [30, 88];
+const SHARE_POS: [number, number] = [70, 88];
+const PLAT_POS: [number, number] = [62, 72];
 
 export function StepDownloadAnimation({ active = true }: { active?: boolean }) {
   const [stepIndex, setStepIndex] = useState(0);
-  const [highlightedStep, setHighlightedStep] = useState<number | null>(null);
-  const [showSolution, setShowSolution] = useState(false);
-  const [showInsight, setShowInsight] = useState(false);
-  const [showTryAnother, setShowTryAnother] = useState(false);
   const [cursorPos, setCursorPos] = useState<[number, number]>([50, 50]);
   const [cursorVisible, setCursorVisible] = useState(false);
 
@@ -44,43 +54,22 @@ export function StepDownloadAnimation({ active = true }: { active?: boolean }) {
     switch (currentStep) {
       case "idle":
         setCursorVisible(false);
-        setShowSolution(false);
-        setHighlightedStep(null);
-        setShowInsight(false);
-        setShowTryAnother(false);
+        setCursorPos([50, 50]);
         break;
-      case "showSolution":
-        setShowSolution(true);
+      case "showResult":
         setCursorVisible(true);
-        setCursorPos([50, 30]);
         break;
-      case "highlightStep1":
-        setHighlightedStep(0);
-        setCursorPos([65, 32]);
+      case "moveToDl":
+        setCursorPos(DL_POS);
         break;
-      case "highlightStep2":
-        setHighlightedStep(1);
-        setCursorPos([65, 48]);
+      case "moveToShare":
+        setCursorPos(SHARE_POS);
         break;
-      case "highlightStep3":
-        setHighlightedStep(2);
-        setCursorPos([65, 62]);
-        break;
-      case "showInsight":
-        setShowInsight(true);
-        setHighlightedStep(null);
-        setCursorPos([50, 82]);
-        break;
-      case "tryAnother":
-        setShowTryAnother(true);
-        setCursorPos([50, 92]);
+      case "selectPlatform":
+        setCursorPos(PLAT_POS);
         break;
       case "reset":
         setCursorVisible(false);
-        setShowSolution(false);
-        setShowInsight(false);
-        setShowTryAnother(false);
-        setHighlightedStep(null);
         break;
     }
 
@@ -93,92 +82,116 @@ export function StepDownloadAnimation({ active = true }: { active?: boolean }) {
     return () => clearTimeout(timer);
   }, [stepIndex, currentStep, active]);
 
+  const showResult = currentStep !== "idle" && currentStep !== "reset";
+  const showDlProgress = currentStep === "downloading";
+  const showDlDone = ["dlDone", "moveToShare", "clickShare", "showPlatforms", "selectPlatform", "shared"].includes(currentStep);
+  const showPlatforms = ["showPlatforms", "selectPlatform", "shared"].includes(currentStep);
+  const platformSelected = ["selectPlatform", "shared"].includes(currentStep);
+  const showSharedDone = currentStep === "shared";
+
   return (
     <div className="w-full h-full bg-card relative overflow-hidden flex flex-col p-[5%] gap-[3%]">
-      {/* Header */}
-      <div className="flex items-center gap-[3%] shrink-0">
-        <BookOpen className="w-[0.8em] h-[0.8em] text-primary" />
-        <span className="text-[0.55em] text-body-desc font-medium">Review & Learn</span>
-      </div>
-
-      {/* Solution steps */}
-      <div className="flex-1 min-h-0 flex flex-col gap-[3%]">
-        {SOLUTION_STEPS.map((s, i) => (
-          <motion.div
-            key={i}
-            className="rounded-md border px-[4%] py-[3%] flex flex-col gap-[2px]"
-            animate={{
-              opacity: showSolution ? 1 : 0.2,
-              borderColor: highlightedStep === i ? "hsl(var(--primary) / 0.6)" : "hsl(var(--border) / 0.3)",
-              backgroundColor: highlightedStep === i ? "hsl(var(--primary) / 0.06)" : "transparent",
-              scale: highlightedStep === i ? 1.02 : 1,
-            }}
-            transition={{ duration: 0.3 }}
-          >
-            <div className="flex items-center gap-[3%]">
-              <motion.div
-                className="w-[1em] h-[1em] rounded-full flex items-center justify-center shrink-0 text-[0.35em]"
-                animate={{
-                  backgroundColor: highlightedStep === i || (highlightedStep !== null && highlightedStep > i) 
-                    ? "hsl(var(--primary))" 
-                    : "hsl(var(--muted))",
-                }}
-              >
-                {(highlightedStep !== null && highlightedStep > i) ? (
-                  <Check className="w-[0.7em] h-[0.7em] text-primary-foreground" />
-                ) : (
-                  <span className="text-[1em] text-muted-foreground font-medium">{i + 1}</span>
-                )}
-              </motion.div>
-              <span className="text-[0.55em] font-mono text-title">{s.text}</span>
+      {/* Result image */}
+      <div className="flex-1 min-h-0 flex flex-col gap-[3px]">
+        <span className="text-[0.45em] text-body-desc">Generated Result</span>
+        <motion.div
+          className="flex-1 rounded-[0.3em] overflow-hidden border border-border/30 min-h-0 relative"
+          animate={{ opacity: showResult ? 1 : 0.3 }}
+          transition={{ duration: 0.4 }}
+        >
+          <img
+            src={demoResult}
+            alt="Generated cartoon effect"
+            className="w-full h-full object-cover"
+            style={{ transform: "translateZ(0)" }}
+          />
+          {!showResult && (
+            <div className="absolute inset-0 bg-card/60 flex items-center justify-center">
+              <span className="text-[0.45em] text-body-desc">Generating...</span>
             </div>
-            <AnimatePresence>
-              {highlightedStep === i && (
-                <motion.p
-                  className="text-[0.4em] text-primary ml-[12%] italic"
-                  initial={{ opacity: 0, height: 0 }}
-                  animate={{ opacity: 1, height: "auto" }}
-                  exit={{ opacity: 0, height: 0 }}
-                >
-                  💡 {s.note}
-                </motion.p>
-              )}
-            </AnimatePresence>
-          </motion.div>
-        ))}
+          )}
+        </motion.div>
       </div>
 
-      {/* Insight tip */}
-      <AnimatePresence>
-        {showInsight && (
-          <motion.div
-            className="shrink-0 rounded-md border border-accent/50 bg-accent/10 px-[4%] py-[2.5%] flex items-start gap-[3%]"
-            initial={{ opacity: 0, y: 5 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0 }}
-          >
-            <Lightbulb className="w-[0.7em] h-[0.7em] text-primary shrink-0 mt-[1px]" />
-            <span className="text-[0.4em] text-body-desc leading-snug">
-              The power rule: ∫ xⁿ dx = x^(n+1)/(n+1) + C
-            </span>
-          </motion.div>
-        )}
-      </AnimatePresence>
+      {/* Action buttons */}
+      <div className="flex gap-[4%] shrink-0 relative">
+        {/* Download button */}
+        <motion.div
+          className="flex-1 h-[2em] rounded-lg border border-border/50 flex items-center justify-center gap-[4px] bg-card relative overflow-hidden"
+          animate={{
+            borderColor: (currentStep === "clickDl" || showDlProgress) ? "hsl(var(--primary))" : "hsl(var(--border) / 0.5)",
+            scale: currentStep === "clickDl" ? 0.95 : 1,
+          }}
+          transition={{ duration: 0.15 }}
+        >
+          {showDlDone ? (
+            <motion.div className="flex items-center gap-[3px]" initial={{ scale: 0.8, opacity: 0 }} animate={{ scale: 1, opacity: 1 }}>
+              <Check className="w-[0.6em] h-[0.6em] text-primary" />
+              <span className="text-[0.4em] text-primary font-medium">Downloaded</span>
+            </motion.div>
+          ) : showDlProgress ? (
+            <div className="flex items-center gap-[3px]">
+              <motion.div className="w-[60%] h-[3px] rounded-full bg-muted absolute bottom-0 left-[20%]">
+                <motion.div className="h-full rounded-full bg-primary" initial={{ width: "0%" }} animate={{ width: "100%" }} transition={{ duration: 1.1, ease: "easeOut" }} />
+              </motion.div>
+              <Download className="w-[0.5em] h-[0.5em] text-primary" />
+              <span className="text-[0.4em] text-body-desc">Downloading...</span>
+            </div>
+          ) : (
+            <>
+              <Download className="w-[0.5em] h-[0.5em] text-body-desc" />
+              <span className="text-[0.4em] text-body-desc">Download</span>
+            </>
+          )}
+        </motion.div>
 
-      {/* Try another button */}
-      <AnimatePresence>
-        {showTryAnother && (
-          <motion.div
-            className="shrink-0 h-[1.8em] rounded-lg flex items-center justify-center gap-[3%] border border-primary/30 bg-primary/5"
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            exit={{ opacity: 0 }}
-          >
-            <RotateCcw className="w-[0.5em] h-[0.5em] text-primary" />
-            <span className="text-[0.42em] text-primary font-medium">Try a Similar Problem</span>
-          </motion.div>
-        )}
-      </AnimatePresence>
+        {/* Share button */}
+        <motion.div
+          className="flex-1 h-[2em] rounded-lg border border-border/50 flex items-center justify-center gap-[4px] bg-card relative"
+          animate={{
+            borderColor: currentStep === "clickShare" ? "hsl(var(--primary))" : "hsl(var(--border) / 0.5)",
+            scale: currentStep === "clickShare" ? 0.95 : 1,
+          }}
+          transition={{ duration: 0.15 }}
+        >
+          {showSharedDone ? (
+            <motion.div className="flex items-center gap-[3px]" initial={{ scale: 0.8, opacity: 0 }} animate={{ scale: 1, opacity: 1 }}>
+              <Check className="w-[0.6em] h-[0.6em] text-primary" />
+              <span className="text-[0.4em] text-primary font-medium">Shared</span>
+            </motion.div>
+          ) : (
+            <>
+              <Share2 className="w-[0.5em] h-[0.5em] text-body-desc" />
+              <span className="text-[0.4em] text-body-desc">Share</span>
+            </>
+          )}
+        </motion.div>
+
+        {/* Platform popup */}
+        <AnimatePresence>
+          {showPlatforms && (
+            <motion.div
+              className="absolute bottom-[110%] right-0 bg-card border border-border/50 rounded-lg shadow-soft p-[3%] grid grid-cols-2 gap-[4px] z-20"
+              initial={{ opacity: 0, y: 5, scale: 0.95 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={{ opacity: 0, y: 5, scale: 0.95 }}
+              transition={{ duration: 0.2 }}
+            >
+              {PLATFORMS.map((p, i) => (
+                <motion.div
+                  key={p.label}
+                  className="flex items-center gap-[3px] px-[6px] py-[3px] rounded-md text-[0.35em]"
+                  animate={{ backgroundColor: (platformSelected && i === 2) ? "hsl(var(--primary) / 0.1)" : "transparent" }}
+                  transition={{ duration: 0.15 }}
+                >
+                  <span>{p.icon}</span>
+                  <span className="text-body-desc">{p.label}</span>
+                </motion.div>
+              ))}
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </div>
 
       {/* Cursor */}
       <motion.div
