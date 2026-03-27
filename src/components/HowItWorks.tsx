@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect } from "react";
 import { StepUploadAnimation } from "./StepUploadAnimation";
 import { StepStyleAnimation } from "./StepStyleAnimation";
 import { StepDownloadAnimation } from "./StepDownloadAnimation";
@@ -6,27 +6,25 @@ import { StepDownloadAnimation } from "./StepDownloadAnimation";
 const steps = [
   {
     step: "01",
-    title: "Upload Photo",
-    desc: "Drag and drop or click to upload portrait, pet, or landscape photos. Supports PNG / JPG / WEBP, up to 20 MB.",
+    title: "Type or Upload",
+    desc: "Type your math question or upload a screenshot / image of the problem. Supports PNG / JPG / WEBP, up to 20 MB.",
     color: "from-primary to-theme1",
   },
   {
     step: "02",
-    title: "Pick Style · Generate",
-    desc: "Choose your favorite cartoon style and click generate. Rita AI delivers a high-quality cartoon image in seconds.",
+    title: "AI Solves Step-by-Step",
+    desc: "Rita AI analyzes the problem and delivers a clear, step-by-step solution so you can follow the reasoning behind each answer.",
     color: "from-theme1 to-emerald-400",
   },
   {
     step: "03",
-    title: "Download & Share",
-    desc: "Instantly download HD watermark-free images, or share to social platforms with one click to show off your cartoon avatar.",
+    title: "Learn & Review",
+    desc: "Review the detailed explanation, understand the method, and apply it to similar problems for deeper learning.",
     color: "from-theme2 to-primary",
   },
 ];
 
-// Duration each animation plays before moving to next
 const DURATIONS = [6500, 10000, 8600];
-
 const COMPONENTS = [StepUploadAnimation, StepStyleAnimation, StepDownloadAnimation];
 
 export function HowItWorks() {
@@ -43,8 +41,8 @@ export function HowItWorks() {
   return (
     <section className="py-8 md:py-12">
       <div className="max-w-[1500px] mx-auto px-4 md:px-8">
-        <h2 className="text-xl md:text-3xl font-bold text-title text-center mb-2 md:mb-3">How to Turn a Photo into a Cartoon in 3 Steps</h2>
-        <p className="text-sm md:text-base text-body-desc text-center mb-6 md:mb-12">No design skills needed — upload your photo, pick a style, and download the cartoon instantly</p>
+        <h2 className="text-xl md:text-3xl font-bold text-title text-center mb-2 md:mb-3">How to Solve Math Problems in 3 Steps</h2>
+        <p className="text-sm md:text-base text-body-desc text-center mb-6 md:mb-12">Type or upload a problem, get step-by-step solutions, and learn the method behind every answer</p>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
           {steps.map((s, i) => {
             const Component = COMPONENTS[i];
@@ -58,7 +56,6 @@ export function HowItWorks() {
                 }`}
               >
                 <div className="w-full aspect-[8/5] overflow-hidden bg-muted/30">
-                  {/* Re-mount component when it becomes active to restart animation */}
                   <Component key={isActive ? `active-${activeIndex}` : `idle-${i}`} active={isActive} />
                 </div>
                 <div className="p-4 md:p-6">

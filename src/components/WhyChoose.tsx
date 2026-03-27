@@ -1,55 +1,55 @@
-import { Zap, Paintbrush, Download, Wand2, Sparkles, Shield } from "lucide-react";
+import { Zap, Brain, Camera, Wand2, Sparkles, Shield } from "lucide-react";
 
 const features = [
   {
     icon: Zap,
-    title: "Simple Workflow",
-    desc: "Upload a photo, choose a style, and generate a cartoon image in a few steps — get started quickly with no complicated setup.",
+    title: "Step-by-Step Solutions",
+    desc: "Get clear, detailed steps for every math problem — follow the method behind each answer instead of just seeing the result.",
     accent: "from-[hsl(45,100%,60%)] to-[hsl(30,95%,55%)]",
     iconBg: "bg-gradient-to-br from-[hsl(45,100%,60%)] to-[hsl(30,95%,55%)]",
-    stat: "3",
-    statLabel: "Steps",
+    stat: "✓",
+    statLabel: "Detailed",
   },
   {
-    icon: Wand2,
-    title: "Multiple AI Models",
-    desc: "Powered by multiple AI models for different visual styles, ensuring varied and expressive cartoon generation results.",
+    icon: Brain,
+    title: "Multiple Math Topics",
+    desc: "Supports algebra, geometry, calculus, statistics, and more — one tool for a wide range of math learning needs.",
     accent: "from-[hsl(240,74%,61%)] to-[hsl(280,65%,60%)]",
     iconBg: "bg-gradient-to-br from-[hsl(240,74%,61%)] to-[hsl(280,65%,60%)]",
-    stat: "7+",
-    statLabel: "AI Models",
+    stat: "10+",
+    statLabel: "Topics",
   },
   {
-    icon: Download,
-    title: "High-Quality Output",
-    desc: "Download ready-to-use cartoon images suitable for social avatars, content creation, and personal projects.",
+    icon: Camera,
+    title: "Image Upload Support",
+    desc: "Upload a screenshot or photo of a math problem and get it solved — no need to type out complex equations manually.",
     accent: "from-[hsl(162,63%,50%)] to-[hsl(180,60%,45%)]",
     iconBg: "bg-gradient-to-br from-[hsl(162,63%,50%)] to-[hsl(180,60%,45%)]",
-    stat: "HD",
-    statLabel: "Quality",
+    stat: "📷",
+    statLabel: "Upload",
   },
   {
     icon: Sparkles,
-    title: "Multiple Styles",
-    desc: "Explore different cartoon looks including Ghibli, Pixel, Ink, Retro, and more — one photo, multiple creative options.",
+    title: "AI Problem Generator",
+    desc: "Teachers can generate practice questions by topic — useful for lesson planning and building focused review materials.",
     accent: "from-[hsl(340,75%,55%)] to-[hsl(300,60%,55%)]",
     iconBg: "bg-gradient-to-br from-[hsl(340,75%,55%)] to-[hsl(300,60%,55%)]",
-    stat: "8+",
-    statLabel: "Styles",
+    stat: "∞",
+    statLabel: "Questions",
   },
   {
-    icon: Paintbrush,
-    title: "Custom Prompts",
-    desc: "Enter your own prompts to guide cartoon effect details and mood, creating personalized results tailored to your vision.",
+    icon: Wand2,
+    title: "AI-Powered Accuracy",
+    desc: "Powered by advanced AI models to deliver reliable solutions across different math topics and difficulty levels.",
     accent: "from-[hsl(200,80%,55%)] to-[hsl(220,75%,55%)]",
     iconBg: "bg-gradient-to-br from-[hsl(200,80%,55%)] to-[hsl(220,75%,55%)]",
-    stat: "∞",
-    statLabel: "Possibilities",
+    stat: "AI",
+    statLabel: "Powered",
   },
   {
     icon: Shield,
     title: "Privacy Focused",
-    desc: "We prioritize user privacy during image processing. Uploaded photos are handled according to Rita's privacy policy.",
+    desc: "Your uploaded problems and data are handled securely according to Rita's privacy policy.",
     accent: "from-[hsl(150,55%,45%)] to-[hsl(162,63%,50%)]",
     iconBg: "bg-gradient-to-br from-[hsl(150,55%,45%)] to-[hsl(162,63%,50%)]",
     stat: "✓",
@@ -58,8 +58,6 @@ const features = [
 ];
 
 export function WhyChoose() {
-  
-
   return (
     <section className="py-8 md:py-12">
       <div className="max-w-[1500px] mx-auto px-4 md:px-8">
@@ -67,7 +65,7 @@ export function WhyChoose() {
           Why Choose Rita
         </h2>
         <p className="text-sm md:text-base text-body-desc text-center mb-8 md:mb-14 max-w-xl mx-auto">
-          Powerful AI + simple workflow — making cartoon creation accessible to everyone
+          Powerful AI + clear explanations — making math learning accessible to everyone
         </p>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5">
@@ -76,12 +74,9 @@ export function WhyChoose() {
               key={f.title}
               className="group relative rounded-2xl bg-card border border-border/40 p-4 md:p-6 shadow-soft hover:shadow-soft-lg transition-all duration-300 hover:-translate-y-1 overflow-hidden"
             >
-              {/* Top accent bar */}
               <div
                 className={`absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r ${f.accent} opacity-0 group-hover:opacity-100 transition-opacity duration-300`}
               />
-
-              {/* Stat badge */}
               <div className="flex items-start justify-between mb-5">
                 <div className="flex items-center gap-3">
                   <div className={`h-12 w-12 rounded-xl ${f.iconBg} flex items-center justify-center shadow-md shrink-0`}>
@@ -96,7 +91,6 @@ export function WhyChoose() {
                   <div className="text-[11px] text-body-desc">{f.statLabel}</div>
                 </div>
               </div>
-
               <p className="text-sm text-body-desc leading-relaxed">
                 {f.desc}
               </p>
